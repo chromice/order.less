@@ -1,0 +1,138 @@
+// = = = = = =
+// grid.less =
+// = = = = = =
+.use-grid (@columns: 12, @gutter: 20px, @max-width: 940px) {
+	
+	@grid-columns: @columns;
+	@grid-gutter: @gutter;
+	@grid-max-width: @max-width;
+	
+	
+	// Column width
+	.column-width (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		width: @grid-fallback-width;
+		width: -webkit-calc(@grid-calc-width);
+		width: calc(@grid-calc-width);
+	}
+	.column-max-width (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		max-width: @grid-fallback-width;
+		max-width: -webkit-calc(@grid-calc-width);
+		max-width: calc(@grid-calc-width);
+	}
+	.column-min-width (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		min-width: @grid-fallback-width;
+		min-width: -webkit-calc(@grid-calc-width);
+		min-width: calc(@grid-calc-width);
+	}
+	
+	
+	// Column offset
+	.column-margin-left (@span, @base: @grid-columns) when not(@span = 0) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		margin-left: @grid-fallback-offset;
+		margin-left: -webkit-calc(@grid-calc-offset);
+		margin-left: calc(@grid-calc-offset);
+	}
+	.column-margin-right (@span, @base: @grid-columns) when not(@span = 0) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		margin-right: @grid-fallback-offset;
+		margin-right: -webkit-calc(@grid-calc-offset);
+		margin-right: calc(@grid-calc-offset);
+	}
+	.column-padding-left (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		padding-left: @grid-fallback-offset;
+		padding-left: -webkit-calc(@grid-calc-offset);
+		padding-left: calc(@grid-calc-offset);
+	}
+	.column-padding-right (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		padding-right: @grid-fallback-offset;
+		padding-right: -webkit-calc(@grid-calc-offset);
+		padding-right: calc(@grid-calc-offset);
+	}
+	.column-left (@span, @base: @grid-columns) when not(@span = 0) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		left: @grid-fallback-offset;
+		left: -webkit-calc(@grid-calc-offset);
+		left: calc(@grid-calc-offset);
+	}
+	.column-right (@span, @base: @grid-columns) when not(@span = 0) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		right: @grid-fallback-offset;
+		right: -webkit-calc(@grid-calc-offset);
+		right: calc(@grid-calc-offset);
+	}
+	
+	
+	// Gutter offset
+	.gutter-margin-left (@span, @base: @grid-columns) when not(@span = 0) and (@span >= -1) and (@span =< 1) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		margin-left: (@grid-fallback-gutter * @span);
+		margin-left: -webkit-calc((@grid-gutter * @span));
+		margin-left: calc((@grid-gutter * @span));
+	}
+	.gutter-margin-right (@span, @base: @grid-columns) when not(@span = 0) and (@span >= -1) and (@span =< 1) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		margin-right: (@grid-fallback-gutter * @span);
+		margin-right: -webkit-calc((@grid-gutter * @span));
+		margin-right: calc((@grid-gutter * @span));
+	}
+	.gutter-padding-left (@span, @base: @grid-columns) when (@span > 0) and (@span =< 1) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		padding-left: (@grid-fallback-gutter * @span);
+		padding-left: -webkit-calc((@grid-gutter * @span));
+		padding-left: calc((@grid-gutter * @span));
+	}
+	.gutter-padding-right (@span, @base: @grid-columns) when (@span > 0) and (@span =< 1) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		padding-right: (@grid-fallback-gutter * @span);
+		padding-right: -webkit-calc((@grid-gutter * @span));
+		padding-right: calc((@grid-gutter * @span));
+	}
+	.gutter-left (@span, @base: @grid-columns) when not(@span = 0) and (@span >= -1) and (@span =< 1) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		left: (@grid-fallback-gutter * @span);
+		left: -webkit-calc((@grid-gutter * @span));
+		left: calc((@grid-gutter * @span));
+	}
+	.gutter-right (@span, @base: @grid-columns) when not(@span = 0) and (@span >= -1) and (@span =< 1) and (@base > 0) {
+		.calculate-grid-vars(@span, @base);
+		
+		right: (@grid-fallback-gutter * @span);
+		right: -webkit-calc((@grid-gutter * @span));
+		right: calc((@grid-gutter * @span));
+	}
+	
+	// Calculation mixin
+	.calculate-grid-vars (@span, @base) {
+		// Modern browsers that support calc():
+		@-column-width: (100% / @base * @span);
+		@-column-gutter: ((@base - @span) / @base * @grid-gutter);
+		@grid-calc-width: @-column-width ~"-" @-column-gutter;
+		@grid-calc-offset: @-column-width ~"+" (@grid-gutter - @-column-gutter);
+		
+		// IE8, Opera mini, Android and older versions of Safari:
+		@-base-width: (@grid-max-width * @base / @grid-columns);
+		@grid-fallback-width: (@-column-width - percentage(@-column-gutter / @-base-width));
+		@grid-fallback-gutter: (percentage(@grid-gutter / @-base-width));
+		@grid-fallback-offset: (@grid-fallback-width + @grid-fallback-gutter);
+	}
+}

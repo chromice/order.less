@@ -1,0 +1,97 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.container {
+  height: 12.5%;
+}
+body {
+  margin: 0 auto;
+  padding-left: 2.127659574468085%;
+  padding-left: -webkit-calc(20px);
+  padding-left: calc(20px);
+  padding-right: 2.127659574468085%;
+  padding-right: -webkit-calc(20px);
+  padding-right: calc(20px);
+  max-width: 940px;
+}
+.column {
+  float: left;
+  overflow: hidden;
+  min-height: 100%;
+  background: #fdd;
+  text-align: center;
+  width: 6.382978723404256%;
+  width: -webkit-calc(8.333333333333334% - 18.333333333333332px);
+  width: calc(8.333333333333334% - 18.333333333333332px);
+  margin-left: 2.127659574468085%;
+  margin-left: -webkit-calc(20px);
+  margin-left: calc(20px);
+}
+.column:first-child {
+  margin-left: 0 !important;
+}
+.span-2 {
+  background: #ddf;
+  width: 14.893617021276597%;
+  width: -webkit-calc(16.666666666666668% - 16.666666666666668px);
+  width: calc(16.666666666666668% - 16.666666666666668px);
+}
+.span-3 {
+  background: #ff3add;
+  width: 23.404255319148938%;
+  width: -webkit-calc(25% - 15px);
+  width: calc(25% - 15px);
+}
+.span-3-9 {
+  background: #dfd;
+  width: 31.442080378250587%;
+  width: -webkit-calc(33.33333333333333% - 13.333333333333332px);
+  width: calc(33.33333333333333% - 13.333333333333332px);
+  margin-left: 2.8368794326241136%;
+  margin-left: -webkit-calc(20px);
+  margin-left: calc(20px);
+}
+.span-4 {
+  background: #dfd;
+  width: 31.914893617021278%;
+  width: -webkit-calc(33.333333333333336% - 13.333333333333332px);
+  width: calc(33.333333333333336% - 13.333333333333332px);
+}
+.span-4 .column {
+  width: 20.21276595744681%;
+  width: -webkit-calc(25% - 15px);
+  width: calc(25% - 15px);
+  margin-left: 6.382978723404256%;
+  margin-left: -webkit-calc(20px);
+  margin-left: calc(20px);
+}
+.span-5 {
+  background: #dff;
+  width: 40.425531914893625%;
+  width: -webkit-calc(41.66666666666667% - 11.666666666666668px);
+  width: calc(41.66666666666667% - 11.666666666666668px);
+}
+.span-6 {
+  background: #fdf;
+  width: 48.93617021276596%;
+  width: -webkit-calc(50% - 10px);
+  width: calc(50% - 10px);
+}
+.span-6 .span-3 {
+  width: 47.87234042553192%;
+  width: -webkit-calc(50% - 10px);
+  width: calc(50% - 10px);
+  margin-left: 4.25531914893617%;
+  margin-left: -webkit-calc(20px);
+  margin-left: calc(20px);
+}
+.span-12 {
+  background: #ddd;
+  width: 100%;
+  width: -webkit-calc(100% - 0px);
+  width: calc(100% - 0px);
+}
+/*# sourceMappingURL=data:application/json,%7B%22version%22%3A3%2C%22file%22%3A%22%2FUsers%2Fchromice%2FSites%2Fdev%2Forderless%2Forderless_tpl%2Ftests%2Ftest-grid-columns.css%22%2C%22sources%22%3A%5B%22test-grid-columns.less%22%2C%22%2FUsers%2Fchromice%2FSites%2Fdev%2Forderless%2Forderless_tpl%2Fsource%2Fgrid.less%22%5D%2C%22names%22%3A%5B%5D%2C%22mappings%22%3A%22AAII%3BAAAO%3BEACV%2CSAAA%3BEACA%2CUAAA%3BEACA%2CYAAA%3B%3BAAEU%3BEACV%2CaAAA%3B%3BAAEI%3BEACJ%2CcAAA%3BECoFC%2CgCAAA%3BEACA%2CcAAc%2CkBAAd%3BEACA%2CcAAc%2CUAAd%3BEAKA%2CiCAAA%3BEACA%2CeAAe%2CkBAAf%3BEACA%2CeAAe%2CUAAf%3BED1FD%2CgBAAA%3B%3BAAEO%3BEACP%2CWAAA%3BEACA%2CgBAAA%3BEACA%2CgBAAA%3BEACA%2CgBAAA%3BEACA%2CkBAAA%3BECTC%2CyBAAA%3BEACA%2COAAO%2CuDAAP%3BEACA%2COAAO%2C%2BCAAP%3BEAmEA%2C%2BBAAA%3BEACA%2CaAAa%2CkBAAb%3BEACA%2CaAAa%2CUAAb%3B%3BAD1DK%2COAAa%3BEACnB%2CyBAAA%3B%3BAAEO%3BEACP%2CgBAAA%3BECjBC%2C0BAAA%3BEACA%2COAAO%2CwDAAP%3BEACA%2COAAO%2CgDAAP%3B%3BADkBM%3BEACP%2CmBAAA%3BECrBC%2C0BAAA%3BEACA%2COAAO%2CwBAAP%3BEACA%2COAAO%2CgBAAP%3B%3BADsBQ%3BEACT%2CgBAAA%3BECzBC%2C0BAAA%3BEACA%2COAAO%2CuDAAP%3BEACA%2COAAO%2C%2BCAAP%3BEAmEA%2CgCAAA%3BEACA%2CaAAa%2CkBAAb%3BEACA%2CaAAa%2CUAAb%3B%3BAD1CM%3BEACP%2CgBAAA%3BEC9BC%2C0BAAA%3BEACA%2COAAO%2CwDAAP%3BEACA%2COAAO%2CgDAAP%3B%3BAD2BM%2COAIC%3BECjCP%2CyBAAA%3BEACA%2COAAO%2CwBAAP%3BEACA%2COAAO%2CgBAAP%3BEAmEA%2C%2BBAAA%3BEACA%2CaAAa%2CkBAAb%3BEACA%2CaAAa%2CUAAb%3B%3BADjCM%3BEACP%2CgBAAA%3BECvCC%2C0BAAA%3BEACA%2COAAO%2CuDAAP%3BEACA%2COAAO%2C%2BCAAP%3B%3BADwCM%3BEACP%2CgBAAA%3BEC3CC%2CyBAAA%3BEACA%2COAAO%2CwBAAP%3BEACA%2COAAO%2CgBAAP%3B%3BADwCM%2COAGC%3BEC7CP%2CyBAAA%3BEACA%2COAAO%2CwBAAP%3BEACA%2COAAO%2CgBAAP%3BEAmEA%2C8BAAA%3BEACA%2CaAAa%2CkBAAb%3BEACA%2CaAAa%2CUAAb%3B%3BADrBO%3BEACR%2CgBAAA%3BECnDC%2CWAAA%3BEACA%2COAAO%2CwBAAP%3BEACA%2COAAO%2CgBAAP%22%7D */
