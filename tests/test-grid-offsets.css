@@ -1,0 +1,61 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+html {
+  background: #ddd;
+}
+body {
+  margin: 0 auto;
+  padding-left: 2.127659574468085%;
+  padding-left: -webkit-calc(20px);
+  padding-left: calc(20px);
+  padding-right: 2.127659574468085%;
+  padding-right: -webkit-calc(20px);
+  padding-right: calc(20px);
+  max-width: 940px;
+  background: #fff;
+}
+#main-column {
+  padding: 1px 0;
+  position: relative;
+  padding-right: 51.06382978723404%;
+  padding-right: -webkit-calc(50% + 10px);
+  padding-right: calc(50% + 10px);
+}
+.pull-block {
+  float: right;
+  width: 100%;
+  width: -webkit-calc(100% - 0px);
+  width: calc(100% - 0px);
+  margin-left: 4.25531914893617%;
+  margin-left: -webkit-calc(20px);
+  margin-left: calc(20px);
+  margin-right: -104.25531914893617%;
+  margin-right: -webkit-calc(-100% + -20px);
+  margin-right: calc(-100% + -20px);
+}
+.side-block {
+  position: absolute;
+  top: 0;
+  right: 8.51063829787234%;
+  right: -webkit-calc(8.333333333333334% + 1.6666666666666679px);
+  right: calc(8.333333333333334% + 1.6666666666666679px);
+  width: 40.425531914893625%;
+  width: -webkit-calc(41.66666666666667% - 11.666666666666668px);
+  width: calc(41.66666666666667% - 11.666666666666668px);
+}
+.penertrating-block {
+  float: right;
+  width: 134.7517730496454%;
+  width: -webkit-calc(133.33333333333334% - -6.666666666666666px);
+  width: calc(133.33333333333334% - -6.666666666666666px);
+  margin-left: 4.25531914893617%;
+  margin-left: -webkit-calc(20px);
+  margin-left: calc(20px);
+  margin-right: -104.25531914893617%;
+  margin-right: -webkit-calc(-100% + -20px);
+  margin-right: calc(-100% + -20px);
+}
+/*# sourceMappingURL=data:application/json,%7B%22version%22%3A3%2C%22file%22%3A%22%2FUsers%2Fchromice%2FSites%2Fdev%2Forderless%2Forderless_tpl%2Ftests%2Ftest-grid-offsets.css%22%2C%22sources%22%3A%5B%22test-grid-offsets.less%22%2C%22%2FUsers%2Fchromice%2FSites%2Fdev%2Forderless%2Forderless_tpl%2Fsource%2Fgrid.less%22%5D%2C%22names%22%3A%5B%5D%2C%22mappings%22%3A%22AAII%3BAAAO%3BEACV%2CSAAA%3BEACA%2CUAAA%3B%3BAAEI%3BEACJ%2CgBAAA%3B%3BAAEI%3BEACJ%2CcAAA%3BECqFC%2CgCAAA%3BEACA%2CcAAc%2CkBAAd%3BEACA%2CcAAc%2CUAAd%3BEAKA%2CiCAAA%3BEACA%2CeAAe%2CkBAAf%3BEACA%2CeAAe%2CUAAf%3BED3FD%2CgBAAA%3BEACA%2CgBAAA%3B%3BAAEY%3BEACZ%2CcAAA%3BEACA%2CkBAAA%3BECuCC%2CiCAAA%3BEACA%2CeAAe%2CwBAAf%3BEACA%2CeAAe%2CgBAAf%3B%3BADtCU%3BEACX%2CYAAA%3BECVC%2CWAAA%3BEACA%2COAAO%2CwBAAP%3BEACA%2COAAO%2CgBAAP%3BEAmEA%2C8BAAA%3BEACA%2CaAAa%2CkBAAb%3BEACA%2CaAAa%2CUAAb%3BEAxCA%2CkCAAA%3BEACA%2CcAAc%2C2BAAd%3BEACA%2CcAAc%2CmBAAd%3B%3BADlBU%3BEACX%2CkBAAA%3BEACA%2CMAAA%3BEC0CC%2CwBAAA%3BEACA%2COAAO%2CuDAAP%3BEACA%2COAAO%2C%2BCAAP%3BEA7DA%2C0BAAA%3BEACA%2COAAO%2CuDAAP%3BEACA%2COAAO%2C%2BCAAP%3B%3BADmBkB%3BEACnB%2CYAAA%3BECtBC%2CyBAAA%3BEACA%2COAAO%2CwDAAP%3BEACA%2COAAO%2CgDAAP%3BEAmEA%2C8BAAA%3BEACA%2CaAAa%2CkBAAb%3BEACA%2CaAAa%2CUAAb%3BEAxCA%2CkCAAA%3BEACA%2CcAAc%2C2BAAd%3BEACA%2CcAAc%2CmBAAd%22%7D */

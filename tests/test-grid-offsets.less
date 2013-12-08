@@ -1,0 +1,41 @@
+@import '../source/grid.less';
+
+.use-grid();
+
+body, html {
+	margin: 0;
+	padding: 0;
+}
+html {
+	background: #ddd;
+}
+body {
+	margin: 0 auto;
+	.gutter-padding-left(1);
+	.gutter-padding-right(1);
+	max-width: @grid-max-width;
+	background: #fff;
+}
+#main-column {
+	padding: 1px 0;
+	position: relative;
+	.column-padding-right(6);
+}
+.pull-block {
+	float: right;
+	.column-width(6, 6);
+	.gutter-margin-left(1, 6);
+	.column-margin-right(-6, 6);
+}
+.side-block {
+	position: absolute;
+	top: 0;
+	.column-right(1, 12);
+	.column-width(5, 12);
+}
+.penertrating-block {
+	float: right;
+	.column-width(8, 6);
+	.gutter-margin-left(1, 6);
+	.column-margin-right(-6, 6);
+}
