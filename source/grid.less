@@ -7,7 +7,6 @@
 	@grid-gutter: @gutter;
 	@grid-max-width: @max-width;
 	
-	
 	// Column width
 	.column-width (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
 		.calculate-grid-vars(@span, @base);
@@ -160,8 +159,8 @@
 	// Calculation mixin
 	.calculate-grid-vars (@span, @base) {
 		// Modern browsers that support calc():
-		@-column-width: (100% / @base * @span);
-		@-column-gutter: ((@base - @span) / @base * @grid-gutter);
+		@-column-width: round((100% / @base * @span), 8);
+		@-column-gutter: round(((@base - @span) / @base * @grid-gutter), 8);
 		@grid-calc-width: @-column-width ~"-" @-column-gutter;
 		@grid-calc-offset: @-column-width ~"+" (@grid-gutter - @-column-gutter);
 		
