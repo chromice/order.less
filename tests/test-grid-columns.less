@@ -14,7 +14,7 @@ body {
 	margin: 0 auto;
 	.gutter-padding-left(1);
 	.gutter-padding-right(1);
-	max-width: @grid-max-width;
+	max-width: @grid-optimal-width;
 	background: #fff;
 }
 .container {
@@ -27,7 +27,7 @@ body {
 	min-height: 100%;
 	background: #fdd;
 	text-align: center;
-	.column-width(1);
+	.grid-width(1);
 	.gutter-margin-left(1);
 }
 .column:first-child {
@@ -35,43 +35,43 @@ body {
 }
 .span-2 {
 	background: #ddf;
-	.column-width(2);
+	.grid-width(2);
 }
 .span-3 {
 	background: #ff3add;
-	.column-width(3);
+	.grid-width(3);
 }
 .span-1-5 {
 	background: #dfd;
-	.column-width((12 / 5));
+	.grid-width((12 / 5));
 }
 .span-3-9 {
 	background: #dfd;
-	.column-width(3, 9);
+	.grid-width(3, 9);
 	.gutter-margin-left(1, 9);
 }
 .span-4 {
 	background: #dfd;
-	.column-width(4);
+	.grid-width(4);
 	
 	.column {
-		.column-width(1, 4);
+		.grid-width(1, 4);
 		.gutter-margin-left(1, 4);
 	}
 }
 .span-5 {
 	background: #dff;
-	.column-width(5);
+	.grid-width(5);
 }
 .span-6 {
 	background: #fdf;
-	.column-width(6);
+	.grid-width(6);
 	.span-3 {
-		.column-width(3, 6);
+		.grid-width(3, 6);
 		.gutter-margin-left(1, 6);
 	}
 }
 .span-12 {
 	background: #ddd;
-	.column-width(12);
+	.grid-width(12);
 }

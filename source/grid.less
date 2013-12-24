@@ -1,28 +1,28 @@
 // = = = = = =
 // grid.less =
 // = = = = = =
-.use-grid (@columns: 12, @gutter: 20px, @max-width: 940px) {
+.use-grid (@columns: 12, @gutter: 20px, @optimal-width: 940px) {
 	
 	@grid-columns: @columns;
 	@grid-gutter: @gutter;
-	@grid-max-width: @max-width;
+	@grid-optimal-width: @optimal-width;
 	
 	// Column width
-	.column-width (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
+	.grid-width (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
 		.calculate-grid-vars(@span, @base);
 		
 		width: @grid-fallback-width;
 		width: -webkit-calc(@grid-calc-width);
 		width: calc(@grid-calc-width);
 	}
-	.column-max-width (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
+	.grid-max-width (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
 		.calculate-grid-vars(@span, @base);
 		
 		max-width: @grid-fallback-width;
 		max-width: -webkit-calc(@grid-calc-width);
 		max-width: calc(@grid-calc-width);
 	}
-	.column-min-width (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
+	.grid-min-width (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
 		.calculate-grid-vars(@span, @base);
 		
 		min-width: @grid-fallback-width;
@@ -32,64 +32,64 @@
 	
 	
 	// Column offset
-	.column-margin-left (@span, @base: @grid-columns) when not(@span = 0) and (@base > 0) {
+	.grid-margin-left (@span, @base: @grid-columns) when not(@span = 0) and (@base > 0) {
 		.calculate-grid-vars(@span, @base);
 		
 		margin-left: @grid-fallback-offset;
 		margin-left: -webkit-calc(@grid-calc-offset);
 		margin-left: calc(@grid-calc-offset);
 	}
-	.column-margin-left (@span, @base: @grid-columns) when (@span = 0), (@base =< 0) {
+	.grid-margin-left (@span, @base: @grid-columns) when (@span = 0), (@base =< 0) {
 		margin-left: 0;
 	}
-	.column-margin-right (@span, @base: @grid-columns) when not(@span = 0) and (@base > 0) {
+	.grid-margin-right (@span, @base: @grid-columns) when not(@span = 0) and (@base > 0) {
 		.calculate-grid-vars(@span, @base);
 		
 		margin-right: @grid-fallback-offset;
 		margin-right: -webkit-calc(@grid-calc-offset);
 		margin-right: calc(@grid-calc-offset);
 	}
-	.column-margin-right (@span, @base: @grid-columns) when (@span = 0), (@base =< 0) {
+	.grid-margin-right (@span, @base: @grid-columns) when (@span = 0), (@base =< 0) {
 		margin-right: 0;
 	}
-	.column-padding-left (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
+	.grid-padding-left (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
 		.calculate-grid-vars(@span, @base);
 		
 		padding-left: @grid-fallback-offset;
 		padding-left: -webkit-calc(@grid-calc-offset);
 		padding-left: calc(@grid-calc-offset);
 	}
-	.column-padding-left (@span, @base: @grid-columns) when (@span =< 0), (@base =< 0) {
+	.grid-padding-left (@span, @base: @grid-columns) when (@span =< 0), (@base =< 0) {
 		padding-left: 0;
 	}
-	.column-padding-right (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
+	.grid-padding-right (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
 		.calculate-grid-vars(@span, @base);
 		
 		padding-right: @grid-fallback-offset;
 		padding-right: -webkit-calc(@grid-calc-offset);
 		padding-right: calc(@grid-calc-offset);
 	}
-	.column-padding-right (@span, @base: @grid-columns) when (@span =< 0), (@base =< 0) {
+	.grid-padding-right (@span, @base: @grid-columns) when (@span =< 0), (@base =< 0) {
 		padding-right: 0;
 	}
-	.column-left (@span, @base: @grid-columns) when not(@span = 0) and (@base > 0) {
+	.grid-left (@span, @base: @grid-columns) when not(@span = 0) and (@base > 0) {
 		.calculate-grid-vars(@span, @base);
 		
 		left: @grid-fallback-offset;
 		left: -webkit-calc(@grid-calc-offset);
 		left: calc(@grid-calc-offset);
 	}
-	.column-left (@span, @base: @grid-columns) when (@span = 0), (@base =< 0) {
+	.grid-left (@span, @base: @grid-columns) when (@span = 0), (@base =< 0) {
 		left: 0;
 	}
-	.column-right (@span, @base: @grid-columns) when not(@span = 0) and (@base > 0) {
+	.grid-right (@span, @base: @grid-columns) when not(@span = 0) and (@base > 0) {
 		.calculate-grid-vars(@span, @base);
 		
 		right: @grid-fallback-offset;
 		right: -webkit-calc(@grid-calc-offset);
 		right: calc(@grid-calc-offset);
 	}
-	.column-right (@span, @base: @grid-columns) when (@span = 0), (@base =< 0) {
+	.grid-right (@span, @base: @grid-columns) when (@span = 0), (@base =< 0) {
 		right: 0;
 	}
 	
@@ -165,7 +165,7 @@
 		@grid-calc-offset: @-column-width ~"+" (@grid-gutter - @-column-gutter);
 		
 		// IE8, Opera mini, Android and older versions of Safari:
-		@-base-width: (@grid-max-width * @base / @grid-columns);
+		@-base-width: (@grid-optimal-width * @base / @grid-columns);
 		@grid-fallback-width: (@-column-width - percentage(@-column-gutter / @-base-width));
 		@grid-fallback-gutter: (percentage(@grid-gutter / @-base-width));
 		@grid-fallback-offset: (@grid-fallback-width + @grid-fallback-gutter);

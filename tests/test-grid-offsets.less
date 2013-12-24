@@ -16,32 +16,32 @@ body {
 	margin: 0 auto;
 	.gutter-padding-left(1);
 	.gutter-padding-right(1);
-	max-width: @grid-max-width;
+	max-width: @grid-optimal-width;
 	background: #fff;
 }
 #main-column {
 	padding: 1px 0;
 	position: relative;
-	.column-padding-right(6);
+	.grid-padding-right(6);
 }
 .mini-block {
-	.column-width(4, 6);
+	.grid-width(4, 6);
 }
 .pull-block {
 	float: right;
-	.column-width(6, 6);
+	.grid-width(6, 6);
 	.gutter-margin-left(1, 6);
-	.column-margin-right(-6, 6);
+	.grid-margin-right(-6, 6);
 }
 .side-block {
 	position: absolute;
 	top: 0;
-	.column-right(0, 12);
-	.column-width(6, 12);
+	.grid-right(0, 12);
+	.grid-width(6, 12);
 }
 .penertrating-block {
 	float: right;
-	.column-width(8, 6);
+	.grid-width(8, 6);
 	.gutter-margin-left(1, 6);
-	.column-margin-right(-6, 6);
+	.grid-margin-right(-6, 6);
 }
