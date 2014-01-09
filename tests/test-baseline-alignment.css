@@ -1,0 +1,102 @@
+html,
+body {
+  margin: 0;
+}
+html {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-family: Verdana, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+body {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+  background: url(http://basehold.it/i/24/ff0000) 0 -6px;
+}
+section {
+  overflow: hidden;
+}
+article {
+  margin-left: 0%;
+  margin-right: 2%;
+}
+.vertical article {
+  float: left;
+  width: 23%;
+}
+p {
+  margin: 0;
+}
+.large p {
+  position: relative;
+  top: -0.34851333em;
+  font-size: 30px;
+  font-size: 1.875rem;
+  line-height: 1.125;
+  margin-top: 0.8em;
+  margin-bottom: 0.47500000000000003em;
+}
+.small p {
+  position: relative;
+  top: -0.1875em;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.875;
+  margin-top: 1.5em;
+  margin-bottom: 1.125em;
+}
+.tiny p {
+  position: relative;
+  top: 0.13286667em;
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 2;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+section p {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+h1,
+h2 {
+  font-family: "Gill Sans", sans-serif;
+}
+h1 {
+  position: relative;
+  top: -0.3885em;
+  font-size: 80px;
+  font-size: 5rem;
+  line-height: 1.125;
+  margin-top: 0.3em;
+  margin-bottom: -0.225em;
+}
+h2 {
+  position: relative;
+  top: -0.1875em;
+  font-size: 16px;
+  font-size: 1rem;
+  line-height: 1.875;
+  margin-top: 1.5em;
+  padding-bottom: 0.15000000000000002em;
+  border-bottom: 2px solid;
+  margin-bottom: 0.9750000000000001em;
+  margin-bottom: -webkit-calc(0.9750000000000001em + -2px);
+  margin-bottom: calc(0.9750000000000001em + -2px);
+}
+h3 {
+  position: relative;
+  top: 0.13286667em;
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 2;
+  margin-top: 2em;
+  margin-bottom: 0em;
+}
+.horizontal h1 + p,
+.horizontal h2 + p,
+.horizontal h3 + p {
+  margin-top: 0;
+}
+/*# sourceMappingURL=data:application/json,%7B%22version%22%3A3%2C%22file%22%3A%22%2FUsers%2Fchromice%2FSites%2Fdev%2Forderless%2Forderless_tpl%2Ftests%2Ftest-baseline-alignment.css%22%2C%22sources%22%3A%5B%22test-baseline-alignment.less%22%2C%22%2FUsers%2Fchromice%2FSites%2Fdev%2Forderless%2Forderless_tpl%2Fsource%2Fbaseline.less%22%5D%2C%22names%22%3A%5B%5D%2C%22mappings%22%3A%22AAEI%3BAAAO%3BEACV%2CSAAA%3B%3BAAKI%3BEACJ%2CkBAAA%3BEACA%2CmBAAA%3BEACA%2CgCAAA%3BEACA%2CeAAA%3BEACA%2CgBAAA%3B%3BAAGI%3BECOH%2CkBAAA%3BEAKA%2CqBAAA%3BEDTD%2CsDAAA%3B%3BAAEO%3BEACP%2CgBAAA%3B%3BAAEO%3BEACP%2CeAAA%3BEACA%2CgBAAA%3B%3BAAES%2CSAAQ%3BEACjB%2CWAAA%3BEACA%2CUAAA%3B%3BAAGC%3BEACD%2CSAAA%3B%3BAAEM%2CMAAE%3BECkCP%2CkBAAA%3BEACA%2CkBAAA%3BEAEA%2CeAAA%3BEACA%2CmBAAA%3BEACA%2CkBAAA%3BEA0BC%2CiBAAA%3BEAYA%2CoCAAA%3B%3BADxEI%2CMAAE%3BEC6BP%2CkBAAA%3BEACA%2CcAAA%3BEAEA%2CeAAA%3BEACA%2CeAAA%3BEACA%2CkBAAA%3BEA0BC%2CiBAAA%3BEAYA%2CsBAAA%3B%3BADnEG%2CKAAE%3BECwBN%2CkBAAA%3BEACA%2CiBAAA%3BEAEA%2CeAAA%3BEACA%2CkBAAA%3BEACA%2CcAAA%3BEA0BC%2CeAAA%3BEAYA%2CkBAAA%3B%3BAD9DK%2COAAE%3BEClBR%2CiBAAA%3BEAYA%2CoBAAA%3B%3BADaA%3BAAAK%3BEACN%2CaAAa%2CuBAAb%3B%3BAAEE%3BECSD%2CkBAAA%3BEACA%2CcAAA%3BEAEA%2CeAAA%3BEACA%2CeAAA%3BEACA%2CkBAAA%3BEA0BC%2CiBAAA%3BEAYA%2CuBAAA%3B%3BAD%2FCA%3BECID%2CkBAAA%3BEACA%2CcAAA%3BEAEA%2CeAAA%3BEACA%2CeAAA%3BEACA%2CkBAAA%3BEA0BC%2CiBAAA%3BEALA%2CqCAAA%3BED1BF%2CwBAAA%3BECkDE%2CmCAAA%3BEACA%2CeAAe%2CyCAAf%3BEACA%2CeAAe%2CiCAAf%3B%3BADjDA%3BECHD%2CkBAAA%3BEACA%2CiBAAA%3BEAEA%2CeAAA%3BEACA%2CkBAAA%3BEACA%2CcAAA%3BEA0BC%2CeAAA%3BEAYA%2CkBAAA%3B%3BADnCS%2CWAAG%2CGAAG%3BAAAc%2CWAAG%2CGAAG%3BAAAc%2CWAAG%2CGAAI%3BEAC1D%2CaAAA%22%7D */

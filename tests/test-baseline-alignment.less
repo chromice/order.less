@@ -1,0 +1,81 @@
+@import '../source/baseline.less';
+
+html, body {
+	margin: 0;
+}
+
+.use-baseline(16px, 1.5, 0.3986);
+
+html {
+	padding-left: 20px;
+	padding-right: 20px;
+	font-family: Verdana, sans-serif;
+	font-size: @baseline-font-size;
+	line-height: @baseline-line-height;
+}
+
+body {
+	.baseline-padding-top(1);
+	.baseline-padding-bottom(1);
+	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
+}
+section {
+	overflow: hidden;
+}
+article {
+	margin-left: 0%;
+	margin-right: 2%;
+}
+.vertical article {
+	float: left;
+	width: 23%;	
+}
+
+p {
+	margin: 0;
+}
+.large p {
+	.adjust-baseline(30px, 3/4);
+	.adjusted-margin-top(1);
+	.adjusted-margin-bottom(1);
+}
+.small p {
+	.adjust-baseline(@baseline-font-size, 5/4);
+	.adjusted-margin-top(1);
+	.adjusted-margin-bottom(1);
+}
+.tiny p {
+	.adjust-baseline(12px, 4/3);
+	.adjusted-margin-top(1);
+	.adjusted-margin-bottom(1);
+}
+section p {
+ 	.baseline-margin-top(1);
+ 	.baseline-margin-bottom(1);
+}
+
+@offset-gill-sans: 0.345;
+
+h1, h2 {
+	font-family: "Gill Sans", sans-serif;
+}
+h1 {
+	.adjust-baseline(80px, 3/4, @offset-gill-sans);
+	.adjusted-margin-top(1);
+	.adjusted-margin-bottom(0);
+}
+h2 {
+	.adjust-baseline(@baseline-font-size, 5/4, @offset-gill-sans);
+	.adjusted-margin-top(1);
+	.adjusted-padding-bottom(0.10);
+	border-bottom: 2px solid;
+	.adjusted-margin-bottom(0.9, -2px);
+}
+h3 {
+	.adjust-baseline(12px, 4/3);
+	.adjusted-margin-top(1);
+	.adjusted-margin-bottom(0);
+}
+.horizontal h1 + p, .horizontal h2 + p, .horizontal h3 + p {
+	margin-top: 0;
+}

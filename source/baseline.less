@@ -1,0 +1,126 @@
+// = = = = = = = =
+// baseline.less =
+// = = = = = = = =
+.use-baseline (@font-size, @line-height, @offset: 0.35) when (ispixel(@font-size)) {
+	
+	@baseline-font-size: @font-size;
+	@baseline-line-height: @line-height;
+	@baseline-offset: @offset;
+	
+	// Baseline offsets for default font size
+	.baseline-top (@span) {
+		.calculate-baseline-vars(@span);
+		
+		top: @-line-height;
+	}
+	.baseline-bottom (@span) {
+		.calculate-baseline-vars(@span);
+		
+		bottom: @-line-height;
+	}
+	.baseline-padding-top (@span) {
+		.calculate-baseline-vars(@span);
+		
+		padding-top: @-line-height;
+	}
+	.baseline-padding-bottom (@span) {
+		.calculate-baseline-vars(@span);
+		
+		padding-bottom: @-line-height;
+	}
+	.baseline-margin-top (@span) {
+		.calculate-baseline-vars(@span);
+		
+		margin-top: @-line-height;
+	}
+	.baseline-margin-top (@span, @offset) {
+		.calculate-baseline-vars(@span);
+		
+		margin-top: @-line-height;
+		margin-top: -webkit-calc(@-line-height ~"+" @offset);
+		margin-top: calc(@-line-height ~"+" @offset);
+	}
+	.baseline-margin-bottom (@span) {
+		.calculate-baseline-vars(@span);
+		
+		margin-bottom: @-line-height;
+	}
+	.baseline-margin-bottom (@span, @offset) {
+		.calculate-baseline-vars(@span);
+		
+		margin-bottom: @-line-height;
+		margin-bottom: -webkit-calc(@-line-height ~"+" @offset);
+		margin-bottom: calc(@-line-height ~"+" @offset);
+	}
+	
+	// Calculation mixin
+	.calculate-baseline-vars(@span, @base: @baseline-font-size) {
+		@-line-height: unit((@span * @baseline-line-height * @baseline-font-size / @base), em);
+	}
+	
+	// Adjust baseline for diffent font sizes/families
+	.adjust-baseline (@-font-size: @baseline-font-size, @baseline-ratio: 1, @offset: @baseline-offset) when (ispixel(@-font-size)) {
+		
+		@adjusted-font-size: @-font-size;
+		@adjusted-line-height: (@line-height * @baseline-ratio);
+		@adjusted-offset: @offset;
+		
+		@diff-font-size: mod((@adjusted-font-size * @adjusted-offset - @baseline-font-size * @baseline-offset), (@baseline-font-size * @baseline-line-height));
+		@diff-line-height: mod((@baseline-line-height * @baseline-font-size - @adjusted-line-height * @adjusted-font-size), (@baseline-font-size * @baseline-line-height));
+		
+		position: relative;
+		top: unit(round(((@diff-line-height / 2 - @diff-font-size) / @adjusted-font-size), 8), em);
+		
+		font-size: @adjusted-font-size;
+		font-size: unit((@adjusted-font-size / @baseline-font-size), rem);
+		line-height: @adjusted-line-height;
+		
+		// Baseline offsets for adjusted font size
+		.adjusted-top (@span) {
+			.calculate-baseline-vars(@span, @adjusted-font-size);
+			
+			top: @-line-height;
+		}
+		.adjusted-bottom (@span) {
+			.calculate-baseline-vars(@span, @adjusted-font-size);
+			
+			bottom: @-line-height;
+		}
+		.adjusted-padding-top (@span) {
+			.calculate-baseline-vars(@span, @adjusted-font-size);
+			
+			padding-top: @-line-height;
+		}
+		.adjusted-padding-bottom (@span) {
+			.calculate-baseline-vars(@span, @adjusted-font-size);
+			
+			padding-bottom: @-line-height;
+		}
+		.adjusted-margin-top (@span) {
+			.calculate-baseline-vars(@span, @adjusted-font-size);
+			
+			margin-top: @-line-height;
+		}
+		.adjusted-margin-top (@span, @offset) {
+			.calculate-baseline-vars(@span, @adjusted-font-size);
+			
+			margin-top: @-line-height;
+			margin-top: -webkit-calc(@-line-height ~"+" @offset);
+			margin-top: calc(@-line-height ~"+" @offset);
+		}
+		.adjusted-margin-bottom (@span) {
+			.calculate-baseline-vars(@span, @adjusted-font-size);
+			
+			margin-bottom: (@-line-height + unit(round(@diff-line-height / @adjusted-font-size, 8), em));
+		}
+		.adjusted-margin-bottom (@span, @offset) {
+			.calculate-baseline-vars(@span, @adjusted-font-size);
+			
+			@-margin-bottom: (@-line-height + unit(round(@diff-line-height / @adjusted-font-size, 8), em));
+			
+			margin-bottom: @-margin-bottom;
+			margin-bottom: -webkit-calc(@-margin-bottom ~"+" @offset);
+			margin-bottom: calc(@-margin-bottom ~"+" @offset);
+		}
+	}
+}
