@@ -55,39 +55,39 @@
 	
 	// Calculation mixin
 	.calculate-baseline-vars(@span, @base: @baseline-font-size) {
-		@-line-height: unit(round((@span * @baseline-line-height * @baseline-font-size / @base), 8), em);
+		@-line-height: (round(unit(@span * @baseline-line-height * @baseline-font-size / @base, em), 8));
 	}
 	
 	// Adjust baseline for diffent font sizes/families
 	.adjust-baseline (@-font-size: @baseline-font-size, @baseline-ratio: 1, @offset: @baseline-offset) when (ispixel(@-font-size)) {
 		
 		@adjusted-font-size: @-font-size;
-		@adjusted-line-height: round((@line-height * @baseline-ratio), 8);
+		@adjusted-line-height: (@line-height * @baseline-ratio);
 		
-		@-diff-font-size: mod((@adjusted-font-size * @offset - @baseline-font-size * @baseline-offset), (@baseline-font-size * @baseline-line-height));
-		@-diff-line-height: mod((@baseline-line-height * @baseline-font-size - @adjusted-line-height * @adjusted-font-size), (@baseline-font-size * @baseline-line-height));
+		@-diff-line-height: (@baseline-line-height * @baseline-font-size - @adjusted-line-height * @adjusted-font-size);
+		@-diff-font-size: (@adjusted-font-size * @offset - @baseline-font-size * @baseline-offset);
 		
 		// Offsets
-		@offset-top: unit(round(((@-diff-line-height / 2 - @-diff-font-size) / @adjusted-font-size), 8), em);
-		@offset-bottom: unit(round((@-diff-line-height / @adjusted-font-size), 8), em);
+		@offset-top: (unit(mod(@-diff-line-height / 2 - @-diff-font-size, @baseline-font-size * @baseline-line-height) / @adjusted-font-size, em));
+		@offset-bottom: (unit(mod(@-diff-line-height, @baseline-font-size * @baseline-line-height) / @adjusted-font-size, em));
 		
 		position: relative;
-		top: @offset-top;
+		top: round(@offset-top, 8);
 		
 		font-size: @adjusted-font-size;
-		font-size: unit((@adjusted-font-size / @baseline-font-size), rem);
-		line-height: @adjusted-line-height;
+		font-size: (round(unit(@adjusted-font-size / @baseline-font-size, rem), 8));
+		line-height: round(@adjusted-line-height, 8);
 		
 		// Adjusted offsets
 		.adjusted-top (@span) {
 			.calculate-baseline-vars(@span, @adjusted-font-size);
 			
-			top: (@-line-height + @offset-top);
+			top: (round(@-line-height + @offset-top, 8));
 		}
 		.adjusted-bottom (@span) {
 			.calculate-baseline-vars(@span, @adjusted-font-size);
 			
-			bottom: (@-line-height - @offset-top);
+			bottom: (round(@-line-height - @offset-top, 8));
 		}
 		.adjusted-padding-top (@span) {
 			.calculate-baseline-vars(@span, @adjusted-font-size);
@@ -114,12 +114,12 @@
 		.adjusted-margin-bottom (@span) {
 			.calculate-baseline-vars(@span, @adjusted-font-size);
 			
-			margin-bottom: (@-line-height + @offset-bottom);
+			margin-bottom: (round(@-line-height + @offset-bottom, 8));
 		}
 		.adjusted-margin-bottom (@span, @offset) {
 			.calculate-baseline-vars(@span, @adjusted-font-size);
 			
-			@-margin-bottom: (@-line-height + @offset-bottom);
+			@-margin-bottom: (round(@-line-height + @offset-bottom, 8));
 			
 			margin-bottom: @-margin-bottom;
 			margin-bottom: -webkit-calc(@-margin-bottom ~"+" @offset);
