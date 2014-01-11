@@ -4,6 +4,20 @@ html, body {
 	margin: 0;
 }
 
+sub, sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+sup {
+	top: -0.5em;
+}
+sub {
+	bottom: -0.25em;
+}
+
+
 .use-baseline(16px, 1.5, 0.3986);
 
 html {
@@ -13,7 +27,6 @@ html {
 	font-size: @baseline-font-size;
 	line-height: @baseline-line-height;
 }
-
 body {
 	.baseline-padding-top(1);
 	.baseline-padding-bottom(1);
@@ -30,12 +43,33 @@ article {
 	float: left;
 	width: 23%;	
 }
+.horizontal {
+	position: relative;
+	padding-left: 20%;
+	
+	.meta {
+		.adjust-baseline(10px, 4/3);
+		position: absolute;
+		left: 0;
+		.adjusted-top(1);
+		.adjusted-margin-top(0);
+	}
+	
+	.comments {
+		.adjust-baseline(14px, 4/3);
+		position: absolute;
+		left: 0;
+		top: auto;
+		.adjusted-bottom(1);
+		.adjusted-margin-bottom(0);
+	}
+}
 
 p {
 	margin: 0;
 }
 .large p {
-	.adjust-baseline(30px, 3/4);
+	.adjust-baseline(30px, 4/5);
 	.adjusted-margin-top(1);
 	.adjusted-margin-bottom(1);
 }
@@ -60,7 +94,7 @@ h1, h2 {
 	font-family: "Gill Sans", sans-serif;
 }
 h1 {
-	.adjust-baseline(80px, 3/4, @offset-gill-sans);
+	.adjust-baseline(44px, 3/7, @offset-gill-sans);
 	.adjusted-margin-top(1);
 	.adjusted-margin-bottom(0);
 }
