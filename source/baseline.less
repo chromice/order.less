@@ -7,7 +7,24 @@
 	@baseline-line-height: @line-height;
 	@baseline-offset: @offset;
 	
-	// Baseline offsets for default font size
+	// Baseline height
+	.baseline-height (@span) {
+		.calculate-baseline-vars(@span);
+		
+		height: @-line-height;
+	}
+	.baseline-max-height (@span) {
+		.calculate-baseline-vars(@span);
+		
+		max-height: @-line-height;
+	}
+	.baseline-min-height (@span) {
+		.calculate-baseline-vars(@span);
+		
+		min-height: @-line-height;
+	}
+	
+	// Baseline offset
 	.baseline-top (@span) {
 		.calculate-baseline-vars(@span);
 		
@@ -18,6 +35,8 @@
 		
 		bottom: @-line-height;
 	}
+	
+	// Baseline padding
 	.baseline-padding-top (@span) {
 		.calculate-baseline-vars(@span);
 		
@@ -28,6 +47,8 @@
 		
 		padding-bottom: @-line-height;
 	}
+	
+	// Baseline margin
 	.baseline-margin-top (@span) {
 		.calculate-baseline-vars(@span);
 		
@@ -54,12 +75,12 @@
 	}
 	
 	// Calculation mixin
-	.calculate-baseline-vars(@span, @base: @baseline-font-size) {
+	.calculate-baseline-vars (@span, @base: @baseline-font-size) {
 		@-line-height: (round(unit(@span * @baseline-line-height * @baseline-font-size / @base, em), 8));
 	}
 	
-	// Adjust baseline for diffent font sizes/families
-	.adjust-baseline (@-font-size: @baseline-font-size, @baseline-ratio: 1, @offset: @baseline-offset) when (ispixel(@-font-size)) {
+	// Adjust baseline parameters for new font size, line height and offset
+	.adjust-baseline (@-font-size, @baseline-ratio: 1, @offset: @baseline-offset) when (ispixel(@-font-size)) {
 		
 		@adjusted-font-size: @-font-size;
 		@adjusted-line-height: (@line-height * @baseline-ratio);
@@ -71,14 +92,37 @@
 		@offset-top: (unit(mod(@-diff-line-height / 2 - @-diff-font-size, @baseline-font-size * @baseline-line-height) / @adjusted-font-size, em));
 		@offset-bottom: (unit(mod(@-diff-line-height, @baseline-font-size * @baseline-line-height) / @adjusted-font-size, em));
 		
-		position: relative;
-		top: round(@offset-top, 8);
+		// Adjusted relative baseline offset
+		.adjusted-offset () {
+			position: relative;
+			top: round(@offset-top, 8);
+		}
 		
-		font-size: @adjusted-font-size;
-		font-size: (round(unit(@adjusted-font-size / @baseline-font-size, rem), 8));
-		line-height: round(@adjusted-line-height, 8);
+		// Adjusted font size and line height
+		.adjusted-size () {
+			font-size: @adjusted-font-size;
+			font-size: (round(unit(@adjusted-font-size / @baseline-font-size, rem), 8));
+			line-height: round(@adjusted-line-height, 8);
+		}
 		
-		// Adjusted offsets
+		// Adjusted height
+		.adjusted-height (@span) {
+			.calculate-baseline-vars(@span, @adjusted-font-size);
+			
+			height: @-line-height;
+		}
+		.adjusted-max-height (@span) {
+			.calculate-baseline-vars(@span, @adjusted-font-size);
+			
+			max-height: @-line-height;
+		}
+		.adjusted-min-height (@span) {
+			.calculate-baseline-vars(@span, @adjusted-font-size);
+			
+			min-height: @-line-height;
+		}
+		
+		// Adjusted offset
 		.adjusted-top (@span) {
 			.calculate-baseline-vars(@span, @adjusted-font-size);
 			
@@ -89,6 +133,8 @@
 			
 			bottom: (round(@-line-height - @offset-top, 8));
 		}
+		
+		// Adjusted padding
 		.adjusted-padding-top (@span) {
 			.calculate-baseline-vars(@span, @adjusted-font-size);
 			
@@ -99,6 +145,8 @@
 			
 			padding-bottom: @-line-height;
 		}
+		
+		// Adjusted margin
 		.adjusted-margin-top (@span) {
 			.calculate-baseline-vars(@span, @adjusted-font-size);
 			
@@ -125,5 +173,24 @@
 			margin-bottom: -webkit-calc(@-margin-bottom ~"+" @offset);
 			margin-bottom: calc(@-margin-bottom ~"+" @offset);
 		}
+	}
+	
+	// Adjust baseline and align to baseline
+	.adjust-baseline-offset (@--font-size, @-baseline-ratio: 1, @-offset: @baseline-offset) when (ispixel(@--font-size)) {
+		.adjust-baseline(@--font-size, @-baseline-ratio, @-offset);
+		.adjusted-offset();
+	}
+	
+	// Adjust baseline and set font size and line height
+	.adjust-baseline-size (@--font-size, @-baseline-ratio: 1, @-offset: @baseline-offset) when (ispixel(@--font-size)) {
+		.adjust-baseline(@--font-size, @-baseline-ratio, @-offset);
+		.adjusted-size();
+	}
+	
+	// Adjust baseline and set font size and line height
+	.adjust-baseline-offset-and-size (@--font-size, @-baseline-ratio: 1, @-offset: @baseline-offset) when (ispixel(@--font-size)) {
+		.adjust-baseline(@--font-size, @-baseline-ratio, @-offset);
+		.adjusted-offset();
+		.adjusted-size();
 	}
 }
