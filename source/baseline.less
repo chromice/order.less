@@ -11,67 +11,76 @@
 	.baseline-height (@span) {
 		.calculate-baseline-vars(@span);
 		
-		height: @-line-height;
+		height: @-line-height-px;
+		height: @-line-height-rem;
 	}
 	.baseline-max-height (@span) {
 		.calculate-baseline-vars(@span);
 		
-		max-height: @-line-height;
+		max-height: @-line-height-px;
+		max-height: @-line-height-rem;
 	}
 	.baseline-min-height (@span) {
 		.calculate-baseline-vars(@span);
 		
-		min-height: @-line-height;
+		min-height: @-line-height-px;
+		min-height: @-line-height-rem;
 	}
 	
 	// Baseline offset
 	.baseline-top (@span) {
 		.calculate-baseline-vars(@span);
 		
-		top: @-line-height;
+		top: @-line-height-px;
+		top: @-line-height-rem;
 	}
 	.baseline-bottom (@span) {
 		.calculate-baseline-vars(@span);
 		
-		bottom: @-line-height;
+		bottom: @-line-height-px;
+		bottom: @-line-height-rem;
 	}
 	
 	// Baseline padding
 	.baseline-padding-top (@span) {
 		.calculate-baseline-vars(@span);
 		
-		padding-top: @-line-height;
+		padding-top: @-line-height-px;
+		padding-top: @-line-height-rem;
 	}
 	.baseline-padding-bottom (@span) {
 		.calculate-baseline-vars(@span);
 		
-		padding-bottom: @-line-height;
+		padding-bottom: @-line-height-px;
+		padding-bottom: @-line-height-rem;
 	}
 	
 	// Baseline margin
 	.baseline-margin-top (@span) {
 		.calculate-baseline-vars(@span);
 		
-		margin-top: @-line-height;
+		margin-top: @-line-height-px;
+		margin-top: @-line-height-rem;
 	}
 	.baseline-margin-top (@span, @offset) {
 		.calculate-baseline-vars(@span);
 		
-		margin-top: @-line-height;
-		margin-top: -webkit-calc(@-line-height ~"+" @offset);
-		margin-top: calc(@-line-height ~"+" @offset);
+		margin-top: @-line-height-px;
+		margin-top: -webkit-calc(@-line-height-rem ~"+" @offset);
+		margin-top: calc(@-line-height-rem ~"+" @offset);
 	}
 	.baseline-margin-bottom (@span) {
 		.calculate-baseline-vars(@span);
 		
-		margin-bottom: @-line-height;
+		margin-bottom: @-line-height-px;
+		margin-bottom: @-line-height-rem;
 	}
 	.baseline-margin-bottom (@span, @offset) {
 		.calculate-baseline-vars(@span);
 		
-		margin-bottom: @-line-height;
-		margin-bottom: -webkit-calc(@-line-height ~"+" @offset);
-		margin-bottom: calc(@-line-height ~"+" @offset);
+		margin-bottom: @-line-height-px;
+		margin-bottom: -webkit-calc(@-line-height-rem ~"+" @offset);
+		margin-bottom: calc(@-line-height-rem ~"+" @offset);
 	}
 	
 	// Calculation mixin

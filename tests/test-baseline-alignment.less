@@ -47,7 +47,7 @@ article {
 	padding-left: 20%;
 	
 	.meta {
-		.adjust-baseline(18px, 4/3);
+		.adjust-baseline-offset-and-size(18px, 4/3);
 		position: absolute;
 		left: 0;
 		.adjusted-top(2);
@@ -55,7 +55,7 @@ article {
 	}
 	
 	.comments {
-		.adjust-baseline(14px, 4/3);
+		.adjust-baseline-offset-and-size(14px, 4/3);
 		position: absolute;
 		left: 0;
 		top: auto;
@@ -68,17 +68,17 @@ p {
 	margin: 0;
 }
 .large p {
-	.adjust-baseline(30px, 4/5);
+	.adjust-baseline-offset-and-size(30px, 4/5);
 	.adjusted-margin-top(1);
 	.adjusted-margin-bottom(1);
 }
 .small p {
-	.adjust-baseline(@baseline-font-size, 5/4);
+	.adjust-baseline-offset-and-size(@baseline-font-size, 5/4);
 	.adjusted-margin-top(1);
 	.adjusted-margin-bottom(1);
 }
 .tiny p {
-	.adjust-baseline(12px, 4/3);
+	.adjust-baseline-offset-and-size(12px, 4/3);
 	.adjusted-margin-top(1);
 	.adjusted-margin-bottom(1);
 }
@@ -93,19 +93,19 @@ h1, h2 {
 	font-family: "Gill Sans", sans-serif;
 }
 h1 {
-	.adjust-baseline(70px, 4/7, @offset-gill-sans);
+	.adjust-baseline-offset-and-size(70px, 4/7, @offset-gill-sans);
 	.adjusted-margin-top(1);
 	.adjusted-margin-bottom(1);
 }
 h2 {
-	.adjust-baseline(@baseline-font-size, 5/4, @offset-gill-sans);
+	.adjust-baseline-offset-and-size(@baseline-font-size, 5/4, @offset-gill-sans);
 	.adjusted-margin-top(1);
 	.adjusted-padding-bottom(0.10);
 	border-bottom: 2px solid;
 	.adjusted-margin-bottom(0.9, -2px);
 }
 h3 {
-	.adjust-baseline(12px, 4/3);
+	.adjust-baseline-offset-and-size(12px, 4/3);
 	.adjusted-margin-top(1);
 	.adjusted-margin-bottom(0);
 }
