@@ -1,0 +1,32 @@
+// = = = = = = =
+//  scale.less =
+// = = = = = = =
+
+.use-scale (@primary-base: 16px, @secondary-base: 20px, @ratio: 1.5) when (@primary-base < @secondary-base) {
+
+	// Calculate @-power-diff value
+	.find-power-diff (@counter) when ((@primary-base * pow(@ratio, @counter)) < @secondary-base) {
+		.find-power-diff((@counter + 1));
+	}
+	.find-power-diff (@counter) when (default()) {
+		@-power-diff: @counter;
+	}
+	.find-power-diff(0);
+	
+	// Calculate font size for a particular step
+	.scale-step (@step) when (mod(@step, 2) = 0) {
+		@scale-step: (@primary-base * pow(@ratio, @step / 2));
+	}
+	.scale-step (@step) when (default()) {
+		@scale-step: (@secondary-base * pow(@ratio, (@step - 1) / 2 - (@-power-diff - 1)));
+	}
+}
+
+// Test
+div {
+	.use-scale(16px, 20px);
+	
+	.scale-step(2);
+	font-size: @scale-step;
+}
+
