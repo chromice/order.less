@@ -93,7 +93,6 @@
 		right: 0;
 	}
 	
-	
 	// Gutter offset
 	.gutter-margin-left (@span, @base: @grid-columns) when not(@span = 0) and (@span >= -1) and (@span =< 1) and (@base > 0) {
 		.calculate-grid-vars(@span, @base);
@@ -156,7 +155,7 @@
 		right: 0;
 	}
 	
-	// Calculation mixin
+	// Calculate grid values
 	.calculate-grid-vars (@span, @base) {
 		// Modern browsers that support calc():
 		@-column-width: round((100% / @base * @span), 8);

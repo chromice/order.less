@@ -83,8 +83,8 @@
 		margin-bottom: calc(@-line-height-rem ~"+" @offset);
 	}
 	
-	// Calculation mixin
-	.calculate-baseline-vars(@span, @base: @baseline-font-size) {
+	// Calculate baseline values
+	.calculate-baseline-vars (@span, @base: @baseline-font-size) {
 		@-line-height-px: round((@span * @baseline-font-size * @baseline-line-height), 8);
 		@-line-height-rem: round(unit((@span * @baseline-line-height), rem), 8);
 		@-line-height: round(unit((@span * @baseline-line-height * @baseline-font-size / @base), em), 8);
