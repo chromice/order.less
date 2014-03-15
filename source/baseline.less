@@ -9,78 +9,64 @@
 	
 	// Baseline height
 	.baseline-height (@span) {
-		.calculate-baseline-vars(@span);
-		
-		height: @-line-height-px;
-		height: @-line-height-rem;
+		.baseline-property(height, @span);
 	}
-	.baseline-max-height (@span) {
-		.calculate-baseline-vars(@span);
-		
-		max-height: @-line-height-px;
-		max-height: @-line-height-rem;
+	.baseline-height (@span, @offset) {
+		.baseline-property(height, @span, @offset);
 	}
 	.baseline-min-height (@span) {
-		.calculate-baseline-vars(@span);
-		
-		min-height: @-line-height-px;
-		min-height: @-line-height-rem;
+		.baseline-property(min-height, @span);
+	}
+	.baseline-min-height (@span, @offset) {
+		.baseline-property(min-height, @span, @offset);
+	}
+	.baseline-max-height (@span) {
+		.baseline-property(max-height, @span);
+	}
+	.baseline-max-height (@span, @offset) {
+		.baseline-property(max-height, @span, @offset);
 	}
 	
 	// Baseline offset
 	.baseline-top (@span) {
-		.calculate-baseline-vars(@span);
-		
-		top: @-line-height-px;
-		top: @-line-height-rem;
+		.baseline-property(top, @span);
+	}
+	.baseline-top (@span, @offset) {
+		.baseline-property(top, @span, @offset);
 	}
 	.baseline-bottom (@span) {
-		.calculate-baseline-vars(@span);
-		
-		bottom: @-line-height-px;
-		bottom: @-line-height-rem;
+		.baseline-property(bottom, @span);
+	}
+	.baseline-bottom (@span, @offset) {
+		.baseline-property(bottom, @span, @offset);
 	}
 	
 	// Baseline padding
 	.baseline-padding-top (@span) {
-		.calculate-baseline-vars(@span);
-		
-		padding-top: @-line-height-px;
-		padding-top: @-line-height-rem;
+		.baseline-property(padding-top, @span);
+	}
+	.baseline-padding-top (@span, @offset) {
+		.baseline-property(padding-top, @span, @offset);
 	}
 	.baseline-padding-bottom (@span) {
-		.calculate-baseline-vars(@span);
-		
-		padding-bottom: @-line-height-px;
-		padding-bottom: @-line-height-rem;
+		.baseline-property(padding-bottom, @span);
+	}
+	.baseline-padding-bottom (@span, @offset) {
+		.baseline-property(padding-bottom, @span, @offset);
 	}
 	
 	// Baseline margin
 	.baseline-margin-top (@span) {
-		.calculate-baseline-vars(@span);
-		
-		margin-top: @-line-height-px;
-		margin-top: @-line-height-rem;
+		.baseline-property(margin-top, @span);
 	}
 	.baseline-margin-top (@span, @offset) {
-		.calculate-baseline-vars(@span);
-		
-		margin-top: @-line-height-px;
-		margin-top: -webkit-calc(@-line-height-rem ~"+" @offset);
-		margin-top: calc(@-line-height-rem ~"+" @offset);
+		.baseline-property(margin-top, @span, @offset);
 	}
 	.baseline-margin-bottom (@span) {
-		.calculate-baseline-vars(@span);
-		
-		margin-bottom: @-line-height-px;
-		margin-bottom: @-line-height-rem;
+		.baseline-property(margin-bottom, @span);
 	}
 	.baseline-margin-bottom (@span, @offset) {
-		.calculate-baseline-vars(@span);
-		
-		margin-bottom: @-line-height-px;
-		margin-bottom: -webkit-calc(@-line-height-rem ~"+" @offset);
-		margin-bottom: calc(@-line-height-rem ~"+" @offset);
+		.baseline-property(margin-bottom, @span, @offset);
 	}
 	
 	// Calculate baseline values
@@ -88,6 +74,21 @@
 		@-line-height-px: round((@span * @baseline-font-size * @baseline-line-height), 8);
 		@-line-height-rem: round(unit((@span * @baseline-line-height), rem), 8);
 		@-line-height: round(unit((@span * @baseline-line-height * @baseline-font-size / @base), em), 8);
+	}
+	
+	// Set property values
+	.baseline-property (@property, @span) {
+		.calculate-baseline-vars(@span);
+		
+		@{property}: @-line-height-px;
+		@{property}: @-line-height-rem;
+	}
+	.baseline-property (@property, @span, @offset) {
+		.calculate-baseline-vars(@span);
+		
+		@{property}: @-line-height-px;
+		@{property}: -webkit-calc(@-line-height-rem ~"+" @offset);
+		@{property}: calc(@-line-height-rem ~"+" @offset);
 	}
 	
 	// Adjust baseline parameters for new font size, line height and offset
