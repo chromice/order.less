@@ -12,10 +12,10 @@ html {
 }
 body {
   margin: 0 auto;
-  padding-left: 2.127659574468085%;
+  padding-left: 2.12765957%;
   padding-left: -webkit-calc(20px);
   padding-left: calc(20px);
-  padding-right: 2.127659574468085%;
+  padding-right: 2.12765957%;
   padding-right: -webkit-calc(20px);
   padding-right: calc(20px);
   max-width: 940px;
@@ -24,12 +24,12 @@ body {
 #main-column {
   padding: 1px 0;
   position: relative;
-  padding-right: 51.06382978723404%;
+  padding-right: 51.06382979%;
   padding-right: -webkit-calc(50% + 10px);
   padding-right: calc(50% + 10px);
 }
 .mini-block {
-  width: 65.24822695297873%;
+  width: 65.24822695%;
   width: -webkit-calc(66.66666667% - 6.66666667px);
   width: calc(66.66666667% - 6.66666667px);
 }
@@ -38,10 +38,10 @@ body {
   width: 100%;
   width: -webkit-calc(100% - 0px);
   width: calc(100% - 0px);
-  margin-left: 4.25531914893617%;
+  margin-left: 4.25531915%;
   margin-left: -webkit-calc(20px);
   margin-left: calc(20px);
-  margin-right: -104.25531914893617%;
+  margin-right: -104.25531915%;
   margin-right: -webkit-calc(-100% + -20px);
   margin-right: calc(-100% + -20px);
 }
@@ -49,20 +49,19 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  width: 48.93617021276596%;
+  width: 48.93617021%;
   width: -webkit-calc(50% - 10px);
   width: calc(50% - 10px);
 }
 .penertrating-block {
   float: right;
-  width: 134.75177304702126%;
+  width: 134.75177305%;
   width: -webkit-calc(133.33333333% - -6.66666667px);
   width: calc(133.33333333% - -6.66666667px);
-  margin-left: 4.25531914893617%;
+  margin-left: 4.25531915%;
   margin-left: -webkit-calc(20px);
   margin-left: calc(20px);
-  margin-right: -104.25531914893617%;
+  margin-right: -104.25531915%;
   margin-right: -webkit-calc(-100% + -20px);
   margin-right: calc(-100% + -20px);
 }
-/*# sourceMappingURL=data:application/json,%7B%22version%22%3A3%2C%22file%22%3A%22%2FUsers%2Fchromice%2FSites%2Fdev%2Forderless%2Forderless_tpl%2Ftests%2Ftest-grid-offsets.css%22%2C%22sources%22%3A%5B%22test-grid-offsets.less%22%2C%22%2FUsers%2Fchromice%2FSites%2Fdev%2Forderless%2Forderless_tpl%2Fsource%2Fgrid.less%22%5D%2C%22names%22%3A%5B%5D%2C%22mappings%22%3A%22AAII%3BAAAO%3BEACV%2CSAAA%3BEACA%2CUAAA%3B%3BAAEC%3BAAAK%3BEACN%2CaAAA%3B%3BAAEI%3BEACJ%2CgBAAA%3B%3BAAEI%3BEACJ%2CcAAA%3BECyGC%2CgCAAA%3BEACA%2CcAAc%2CkBAAd%3BEACA%2CcAAc%2CUAAd%3BEAQA%2CiCAAA%3BEACA%2CeAAe%2CkBAAf%3BEACA%2CeAAe%2CUAAf%3BEDlHD%2CgBAAA%3BEACA%2CgBAAA%3B%3BAAEY%3BEACZ%2CcAAA%3BEACA%2CkBAAA%3BEC4CC%2CiCAAA%3BEACA%2CeAAe%2CwBAAf%3BEACA%2CeAAe%2CgBAAf%3B%3BAD3CU%3BECbV%2CyBAAA%3BEACA%2COAAO%2CyCAAP%3BEACA%2COAAO%2CiCAAP%3B%3BADcU%3BEACX%2CYAAA%3BECjBC%2CWAAA%3BEACA%2COAAO%2CwBAAP%3BEACA%2COAAO%2CgBAAP%3BEAqFA%2C8BAAA%3BEACA%2CaAAa%2CkBAAb%3BEACA%2CaAAa%2CUAAb%3BEAvDA%2CkCAAA%3BEACA%2CcAAc%2C2BAAd%3BEACA%2CcAAc%2CmBAAd%3B%3BADdU%3BEACX%2CkBAAA%3BEACA%2CMAAA%3BECuDC%2CQAAA%3BEA%2FEA%2CyBAAA%3BEACA%2COAAO%2CwBAAP%3BEACA%2COAAO%2CgBAAP%3B%3BAD0BkB%3BEACnB%2CYAAA%3BEC7BC%2C0BAAA%3BEACA%2COAAO%2C2CAAP%3BEACA%2COAAO%2CmCAAP%3BEAqFA%2C8BAAA%3BEACA%2CaAAa%2CkBAAb%3BEACA%2CaAAa%2CUAAb%3BEAvDA%2CkCAAA%3BEACA%2CcAAc%2C2BAAd%3BEACA%2CcAAc%2CmBAAd%22%7D */
