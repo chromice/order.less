@@ -1,11 +1,67 @@
 // = = = = = = = =
 // baseline.less =
 // = = = = = = = =
-.use-baseline (@font-size, @line-height, @offset: 0.35) when (ispixel(@font-size)) {
+.use-baseline (@size, @line-height, @offset: 0.35) when (ispixel(@size)) {
+	.use-baseline(@size, @line-height, @offset, @size, 1, @offset);
+}
+.use-baseline (@size, @line-height, @offset, @alt-size, @alt-line-ratio, @alt-offset) when (ispixel(@size)) {
 	
-	@baseline-font-size: @font-size;
+	// Main baseline values
+	@baseline-font-size: @size;
 	@baseline-line-height: @line-height;
 	@baseline-offset: @offset;
+	
+	// Adjusted baseline values
+	@adjusted-font-size: @alt-size;
+	@adjusted-line-height: (@baseline-line-height * @alt-line-ratio);
+	@adjusted-offset: @alt-offset;
+	
+	@-diff-line-height: (@baseline-line-height * @baseline-font-size - @adjusted-line-height * @adjusted-font-size);
+	@-diff-font-size: (@adjusted-font-size * @adjusted-offset - @baseline-font-size * @baseline-offset);
+	
+	@offset-top: (unit(mod(@-diff-line-height / 2 - @-diff-font-size, @baseline-font-size * @baseline-line-height) / @baseline-font-size, rem));
+	@offset-bottom: (unit(mod(@-diff-line-height, @baseline-font-size * @baseline-line-height) / @baseline-font-size, rem));
+	
+	// Set a new baseline
+	.baseline-set(@-size, @-line-ratio, @-offset: @baseline-offset) {
+		.use-baseline(@baseline-font-size, @baseline-line-height, @baseline-offset, @-size, @-line-ratio, @-offset);
+	}
+	
+	// Reset baseline to default values
+	.baseline-reset() {
+		.use-baseline(@baseline-font-size, @baseline-line-height, @baseline-offset);
+	}
+	
+	// Shift text to the main baseline
+	.baseline-align () {
+		position: relative;
+		top: @offset-top;
+	}
+	.baseline-align (@-size, @-line-ratio, @-offset: @baseline-offset) {
+		.baseline-set(@-size, @-line-ratio, @-offset);
+		.baseline-align();
+	}
+	
+	// Set font size and line height
+	.baseline-resize () {
+		font-size: @adjusted-font-size;
+		font-size: unit((@adjusted-font-size / @baseline-font-size), rem);
+		line-height: @adjusted-line-height;
+	}
+	.baseline-resize (@-size, @-line-ratio, @-offset: @baseline-offset) {
+		.baseline-set(@-size, @-line-ratio, @-offset);
+		.baseline-resize();
+	}
+	
+	// Adjust alignment, font size and line height
+	.baseline-adjust () {
+		.baseline-align();
+		.baseline-resize();
+	}
+	.baseline-adjust (@-size, @-line-ratio, @-offset: @baseline-offset) {
+		.baseline-set(@-size, @-line-ratio, @-offset);
+		.baseline-adjust();
+	}
 	
 	// Baseline height
 	.baseline-height (@span) {
@@ -29,16 +85,16 @@
 	
 	// Baseline offset
 	.baseline-top (@span) {
-		.baseline-property(top, @span);
+		.baseline-property(top, @span, @offset-top);
 	}
 	.baseline-top (@span, @offset) {
-		.baseline-property(top, @span, @offset);
+		.baseline-property(top, @span, @offset ~"+" @offset-top);
 	}
 	.baseline-bottom (@span) {
-		.baseline-property(bottom, @span);
+		.baseline-property(bottom, @span, (@offset-top * -1));
 	}
 	.baseline-bottom (@span, @offset) {
-		.baseline-property(bottom, @span, @offset);
+		.baseline-property(bottom, @span, @offset ~"-" @offset-top);
 	}
 	
 	// Baseline padding
@@ -63,17 +119,16 @@
 		.baseline-property(margin-top, @span, @offset);
 	}
 	.baseline-margin-bottom (@span) {
-		.baseline-property(margin-bottom, @span);
+		.baseline-property(margin-bottom, @span, @offset-bottom);
 	}
 	.baseline-margin-bottom (@span, @offset) {
-		.baseline-property(margin-bottom, @span, @offset);
+		.baseline-property(margin-bottom, @span, @offset ~"+" @offset-bottom);
 	}
 	
 	// Calculate baseline values
 	.calculate-baseline-vars (@span, @base: @baseline-font-size) {
-		@-line-height-px: round((@span * @baseline-font-size * @baseline-line-height), 8);
-		@-line-height-rem: round(unit((@span * @baseline-line-height), rem), 8);
-		@-line-height: round(unit((@span * @baseline-line-height * @baseline-font-size / @base), em), 8);
+		@-line-height-px: (@span * @baseline-font-size * @baseline-line-height);
+		@-line-height-rem: unit((@span * @baseline-line-height), rem);
 	}
 	
 	// Set property values
@@ -89,120 +144,5 @@
 		@{property}: @-line-height-px;
 		@{property}: -webkit-calc(@-line-height-rem ~"+" @offset);
 		@{property}: calc(@-line-height-rem ~"+" @offset);
-	}
-	
-	// Adjust baseline parameters for new font size, line height and offset
-	.adjust-baseline (@-font-size, @baseline-ratio: 1, @offset: @baseline-offset) when (ispixel(@-font-size)) {
-		
-		@adjusted-font-size: @-font-size;
-		@adjusted-line-height: (@line-height * @baseline-ratio);
-		
-		@-diff-line-height: (@baseline-line-height * @baseline-font-size - @adjusted-line-height * @adjusted-font-size);
-		@-diff-font-size: (@adjusted-font-size * @offset - @baseline-font-size * @baseline-offset);
-		
-		// Offsets
-		@offset-top: (unit(mod(@-diff-line-height / 2 - @-diff-font-size, @baseline-font-size * @baseline-line-height) / @adjusted-font-size, em));
-		@offset-bottom: (unit(mod(@-diff-line-height, @baseline-font-size * @baseline-line-height) / @adjusted-font-size, em));
-		
-		// Adjusted relative baseline offset
-		.adjusted-offset () {
-			position: relative;
-			top: round(@offset-top, 8);
-		}
-		
-		// Adjusted font size and line height
-		.adjusted-size () {
-			font-size: @adjusted-font-size;
-			font-size: (round(unit(@adjusted-font-size / @baseline-font-size, rem), 8));
-			line-height: round(@adjusted-line-height, 8);
-		}
-		
-		// Adjusted height
-		.adjusted-height (@span) {
-			.calculate-baseline-vars(@span, @adjusted-font-size);
-			
-			height: @-line-height;
-		}
-		.adjusted-max-height (@span) {
-			.calculate-baseline-vars(@span, @adjusted-font-size);
-			
-			max-height: @-line-height;
-		}
-		.adjusted-min-height (@span) {
-			.calculate-baseline-vars(@span, @adjusted-font-size);
-			
-			min-height: @-line-height;
-		}
-		
-		// Adjusted offset
-		.adjusted-top (@span) {
-			.calculate-baseline-vars(@span, @adjusted-font-size);
-			
-			top: (round(@-line-height + @offset-top, 8));
-		}
-		.adjusted-bottom (@span) {
-			.calculate-baseline-vars(@span, @adjusted-font-size);
-			
-			bottom: (round(@-line-height - @offset-top, 8));
-		}
-		
-		// Adjusted padding
-		.adjusted-padding-top (@span) {
-			.calculate-baseline-vars(@span, @adjusted-font-size);
-			
-			padding-top: @-line-height;
-		}
-		.adjusted-padding-bottom (@span) {
-			.calculate-baseline-vars(@span, @adjusted-font-size);
-			
-			padding-bottom: @-line-height;
-		}
-		
-		// Adjusted margin
-		.adjusted-margin-top (@span) {
-			.calculate-baseline-vars(@span, @adjusted-font-size);
-			
-			margin-top: @-line-height;
-		}
-		.adjusted-margin-top (@span, @offset) {
-			.calculate-baseline-vars(@span, @adjusted-font-size);
-			
-			margin-top: @-line-height;
-			margin-top: -webkit-calc(@-line-height ~"+" @offset);
-			margin-top: calc(@-line-height ~"+" @offset);
-		}
-		.adjusted-margin-bottom (@span) {
-			.calculate-baseline-vars(@span, @adjusted-font-size);
-			
-			margin-bottom: (round(@-line-height + @offset-bottom, 8));
-		}
-		.adjusted-margin-bottom (@span, @offset) {
-			.calculate-baseline-vars(@span, @adjusted-font-size);
-			
-			@-margin-bottom: (round(@-line-height + @offset-bottom, 8));
-			
-			margin-bottom: @-margin-bottom;
-			margin-bottom: -webkit-calc(@-margin-bottom ~"+" @offset);
-			margin-bottom: calc(@-margin-bottom ~"+" @offset);
-		}
-	}
-	
-	// Adjust baseline and align to baseline
-	.adjust-baseline-offset (@--font-size, @-baseline-ratio: 1, @-offset: @baseline-offset) when (ispixel(@--font-size)) {
-		.adjust-baseline(@--font-size, @-baseline-ratio, @-offset);
-		.adjusted-offset();
-	}
-	
-	// Adjust baseline and set font size and line height
-	.adjust-baseline-size (@--font-size, @-baseline-ratio: 1, @-offset: @baseline-offset) when (ispixel(@--font-size)) {
-		.adjust-baseline(@--font-size, @-baseline-ratio, @-offset);
-		.adjusted-size();
-	}
-	
-	// Adjust baseline and set font size and line height
-	.adjust-baseline-offset-and-size (@--font-size, @-baseline-ratio: 1, @-offset: @baseline-offset) when (ispixel(@--font-size)) {
-		.adjust-baseline(@--font-size, @-baseline-ratio, @-offset);
-		.adjusted-offset();
-		.adjusted-size();
 	}
 }

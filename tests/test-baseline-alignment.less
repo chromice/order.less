@@ -47,20 +47,20 @@ article {
 	padding-left: 20%;
 	
 	.meta {
-		.adjust-baseline-offset-and-size(18px, 4/3);
+		.baseline-adjust(18px, 4/3);
 		position: absolute;
 		left: 0;
-		.adjusted-top(2);
-		.adjusted-margin-top(0);
+		.baseline-top(2);
+		.baseline-margin-top(0);
 	}
 	
 	.comments {
-		.adjust-baseline-offset-and-size(14px, 4/3);
+		.baseline-adjust(14px, 4/3);
 		position: absolute;
 		left: 0;
 		top: auto;
-		.adjusted-bottom(1);
-		.adjusted-margin-bottom(0);
+		.baseline-bottom(1);
+		.baseline-margin-bottom(0);
 	}
 }
 
@@ -68,19 +68,19 @@ p {
 	margin: 0;
 }
 .large p {
-	.adjust-baseline-offset-and-size(30px, 4/5);
-	.adjusted-margin-top(1);
-	.adjusted-margin-bottom(1);
+	.baseline-adjust(30px, 4/5);
+	.baseline-margin-top(1);
+	.baseline-margin-bottom(1);
 }
 .small p {
-	.adjust-baseline-offset-and-size(@baseline-font-size, 5/4);
-	.adjusted-margin-top(1);
-	.adjusted-margin-bottom(1);
+	.baseline-adjust(@baseline-font-size, 5/4);
+	.baseline-margin-top(1);
+	.baseline-margin-bottom(1);
 }
 .tiny p {
-	.adjust-baseline-offset-and-size(12px, 4/3);
-	.adjusted-margin-top(1);
-	.adjusted-margin-bottom(1);
+	.baseline-adjust(12px, 4/3);
+	.baseline-margin-top(1);
+	.baseline-margin-bottom(1);
 }
 section p {
  	.baseline-margin-top(1);
@@ -93,21 +93,21 @@ h1, h2 {
 	font-family: "Gill Sans", sans-serif;
 }
 h1 {
-	.adjust-baseline-offset-and-size(70px, 4/7, @offset-gill-sans);
-	.adjusted-margin-top(1);
-	.adjusted-margin-bottom(1);
+	.baseline-adjust(70px, 4/7, @offset-gill-sans);
+	.baseline-margin-top(1);
+	.baseline-margin-bottom(1);
 }
 h2 {
-	.adjust-baseline-offset-and-size(@baseline-font-size, 5/4, @offset-gill-sans);
-	.adjusted-margin-top(1);
-	.adjusted-padding-bottom(0.10);
+	.baseline-adjust(@baseline-font-size, 5/4, @offset-gill-sans);
+	.baseline-margin-top(1);
+	.baseline-padding-bottom(0.10);
 	border-bottom: 2px solid;
-	.adjusted-margin-bottom(0.9, -2px);
+	.baseline-margin-bottom(0.9, -2px);
 }
 h3 {
-	.adjust-baseline-offset-and-size(12px, 4/3);
-	.adjusted-margin-top(1);
-	.adjusted-margin-bottom(0);
+	.baseline-adjust(12px, 4/3);
+	.baseline-margin-top(1);
+	.baseline-margin-bottom(0);
 }
 .horizontal h1 + p, .horizontal h2 + p, .horizontal h3 + p {
 	margin-top: 0;
