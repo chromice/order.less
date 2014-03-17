@@ -126,20 +126,20 @@
 	}
 	
 	// Calculate baseline values
-	.calculate-baseline-vars (@span, @base: @baseline-font-size) {
+	.calculate-baseline-values (@span, @base: @baseline-font-size) {
 		@-line-height-px: (@span * @baseline-font-size * @baseline-line-height);
 		@-line-height-rem: unit((@span * @baseline-line-height), rem);
 	}
 	
 	// Set property values
 	.baseline-property (@property, @span) {
-		.calculate-baseline-vars(@span);
+		.calculate-baseline-values(@span);
 		
 		@{property}: @-line-height-px;
 		@{property}: @-line-height-rem;
 	}
 	.baseline-property (@property, @span, @offset) {
-		.calculate-baseline-vars(@span);
+		.calculate-baseline-values(@span);
 		
 		@{property}: @-line-height-px;
 		@{property}: -webkit-calc(@-line-height-rem ~"+" @offset);
