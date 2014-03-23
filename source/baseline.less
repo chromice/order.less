@@ -1,10 +1,11 @@
 // = = = = = = = =
 // baseline.less =
 // = = = = = = = =
+
 .use-baseline (@size, @line-height, @offset: 0.35) when (ispixel(@size)) {
 	.use-baseline(@size, @line-height, @offset, @size, 1, @offset);
 }
-.use-baseline (@size, @line-height, @offset, @alt-size, @alt-line-ratio, @alt-offset) when (ispixel(@size)) {
+.use-baseline (@size, @line-height, @offset, @alt-size, @alt-line-ratio, @alt-offset) when (ispixel(@size)) and (ispixel(@alt-size)) {
 	
 	// Main baseline values
 	@baseline-font-size: @size;
@@ -12,12 +13,12 @@
 	@baseline-offset: @offset;
 	
 	// Adjusted baseline values
-	@adjusted-font-size: @alt-size;
-	@adjusted-line-height: (@baseline-line-height * @alt-line-ratio);
-	@adjusted-offset: @alt-offset;
+	@current-font-size: @alt-size;
+	@current-line-height: (@baseline-line-height * @alt-line-ratio);
+	@current-offset: @alt-offset;
 	
-	@-diff-line-height: (@baseline-line-height * @baseline-font-size - @adjusted-line-height * @adjusted-font-size);
-	@-diff-font-size: (@adjusted-font-size * @adjusted-offset - @baseline-font-size * @baseline-offset);
+	@-diff-line-height: (@baseline-line-height * @baseline-font-size - @current-line-height * @current-font-size);
+	@-diff-font-size: (@current-font-size * @current-offset - @baseline-font-size * @baseline-offset);
 	
 	@offset-top: (unit(mod(@-diff-line-height / 2 - @-diff-font-size, @baseline-font-size * @baseline-line-height) / @baseline-font-size, rem));
 	@offset-bottom: (unit(mod(@-diff-line-height, @baseline-font-size * @baseline-line-height) / @baseline-font-size, rem));
@@ -44,9 +45,9 @@
 	
 	// Set font size and line height
 	.baseline-resize () {
-		font-size: @adjusted-font-size;
-		font-size: unit((@adjusted-font-size / @baseline-font-size), rem);
-		line-height: @adjusted-line-height;
+		font-size: @current-font-size;
+		font-size: unit((@current-font-size / @baseline-font-size), rem);
+		line-height: @current-line-height;
 	}
 	.baseline-resize (@-size, @-line-ratio, @-offset: @baseline-offset) {
 		.baseline-set(@-size, @-line-ratio, @-offset);
@@ -145,4 +146,14 @@
 		@{property}: -webkit-calc(@-line-height-rem ~"+" @offset);
 		@{property}: calc(@-line-height-rem ~"+" @offset);
 	}
+}
+
+// Add scale support to baseline mixins
+.use-baseline (@-step, @-line-height, @-offset: 0.35) when not(ispixel(@-step)) {
+	.calculate-scale-values(@-step);
+	.use-baseline(@scale-size, @-line-height, @-offset);
+}
+.use-baseline (@-size, @-line-height, @-offset, @-alt-step, @-alt-line-ratio, @-alt-offset) when (ispixel(@-size)) and not(ispixel(@-alt-step)) {
+	.calculate-scale-values(@-alt-step);
+	.use-baseline(@-size, @-line-height, @-offset, @scale-size, @-alt-line-ratio, @-alt-offset);
 }

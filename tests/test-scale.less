@@ -1,0 +1,52 @@
+@import '../source/baseline.less';
+@import '../source/scale.less';
+
+.use-scale(16px, 20px, 1.5);
+.use-baseline(@scale-base, 1.5);
+
+body, html {
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: @baseline-font-size;
+	line-height: @baseline-line-height;
+}
+.scale {
+	white-space: nowrap;
+	line-height: 0.5;
+}
+.baseline-test {
+	content: "testing";
+	.use-scale(12px, 15px, 1.5);
+	.baseline-adjust(1, 3/4);
+}
+
+.step--6 { .scale-font-size(-6); }
+.step--5 { .scale-font-size(-5); }
+.step--4 { .scale-font-size(-4); }
+.step--3 { .scale-font-size(-3); }
+.step--2 { .scale-font-size(-2); }
+.step--1 { .scale-font-size(-1); }
+.step-00 { .scale-font-size(00); }
+.step-01 { .scale-font-size(01); }
+.step-02 { .scale-font-size(02); }
+.step-03 { .scale-font-size(03); }
+.step-04 { .scale-font-size(04); }
+.step-05 { .scale-font-size(05); }
+.step-06 { .scale-font-size(06); }
+.step-07 { .scale-font-size(07); }
+.step-08 { .scale-font-size(08); }
+.step-09 { .scale-font-size(09); }
+.step-10 { .scale-font-size(10); }
+.step-11 { .scale-font-size(11); }
+.step-12 { .scale-font-size(12); }
+.step-13 { .scale-font-size(13); }
+.step-14 { .scale-font-size(14); }
+.step-15 { .scale-font-size(15); }
+.step-16 { .scale-font-size(16); }
+.step-17 { .scale-font-size(17); }
+.step-18 { .scale-font-size(18); }
+.step-19 { .scale-font-size(19); }
+.step-20 { .scale-font-size(20); }

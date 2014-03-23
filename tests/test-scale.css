@@ -1,0 +1,129 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.scale {
+  white-space: nowrap;
+  line-height: 0.5;
+}
+.baseline-test {
+  content: "testing";
+  position: relative;
+  top: 0.24453125rem;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.125;
+}
+.step--6 {
+  font-size: 3.55555556px;
+  font-size: 0.2962963rem;
+}
+.step--5 {
+  font-size: 4.44444444px;
+  font-size: 0.37037037rem;
+}
+.step--4 {
+  font-size: 5.33333333px;
+  font-size: 0.44444444rem;
+}
+.step--3 {
+  font-size: 6.66666667px;
+  font-size: 0.55555556rem;
+}
+.step--2 {
+  font-size: 8px;
+  font-size: 0.66666667rem;
+}
+.step--1 {
+  font-size: 10px;
+  font-size: 0.83333333rem;
+}
+.step-00 {
+  font-size: 12px;
+  font-size: 1rem;
+}
+.step-01 {
+  font-size: 15px;
+  font-size: 1.25rem;
+}
+.step-02 {
+  font-size: 18px;
+  font-size: 1.5rem;
+}
+.step-03 {
+  font-size: 22.5px;
+  font-size: 1.875rem;
+}
+.step-04 {
+  font-size: 27px;
+  font-size: 2.25rem;
+}
+.step-05 {
+  font-size: 33.75px;
+  font-size: 2.8125rem;
+}
+.step-06 {
+  font-size: 40.5px;
+  font-size: 3.375rem;
+}
+.step-07 {
+  font-size: 50.625px;
+  font-size: 4.21875rem;
+}
+.step-08 {
+  font-size: 60.75px;
+  font-size: 5.0625rem;
+}
+.step-09 {
+  font-size: 75.9375px;
+  font-size: 6.328125rem;
+}
+.step-10 {
+  font-size: 91.125px;
+  font-size: 7.59375rem;
+}
+.step-11 {
+  font-size: 113.90625px;
+  font-size: 9.4921875rem;
+}
+.step-12 {
+  font-size: 136.6875px;
+  font-size: 11.390625rem;
+}
+.step-13 {
+  font-size: 170.859375px;
+  font-size: 14.23828125rem;
+}
+.step-14 {
+  font-size: 205.03125px;
+  font-size: 17.0859375rem;
+}
+.step-15 {
+  font-size: 256.2890625px;
+  font-size: 21.35742188rem;
+}
+.step-16 {
+  font-size: 307.546875px;
+  font-size: 25.62890625rem;
+}
+.step-17 {
+  font-size: 384.43359375px;
+  font-size: 32.03613281rem;
+}
+.step-18 {
+  font-size: 461.3203125px;
+  font-size: 38.44335938rem;
+}
+.step-19 {
+  font-size: 576.65039063px;
+  font-size: 48.05419922rem;
+}
+.step-20 {
+  font-size: 691.98046875px;
+  font-size: 57.66503906rem;
+}
