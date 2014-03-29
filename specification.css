@@ -1,0 +1,151 @@
+.Test-run {
+  overflow: hidden;
+}
+.grid-block {
+  float: left;
+  overflow: hidden;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: green;
+  color: #fff;
+  text-align: center;
+  line-height: 20px;
+}
+.grid-block .grid-block {
+  background: yellow;
+  color: #333;
+}
+.grid-block span {
+  display: block;
+  line-height: 20px;
+}
+#grid-12-4-blocks .grid-block,
+#grid-12-4-blocks-ordered .grid-block,
+#grid-12-4-blocks-3-children .grid-block {
+  width: 23.40425532%;
+  width: -webkit-calc(25% - 15px);
+  width: calc(25% - 15px);
+  margin-left: 2.12765957%;
+  margin-left: -webkit-calc(20px);
+  margin-left: calc(20px);
+}
+#grid-12-4-blocks .grid-block:first-child,
+#grid-12-4-blocks-ordered .grid-block:first-child,
+#grid-12-4-blocks-3-children .grid-block:first-child {
+  margin-left: 0;
+}
+#grid-12-4-blocks .grid-block .grid-block,
+#grid-12-4-blocks-ordered .grid-block .grid-block,
+#grid-12-4-blocks-3-children .grid-block .grid-block {
+  width: 27.65957447%;
+  width: -webkit-calc(33.33333333% - 13.33333333px);
+  width: calc(33.33333333% - 13.33333333px);
+  margin-left: 8.5106383%;
+  margin-left: -webkit-calc(20px);
+  margin-left: calc(20px);
+}
+#grid-12-4-blocks .grid-block .grid-block:first-child,
+#grid-12-4-blocks-ordered .grid-block .grid-block:first-child,
+#grid-12-4-blocks-3-children .grid-block .grid-block:first-child {
+  margin-left: 0;
+}
+#grid-12-4-blocks-1-positioned {
+  padding-left: 25.53191489%;
+  padding-left: -webkit-calc(25% + 5px);
+  padding-left: calc(25% + 5px);
+  position: relative;
+}
+#grid-12-4-blocks-1-positioned .grid-block {
+  width: 31.44208038%;
+  width: -webkit-calc(33.33333333% - 13.33333333px);
+  width: calc(33.33333333% - 13.33333333px);
+  margin-left: 2.83687943%;
+  margin-left: -webkit-calc(20px);
+  margin-left: calc(20px);
+}
+#grid-12-4-blocks-1-positioned .grid-block:first-child {
+  margin-left: 0;
+}
+#grid-12-4-blocks-1-positioned #positioned-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 23.40425532%;
+  width: -webkit-calc(25% - 15px);
+  width: calc(25% - 15px);
+}
+#grid-12-4-blocks-1-positioned #positioned-block + .grid-block {
+  margin-left: 0;
+}
+#grid-12-4-blocks-ordered #ordered-block-1 {
+  margin-left: -48.93617021%;
+  margin-left: -webkit-calc(-50% + 10px);
+  margin-left: calc(-50% + 10px);
+}
+#grid-12-4-blocks-ordered #ordered-block-2 {
+  margin-left: 25.53191489%;
+  margin-left: -webkit-calc(25% + 5px);
+  margin-left: calc(25% + 5px);
+}
+#grid-12-4-blocks-ordered #ordered-block-4 {
+  margin-left: 76.59574468%;
+  margin-left: -webkit-calc(75% + 15px);
+  margin-left: calc(75% + 15px);
+  margin-bottom: -100%;
+}
+#grid-12-4-blocks-positioned {
+  position: relative;
+  padding-top: 60px;
+}
+#grid-12-4-blocks-positioned .grid-block {
+  float: none;
+  position: absolute;
+  top: 0;
+  width: 23.40425532%;
+  width: -webkit-calc(25% - 15px);
+  width: calc(25% - 15px);
+}
+#grid-12-4-blocks-positioned #positioned-block-1 {
+  right: 76.59574468%;
+  right: -webkit-calc(75% + 15px);
+  right: calc(75% + 15px);
+}
+#grid-12-4-blocks-positioned #positioned-block-2 {
+  left: 25.53191489%;
+  left: -webkit-calc(25% + 5px);
+  left: calc(25% + 5px);
+}
+#grid-12-4-blocks-positioned #positioned-block-3 {
+  left: 51.06382979%;
+  left: -webkit-calc(50% + 10px);
+  left: calc(50% + 10px);
+}
+#grid-12-4-blocks-positioned #positioned-block-4 {
+  right: 0;
+}
+#grid-10-5-blocks .grid-block,
+#grid-10-5-blocks-2-children .grid-block {
+  width: 18.29787234%;
+  width: -webkit-calc(20% - 16px);
+  width: calc(20% - 16px);
+  margin-left: 2.12765957%;
+  margin-left: -webkit-calc(20px);
+  margin-left: calc(20px);
+}
+#grid-10-5-blocks .grid-block:first-child,
+#grid-10-5-blocks-2-children .grid-block:first-child {
+  margin-left: 0;
+}
+#grid-10-5-blocks .grid-block .grid-block,
+#grid-10-5-blocks-2-children .grid-block .grid-block {
+  width: 44.68085106%;
+  width: -webkit-calc(50% - 10px);
+  width: calc(50% - 10px);
+  margin-left: 10.63829787%;
+  margin-left: -webkit-calc(20px);
+  margin-left: calc(20px);
+}
+#grid-10-5-blocks .grid-block .grid-block:first-child,
+#grid-10-5-blocks-2-children .grid-block .grid-block:first-child {
+  margin-left: 0;
+}

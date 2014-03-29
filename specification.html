@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>ComponentName [component] - SUIT</title>
+<link rel="stylesheet" href="external/css-test/test.css">
+<link rel="stylesheet" href="specification.css">
+<div class="Test">
+	<h1 class="Test-title">SUIT CSS: <a href="https://github.com/chromice/order.less">order.less</a> library specification</h1>
+
+	<h2 class="Test-describe">Grid module: 12 columns, 20px inner gutter</h2>
+	<h3 class="Test-it">render 4 floated blocks</h3>
+	<div class="Test-run" id="grid-12-4-blocks">
+		<div class="grid-block"></div>
+		<div class="grid-block"></div>
+		<div class="grid-block"></div>
+		<div class="grid-block"></div>
+	</div>
+	<h3 class="Test-it">render 3 floated blocks and 1 absolutely positioned block</h3>
+	<div class="Test-run" id="grid-12-4-blocks-1-positioned">
+		<div id="positioned-block" class="grid-block"></div>
+		<div class="grid-block"></div>
+		<div class="grid-block"></div>
+		<div class="grid-block"></div>
+	</div>
+	<h3 class="Test-it">render 4 floated blocks in correct order</h3>
+	<div class="Test-run" id="grid-12-4-blocks-ordered">
+		<div id="ordered-block-4" class="grid-block"><span>B4</span></div>
+		<div id="ordered-block-2" class="grid-block"><span>B2</span></div>
+		<div id="ordered-block-1" class="grid-block"><span>B1</span></div>
+		<div id="ordered-block-3" class="grid-block"><span>B3</span></div>
+	</div>
+	<h3 class="Test-it">render 4 absolutely positioned blocks in correct order</h3>
+	<div class="Test-run" id="grid-12-4-blocks-positioned">
+		<div id="positioned-block-4" class="grid-block"><span>B4</span></div>
+		<div id="positioned-block-2" class="grid-block"><span>B2</span></div>
+		<div id="positioned-block-1" class="grid-block"><span>B1</span></div>
+		<div id="positioned-block-3" class="grid-block"><span>B3</span></div>
+	</div>
+	<h3 class="Test-it">render 4 floated blocks each having 3 children</h3>
+	<div class="Test-run" id="grid-12-4-blocks-3-children">
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+	</div>
+
+	<h3 class="Test-it">render 5 floated blocks</h3>
+	<div class="Test-run" id="grid-10-5-blocks">
+		<div class="grid-block"></div>
+		<div class="grid-block"></div>
+		<div class="grid-block"></div>
+		<div class="grid-block"></div>
+		<div class="grid-block"></div>
+	</div>
+	<h3 class="Test-it">render 5 floated blocks each having 2 children</h3>
+	<div class="Test-run" id="grid-10-5-blocks-2-children">
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+	</div>
+	
+<!--
+
+	<h2 class="Test-describe">.use-scale()</h2>
+	<h3 class="Test-it">render larger</h3>
+	<div class="Test-run" id="modifier-larger">
+
+	</div>
+
+	<h3 class="Test-it">allows text wrapping</h3>
+	<div class="Test-run" id="modifier-textWrapping">
+
+	</div>
+
+	<h2 class="Test-describe">.use-baseline()</h2>
+	<h3 class="Test-it">render larger</h3>
+	<div class="Test-run" id="modifier-larger">
+
+	</div>
+
+	<h3 class="Test-it">allows text wrapping</h3>
+	<div class="Test-run" id="modifier-textWrapping">
+
+	</div>
+
+-->
+</div>
