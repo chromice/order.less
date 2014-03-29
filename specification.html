@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<title>ComponentName [component] - SUIT</title>
+<title>Order.less library specification</title>
 <link rel="stylesheet" href="external/css-test/test.css">
 <link rel="stylesheet" href="specification.css">
 <div class="Test">
 	<h1 class="Test-title">SUIT CSS: <a href="https://github.com/chromice/order.less">order.less</a> library specification</h1>
 
-	<h2 class="Test-describe">Grid module: 12 columns, 20px inner gutter</h2>
+	<h2 class="Test-describe">Grid module: 12 columns / 20px inner gutter</h2>
 	<h3 class="Test-it">render 4 floated blocks</h3>
 	<div class="Test-run" id="grid-12-4-blocks">
 		<div class="grid-block"></div>
@@ -91,29 +91,31 @@
 		</div>
 	</div>
 	
-<!--
-
-	<h2 class="Test-describe">.use-scale()</h2>
-	<h3 class="Test-it">render larger</h3>
-	<div class="Test-run" id="modifier-larger">
-
+	<h2 class="Test-describe">Scale module: 16px base / 20px alternative / 1.5 ratio</h2>
+	<h3 class="Test-it">render scale font sizes [-6, 17]</h3>
+	<div class="Test-run" id="scale-normal">
+		<span class="step step--6">a</span>
+		<span class="step step--5">a</span>
+		<span class="step step--4">a</span>
+		<span class="step step--3">a</span>
+		<span class="step step--2">a</span>
+		<span class="step step--1">a</span>
+		<span class="step step-00">a</span>
+		<span class="step step-01">a</span>
+		<span class="step step-02">a</span>
+		<span class="step step-03">a</span>
+		<span class="step step-04">a</span>
+		<span class="step step-05">a</span>
+		<span class="step step-06">a</span>
+		<span class="step step-07">a</span>
+		<span class="step step-08">a</span>
+		<span class="step step-10">a</span>
+		<span class="step step-11">a</span>
+		<span class="step step-12">a</span>
+		<span class="step step-13">a</span>
+		<span class="step step-14">a</span>
+		<span class="step step-15">a</span>
+		<span class="step step-16">a</span>
+		<span class="step step-17">a</span>
 	</div>
-
-	<h3 class="Test-it">allows text wrapping</h3>
-	<div class="Test-run" id="modifier-textWrapping">
-
-	</div>
-
-	<h2 class="Test-describe">.use-baseline()</h2>
-	<h3 class="Test-it">render larger</h3>
-	<div class="Test-run" id="modifier-larger">
-
-	</div>
-
-	<h3 class="Test-it">allows text wrapping</h3>
-	<div class="Test-run" id="modifier-textWrapping">
-
-	</div>
-
--->
 </div>

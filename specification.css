@@ -149,3 +149,114 @@
 #grid-10-5-blocks-2-children .grid-block .grid-block:first-child {
   margin-left: 0;
 }
+html {
+  font-size: 16px;
+}
+#scale-normal {
+  position: relative;
+  overflow: scroll;
+  overflow-y: hidden !important;
+  -webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  line-height: 0.7;
+}
+#scale-normal .step {
+  position: relative;
+  display: inline-block;
+}
+#scale-normal .step--6 {
+  font-size: 4.74074074px;
+  font-size: 0.2962963rem;
+}
+#scale-normal .step--5 {
+  font-size: 5.92592593px;
+  font-size: 0.37037037rem;
+}
+#scale-normal .step--4 {
+  font-size: 7.11111111px;
+  font-size: 0.44444444rem;
+}
+#scale-normal .step--3 {
+  font-size: 8.88888889px;
+  font-size: 0.55555556rem;
+}
+#scale-normal .step--2 {
+  font-size: 10.66666667px;
+  font-size: 0.66666667rem;
+}
+#scale-normal .step--1 {
+  font-size: 13.33333333px;
+  font-size: 0.83333333rem;
+}
+#scale-normal .step-00 {
+  font-size: 16px;
+  font-size: 1rem;
+}
+#scale-normal .step-01 {
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+#scale-normal .step-02 {
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+#scale-normal .step-03 {
+  font-size: 30px;
+  font-size: 1.875rem;
+}
+#scale-normal .step-04 {
+  font-size: 36px;
+  font-size: 2.25rem;
+}
+#scale-normal .step-05 {
+  font-size: 45px;
+  font-size: 2.8125rem;
+}
+#scale-normal .step-06 {
+  font-size: 54px;
+  font-size: 3.375rem;
+}
+#scale-normal .step-07 {
+  font-size: 67.5px;
+  font-size: 4.21875rem;
+}
+#scale-normal .step-08 {
+  font-size: 81px;
+  font-size: 5.0625rem;
+}
+#scale-normal .step-09 {
+  font-size: 101.25px;
+  font-size: 6.328125rem;
+}
+#scale-normal .step-10 {
+  font-size: 121.5px;
+  font-size: 7.59375rem;
+}
+#scale-normal .step-11 {
+  font-size: 151.875px;
+  font-size: 9.4921875rem;
+}
+#scale-normal .step-12 {
+  font-size: 182.25px;
+  font-size: 11.390625rem;
+}
+#scale-normal .step-13 {
+  font-size: 227.8125px;
+  font-size: 14.23828125rem;
+}
+#scale-normal .step-14 {
+  font-size: 273.375px;
+  font-size: 17.0859375rem;
+}
+#scale-normal .step-15 {
+  font-size: 341.71875px;
+  font-size: 21.35742188rem;
+}
+#scale-normal .step-16 {
+  font-size: 410.0625px;
+  font-size: 25.62890625rem;
+}
+#scale-normal .step-17 {
+  font-size: 512.578125px;
+  font-size: 32.03613281rem;
+}
