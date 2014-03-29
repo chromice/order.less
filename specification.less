@@ -290,13 +290,14 @@ html {
 		.baseline-margin-bottom(1);
 	}
 }
-#baseline-vertical-offline {
+#baseline-vertical-offset {
+	overflow: visible;
 	position: relative;
 	.grid-padding-left(4);
 	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
 	
 	p {
-		.baseline-margin-top(1);
+		.baseline-margin-top(0);
 		.baseline-margin-bottom(1);
 	}
 	
@@ -306,12 +307,12 @@ html {
 	}
 	.meta {
 		.baseline-resize(18px, 4/3);
-		.baseline-top(1);
-		.baseline-margin-top(0);
+		.baseline-top(0);
+		.baseline-margin-bottom(0);
 	}
 	.comments {
 		.baseline-resize(14px, 4/3);
-		.baseline-bottom(1);
+		.baseline-bottom(0);
 		.baseline-margin-bottom(0);
 	}
 }
