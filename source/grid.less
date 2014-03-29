@@ -102,13 +102,14 @@
 		@-column-width: round((100% / @base * @span), 8);
 		@-column-gutter: round(((@base - @span) / @base * @grid-gutter), 8);
 		@grid-calc-width: @-column-width ~"-" @-column-gutter;
-		@grid-calc-offset: @-column-width ~"+" (@grid-gutter - @-column-gutter);
+		@grid-calc-offset: @-column-width ~"+" abs((@grid-gutter - @-column-gutter));
 		
 		// IE8, Opera mini, Android and older versions of Safari:
+		@-direction: (@span / abs(@span));
 		@-base-width: (@grid-optimal-width * @base / @grid-columns);
-		@grid-fallback-width: (@-column-width - percentage(@-column-gutter / @-base-width));
+		@grid-fallback-width: (@-column-width - percentage(@-column-gutter / @-base-width * @-direction));
 		@grid-fallback-gutter: (percentage(@grid-gutter / @-base-width));
-		@grid-fallback-offset: (@grid-fallback-width + @grid-fallback-gutter);
+		@grid-fallback-offset: (@grid-fallback-width + @grid-fallback-gutter * @-direction);
 	}
 	
 	// Set property values
