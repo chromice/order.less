@@ -169,11 +169,10 @@ html {
 	-webkit-overflow-scrolling: touch;
 	
 	white-space: nowrap;
-	line-height: 0.7;
+	line-height: 0.85;
 	
 	.step {
-		position: relative;
-		display: inline-block;
+		text-transform: uppercase;
 	}
 	
 	.step--6 { .scale-font-size(-6); }
@@ -200,4 +199,119 @@ html {
 	.step-15 { .scale-font-size(15); }
 	.step-16 { .scale-font-size(16); }
 	.step-17 { .scale-font-size(17); }
+}
+
+
+// = = = = = = = = = = =
+//  Baseline behaviour =
+// = = = = = = = = = = =
+
+@import 'source/baseline.less';
+
+@offset-gill-sans: 0.345;
+@offset-verdana: 0.3986;
+
+.use-baseline(@scale-base, 1.5, @offset-verdana);
+
+html {
+	font-family: Verdana, sans-serif;
+	font-size: @baseline-font-size;
+	line-height: @baseline-line-height;
+}
+
+#baseline-horizontal {
+	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
+	
+	> div {
+		float: left;
+		.grid-width(3);
+		.gutter-margin-left(1);
+		
+		&:first-child {
+			.gutter-margin-left(0);
+		}
+		
+		.baseline-margin-top(1);
+	}
+	
+	.large {
+		.baseline-adjust(30px, 4/5);
+	}
+	.small {
+		.baseline-adjust(@baseline-font-size, 5/4);
+	}
+	.tiny {
+		.baseline-adjust(12px, 4/3);
+	}
+}
+
+#baseline-vertical {
+	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
+	
+	h1 {
+		.baseline-adjust(50px, 4/7);
+		.baseline-margin-top(1);
+		.baseline-margin-bottom(1);
+	}
+	p {
+		.baseline-margin-top(0);
+		.baseline-margin-bottom(1);
+	}
+}
+
+#baseline-vertical-family {
+	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
+	
+	h1 {
+		font-family: "Gill Sans", sans-serif;
+		.baseline-adjust(50px, 4/7, @offset-gill-sans);
+		.baseline-margin-top(1);
+		.baseline-margin-bottom(1);
+	}
+	p {
+		.baseline-margin-top(0);
+		.baseline-margin-bottom(1);
+	}
+}
+
+#baseline-vertical-line {
+	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
+	
+	h1 {
+		font-family: "Gill Sans", sans-serif;
+		.baseline-adjust(@baseline-font-size, 5/4, @offset-gill-sans);
+		.baseline-margin-top(1);
+		.baseline-padding-bottom(0.10);
+		border-bottom: 2px solid;
+		.baseline-margin-bottom(0.9, -2px);
+	}
+	p {
+		.baseline-margin-top(0);
+		.baseline-margin-bottom(1);
+	}
+}
+#baseline-vertical-offline {
+	position: relative;
+	.grid-padding-left(4);
+	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
+	
+	p {
+		.baseline-margin-top(1);
+		.baseline-margin-bottom(1);
+	}
+	
+	.comments, .meta {
+		position: absolute;
+		left: 0;
+	}
+	.meta {
+		.baseline-resize(18px, 4/3);
+		.baseline-top(1);
+		.baseline-margin-top(0);
+	}
+	.comments {
+		.baseline-resize(14px, 4/3);
+		.baseline-bottom(1);
+		.baseline-margin-bottom(0);
+	}
 }

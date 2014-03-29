@@ -4,38 +4,43 @@
 <link rel="stylesheet" href="external/css-test/test.css">
 <link rel="stylesheet" href="specification.css">
 <div class="Test">
-	<h1 class="Test-title">SUIT CSS: <a href="https://github.com/chromice/order.less">order.less</a> library specification</h1>
+	<h1 class="Test-title"><a href="https://github.com/chromice/order.less">order.less</a> library specification</h1>
 
 	<h2 class="Test-describe">Grid module: 12 columns / 20px inner gutter</h2>
-	<h3 class="Test-it">render 4 floated blocks</h3>
+	
+	<h3 class="Test-it">renders 4 floated blocks</h3>
 	<div class="Test-run" id="grid-12-4-blocks">
 		<div class="grid-block"></div>
 		<div class="grid-block"></div>
 		<div class="grid-block"></div>
 		<div class="grid-block"></div>
 	</div>
-	<h3 class="Test-it">render 3 floated blocks and 1 absolutely positioned block</h3>
+	
+	<h3 class="Test-it">renders 3 floated blocks and 1 absolutely positioned block</h3>
 	<div class="Test-run" id="grid-12-4-blocks-1-positioned">
 		<div id="positioned-block" class="grid-block"></div>
 		<div class="grid-block"></div>
 		<div class="grid-block"></div>
 		<div class="grid-block"></div>
 	</div>
-	<h3 class="Test-it">render 4 floated blocks in correct order</h3>
+	
+	<h3 class="Test-it">renders 4 floated blocks in correct order</h3>
 	<div class="Test-run" id="grid-12-4-blocks-ordered">
-		<div id="ordered-block-4" class="grid-block"><span>B4</span></div>
-		<div id="ordered-block-2" class="grid-block"><span>B2</span></div>
-		<div id="ordered-block-1" class="grid-block"><span>B1</span></div>
-		<div id="ordered-block-3" class="grid-block"><span>B3</span></div>
+		<div id="ordered-block-4" class="grid-block"><span>4</span></div>
+		<div id="ordered-block-2" class="grid-block"><span>2</span></div>
+		<div id="ordered-block-1" class="grid-block"><span>1</span></div>
+		<div id="ordered-block-3" class="grid-block"><span>3</span></div>
 	</div>
-	<h3 class="Test-it">render 4 absolutely positioned blocks in correct order</h3>
+	
+	<h3 class="Test-it">renders 4 absolutely positioned blocks in correct order</h3>
 	<div class="Test-run" id="grid-12-4-blocks-positioned">
-		<div id="positioned-block-4" class="grid-block"><span>B4</span></div>
-		<div id="positioned-block-2" class="grid-block"><span>B2</span></div>
-		<div id="positioned-block-1" class="grid-block"><span>B1</span></div>
-		<div id="positioned-block-3" class="grid-block"><span>B3</span></div>
+		<div id="positioned-block-4" class="grid-block"><span>4</span></div>
+		<div id="positioned-block-2" class="grid-block"><span>2</span></div>
+		<div id="positioned-block-1" class="grid-block"><span>1</span></div>
+		<div id="positioned-block-3" class="grid-block"><span>3</span></div>
 	</div>
-	<h3 class="Test-it">render 4 floated blocks each having 3 children</h3>
+	
+	<h3 class="Test-it">renders 4 floated blocks each having 3 children</h3>
 	<div class="Test-run" id="grid-12-4-blocks-3-children">
 		<div class="grid-block">
 			<div class="grid-block"></div>
@@ -59,7 +64,7 @@
 		</div>
 	</div>
 
-	<h3 class="Test-it">render 5 floated blocks</h3>
+	<h3 class="Test-it">renders 5 floated blocks</h3>
 	<div class="Test-run" id="grid-10-5-blocks">
 		<div class="grid-block"></div>
 		<div class="grid-block"></div>
@@ -67,7 +72,8 @@
 		<div class="grid-block"></div>
 		<div class="grid-block"></div>
 	</div>
-	<h3 class="Test-it">render 5 floated blocks each having 2 children</h3>
+	
+	<h3 class="Test-it">renders 5 floated blocks each having 2 children</h3>
 	<div class="Test-run" id="grid-10-5-blocks-2-children">
 		<div class="grid-block">
 			<div class="grid-block"></div>
@@ -92,7 +98,8 @@
 	</div>
 	
 	<h2 class="Test-describe">Scale module: 16px base / 20px alternative / 1.5 ratio</h2>
-	<h3 class="Test-it">render scale font sizes [-6, 17]</h3>
+	
+	<h3 class="Test-it">renders scale font sizes from -6 to 17</h3>
 	<div class="Test-run" id="scale-normal">
 		<span class="step step--6">a</span>
 		<span class="step step--5">a</span>
@@ -117,5 +124,40 @@
 		<span class="step step-15">a</span>
 		<span class="step step-16">a</span>
 		<span class="step step-17">a</span>
+	</div>
+	
+	<h2 class="Test-describe">Baseline module: 16px font size / 1.5 line-height</h2>
+	
+	<h3 class="Test-it">aligns baselines of text blocks</h3>
+	<div class="Test-run" id="baseline-horizontal">
+		<div class="large">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.</div>
+		<div class="medium">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</div>
+		<div class="small">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</div>
+		<div class="tiny">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</div>
+	</div>
+
+	<h3 class="Test-it">preserves vertical rhythm for text blocks</h3>
+	<div class="Test-run" id="baseline-vertical">
+		<h1>Labore et dolore</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	</div>
+
+	<h3 class="Test-it">preserves vertical rhythm for different font families</h3>
+	<div class="Test-run" id="baseline-vertical-family">
+		<h1>Labore et dolore</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	</div>
+
+	<h3 class="Test-it">accounts for top or bottom border width</h3>
+	<div class="Test-run" id="baseline-vertical-line">
+		<h1>Labore et dolore</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+	</div>
+
+	<h3 class="Test-it">aligns baselines of absolutely positioned blocks</h3>
+	<div class="Test-run" id="baseline-vertical-offline">
+		<p class="meta"><time>20th Nov &rsquo;13</time></p>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		<p class="comments"><a href="#">12 Comments</a></p>
 	</div>
 </div>
