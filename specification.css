@@ -334,6 +334,46 @@ html {
   font-size: 922.640625px;
   font-size: 57.66503906rem;
 }
+.scale .step-21 {
+  font-size: 1153.30078125px;
+  font-size: 72.08129883rem;
+}
+.scale .step-22 {
+  font-size: 1383.9609375px;
+  font-size: 86.49755859rem;
+}
+.scale .step-23 {
+  font-size: 1729.95117188px;
+  font-size: 108.12194824rem;
+}
+.scale .step-24 {
+  font-size: 2075.94140625px;
+  font-size: 129.74633789rem;
+}
+.scale .step-25 {
+  font-size: 2594.92675781px;
+  font-size: 162.18292236rem;
+}
+.scale .step-26 {
+  font-size: 3113.91210938px;
+  font-size: 194.61950684rem;
+}
+.scale .step-27 {
+  font-size: 3892.39013672px;
+  font-size: 243.27438354rem;
+}
+.scale .step-28 {
+  font-size: 4670.86816406px;
+  font-size: 291.92926025rem;
+}
+.scale .step-29 {
+  font-size: 5838.58520508px;
+  font-size: 364.91157532rem;
+}
+.scale .step-30 {
+  font-size: 7006.30224609px;
+  font-size: 437.89389038rem;
+}
 #scale-integer {
   line-height: 0.85;
 }
@@ -400,7 +440,7 @@ html {
 }
 #baseline-horizontal .large {
   position: relative;
-  top: -0.723775rem;
+  top: -0.72325rem;
   font-size: 30px;
   font-size: 1.875rem;
   line-height: 1.2;
@@ -414,7 +454,7 @@ html {
 }
 #baseline-horizontal .tiny {
   position: relative;
-  top: 0.09965rem;
+  top: 0.0995rem;
   font-size: 12px;
   font-size: 0.75rem;
   line-height: 2;
@@ -424,7 +464,7 @@ html {
 }
 #baseline-vertical h1 {
   position: relative;
-  top: -1.43631071rem;
+  top: -1.43503571rem;
   font-size: 50px;
   font-size: 3.125rem;
   line-height: 0.85714286;
@@ -447,7 +487,7 @@ html {
 #baseline-vertical-family h1 {
   font-family: "Gill Sans", sans-serif;
   position: relative;
-  top: -1.26881071rem;
+  top: -1.26628571rem;
   font-size: 50px;
   font-size: 3.125rem;
   line-height: 0.85714286;
@@ -470,7 +510,7 @@ html {
 #baseline-vertical-line h1 {
   font-family: "Gill Sans", sans-serif;
   position: relative;
-  top: -0.1339rem;
+  top: -0.1335rem;
   font-size: 16px;
   font-size: 1rem;
   line-height: 1.875;
@@ -515,8 +555,8 @@ html {
   font-size: 1.125rem;
   line-height: 2;
   top: 0px;
-  top: -webkit-calc(0rem + -0.424825rem);
-  top: calc(0rem + -0.424825rem);
+  top: -webkit-calc(0rem + -0.42475rem);
+  top: calc(0rem + -0.42475rem);
   margin-bottom: 0px;
   margin-bottom: -webkit-calc(0rem + -0.75rem);
   margin-bottom: calc(0rem + -0.75rem);
@@ -526,9 +566,35 @@ html {
   font-size: 0.875rem;
   line-height: 2;
   bottom: 0px;
-  bottom: -webkit-calc(0rem + 0.075175rem);
-  bottom: calc(0rem + 0.075175rem);
+  bottom: -webkit-calc(0rem + 0.07525rem);
+  bottom: calc(0rem + 0.07525rem);
   margin-bottom: 0px;
   margin-bottom: -webkit-calc(0rem + -0.25rem);
   margin-bottom: calc(0rem + -0.25rem);
+}
+#baseline-offset-table table {
+  margin: -0.25em -0.5em 0.5em;
+}
+#baseline-offset-table th,
+#baseline-offset-table td {
+  padding: 0.25em 0.5em;
+}
+#baseline-offset-table th {
+  text-align: left;
+}
+#baseline-offset-table th + th,
+#baseline-offset-table th + td {
+  text-align: right;
+}
+#baseline-offset-table tbody th {
+  font-weight: normal;
+}
+#baseline-offset-table .scale {
+  line-height: 1;
+}
+#baseline-offset-table #scale-test {
+  position: absolute;
+  right: 100%;
+  bottom: 0;
+  width: 100%;
 }
