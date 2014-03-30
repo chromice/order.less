@@ -1,6 +1,6 @@
 # order.less
 
-order.less is a library of Less mixins that give you precise control over basic elements of  typographic rhythm: grid, baseline and scale.
+order.less is a library of Less mixins that gives you precise control over basic elements of  typography: grid, baseline and scale.
 
 ## Grid
 
