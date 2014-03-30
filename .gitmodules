@@ -1,6 +1,0 @@
-[submodule "external/less"]
-	path = external/less
-	url = git@github.com:less/less.js.git
-[submodule "external/css-test"]
-	path = external/css-test
-	url = git@github.com:suitcss/components-test.git
