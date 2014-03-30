@@ -162,16 +162,16 @@ html {
 	font-size: @scale-base;
 }
 
-#scale-normal {
+.scale {
 	position: relative;
 	overflow: scroll;
 	overflow-y: hidden !important;
 	-webkit-overflow-scrolling: touch;
 	
 	white-space: nowrap;
-	line-height: 0.85;
 	
 	.step {
+		display: inline-block;
 		text-transform: uppercase;
 	}
 	
@@ -199,6 +199,13 @@ html {
 	.step-15 { .scale-font-size(15); }
 	.step-16 { .scale-font-size(16); }
 	.step-17 { .scale-font-size(17); }
+	.step-18 { .scale-font-size(18); }
+	.step-19 { .scale-font-size(19); }
+	.step-20 { .scale-font-size(20); }
+}
+
+#scale-normal {
+	line-height: 0.85;
 }
 
 
