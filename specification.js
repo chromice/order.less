@@ -29,9 +29,8 @@
 			}
 			
 			var topIncrement = firstOffset - offset,
-				bottomIncrement = (offset + height) - (firstOffset + firstHeight),
 				heightIncrement = height - firstHeight,
-				candidate = topIncrement / heightIncrement - 0.5;
+				candidate = topIncrement / heightIncrement;
 			
 			candidateSum+= height * candidate;
 			weightSum+= height;
