@@ -572,29 +572,32 @@ html {
   margin-bottom: -webkit-calc(0rem + -0.25rem);
   margin-bottom: calc(0rem + -0.25rem);
 }
-#baseline-offset-table table {
+.offset-table table {
   margin: -0.25em -0.5em 0.5em;
 }
-#baseline-offset-table th,
-#baseline-offset-table td {
+.offset-table th,
+.offset-table td {
   padding: 0.25em 0.5em;
 }
-#baseline-offset-table th {
+.offset-table th {
   text-align: left;
 }
-#baseline-offset-table th + th,
-#baseline-offset-table th + td {
+.offset-table th ~ th,
+.offset-table th ~ td {
   text-align: right;
 }
-#baseline-offset-table tbody th {
+.offset-table tbody th {
   font-weight: normal;
+  font-family: "Comic Sans MS";
 }
-#baseline-offset-table .scale {
-  line-height: 1;
+.offset-table .error th + td {
+  color: red;
 }
-#baseline-offset-table #scale-test {
+#scale-test {
   position: absolute;
   right: 100%;
   bottom: 0;
   width: 100%;
+  line-height: 1;
+  font-family: "Comic Sans MS";
 }

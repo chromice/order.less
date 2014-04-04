@@ -427,7 +427,7 @@ html {
 	}
 }
 
-#baseline-offset-table {
+.offset-table {
 	table {
 		margin: -0.25em -0.5em 0.5em;
 	}
@@ -437,19 +437,23 @@ html {
 	th {
 		text-align: left;
 	}
-	th + th, th + td {
+	th ~ th, th ~ td {
 		text-align: right;
 	}
 	tbody th {
 		font-weight: normal;
+		font-family: "Comic Sans MS";
 	}
-	.scale {
-		line-height: 1;
+	.error th + td {
+		color: red;
 	}
-	#scale-test {
-		position: absolute;
-		right: 100%;
-		bottom: 0;
-		width: 100%;
-	}
+}
+
+#scale-test {
+	position: absolute;
+	right: 100%;
+	bottom: 0;
+	width: 100%;
+	line-height: 1;
+	font-family: "Comic Sans MS";
 }

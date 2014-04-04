@@ -174,77 +174,212 @@
 		<p class="comments">12 comments</p>
 	</div>
 
-	<h3 class="Test-it">calculates baseline offsets for common font families</h3>
-	<div class="Test-run" id="baseline-offset-table">
+	<h3 class="Test-it">calculates baseline offset value for common fonts</h3>
+	<div class="Test-run offset-table" id="baseline-offset-table">
 		<table>
 			<thead>
 				<th>Font family</th>
-				<th>Offset</th>
+				<th>Calculated</th>
+				<th>Expected</th>
 			</thead>
 			<tbody>
 				<tr>
 					<th>Arial</th>
 					<td>N/A</td>
+					<td>0.347</td>
+				</tr>
+				<tr>
+					<th>Arial Black</th>
+					<td>N/A</td>
+					<td>0.395</td>
+				</tr>
+				<tr>
+					<th>Comic Sans MS</th>
+					<td>N/A</td>
+					<td>0.405</td>
 				</tr>
 				<tr>
 					<th>Courier New</th>
 					<td>N/A</td>
-				</tr>
-				<tr>
-					<th>Comic sans</th>
-					<td>N/A</td>
+					<td>0.266</td>
 				</tr>
 				<tr>
 					<th>Georgia</th>
 					<td>N/A</td>
+					<td>0.349</td>
 				</tr>
 				<tr>
-					<th>Gill Sans</th>
+					<th>Impact</th>
 					<td>N/A</td>
+					<td>0.399</td>
 				</tr>
 				<tr>
-					<th>Tahoma</th>
+					<th>Times New Roman</th>
 					<td>N/A</td>
+					<td>0.337</td>
 				</tr>
 				<tr>
 					<th>Trebuchet MS</th>
 					<td>N/A</td>
+					<td>0.358</td>
 				</tr>
 				<tr>
 					<th>Verdana</th>
 					<td>N/A</td>
+					<td>0.398</td>
 				</tr>
 			</tbody>
 		</table>
-		<div class="scale" id="scale-test">
-			<span class="step step-04">a</span>
-			<span class="step step-05">a</span>
-			<span class="step step-06">a</span>
-			<span class="step step-07">a</span>
-			<span class="step step-08">a</span>
-			<span class="step step-09">a</span>
-			<span class="step step-10">a</span>
-			<span class="step step-11">a</span>
-			<span class="step step-12">a</span>
-			<span class="step step-13">a</span>
-			<span class="step step-14">a</span>
-			<span class="step step-15">a</span>
-			<span class="step step-16">a</span>
-			<span class="step step-17">a</span>
-			<span class="step step-18">a</span>
-			<span class="step step-19">a</span>
-			<span class="step step-20">a</span>
-			<span class="step step-21">a</span>
-			<span class="step step-22">a</span>
-			<span class="step step-23">a</span>
-			<span class="step step-24">a</span>
-			<span class="step step-25">a</span>
-			<span class="step step-26">a</span>
-			<span class="step step-27">a</span>
-			<span class="step step-28">a</span>
-			<span class="step step-29">a</span>
-			<span class="step step-30">a</span>
-		</div>
 	</div>
+
+	<h3 class="Test-it">fails to calculate baseline offset value for non-existent font</h3>
+	<div class="Test-run offset-table" id="baseline-offset-table-google-fonts">
+		<table>
+			<thead>
+				<th>Font family</th>
+				<th>Calculated</th>
+				<th>Expected</th>
+			</thead>
+			<tbody>
+				<tr class="non-existent">
+					<th>Non-existen font</th>
+					<td>N/A</td>
+					<td>N/A</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<h3 class="Test-it">calculates baseline offset value for common Mac fonts</h3>
+	<div class="Test-run offset-table" id="baseline-offset-table-mac-fonts">
+		<table>
+			<thead>
+				<th>Font family</th>
+				<th>Calculated</th>
+				<th>Expected</th>
+			</thead>
+			<tbody>
+				<tr>
+					<th>Baskerville</th>
+					<td>N/A</td>
+					<td>0.326</td>
+				</tr>
+				<tr>
+					<th>Chalkboard</th>
+					<td>N/A</td>
+					<td>0.349</td>
+				</tr>
+				<tr>
+					<th>Cochin</th>
+					<td>N/A</td>
+					<td>0.323</td>
+				</tr>
+				<tr>
+					<th>Copperplate</th>
+					<td>N/A</td>
+					<td>0.258</td>
+				</tr>
+				<tr>
+					<th>Courier</th>
+					<td>N/A</td>
+					<td>0.329</td>
+				</tr>
+				<tr>
+					<th>Didot</th>
+					<td>N/A</td>
+					<td>0.321</td>
+				</tr>
+				<tr>
+					<th>Geneva</th>
+					<td>N/A</td>
+					<td>0.375</td>
+				</tr>
+				<tr>
+					<th>Gill Sans</th>
+					<td>N/A</td>
+					<td>0.344</td>
+				</tr>
+				<tr>
+					<th>Helvetica</th>
+					<td>N/A</td>
+					<td>0.345</td>
+				</tr>
+				<tr>
+					<th>Helvetica Neue</th>
+					<td>N/A</td>
+					<td>0.370</td>
+				</tr>
+				<tr>
+					<th>Hoefler Text</th>
+					<td>N/A</td>
+					<td>0.221</td>
+				</tr>
+				<tr>
+					<th>Lucida Grande</th>
+					<td>N/A</td>
+					<td>0.378</td>
+				</tr>
+				<tr>
+					<th>Monaco</th>
+					<td>N/A</td>
+					<td>0.375</td>
+				</tr>
+				<tr>
+					<th>Optima</th>
+					<td>N/A</td>
+					<td>0.326</td>
+				</tr>
+				<tr>
+					<th>Palatino</th>
+					<td>N/A</td>
+					<td>0.273</td>
+				</tr>
+				<tr>
+					<th>Papyrus</th>
+					<td>N/A</td>
+					<td>0.168</td>
+				</tr>
+				<tr>
+					<th>Tahoma</th>
+					<td>N/A</td>
+					<td>0.397</td>
+				</tr>
+				<tr>
+					<th>Times</th>
+					<td>N/A</td>
+					<td>0.325</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="scale" id="scale-test">
+	<span class="step step-04">a</span>
+	<span class="step step-05">a</span>
+	<span class="step step-06">a</span>
+	<span class="step step-07">a</span>
+	<span class="step step-08">a</span>
+	<span class="step step-09">a</span>
+	<span class="step step-10">a</span>
+	<span class="step step-11">a</span>
+	<span class="step step-12">a</span>
+	<span class="step step-13">a</span>
+	<span class="step step-14">a</span>
+	<span class="step step-15">a</span>
+	<span class="step step-16">a</span>
+	<span class="step step-17">a</span>
+	<span class="step step-18">a</span>
+	<span class="step step-19">a</span>
+	<span class="step step-20">a</span>
+	<span class="step step-21">a</span>
+	<span class="step step-22">a</span>
+	<span class="step step-23">a</span>
+	<span class="step step-24">a</span>
+	<span class="step step-25">a</span>
+	<span class="step step-26">a</span>
+	<span class="step step-27">a</span>
+	<span class="step step-28">a</span>
+	<span class="step step-29">a</span>
+	<span class="step step-30">a</span>
 </div>
 <script src="specification.js"></script>
