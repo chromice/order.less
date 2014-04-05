@@ -1,19 +1,74 @@
 (function () {
+	// 
+	// Font availability is ripped from http://www.samclarke.com/2013/06/javascript-is-font-available/
+	// 
+	// Copyright 2013 Sam Clarke <sam@samclarke.com> under MIT licence
+	// 
+	var calculateWidth, monoWidth, serifWidth, sansWidth, width,
+		body         = document.body,
+		container    = document.createElement('div'),
+		containerCss = [
+			'position:absolute',
+			'width:auto',
+			'font-size:128px',
+			'left:-99999px'
+		];
+
+	// Create a span element to contain the test text.
+	// Use innerHTML instead of createElement as it's easier
+	// to apply CSS to.
+	container.innerHTML = '<span style="' + containerCss.join(' !important;') + '">' +
+		Array(100).join('wi') +
+	'</span>';
+	container = container.firstChild;
+
+	calculateWidth = function(fontFamily) {
+		container.style.fontFamily = fontFamily;
+
+		body.appendChild(container);
+		width = container.clientWidth;
+		body.removeChild(container);
+
+		return width;
+	};
+
+	// Precalculate the widths of monospace, serif & sans-serif
+	// to improve performance.
+	monoWidth  = calculateWidth('monospace');
+	serifWidth = calculateWidth('serif');
+	sansWidth  = calculateWidth('sans-serif');
+
+	// 
+	// Checks, if a font is available to be used on a web page.
+	// 
+	// Parameters: fontName - The name of the font to check
+	// Returns: true || false
+	// 
+	function isFontAvailable(fontName) {
+		return monoWidth !== calculateWidth(fontName + ',monospace') ||
+			sansWidth !== calculateWidth(fontName + ',sans-serif') ||
+			serifWidth !== calculateWidth(fontName + ',serif');
+	};
+	
+	// 
 	// Based on http://stackoverflow.com/a/10073788/341041
+	// 
 	function pad_right(n, width, z) {
 		z = z || '0';
 		n = n + '';
 		return n.length >= width ? n : n + new Array(width - n.length + 1).join(z);
 	}
 	
+	// 
 	// Baseline offset value
-	function font_offset_value(fontFamily) {
+	// 
+	function fontBaselineOffsetValue(fontFamily) {
 		var testScale = document.getElementById('scale-test'),
 			testScaleSteps = document.querySelectorAll('#scale-test span'),
 			candidateSum = 0,
 			weightSum = 0,
-			firstHeight = 0,
-			firstOffset = 0;
+			previousHeight = 0,
+			previousOffset = 0;
 		
 		testScale.style.fontFamily = fontFamily;
 		
@@ -22,44 +77,41 @@
 				offset = el.getBoundingClientRect().top + document.body.scrollTop;
 			
 			if (i === 0) {
-				firstHeight = height;
-				firstOffset = offset;
+				previousHeight = height;
+				previousOffset = offset;
 				
 				return;
 			}
 			
-			var topIncrement = firstOffset - offset,
-				heightIncrement = height - firstHeight,
+			var topIncrement = previousOffset - offset,
+				heightIncrement = height - previousHeight,
 				candidate = topIncrement / heightIncrement;
 			
 			candidateSum+= height * candidate;
 			weightSum+= height;
 			
-			firstHeight = height;
-			firstOffset = offset;
+			previousHeight = height;
+			previousOffset = offset;
 		});
 		
 		return pad_right(Math.round(1000 * candidateSum / weightSum) / 1000, 5);
 	}
 	
+	// 
 	// Calculate baseline offset values for in all tables
-	var fallbackFont = 'Comic Sans MS',
-		fallbackOffset = font_offset_value(fallbackFont);
-	
+	// 
 	[].forEach.call(document.querySelectorAll('.offset-table tbody th'), function(th, i){
-		var fontFamily = '"' + th.textContent + '", "' + fallbackFont + '"',
-			fontOffset = font_offset_value(fontFamily);
+		var fontFamily = th.textContent;
 		
-		th.style.fontFamily = fontFamily;
-		
-		if (fontOffset !== fallbackOffset || th.textContent === fallbackFont) {
-			th.nextElementSibling.textContent = fontOffset;
+		// Calculate value if font family is installed
+		if (isFontAvailable(fontFamily)) {
+			th.style.fontFamily = fontFamily;
+			th.nextElementSibling.textContent = fontBaselineOffsetValue(fontFamily);
 		}
 		
 		// Highlight rows that do not meet expectations
 		if (th.nextElementSibling.textContent !== th.nextElementSibling.nextElementSibling.textContent) {
 			th.parentNode.className += ' error';
 		}
-		
 	});
 })();
