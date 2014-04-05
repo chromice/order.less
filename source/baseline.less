@@ -4,23 +4,23 @@
 // baseline.less =
 // = = = = = = = =
 
-.use-baseline (@size, @line-height, @magic: 0.35) when (ispixel(@size)) {
-	.use-baseline(@size, @line-height, @magic, @size, 1, @magic);
+.use-baseline (@size, @line-height, @offset: 0.85) when (ispixel(@size)) {
+	.use-baseline(@size, @line-height, @offset, @size, 1, @offset);
 }
 .use-baseline (@size, @line-height, @offset, @alt-size, @alt-line-ratio, @alt-offset) when (ispixel(@size)) and (ispixel(@alt-size)) {
 	
 	// Main baseline values
 	@baseline-font-size: @size;
 	@baseline-line-height: @line-height;
-	@baseline-offset: (@offset - 0.5);
+	@baseline-offset: @offset;
 	
 	// Adjusted baseline values
 	@current-font-size: @alt-size;
 	@current-line-height: (@baseline-line-height * @alt-line-ratio);
-	@current-offset: (@alt-offset - 0.5);
+	@current-offset: @alt-offset;
 	
 	@-diff-line-height: (@baseline-line-height * @baseline-font-size - @current-line-height * @current-font-size);
-	@-diff-font-size: (@current-font-size * @current-offset - @baseline-font-size * @baseline-offset);
+	@-diff-font-size: (@current-font-size * (@current-offset - 0.5) - @baseline-font-size * (@baseline-offset - 0.5));
 	
 	@offset-top: (unit(mod(@-diff-line-height / 2 - @-diff-font-size, @baseline-font-size * @baseline-line-height) / @baseline-font-size, rem));
 	@offset-bottom: (unit(mod(@-diff-line-height, @baseline-font-size * @baseline-line-height) / @baseline-font-size, rem));
@@ -151,7 +151,7 @@
 }
 
 // Add scale support to baseline mixins
-.use-baseline (@-step, @-line-height, @-offset: 0.35) when not(ispixel(@-step)) {
+.use-baseline (@-step, @-line-height, @-offset: 0.85) when not(ispixel(@-step)) {
 	.calculate-scale-values(@-step);
 	.use-baseline(@scale-size, @-line-height, @-offset);
 }
