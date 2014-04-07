@@ -11,7 +11,8 @@
 			'position:absolute',
 			'width:auto',
 			'font-size:128px',
-			'left:-99999px'
+			'right:100%;',
+			'bottom:0',
 		];
 
 	// Create a span element to contain the test text.

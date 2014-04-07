@@ -600,4 +600,6 @@ html {
   width: 100%;
   line-height: 1;
   font-family: "Comic Sans MS";
+  font-style: normal;
+  font-weight: 400;
 }
