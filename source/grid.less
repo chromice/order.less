@@ -96,6 +96,24 @@
 		right: 0;
 	}
 	
+	// CSS columns (experimental)
+	.grid-column-count (@count) {
+		-webkit-column-count: @count;
+		-moz-column-count: @count;
+		column-count: @count;
+	}
+	.grid-column-width (@span, @base: @grid-columns) {
+		.grid-column-count(round((@base / @span)));
+	}
+	.gutter-column-gap (@span, @base: @grid-columns) {
+		@-gap: (@grid-gutter * @span);
+		
+		-webkit-column-gap: @-gap;
+		-moz-column-gap: @-gap;
+		column-gap: @-gap;
+	}
+	
+	
 	// Calculate grid values
 	.grid-calculate-values (@span, @base) {
 		// Modern browsers that support calc():
