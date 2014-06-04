@@ -209,6 +209,6 @@ p {
 }
 ```
 
-## Specification
+## Tests
 
-There is a test suit/specification available: [specification.html](./specification.html) / [specification.less](./specification.less).
+For a detailed demonstration please consult the test suit: [HTML source](./index.html) / [LESS source](./tests/stylesheet.less).
