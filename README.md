@@ -148,7 +148,7 @@ You can set the baseline font size in pixels like this:
 .use-baseline(
     16px,  // baseline font size
     1.5,   // baseline height (ratio)
-    0.3986 // baseline offset for Verdana (ratio)
+    0.898 // baseline offset for Verdana (ratio)
 );
 
 html {
@@ -165,7 +165,7 @@ Alternatively, you can combine baseline and scale like this:
 @import 'path/to/scale.less';
 
 .use-scale(16px, 20px, 1.5);
-.use-baseline(@scale-base, 1.5, 0.3986);
+.use-baseline(@scale-base, 1.5, 0.898);
 
 html {
     font-family: Verdana, sans-serif;
@@ -177,7 +177,7 @@ html {
 Now you can set adjust font sizes and offsets of any element like this:
 
 ```less
-@offset-gill-sans: 0.345;
+@offset-gill-sans: 0.844;
 
 h1, h2 {
     font-family: "Gill Sans", sans-serif;
@@ -209,6 +209,6 @@ p {
 }
 ```
 
-## Future development
+## Specification
 
-This library is nigh feature complete. However, I still need to document it extensively, add more tests and create a tool for calculating baseline offset value for any font.
+There is a test suit/specification available: [specification.html](./specification.html) / [specification.less](./specification.less).
