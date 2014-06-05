@@ -211,4 +211,4 @@ p {
 
 ## Tests
 
-For a detailed demonstration please consult the test suit: [HTML source](./index.html) / [LESS source](./tests/stylesheet.less).
+For a detailed demonstration of framework functionality please consult the test suit: [HTML source](./tests/index.html) / [LESS source](./tests/stylesheet.less).
