@@ -130,18 +130,20 @@
 	
 	// Calculate baseline values
 	.calculate-baseline-values (@span, @base: @baseline-font-size) {
-		@-line-height-px: (@span * @baseline-font-size * @baseline-line-height);
-		@-line-height-rem: unit((@span * @baseline-line-height), rem);
+		@-line-height-px-value: unit((@span * @baseline-font-size * @baseline-line-height));
+		@-line-height-rem-value: unit((@span * @baseline-line-height));
+		@-line-height-px: ~"@{-line-height-px-value}px";
+		@-line-height-rem: ~"@{-line-height-rem-value}rem";
 	}
 	
 	// Set property values
-	.baseline-property (@property, @span) {
+	.baseline-property (@property, @span, @offset: 0) {
 		.calculate-baseline-values(@span);
 		
 		@{property}: @-line-height-px;
 		@{property}: @-line-height-rem;
 	}
-	.baseline-property (@property, @span, @offset) {
+	.baseline-property (@property, @span, @offset: 0) when (@offset > 0), (@offset < 0)  {
 		.calculate-baseline-values(@span);
 		
 		@{property}: @-line-height-px;
