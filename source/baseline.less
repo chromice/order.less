@@ -137,7 +137,7 @@
 	}
 	
 	// Set property values
-	.baseline-property (@property, @span, @offset: 0) {
+	.baseline-property (@property, @span, @offset: 0) when (@offset = 0) {
 		.calculate-baseline-values(@span);
 		
 		@{property}: @-line-height-px;
