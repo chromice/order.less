@@ -84,9 +84,9 @@
 // = = = = = = = = = = = = = = = = = = =
 
 // Import modules
-@import 'source/grid.less';
-@import 'source/scale.less';
-@import 'source/baseline.less';
+@import '../source/grid.less';
+@import '../source/scale.less';
+@import '../source/baseline.less';
 
 // .Test-run 
 .Test-run {
@@ -326,8 +326,6 @@ html {
 //  Baseline behaviour =
 // = = = = = = = = = = =
 
-@import 'source/baseline.less';
-
 @offset-gill-sans: 0.844;
 @offset-verdana: 0.898;
 
@@ -374,6 +372,7 @@ html {
 		.baseline-margin-bottom(1);
 	}
 	p {
+		.baseline-reset();
 		.baseline-margin-top(0);
 		.baseline-margin-bottom(1);
 	}
@@ -389,6 +388,7 @@ html {
 		.baseline-margin-bottom(1);
 	}
 	p {
+		.baseline-reset();
 		.baseline-margin-top(0);
 		.baseline-margin-bottom(1);
 	}
@@ -406,6 +406,7 @@ html {
 		.baseline-margin-bottom(0.9, -2px);
 	}
 	p {
+		.baseline-reset();
 		.baseline-margin-top(0);
 		.baseline-margin-bottom(1);
 	}
@@ -417,6 +418,7 @@ html {
 	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
 	
 	p {
+		.baseline-reset();
 		.baseline-margin-top(0);
 		.baseline-margin-bottom(1);
 	}
