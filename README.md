@@ -122,7 +122,7 @@ If you just want to pick a value from the scale and set the font size, you can d
 
 ```less
 h1 {
-    .scale-font-size(4);
+    .scale-size(4);
 }
 ```
 
