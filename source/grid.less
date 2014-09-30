@@ -3,11 +3,11 @@
 // = = = = = =
 // grid.less =
 // = = = = = =
-.use-grid (@columns, @gutter, @optimal-width: 940px) {
+.use-grid (@columns, @gutter, @width: 940px) {
 	
 	@grid-columns: @columns;
 	@grid-gutter: @gutter;
-	@grid-optimal-width: @optimal-width;
+	@grid-width: @width;
 	
 	// Column width
 	.grid-width (@span, @base: @grid-columns) when (@span > 0) and (@base > 0) {
@@ -124,7 +124,7 @@
 		
 		// IE8, Opera mini, Android and older versions of Safari:
 		@-direction: (@span / abs(@span));
-		@-base-width: (@grid-optimal-width * @base / @grid-columns);
+		@-base-width: (@grid-width * @base / @grid-columns);
 		@grid-fallback-width: (@-column-width - percentage(@-column-gutter / @-base-width * @-direction));
 		@grid-fallback-gutter: (percentage(@grid-gutter / @-base-width));
 		@grid-fallback-offset: (@grid-fallback-width + @grid-fallback-gutter * @-direction);
