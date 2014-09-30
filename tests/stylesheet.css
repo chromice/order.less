@@ -561,24 +561,24 @@ html {
 #baseline-vertical-offset .meta {
   font-size: 18px;
   font-size: 1.125rem;
-  line-height: 2;
+  line-height: 1.5;
   top: 0px;
-  top: -webkit-calc(0rem + -0.42475rem);
-  top: calc(0rem + -0.42475rem);
+  top: -webkit-calc(0rem + -0.1435rem);
+  top: calc(0rem + -0.1435rem);
   margin-bottom: 0px;
-  margin-bottom: -webkit-calc(0rem + -0.75rem);
-  margin-bottom: calc(0rem + -0.75rem);
+  margin-bottom: -webkit-calc(0rem + -0.1875rem);
+  margin-bottom: calc(0rem + -0.1875rem);
 }
 #baseline-vertical-offset .comments {
   font-size: 14px;
   font-size: 0.875rem;
-  line-height: 2;
+  line-height: 1.5;
   bottom: 0px;
-  bottom: -webkit-calc(0rem + 0.07525rem);
-  bottom: calc(0rem + 0.07525rem);
+  bottom: -webkit-calc(0rem + -0.1435rem);
+  bottom: calc(0rem + -0.1435rem);
   margin-bottom: 0px;
-  margin-bottom: -webkit-calc(0rem + -0.25rem);
-  margin-bottom: calc(0rem + -0.25rem);
+  margin-bottom: -webkit-calc(0rem + 0.1875rem);
+  margin-bottom: calc(0rem + 0.1875rem);
 }
 .offset-table table {
   margin: -0.25em -0.5em 0.5em;

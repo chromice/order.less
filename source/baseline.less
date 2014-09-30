@@ -4,30 +4,31 @@
 // baseline.less =
 // = = = = = = = =
 
-.use-baseline (@size, @line-height, @offset: 0.85) when (ispixel(@size)) {
-	.use-baseline(@size, @line-height, @offset, @size, 1, @offset);
+.use-baseline (@size, @height, @offset: 0.85) when (ispixel(@size)) {
+	.use-baseline(@size, @height, @offset, @size, @height, @offset);
 }
-.use-baseline (@size, @line-height, @offset, @alt-size, @alt-line-ratio, @alt-offset) when (ispixel(@size)) and (ispixel(@alt-size)) {
+.use-baseline (@size, @height, @offset, @alt-size, @alt-height, @alt-offset) when (ispixel(@size)) and (ispixel(@alt-size)) {
 	
 	// Main baseline values
 	@baseline-size: @size;
-	@baseline-height: @line-height;
+	@baseline-height: @height;
 	@baseline-offset: @offset;
 	
 	// Adjusted baseline values
 	@current-size: @alt-size;
-	@current-height: (@baseline-height * @alt-line-ratio);
+	@current-height: @alt-height;
 	@current-offset: @alt-offset;
 	
 	@-diff-height: (@baseline-height * @baseline-size - @current-height * @current-size);
 	@-diff-font-size: (@current-size * (@current-offset - 0.5) - @baseline-size * (@baseline-offset - 0.5));
 	
+	// Calculated top and bottom baseline offsets
 	@offset-top: (unit(mod(@-diff-height / 2 - @-diff-font-size, @baseline-size * @baseline-height) / @baseline-size, rem));
 	@offset-bottom: (unit(mod(@-diff-height, @baseline-size * @baseline-height) / @baseline-size, rem));
 	
 	// Set a new baseline
-	.baseline-set(@-size, @-line-ratio, @-offset: @baseline-offset) {
-		.use-baseline(@baseline-size, @baseline-height, @baseline-offset, @-size, @-line-ratio, @-offset);
+	.baseline-set(@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
+		.use-baseline(@baseline-size, @baseline-height, @baseline-offset, @-size, @-height, @-offset);
 	}
 	
 	// Reset baseline to default values
@@ -40,8 +41,8 @@
 		position: relative;
 		top: @offset-top;
 	}
-	.baseline-align (@-size, @-line-ratio, @-offset: @baseline-offset) {
-		.baseline-set(@-size, @-line-ratio, @-offset);
+	.baseline-align (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
+		.baseline-set(@-size, @-height, @-offset);
 		.baseline-align();
 	}
 	
@@ -51,8 +52,8 @@
 		font-size: unit((@current-size / @baseline-size), rem);
 		line-height: @current-height;
 	}
-	.baseline-resize (@-size, @-line-ratio, @-offset: @baseline-offset) {
-		.baseline-set(@-size, @-line-ratio, @-offset);
+	.baseline-resize (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
+		.baseline-set(@-size, @-height, @-offset);
 		.baseline-resize();
 	}
 	
@@ -61,8 +62,8 @@
 		.baseline-align();
 		.baseline-resize();
 	}
-	.baseline-adjust (@-size, @-line-ratio, @-offset: @baseline-offset) {
-		.baseline-set(@-size, @-line-ratio, @-offset);
+	.baseline-adjust (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
+		.baseline-set(@-size, @-height, @-offset);
 		.baseline-adjust();
 	}
 	
@@ -157,7 +158,7 @@
 	.calculate-scale-values(@-step);
 	.use-baseline(@scale-size, @-height, @-offset);
 }
-.use-baseline (@-size, @-height, @-offset, @-alt-step, @-alt-line-ratio, @-alt-offset) when (ispixel(@-size)) and not(ispixel(@-alt-step)) {
+.use-baseline (@-size, @-height, @-offset, @-alt-step, @-alt-height, @-alt-offset) when (ispixel(@-size)) and not(ispixel(@-alt-step)) {
 	.calculate-scale-values(@-alt-step);
-	.use-baseline(@-size, @-height, @-offset, @scale-size, @-alt-line-ratio, @-alt-offset);
+	.use-baseline(@-size, @-height, @-offset, @scale-size, @-alt-height, @-alt-offset);
 }

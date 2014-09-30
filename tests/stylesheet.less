@@ -353,13 +353,13 @@ html {
 	}
 	
 	.large {
-		.baseline-adjust(30px, 4/5);
+		.baseline-adjust(30px, (4/5 * @baseline-height));
 	}
 	.small {
-		.baseline-adjust(@baseline-size, 5/4);
+		.baseline-adjust(@baseline-size, (5/4 * @baseline-height));
 	}
 	.tiny {
-		.baseline-adjust(12px, 4/3);
+		.baseline-adjust(12px, (4/3 * @baseline-height));
 	}
 }
 
@@ -367,7 +367,7 @@ html {
 	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
 	
 	h1 {
-		.baseline-adjust(50px, 4/7);
+		.baseline-adjust(50px, (4/7 * @baseline-height));
 		.baseline-margin-top(1);
 		.baseline-margin-bottom(1);
 	}
@@ -383,7 +383,7 @@ html {
 	
 	h1 {
 		font-family: "Gill Sans", sans-serif;
-		.baseline-adjust(50px, 4/7, @offset-gill-sans);
+		.baseline-adjust(50px, (4/7 * @baseline-height), @offset-gill-sans);
 		.baseline-margin-top(1);
 		.baseline-margin-bottom(1);
 	}
@@ -399,7 +399,7 @@ html {
 	
 	h1 {
 		font-family: "Gill Sans", sans-serif;
-		.baseline-adjust(@baseline-size, 5/4, @offset-gill-sans);
+		.baseline-adjust(@baseline-size, (5/4 * @baseline-height), @offset-gill-sans);
 		.baseline-margin-top(1);
 		.baseline-padding-bottom(0.10);
 		border-bottom: 2px solid;
@@ -428,12 +428,12 @@ html {
 		left: 0;
 	}
 	.meta {
-		.baseline-resize(18px, 4/3);
+		.baseline-resize(18px);
 		.baseline-top(0);
 		.baseline-margin-bottom(0);
 	}
 	.comments {
-		.baseline-resize(14px, 4/3);
+		.baseline-resize(14px);
 		.baseline-bottom(0);
 		.baseline-margin-bottom(0);
 	}
