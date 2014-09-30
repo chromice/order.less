@@ -153,8 +153,8 @@ You can set the baseline font size in pixels like this:
 
 html {
     font-family: Verdana, sans-serif;
-    font-size: @baseline-font-size;
-    line-height: @baseline-line-height;
+    font-size: @baseline-size;
+    line-height: @baseline-height;
 }
 ```
 
@@ -169,8 +169,8 @@ Alternatively, you can combine baseline and scale like this:
 
 html {
     font-family: Verdana, sans-serif;
-    font-size: @baseline-font-size;
-    line-height: @baseline-line-height;
+    font-size: @baseline-size;
+    line-height: @baseline-height;
 }
 ```
 
@@ -192,7 +192,7 @@ h1 {
     .baseline-margin-bottom(1);
 }
 h2 {
-    .baseline-adjust(@baseline-font-size, 5/4, @offset-gill-sans);
+    .baseline-adjust(@baseline-size, 5/4, @offset-gill-sans);
     .baseline-margin-top(1);
     .baseline-padding-bottom(0.10);
     border-bottom: 2px solid;

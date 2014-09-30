@@ -333,8 +333,8 @@ html {
 
 html {
 	font-family: Verdana, sans-serif;
-	font-size: @baseline-font-size;
-	line-height: @baseline-line-height;
+	font-size: @baseline-size;
+	line-height: @baseline-height;
 }
 
 #baseline-horizontal {
@@ -356,7 +356,7 @@ html {
 		.baseline-adjust(30px, 4/5);
 	}
 	.small {
-		.baseline-adjust(@baseline-font-size, 5/4);
+		.baseline-adjust(@baseline-size, 5/4);
 	}
 	.tiny {
 		.baseline-adjust(12px, 4/3);
@@ -399,7 +399,7 @@ html {
 	
 	h1 {
 		font-family: "Gill Sans", sans-serif;
-		.baseline-adjust(@baseline-font-size, 5/4, @offset-gill-sans);
+		.baseline-adjust(@baseline-size, 5/4, @offset-gill-sans);
 		.baseline-margin-top(1);
 		.baseline-padding-bottom(0.10);
 		border-bottom: 2px solid;

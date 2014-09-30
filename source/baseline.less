@@ -10,29 +10,29 @@
 .use-baseline (@size, @line-height, @offset, @alt-size, @alt-line-ratio, @alt-offset) when (ispixel(@size)) and (ispixel(@alt-size)) {
 	
 	// Main baseline values
-	@baseline-font-size: @size;
-	@baseline-line-height: @line-height;
+	@baseline-size: @size;
+	@baseline-height: @line-height;
 	@baseline-offset: @offset;
 	
 	// Adjusted baseline values
-	@current-font-size: @alt-size;
-	@current-line-height: (@baseline-line-height * @alt-line-ratio);
+	@current-size: @alt-size;
+	@current-height: (@baseline-height * @alt-line-ratio);
 	@current-offset: @alt-offset;
 	
-	@-diff-line-height: (@baseline-line-height * @baseline-font-size - @current-line-height * @current-font-size);
-	@-diff-font-size: (@current-font-size * (@current-offset - 0.5) - @baseline-font-size * (@baseline-offset - 0.5));
+	@-diff-height: (@baseline-height * @baseline-size - @current-height * @current-size);
+	@-diff-font-size: (@current-size * (@current-offset - 0.5) - @baseline-size * (@baseline-offset - 0.5));
 	
-	@offset-top: (unit(mod(@-diff-line-height / 2 - @-diff-font-size, @baseline-font-size * @baseline-line-height) / @baseline-font-size, rem));
-	@offset-bottom: (unit(mod(@-diff-line-height, @baseline-font-size * @baseline-line-height) / @baseline-font-size, rem));
+	@offset-top: (unit(mod(@-diff-height / 2 - @-diff-font-size, @baseline-size * @baseline-height) / @baseline-size, rem));
+	@offset-bottom: (unit(mod(@-diff-height, @baseline-size * @baseline-height) / @baseline-size, rem));
 	
 	// Set a new baseline
 	.baseline-set(@-size, @-line-ratio, @-offset: @baseline-offset) {
-		.use-baseline(@baseline-font-size, @baseline-line-height, @baseline-offset, @-size, @-line-ratio, @-offset);
+		.use-baseline(@baseline-size, @baseline-height, @baseline-offset, @-size, @-line-ratio, @-offset);
 	}
 	
 	// Reset baseline to default values
 	.baseline-reset() {
-		.use-baseline(@baseline-font-size, @baseline-line-height, @baseline-offset);
+		.use-baseline(@baseline-size, @baseline-height, @baseline-offset);
 	}
 	
 	// Shift text to the main baseline
@@ -47,9 +47,9 @@
 	
 	// Set font size and line height
 	.baseline-resize () {
-		font-size: @current-font-size;
-		font-size: unit((@current-font-size / @baseline-font-size), rem);
-		line-height: @current-line-height;
+		font-size: @current-size;
+		font-size: unit((@current-size / @baseline-size), rem);
+		line-height: @current-height;
 	}
 	.baseline-resize (@-size, @-line-ratio, @-offset: @baseline-offset) {
 		.baseline-set(@-size, @-line-ratio, @-offset);
@@ -129,35 +129,35 @@
 	}
 	
 	// Calculate baseline values
-	.calculate-baseline-values (@span, @base: @baseline-font-size) {
-		@-line-height-px-value: unit((@span * @baseline-font-size * @baseline-line-height));
-		@-line-height-rem-value: unit((@span * @baseline-line-height));
-		@-line-height-px: ~"@{-line-height-px-value}px";
-		@-line-height-rem: ~"@{-line-height-rem-value}rem";
+	.calculate-baseline-values (@span, @base: @baseline-size) {
+		@-height-px-value: unit((@span * @baseline-size * @baseline-height));
+		@-height-rem-value: unit((@span * @baseline-height));
+		@-height-px: ~"@{-height-px-value}px";
+		@-height-rem: ~"@{-height-rem-value}rem";
 	}
 	
 	// Set property values
 	.baseline-property (@property, @span, @offset: 0) when (@offset = 0) {
 		.calculate-baseline-values(@span);
 		
-		@{property}: @-line-height-px;
-		@{property}: @-line-height-rem;
+		@{property}: @-height-px;
+		@{property}: @-height-rem;
 	}
 	.baseline-property (@property, @span, @offset: 0) when (@offset > 0), (@offset < 0)  {
 		.calculate-baseline-values(@span);
 		
-		@{property}: @-line-height-px;
-		@{property}: -webkit-calc(@-line-height-rem ~"+" @offset);
-		@{property}: calc(@-line-height-rem ~"+" @offset);
+		@{property}: @-height-px;
+		@{property}: -webkit-calc(@-height-rem ~"+" @offset);
+		@{property}: calc(@-height-rem ~"+" @offset);
 	}
 }
 
 // Add scale support to baseline mixins
-.use-baseline (@-step, @-line-height, @-offset: 0.85) when not(ispixel(@-step)) {
+.use-baseline (@-step, @-height, @-offset: 0.85) when not(ispixel(@-step)) {
 	.calculate-scale-values(@-step);
-	.use-baseline(@scale-size, @-line-height, @-offset);
+	.use-baseline(@scale-size, @-height, @-offset);
 }
-.use-baseline (@-size, @-line-height, @-offset, @-alt-step, @-alt-line-ratio, @-alt-offset) when (ispixel(@-size)) and not(ispixel(@-alt-step)) {
+.use-baseline (@-size, @-height, @-offset, @-alt-step, @-alt-line-ratio, @-alt-offset) when (ispixel(@-size)) and not(ispixel(@-alt-step)) {
 	.calculate-scale-values(@-alt-step);
-	.use-baseline(@-size, @-line-height, @-offset, @scale-size, @-alt-line-ratio, @-alt-offset);
+	.use-baseline(@-size, @-height, @-offset, @scale-size, @-alt-line-ratio, @-alt-offset);
 }
