@@ -71,62 +71,62 @@
 	.baseline-height (@span) {
 		.baseline-property(height, @span);
 	}
-	.baseline-height (@span, @offset) {
-		.baseline-property(height, @span, @offset);
+	.baseline-height (@span, @nudge) {
+		.baseline-property(height, @span, @nudge);
 	}
 	.baseline-min-height (@span) {
 		.baseline-property(min-height, @span);
 	}
-	.baseline-min-height (@span, @offset) {
-		.baseline-property(min-height, @span, @offset);
+	.baseline-min-height (@span, @nudge) {
+		.baseline-property(min-height, @span, @nudge);
 	}
 	.baseline-max-height (@span) {
 		.baseline-property(max-height, @span);
 	}
-	.baseline-max-height (@span, @offset) {
-		.baseline-property(max-height, @span, @offset);
+	.baseline-max-height (@span, @nudge) {
+		.baseline-property(max-height, @span, @nudge);
 	}
 	
 	// Baseline offset
 	.baseline-top (@span) {
 		.baseline-property(top, @span, @offset-top);
 	}
-	.baseline-top (@span, @offset) {
-		.baseline-property(top, @span, @offset ~"+" @offset-top);
+	.baseline-top (@span, @nudge) {
+		.baseline-property(top, @span, @nudge ~"+" @offset-top);
 	}
 	.baseline-bottom (@span) {
 		.baseline-property(bottom, @span, (@offset-top * -1));
 	}
-	.baseline-bottom (@span, @offset) {
-		.baseline-property(bottom, @span, @offset ~"-" @offset-top);
+	.baseline-bottom (@span, @nudge) {
+		.baseline-property(bottom, @span, @nudge ~"-" @offset-top);
 	}
 	
 	// Baseline padding
 	.baseline-padding-top (@span) {
 		.baseline-property(padding-top, @span);
 	}
-	.baseline-padding-top (@span, @offset) {
-		.baseline-property(padding-top, @span, @offset);
+	.baseline-padding-top (@span, @nudge) {
+		.baseline-property(padding-top, @span, @nudge);
 	}
 	.baseline-padding-bottom (@span) {
 		.baseline-property(padding-bottom, @span);
 	}
-	.baseline-padding-bottom (@span, @offset) {
-		.baseline-property(padding-bottom, @span, @offset);
+	.baseline-padding-bottom (@span, @nudge) {
+		.baseline-property(padding-bottom, @span, @nudge);
 	}
 	
 	// Baseline margin
 	.baseline-margin-top (@span) {
 		.baseline-property(margin-top, @span);
 	}
-	.baseline-margin-top (@span, @offset) {
-		.baseline-property(margin-top, @span, @offset);
+	.baseline-margin-top (@span, @nudge) {
+		.baseline-property(margin-top, @span, @nudge);
 	}
 	.baseline-margin-bottom (@span) {
 		.baseline-property(margin-bottom, @span, @offset-bottom);
 	}
-	.baseline-margin-bottom (@span, @offset) {
-		.baseline-property(margin-bottom, @span, @offset ~"+" @offset-bottom);
+	.baseline-margin-bottom (@span, @nudge) {
+		.baseline-property(margin-bottom, @span, @nudge ~"+" @offset-bottom);
 	}
 	
 	// Calculate baseline values
@@ -138,18 +138,18 @@
 	}
 	
 	// Set property values
-	.baseline-property (@property, @span, @offset: 0) when (@offset = 0) {
+	.baseline-property (@property, @span, @nudge: 0) when (@nudge = 0) {
 		.calculate-baseline-values(@span);
 		
 		@{property}: @-height-px;
 		@{property}: @-height-rem;
 	}
-	.baseline-property (@property, @span, @offset: 0) when (@offset > 0), (@offset < 0)  {
+	.baseline-property (@property, @span, @nudge: 0) when (default())  {
 		.calculate-baseline-values(@span);
 		
 		@{property}: @-height-px;
-		@{property}: -webkit-calc(@-height-rem ~"+" @offset);
-		@{property}: calc(@-height-rem ~"+" @offset);
+		@{property}: -webkit-calc(@-height-rem ~"+" @nudge);
+		@{property}: calc(@-height-rem ~"+" @nudge);
 	}
 }
 
