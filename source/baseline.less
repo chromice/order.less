@@ -138,18 +138,21 @@
 	}
 	
 	// Set property values
-	.baseline-property (@property, @span, @nudge: 0) when (@nudge = 0) {
+	.baseline-property (@property, @span, @nudge: 0) when not(@span = 0) and (@nudge = 0) {
 		.calculate-baseline-values(@span);
 		
 		@{property}: @-height-px;
 		@{property}: @-height-rem;
 	}
-	.baseline-property (@property, @span, @nudge: 0) when (default())  {
+	.baseline-property (@property, @span, @nudge: 0) when (default()) {
 		.calculate-baseline-values(@span);
 		
 		@{property}: @-height-px;
 		@{property}: -webkit-calc(@-height-rem ~"+" @nudge);
 		@{property}: calc(@-height-rem ~"+" @nudge);
+	}
+	.baseline-property (@property, @span, @nudge: 0) when (@span = 0) and (@nudge = 0) {
+		@{property}: 0;
 	}
 }
 
