@@ -597,6 +597,12 @@ html {
 .offset-table .error th + td {
   color: red;
 }
+.offset-table .warning th + td {
+  color: orange;
+}
+.offset-table .notice th + td {
+  color: #666;
+}
 #scale-test {
   position: absolute;
   right: 100%;

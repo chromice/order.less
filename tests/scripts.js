@@ -111,7 +111,11 @@
 		}
 	
 		// Highlight rows that do not meet expectations
-		if (th.nextElementSibling.textContent !== th.nextElementSibling.nextElementSibling.textContent) {
+		if (th.nextElementSibling.textContent === th.nextElementSibling.nextElementSibling.textContent) {
+			// do nothing
+		} else if (Math.abs((th.nextElementSibling.textContent / th.nextElementSibling.nextElementSibling.textContent) - 1) < 0.01) {
+			th.parentNode.className += ' notice';
+		} else {
 			th.parentNode.className += ' error';
 		}
 	}
