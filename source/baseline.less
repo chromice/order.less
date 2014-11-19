@@ -113,28 +113,28 @@
 	
 	// Set property values
 	.-baseline-property (@property, @span, @nudge: 0) when not(@span = 0) and (@nudge = 0) {
-		.get-height(@span);
+		.get-baseline-height(@span);
 		
-		@{property}: @height-px;
-		@{property}: @height-rem;
+		@{property}: @baseline-height-px;
+		@{property}: @baseline-height-rem;
 	}
 	.-baseline-property (@property, @span, @nudge: 0) when (@span = 0) and (@nudge = 0) {
 		@{property}: 0;
 	}
 	.-baseline-property (@property, @span, @nudge: 0) when (default()) {
-		.get-height(@span);
+		.get-baseline-height(@span);
 		
-		@{property}: @height-px;
-		@{property}: -webkit-calc(@height-rem ~"+" @nudge);
-		@{property}: calc(@height-rem ~"+" @nudge);
+		@{property}: @baseline-height-px;
+		@{property}: -webkit-calc(@baseline-height-rem ~"+" @nudge);
+		@{property}: calc(@baseline-height-rem ~"+" @nudge);
 	}
 	
 	// Calculate baseline values
-	.get-height (@span, @base: @baseline-size) {
+	.get-baseline-height (@span, @base: @baseline-size) {
 		@-height-px-value: unit((@span * @baseline-size * @baseline-height));
 		@-height-rem-value: unit((@span * @baseline-height));
-		@height-px: ~"@{-height-px-value}px";
-		@height-rem: ~"@{-height-rem-value}rem";
+		@baseline-height-px: ~"@{-height-px-value}px";
+		@baseline-height-rem: ~"@{-height-rem-value}rem";
 	}
 }
 
