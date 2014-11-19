@@ -68,64 +68,46 @@
 	}
 	
 	// Baseline height
-	.baseline-height (@span) {
-		.baseline-property(height, @span);
-	}
-	.baseline-height (@span, @nudge) {
+	.baseline-height (@span, @nudge: 0) {
 		.baseline-property(height, @span, @nudge);
 	}
-	.baseline-min-height (@span) {
-		.baseline-property(min-height, @span);
-	}
-	.baseline-min-height (@span, @nudge) {
+	.baseline-min-height (@span, @nudge: 0) {
 		.baseline-property(min-height, @span, @nudge);
 	}
-	.baseline-max-height (@span) {
-		.baseline-property(max-height, @span);
-	}
-	.baseline-max-height (@span, @nudge) {
+	.baseline-max-height (@span, @nudge: 0) {
 		.baseline-property(max-height, @span, @nudge);
 	}
 	
 	// Baseline offset
-	.baseline-top (@span) {
+	.baseline-top (@span, @nudge: 0) when (@nudge = 0) {
 		.baseline-property(top, @span, @offset-top);
 	}
-	.baseline-top (@span, @nudge) {
+	.baseline-top (@span, @nudge: 0) when (default()) {
 		.baseline-property(top, @span, @nudge ~"+" @offset-top);
 	}
-	.baseline-bottom (@span) {
+	.baseline-bottom (@span, @nudge: 0) when (@nudge = 0) {
 		.baseline-property(bottom, @span, (@offset-top * -1));
 	}
-	.baseline-bottom (@span, @nudge) {
+	.baseline-bottom (@span, @nudge) when (default()) {
 		.baseline-property(bottom, @span, @nudge ~"-" @offset-top);
 	}
 	
 	// Baseline padding
-	.baseline-padding-top (@span) {
-		.baseline-property(padding-top, @span);
-	}
-	.baseline-padding-top (@span, @nudge) {
+	.baseline-padding-top (@span, @nudge: 0) {
 		.baseline-property(padding-top, @span, @nudge);
 	}
-	.baseline-padding-bottom (@span) {
-		.baseline-property(padding-bottom, @span);
-	}
-	.baseline-padding-bottom (@span, @nudge) {
+	.baseline-padding-bottom (@span, @nudge: 0) {
 		.baseline-property(padding-bottom, @span, @nudge);
 	}
 	
 	// Baseline margin
-	.baseline-margin-top (@span) {
-		.baseline-property(margin-top, @span);
-	}
-	.baseline-margin-top (@span, @nudge) {
+	.baseline-margin-top (@span, @nudge: 0) {
 		.baseline-property(margin-top, @span, @nudge);
 	}
-	.baseline-margin-bottom (@span) {
+	.baseline-margin-bottom (@span, @nudge: 0) when (@nudge = 0) {
 		.baseline-property(margin-bottom, @span, @offset-bottom);
 	}
-	.baseline-margin-bottom (@span, @nudge) {
+	.baseline-margin-bottom (@span, @nudge) when (default()) {
 		.baseline-property(margin-bottom, @span, @nudge ~"+" @offset-bottom);
 	}
 	
