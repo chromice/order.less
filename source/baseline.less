@@ -129,39 +129,39 @@
 		.baseline-property(margin-bottom, @span, @nudge ~"+" @offset-bottom);
 	}
 	
-	// Calculate baseline values
-	.calculate-baseline-values (@span, @base: @baseline-size) {
-		@-height-px-value: unit((@span * @baseline-size * @baseline-height));
-		@-height-rem-value: unit((@span * @baseline-height));
-		@-height-px: ~"@{-height-px-value}px";
-		@-height-rem: ~"@{-height-rem-value}rem";
-	}
-	
 	// Set property values
 	.baseline-property (@property, @span, @nudge: 0) when not(@span = 0) and (@nudge = 0) {
-		.calculate-baseline-values(@span);
+		.get-height(@span);
 		
-		@{property}: @-height-px;
-		@{property}: @-height-rem;
-	}
-	.baseline-property (@property, @span, @nudge: 0) when (default()) {
-		.calculate-baseline-values(@span);
-		
-		@{property}: @-height-px;
-		@{property}: -webkit-calc(@-height-rem ~"+" @nudge);
-		@{property}: calc(@-height-rem ~"+" @nudge);
+		@{property}: @height-px;
+		@{property}: @height-rem;
 	}
 	.baseline-property (@property, @span, @nudge: 0) when (@span = 0) and (@nudge = 0) {
 		@{property}: 0;
+	}
+	.baseline-property (@property, @span, @nudge: 0) when (default()) {
+		.get-height(@span);
+		
+		@{property}: @height-px;
+		@{property}: -webkit-calc(@height-rem ~"+" @nudge);
+		@{property}: calc(@height-rem ~"+" @nudge);
+	}
+	
+	// Calculate baseline values
+	.get-height (@span, @base: @baseline-size) {
+		@-height-px-value: unit((@span * @baseline-size * @baseline-height));
+		@-height-rem-value: unit((@span * @baseline-height));
+		@height-px: ~"@{-height-px-value}px";
+		@height-rem: ~"@{-height-rem-value}rem";
 	}
 }
 
 // Add scale support to baseline mixins
 .use-baseline (@-step, @-height, @-offset: 0.85) when not(ispixel(@-step)) {
-	.calculate-scale-values(@-step);
+	.get-scale-size(@-step);
 	.use-baseline(@scale-size, @-height, @-offset);
 }
 .use-baseline (@-size, @-height, @-offset, @-alt-step, @-alt-height, @-alt-offset) when (ispixel(@-size)) and not(ispixel(@-alt-step)) {
-	.calculate-scale-values(@-alt-step);
+	.get-scale-size(@-alt-step);
 	.use-baseline(@-size, @-height, @-offset, @scale-size, @-alt-height, @-alt-offset);
 }

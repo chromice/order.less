@@ -12,7 +12,7 @@
 	
 	// Font size
 	.scale-size (@step) {
-		.calculate-scale-values(@step);
+		.get-scale-size(@step);
 		
 		font-size: @scale-size;
 		font-size: unit((@scale-size / @scale-base), rem);
@@ -28,10 +28,10 @@
 	.find-power-diff(0);
 	
 	// Calculate scale size at a particular particular step
-	.calculate-scale-values (@step) when (mod(round(@step), 2) = 0) {
+	.get-scale-size (@step) when (mod(round(@step), 2) = 0) {
 		@scale-size: (@base * pow(@ratio, @step / 2));
 	}
-	.calculate-scale-values (@step) when (default()) {
+	.get-scale-size (@step) when (default()) {
 		@scale-size: (@alternative * pow(@ratio, (@step - 1) / 2 - (@-power-diff - 1)));
 	}
 }

@@ -77,8 +77,44 @@
 		column-gap: @-gap;
 	}
 	
+	// Set width values
+	.grid-width-property (@property, @span, @base) when (@span > 0) and (@base > 0) {
+		.get-grid-values(@span, @base);
+		
+		@{property}: @grid-fallback-width;
+		@{property}: -webkit-calc(@grid-calc-width);
+		@{property}: calc(@grid-calc-width);
+	}
+	.grid-width-property (@property, @span, @base) when (@span = 0), (@base =< 0) {
+		@{property}: 0;
+	}
+	
+	// Set offset values
+	.grid-offset-property (@property, @span, @base) when not(@span = 0) and (@base > 0) {
+		.get-grid-values(@span, @base);
+		
+		@{property}: @grid-fallback-offset;
+		@{property}: -webkit-calc(@grid-calc-offset);
+		@{property}: calc(@grid-calc-offset);
+	}
+	.grid-offset-property (@property, @span, @base) when (@span = 0), (@base =< 0) {
+		@{property}: 0;
+	}
+	
+	// Set gutter values
+	.grid-gutter-property (@property, @span, @base) when not(@span = 0) and (@span >= -1) and (@span =< 1) and (@base > 0) {
+		.get-grid-values(@span, @base);
+		
+		@{property}: (@grid-fallback-gutter * @span);
+		@{property}: -webkit-calc((@grid-gutter * @span));
+		@{property}: calc((@grid-gutter * @span));
+	}
+	.grid-gutter-property (@property, @span, @base) when (@span = 0), (@base =< 0) {
+		@{property}: 0;
+	}
+	
 	// Calculate grid values
-	.grid-calculate-values (@span, @base) {
+	.get-grid-values (@span, @base) {
 		// Modern browsers that support calc():
 		@-column-width: round((100% / @base * @span), 8);
 		@-column-gutter: round(((@base - @span) / @base * @grid-gutter), 8);
@@ -91,41 +127,5 @@
 		@grid-fallback-width: (@-column-width - percentage(@-column-gutter / @-base-width * @-direction));
 		@grid-fallback-gutter: (percentage(@grid-gutter / @-base-width));
 		@grid-fallback-offset: (@grid-fallback-width + @grid-fallback-gutter * @-direction);
-	}
-	
-	// Set width values
-	.grid-width-property (@property, @span, @base) when (@span > 0) and (@base > 0) {
-		.grid-calculate-values(@span, @base);
-		
-		@{property}: @grid-fallback-width;
-		@{property}: -webkit-calc(@grid-calc-width);
-		@{property}: calc(@grid-calc-width);
-	}
-	.grid-width-property (@property, @span, @base) when (@span = 0), (@base =< 0) {
-		@{property}: 0;
-	}
-	
-	// Set offset values
-	.grid-offset-property (@property, @span, @base) when not(@span = 0) and (@base > 0) {
-		.grid-calculate-values(@span, @base);
-		
-		@{property}: @grid-fallback-offset;
-		@{property}: -webkit-calc(@grid-calc-offset);
-		@{property}: calc(@grid-calc-offset);
-	}
-	.grid-offset-property (@property, @span, @base) when (@span = 0), (@base =< 0) {
-		@{property}: 0;
-	}
-	
-	// Set gutter values
-	.grid-gutter-property (@property, @span, @base) when not(@span = 0) and (@span >= -1) and (@span =< 1) and (@base > 0) {
-		.grid-calculate-values(@span, @base);
-		
-		@{property}: (@grid-fallback-gutter * @span);
-		@{property}: -webkit-calc((@grid-gutter * @span));
-		@{property}: calc((@grid-gutter * @span));
-	}
-	.grid-gutter-property (@property, @span, @base) when (@span = 0), (@base =< 0) {
-		@{property}: 0;
 	}
 }
