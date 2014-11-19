@@ -192,14 +192,14 @@ h1 {
     .margin-bottom(1);
 }
 h2 {
-    .adjust(@baseline-size, 5/4, @offset-gill-sans);
+    .adjust(@baseline-size, (5/4 * @baseline-height), @offset-gill-sans);
     .margin-top(1);
     .padding-bottom(0.10);
     border-bottom: 2px solid;
     .margin-bottom(0.9, -2px);
 }
 h3 {
-    .adjust(12px, 4/3);
+    .adjust(12px, (4/3 * @baseline-height));
     .margin-top(1);
     .margin-bottom(0);
 }
