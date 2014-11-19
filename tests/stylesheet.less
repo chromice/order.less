@@ -270,17 +270,17 @@ html {
 			.margin-left-gutter(0);
 		}
 		
-		.baseline-margin-top(1);
+		.margin-top(1);
 	}
 	
 	.large {
-		.baseline-adjust(30px, (4/5 * @baseline-height));
+		.adjust(30px, (4/5 * @baseline-height));
 	}
 	.small {
-		.baseline-adjust(@baseline-size, (5/4 * @baseline-height));
+		.adjust(@baseline-size, (5/4 * @baseline-height));
 	}
 	.tiny {
-		.baseline-adjust(12px, (4/3 * @baseline-height));
+		.adjust(12px, (4/3 * @baseline-height));
 	}
 }
 
@@ -288,14 +288,14 @@ html {
 	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
 	
 	h1 {
-		.baseline-adjust(50px, (4/7 * @baseline-height));
-		.baseline-margin-top(1);
-		.baseline-margin-bottom(1);
+		.adjust(50px, (4/7 * @baseline-height));
+		.margin-top(1);
+		.margin-bottom(1);
 	}
 	p {
 		.reset-baseline();
-		.baseline-margin-top(0);
-		.baseline-margin-bottom(1);
+		.margin-top(0);
+		.margin-bottom(1);
 	}
 }
 
@@ -304,14 +304,14 @@ html {
 	
 	h1 {
 		font-family: "Gill Sans", sans-serif;
-		.baseline-adjust(50px, (4/7 * @baseline-height), @offset-gill-sans);
-		.baseline-margin-top(1);
-		.baseline-margin-bottom(1);
+		.adjust(50px, (4/7 * @baseline-height), @offset-gill-sans);
+		.margin-top(1);
+		.margin-bottom(1);
 	}
 	p {
 		.reset-baseline();
-		.baseline-margin-top(0);
-		.baseline-margin-bottom(1);
+		.margin-top(0);
+		.margin-bottom(1);
 	}
 }
 
@@ -320,16 +320,16 @@ html {
 	
 	h1 {
 		font-family: "Gill Sans", sans-serif;
-		.baseline-adjust(@baseline-size, (5/4 * @baseline-height), @offset-gill-sans);
-		.baseline-margin-top(1);
-		.baseline-padding-bottom(0.10);
+		.adjust(@baseline-size, (5/4 * @baseline-height), @offset-gill-sans);
+		.margin-top(1);
+		.padding-bottom(0.10);
 		border-bottom: 2px solid;
-		.baseline-margin-bottom(0.9, -2px);
+		.margin-bottom(0.9, -2px);
 	}
 	p {
 		.reset-baseline();
-		.baseline-margin-top(0);
-		.baseline-margin-bottom(1);
+		.margin-top(0);
+		.margin-bottom(1);
 	}
 }
 #baseline-vertical-offset {
@@ -340,8 +340,8 @@ html {
 	
 	p {
 		.reset-baseline();
-		.baseline-margin-top(0);
-		.baseline-margin-bottom(1);
+		.margin-top(0);
+		.margin-bottom(1);
 	}
 	
 	.comments, .meta {
@@ -349,14 +349,14 @@ html {
 		left: 0;
 	}
 	.meta {
-		.baseline-resize(18px);
-		.baseline-top(0);
-		.baseline-margin-bottom(0, 0);
+		.resize(18px);
+		.top(0);
+		.margin-bottom(0, 0);
 	}
 	.comments {
-		.baseline-resize(14px);
-		.baseline-bottom(0);
-		.baseline-margin-bottom(0);
+		.resize(14px);
+		.bottom(0);
+		.margin-bottom(0);
 	}
 }
 

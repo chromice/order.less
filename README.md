@@ -183,29 +183,29 @@ h1, h2 {
     font-family: "Gill Sans", sans-serif;
 }
 h1 {
-    .baseline-adjust(
+    .adjust(
         70px,             // adjusted font size (pixels or scale step)
         4/7,              // adjusted line height to baseline height ratio
         @offset-gill-sans // baseline offset for Gill Sans (a ratio)
     );
-    .baseline-margin-top(1);
-    .baseline-margin-bottom(1);
+    .margin-top(1);
+    .margin-bottom(1);
 }
 h2 {
-    .baseline-adjust(@baseline-size, 5/4, @offset-gill-sans);
-    .baseline-margin-top(1);
-    .baseline-padding-bottom(0.10);
+    .adjust(@baseline-size, 5/4, @offset-gill-sans);
+    .margin-top(1);
+    .padding-bottom(0.10);
     border-bottom: 2px solid;
-    .baseline-margin-bottom(0.9, -2px);
+    .margin-bottom(0.9, -2px);
 }
 h3 {
-    .baseline-adjust(12px, 4/3);
-    .baseline-margin-top(1);
-    .baseline-margin-bottom(0);
+    .adjust(12px, 4/3);
+    .margin-top(1);
+    .margin-bottom(0);
 }
 p {
-    .baseline-margin-top(0);
-    .baseline-margin-bottom(1);
+    .margin-top(0);
+    .margin-bottom(1);
 }
 ```
 
