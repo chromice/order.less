@@ -1,4 +1,4 @@
-//! order.less v0.1.0 | Apache License, Version 2.0 | github.com/chromice/order.less
+//! order.less v0.5.0 | Apache License, Version 2.0 | github.com/chromice/order.less
 
 // = = = = = =
 // grid.less =
@@ -10,66 +10,66 @@
 	@grid-width: @width;
 	
 	// Column width
-	.grid-width (@span, @base: @grid-columns) {
-		.grid-width-property(width, @span, @base);
+	.width (@span, @base: @grid-columns) {
+		.-grid-width-property(width, @span, @base);
 	}
-	.grid-max-width (@span, @base: @grid-columns) {
-		.grid-width-property(max-width, @span, @base);
+	.max-width (@span, @base: @grid-columns) {
+		.-grid-width-property(max-width, @span, @base);
 	}
-	.grid-min-width (@span, @base: @grid-columns) {
-		.grid-width-property(min-width, @span, @base);
+	.min-width (@span, @base: @grid-columns) {
+		.-grid-width-property(min-width, @span, @base);
 	}
 	
 	// Column offset
-	.grid-margin-left (@span, @base: @grid-columns) {
-		.grid-offset-property(margin-left, @span, @base);
+	.margin-left (@span, @base: @grid-columns) {
+		.-grid-offset-property(margin-left, @span, @base);
 	}
-	.grid-margin-right (@span, @base: @grid-columns) {
-		.grid-offset-property(margin-right, @span, @base);
+	.margin-right (@span, @base: @grid-columns) {
+		.-grid-offset-property(margin-right, @span, @base);
 	}
-	.grid-padding-left (@span, @base: @grid-columns) {
-		.grid-offset-property(padding-left, @span, @base);
+	.padding-left (@span, @base: @grid-columns) {
+		.-grid-offset-property(padding-left, @span, @base);
 	}
-	.grid-padding-right (@span, @base: @grid-columns) {
-		.grid-offset-property(padding-right, @span, @base);
+	.padding-right (@span, @base: @grid-columns) {
+		.-grid-offset-property(padding-right, @span, @base);
 	}
-	.grid-left (@span, @base: @grid-columns) {
-		.grid-offset-property(left, @span, @base);
+	.left (@span, @base: @grid-columns) {
+		.-grid-offset-property(left, @span, @base);
 	}
-	.grid-right (@span, @base: @grid-columns) {
-		.grid-offset-property(right, @span, @base);
+	.right (@span, @base: @grid-columns) {
+		.-grid-offset-property(right, @span, @base);
 	}
 	
 	// Gutter offset
-	.gutter-margin-left (@span, @base: @grid-columns) {
-		.grid-gutter-property(margin-left, @span, @base);
+	.margin-left-gutter (@span: 1, @base: @grid-columns) {
+		.-grid-gutter-property(margin-left, @span, @base);
 	}
-	.gutter-margin-right (@span, @base: @grid-columns) {
-		.grid-gutter-property(margin-right, @span, @base);
+	.margin-right-gutter (@span: 1, @base: @grid-columns) {
+		.-grid-gutter-property(margin-right, @span, @base);
 	}
-	.gutter-padding-left (@span, @base: @grid-columns) {
-		.grid-gutter-property(padding-left, @span, @base);
+	.padding-left-gutter (@span: 1, @base: @grid-columns) {
+		.-grid-gutter-property(padding-left, @span, @base);
 	}
-	.gutter-padding-right (@span, @base: @grid-columns) {
-		.grid-gutter-property(padding-right, @span, @base);
+	.padding-right-gutter (@span: 1, @base: @grid-columns) {
+		.-grid-gutter-property(padding-right, @span, @base);
 	}
-	.gutter-left (@span, @base: @grid-columns) {
-		.grid-gutter-property(left, @span, @base);
+	.left-gutter (@span: 1, @base: @grid-columns) {
+		.-grid-gutter-property(left, @span, @base);
 	}
-	.gutter-right (@span, @base: @grid-columns) {
-		.grid-gutter-property(right, @span, @base);
+	.right-gutter (@span: 1, @base: @grid-columns) {
+		.-grid-gutter-property(right, @span, @base);
 	}
 	
 	// CSS columns (experimental)
-	.grid-column-count (@count) {
+	.column-count (@count) {
 		-webkit-column-count: @count;
 		-moz-column-count: @count;
 		column-count: @count;
 	}
-	.grid-column-width (@span, @base: @grid-columns) {
-		.grid-column-count(round((@base / @span)));
+	.column-width (@span, @base: @grid-columns) {
+		.column-count(round((@base / @span)));
 	}
-	.gutter-column-gap (@span, @base: @grid-columns) {
+	.column-gap (@span: 1) {
 		@-gap: (@grid-gutter * @span);
 		
 		-webkit-column-gap: @-gap;
@@ -78,38 +78,38 @@
 	}
 	
 	// Set width values
-	.grid-width-property (@property, @span, @base) when (@span > 0) and (@base > 0) {
+	.-grid-width-property (@property, @span, @base) when (@span > 0) and (@base > 0) {
 		.get-width(@span, @base);
 		
 		@{property}: @width-fallback;
 		@{property}: -webkit-calc(@width-calc);
 		@{property}: calc(@width-calc);
 	}
-	.grid-width-property (@property, @span, @base) when (@span = 0), (@base =< 0) {
+	.-grid-width-property (@property, @span, @base) when (@span = 0), (@base =< 0) {
 		@{property}: 0;
 	}
 	
 	// Set offset values
-	.grid-offset-property (@property, @span, @base) when not(@span = 0) and (@base > 0) {
+	.-grid-offset-property (@property, @span, @base) when not(@span = 0) and (@base > 0) {
 		.get-offset(@span, @base);
 		
 		@{property}: @offset-fallback;
 		@{property}: -webkit-calc(@offset-calc);
 		@{property}: calc(@offset-calc);
 	}
-	.grid-offset-property (@property, @span, @base) when (@span = 0), (@base =< 0) {
+	.-grid-offset-property (@property, @span, @base) when (@span = 0), (@base =< 0) {
 		@{property}: 0;
 	}
 	
 	// Set gutter values
-	.grid-gutter-property (@property, @span, @base) when not(@span = 0) and (@span >= -1) and (@span =< 1) and (@base > 0) {
+	.-grid-gutter-property (@property, @span, @base) when not(@span = 0) and (@span >= -1) and (@span =< 1) and (@base > 0) {
 		.get-gutter(@span, @base);
 		
 		@{property}: @gutter-fallback;
 		@{property}: -webkit-calc(@gutter-calc);
 		@{property}: calc(@gutter-calc);
 	}
-	.grid-gutter-property (@property, @span, @base) when (@span = 0), (@base =< 0) {
+	.-grid-gutter-property (@property, @span, @base) when (@span = 0), (@base =< 0) {
 		@{property}: 0;
 	}
 	

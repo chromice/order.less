@@ -1,4 +1,4 @@
-//! order.less v0.1.0 | Apache License, Version 2.0 | github.com/chromice/order.less
+//! order.less v0.5.0 | Apache License, Version 2.0 | github.com/chromice/order.less
 
 // = = = = = = = =
 // baseline.less =
@@ -27,12 +27,12 @@
 	@offset-bottom: (unit(mod(@-diff-height, @baseline-size * @baseline-height) / @baseline-size, rem));
 	
 	// Set a new baseline
-	.baseline-set(@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
+	.set-baseline (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
 		.use-baseline(@baseline-size, @baseline-height, @baseline-offset, @-size, @-height, @-offset);
 	}
 	
 	// Reset baseline to default values
-	.baseline-reset() {
+	.reset-baseline () {
 		.use-baseline(@baseline-size, @baseline-height, @baseline-offset);
 	}
 	
@@ -42,7 +42,7 @@
 		top: @offset-top;
 	}
 	.baseline-align (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
-		.baseline-set(@-size, @-height, @-offset);
+		.set-baseline(@-size, @-height, @-offset);
 		.baseline-align();
 	}
 	
@@ -53,7 +53,7 @@
 		line-height: @current-height;
 	}
 	.baseline-resize (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
-		.baseline-set(@-size, @-height, @-offset);
+		.set-baseline(@-size, @-height, @-offset);
 		.baseline-resize();
 	}
 	
@@ -63,7 +63,7 @@
 		.baseline-resize();
 	}
 	.baseline-adjust (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
-		.baseline-set(@-size, @-height, @-offset);
+		.set-baseline(@-size, @-height, @-offset);
 		.baseline-adjust();
 	}
 	

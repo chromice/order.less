@@ -58,17 +58,17 @@ main {
     }
     
     > nav {
-        .grid-width(2);
-        .gutter-margin-right(1);
+        .width(2);
+        .margin-right-gutter(1);
     }
     
     > article {
-        .grid-width(6);
-        .gutter-margin-right(1);
+        .width(6);
+        .margin-right-gutter(1);
     }
     
     > aside {
-        .grid-width(4);
+        .width(4);
     }
 }
 ```
@@ -78,7 +78,7 @@ However, it will all fall apart, if there is more than one article. So here is a
 ```less
 main {
     overflow: hidden;      
-    .grid-padding-left(2); // leave some space for navigation on the left hand side
+    .padding-left(2); // leave some space for navigation on the left hand side
                            // and reduce effective width to 10 columns.
     
     > * {
@@ -86,17 +86,17 @@ main {
     }
     
     > nav {
-        .grid-width(2, 10);
-        .grid-margin-left(-2, 10);
+        .width(2, 10);
+        .margin-left(-2, 10);
     }
     
     > article {
-        .grid-width(6, 10);
+        .width(6, 10);
     }
     
     > aside {
         float: right;
-        .grid-width(4, 10);
+        .width(4, 10);
     }
 }
 ```
@@ -122,7 +122,7 @@ If you just want to pick a value from the scale and set the font size, you can d
 
 ```less
 h1 {
-    .scale-size(4);
+    .font-size(4);
 }
 ```
 
