@@ -37,34 +37,34 @@
 	}
 	
 	// Shift text to the main baseline
-	.align () {
+	.align-baseline () {
 		position: relative;
 		top: @offset-top;
 	}
-	.align (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
+	.align-baseline (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
 		.set-baseline(@-size, @-height, @-offset);
-		.align();
+		.align-baseline();
 	}
 	
 	// Set font size and line height
-	.resize () {
+	.resize-baseline () {
 		font-size: @current-size;
 		font-size: unit((@current-size / @baseline-size), rem);
 		line-height: @current-height;
 	}
-	.resize (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
+	.resize-baseline (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
 		.set-baseline(@-size, @-height, @-offset);
-		.resize();
+		.resize-baseline();
 	}
 	
 	// Adjust alignment, font size and line height
-	.adjust () {
-		.align();
-		.resize();
+	.adjust-baseline () {
+		.align-baseline();
+		.resize-baseline();
 	}
-	.adjust (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
+	.adjust-baseline (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
 		.set-baseline(@-size, @-height, @-offset);
-		.adjust();
+		.adjust-baseline();
 	}
 	
 	// Baseline height

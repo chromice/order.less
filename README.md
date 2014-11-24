@@ -183,7 +183,7 @@ h1, h2 {
     font-family: "Gill Sans", sans-serif;
 }
 h1 {
-    .adjust(
+    .adjust-baseline(
         70px,             // adjusted font size (pixels or scale step)
         4/7,              // adjusted line height to baseline height ratio
         @offset-gill-sans // baseline offset for Gill Sans (a ratio)
@@ -192,14 +192,14 @@ h1 {
     .margin-bottom(1);
 }
 h2 {
-    .adjust(@baseline-size, (5/4 * @baseline-height), @offset-gill-sans);
+    .adjust-baseline(@baseline-size, (5/4 * @baseline-height), @offset-gill-sans);
     .margin-top(1);
     .padding-bottom(0.10);
     border-bottom: 2px solid;
     .margin-bottom(0.9, -2px);
 }
 h3 {
-    .adjust(12px, (4/3 * @baseline-height));
+    .adjust-baseline(12px, (4/3 * @baseline-height));
     .margin-top(1);
     .margin-bottom(0);
 }
