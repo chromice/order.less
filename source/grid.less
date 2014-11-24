@@ -10,33 +10,33 @@
 	@grid-width: @width;
 	
 	// Column width
-	.width (@span, @base: @grid-columns) {
+	.width (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") {
 		.-grid-width-property(width, @span, @base);
 	}
-	.max-width (@span, @base: @grid-columns) {
+	.max-width (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") {
 		.-grid-width-property(max-width, @span, @base);
 	}
-	.min-width (@span, @base: @grid-columns) {
+	.min-width (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") {
 		.-grid-width-property(min-width, @span, @base);
 	}
 	
 	// Column offset
-	.margin-left (@span, @base: @grid-columns) {
+	.margin-left (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") {
 		.-grid-offset-property(margin-left, @span, @base);
 	}
-	.margin-right (@span, @base: @grid-columns) {
+	.margin-right (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") {
 		.-grid-offset-property(margin-right, @span, @base);
 	}
-	.padding-left (@span, @base: @grid-columns) {
+	.padding-left (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") {
 		.-grid-offset-property(padding-left, @span, @base);
 	}
-	.padding-right (@span, @base: @grid-columns) {
+	.padding-right (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") {
 		.-grid-offset-property(padding-right, @span, @base);
 	}
-	.left (@span, @base: @grid-columns) {
+	.left (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") {
 		.-grid-offset-property(left, @span, @base);
 	}
-	.right (@span, @base: @grid-columns) {
+	.right (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") {
 		.-grid-offset-property(right, @span, @base);
 	}
 	
@@ -61,15 +61,15 @@
 	}
 	
 	// CSS columns (experimental)
-	.column-count (@count) {
+	.column-count (@count) when (unit(@count) = ~"@{count}")  {
 		-webkit-column-count: @count;
 		-moz-column-count: @count;
 		column-count: @count;
 	}
-	.column-width (@span, @base: @grid-columns) {
+	.column-width (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}")  {
 		.column-count(round((@base / @span)));
 	}
-	.column-gap (@span: 1) {
+	.column-gap (@span: 1) when (unit(@span) = ~"@{span}")  {
 		@-gap: (@grid-gutter * @span);
 		
 		-webkit-column-gap: @-gap;

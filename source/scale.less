@@ -11,7 +11,7 @@
 	@scale-ratio: @ratio;
 	
 	// Font size
-	.font-size (@step) {
+	.font-size (@step) when (unit(@step) = ~"@{step}") {
 		.get-scale-size(@step);
 		
 		font-size: @scale-size;

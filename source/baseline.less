@@ -68,37 +68,37 @@
 	}
 	
 	// Baseline height
-	.height (@span, @nudge: 0) {
+	.height (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
 		.-baseline-property(height, @span, @nudge);
 	}
-	.min-height (@span, @nudge: 0) {
+	.min-height (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
 		.-baseline-property(min-height, @span, @nudge);
 	}
-	.max-height (@span, @nudge: 0) {
+	.max-height (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
 		.-baseline-property(max-height, @span, @nudge);
 	}
 	
 	// Baseline offset
-	.top (@span, @nudge: 0) {
+	.top (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
 		.-baseline-property(top, @span, @nudge, @offset-top);
 	}
-	.bottom (@span, @nudge: 0) {
+	.bottom (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
 		.-baseline-property(bottom, @span, @nudge, (@offset-top * -1));
 	}
 	
 	// Baseline padding
-	.padding-top (@span, @nudge: 0) {
+	.padding-top (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
 		.-baseline-property(padding-top, @span, @nudge);
 	}
-	.padding-bottom (@span, @nudge: 0) {
+	.padding-bottom (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
 		.-baseline-property(padding-bottom, @span, @nudge);
 	}
 	
 	// Baseline margin
-	.margin-top (@span, @nudge: 0) {
+	.margin-top (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
 		.-baseline-property(margin-top, @span, @nudge);
 	}
-	.margin-bottom (@span, @nudge: 0) {
+	.margin-bottom (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
 		.-baseline-property(margin-bottom, @span, @nudge, @offset-bottom);
 	}
 	
@@ -144,11 +144,11 @@
 }
 
 // Add scale support to baseline mixins
-.use-baseline (@-step, @-height, @-offset: 0.85) when not(ispixel(@-step)) {
+.use-baseline (@-step, @-height, @-offset: 0.85) when (unit(@-step) = ~"@{-step}") {
 	.get-scale-size(@-step);
 	.use-baseline(@scale-size, @-height, @-offset);
 }
-.use-baseline (@-size, @-height, @-offset, @-alt-step, @-alt-height, @-alt-offset) when (ispixel(@-size)) and not(ispixel(@-alt-step)) {
+.use-baseline (@-size, @-height, @-offset, @-alt-step, @-alt-height, @-alt-offset) when (ispixel(@-size)) and (unit(@-alt-step) = ~"@{-alt-step}") {
 	.get-scale-size(@-alt-step);
 	.use-baseline(@-size, @-height, @-offset, @scale-size, @-alt-height, @-alt-offset);
 }
