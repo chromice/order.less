@@ -60,14 +60,12 @@
 #grid-12-4-padding-box .grid-block .grid-block:first-child {
   margin-left: 0;
 }
-#grid-12-4-padding-box,
-#grid-12-4-margin-box {
+#grid-12-4-padding-box {
   padding-left: 25.53191489%;
   padding-left: -webkit-calc(25% + 5px);
   padding-left: calc(25% + 5px);
 }
-#grid-12-4-padding-box .grid-block,
-#grid-12-4-margin-box .grid-block {
+#grid-12-4-padding-box .grid-block {
   width: 31.44208038%;
   width: -webkit-calc(33.33333333% - 13.33333333px);
   width: calc(33.33333333% - 13.33333333px);
@@ -75,21 +73,39 @@
   margin-left: -webkit-calc(20px);
   margin-left: calc(20px);
 }
-#grid-12-4-padding-box .grid-block:first-child,
-#grid-12-4-margin-box .grid-block:first-child {
+#grid-12-4-padding-box .grid-block:first-child {
   margin-left: -34.27895981%;
   margin-left: -webkit-calc(-33.33333333% + -6.66666667px);
   margin-left: calc(-33.33333333% + -6.66666667px);
 }
-#grid-12-4-padding-box .grid-block:first-child + .grid-block,
-#grid-12-4-margin-box .grid-block:first-child + .grid-block {
+#grid-12-4-padding-box .grid-block:first-child + .grid-block {
   margin-left: 0;
 }
 #grid-12-4-margin-box {
-  padding-left: 0;
-  margin-left: 25.53191489%;
-  margin-left: -webkit-calc(25% + 5px);
-  margin-left: calc(25% + 5px);
+  margin-left: 51.06382979%;
+  margin-left: -webkit-calc(50% + 10px);
+  margin-left: calc(50% + 10px);
+}
+#grid-12-4-margin-box .grid-block {
+  width: 47.87234043%;
+  width: -webkit-calc(50% - 10px);
+  width: calc(50% - 10px);
+  margin-left: 4.25531915%;
+  margin-left: -webkit-calc(20px);
+  margin-left: calc(20px);
+}
+#grid-12-4-margin-box .grid-block:first-child {
+  margin-left: -104.25531915%;
+  margin-left: -webkit-calc(-100% + -20px);
+  margin-left: calc(-100% + -20px);
+}
+#grid-12-4-margin-box .grid-block:first-child + .grid-block {
+  margin-left: -52.12765957%;
+  margin-left: -webkit-calc(-50% + -10px);
+  margin-left: calc(-50% + -10px);
+}
+#grid-12-4-margin-box .grid-block:first-child + .grid-block + .grid-block {
+  margin-left: 0;
 }
 #grid-12-4-blocks-1-positioned {
   margin-left: 25.53191489%;
@@ -148,6 +164,36 @@
   margin-left: -102.12765957%;
   margin-left: -webkit-calc(-100% + -20px);
   margin-left: calc(-100% + -20px);
+}
+#grid-12-4-margin-box-ordered {
+  margin-left: 51.06382979%;
+  margin-left: -webkit-calc(50% + 10px);
+  margin-left: calc(50% + 10px);
+}
+#grid-12-4-margin-box-ordered .grid-block {
+  width: 47.87234043%;
+  width: -webkit-calc(50% - 10px);
+  width: calc(50% - 10px);
+}
+#grid-12-4-margin-box-ordered #margin-ordered-4-1 {
+  margin-left: -104.25531915%;
+  margin-left: -webkit-calc(-100% + -20px);
+  margin-left: calc(-100% + -20px);
+}
+#grid-12-4-margin-box-ordered #margin-ordered-4-2 {
+  margin-left: -52.12765957%;
+  margin-left: -webkit-calc(-50% + -10px);
+  margin-left: calc(-50% + -10px);
+}
+#grid-12-4-margin-box-ordered #margin-ordered-4-3 {
+  margin-left: -104.25531915%;
+  margin-left: -webkit-calc(-100% + -20px);
+  margin-left: calc(-100% + -20px);
+}
+#grid-12-4-margin-box-ordered #margin-ordered-4-4 {
+  margin-left: 52.12765957%;
+  margin-left: -webkit-calc(50% + 10px);
+  margin-left: calc(50% + 10px);
 }
 #grid-12-4-blocks-positioned {
   position: relative;

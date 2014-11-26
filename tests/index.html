@@ -25,17 +25,17 @@
 		<div class="grid-block"></div>
 	</div>
 	
-	<h3 class="Test-it">renders 4 floated blocks in box that has padding and only fits 3</h3>
+	<h3 class="Test-it">renders 4 floated blocks in a narrow container (padding-left = 3 columns)</h3>
 	<div class="Test-run" id="grid-12-4-padding-box">
-		<div class="grid-block offset-block"></div>
+		<div class="grid-block"></div>
 		<div class="grid-block"></div>
 		<div class="grid-block"></div>
 		<div class="grid-block"></div>
 	</div>
 	
-	<h3 class="Test-it">renders 4 floated blocks in box that has margin and only fits 3</h3>
+	<h3 class="Test-it">renders 4 floated blocks in a narrow container (padding-left = 3 columns)</h3>
 	<div class="Test-run" id="grid-12-4-margin-box">
-		<div class="grid-block offset-block"></div>
+		<div class="grid-block"></div>
 		<div class="grid-block"></div>
 		<div class="grid-block"></div>
 		<div class="grid-block"></div>
@@ -61,6 +61,14 @@
 		<div id="positioned-block-2" class="grid-block"><span>2</span></div>
 		<div id="positioned-block-1" class="grid-block"><span>1</span></div>
 		<div id="positioned-block-3" class="grid-block"><span>3</span></div>
+	</div>
+	
+	<h3 class="Test-it">renders 4 floated blocks in correct order in a narrow container (padding-left = 6 columns)</h3>
+	<div class="Test-run" id="grid-12-4-margin-box-ordered">
+		<div id="margin-ordered-4-1" class="grid-block"><span>1</span></div>
+		<div id="margin-ordered-4-2" class="grid-block"><span>2</span></div>
+		<div id="margin-ordered-4-4" class="grid-block"><span>4</span></div>
+		<div id="margin-ordered-4-3" class="grid-block"><span>3</span></div>
 	</div>
 	
 	<h3 class="Test-it">renders 4 floated blocks each having 3 children</h3>

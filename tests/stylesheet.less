@@ -69,7 +69,7 @@
 	}
 }
 
-#grid-12-4-padding-box, #grid-12-4-margin-box {
+#grid-12-4-padding-box {
 	.padding-left(3);
 	
 	.grid-block {
@@ -87,8 +87,24 @@
 	
 }
 #grid-12-4-margin-box {
-	.padding-left(0);
-	.margin-left(3);
+	.margin-left(6);
+	
+	.grid-block {
+		.width(3, 6);
+		.margin-left-gutter(1, 6);
+		
+		&:first-child {
+			.margin-left(-6, 6);
+		
+			+ .grid-block {
+				.margin-left(-3, 6);
+				
+				+ .grid-block {
+					.margin-left-gutter(0);
+				}
+			}
+		}
+	}
 }
 
 #grid-12-4-blocks-1-positioned {
@@ -149,6 +165,29 @@
 		.margin-left(-12, 12);
 	}
 }
+
+#grid-12-4-margin-box-ordered {
+	.margin-left(6);
+	
+	.grid-block {
+		.width(3, 6);
+	}
+	
+	#margin-ordered-4-1 {
+		.margin-left(-6, 6);
+	}
+	#margin-ordered-4-2 {
+		.margin-left(-3, 6);
+	}
+	#margin-ordered-4-3 {
+		.margin-left(-6, 6);
+	}
+	#margin-ordered-4-4 {
+		.margin-left(3, 6);
+	}
+}
+
+
 
 #grid-12-4-blocks-positioned {
 	position: relative;
