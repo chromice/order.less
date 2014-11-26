@@ -11,7 +11,15 @@
 
 // .Test-run 
 .Test-run {
-	overflow: hidden;
+	*zoom: 1;
+	
+	&:before, &:after {
+		content: " ";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
 }
 
 
@@ -23,7 +31,6 @@
 
 .grid-block {
 	float: left;
-	overflow: hidden;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	background: green;
@@ -42,7 +49,7 @@
 	}
 }
 
-#grid-12-4-blocks, #grid-12-4-blocks-ordered, #grid-12-4-blocks-3-children {
+#grid-12-4-blocks, #grid-12-4-blocks-ordered, #grid-12-4-blocks-3-children, #grid-12-4-padding-box {
 	.grid-block {
 		.width(3);
 		.margin-left-gutter(1);
@@ -62,8 +69,30 @@
 	}
 }
 
-#grid-12-4-blocks-1-positioned {
+#grid-12-4-padding-box, #grid-12-4-margin-box {
 	.padding-left(3);
+	
+	.grid-block {
+		.width(3, 9);
+		.margin-left-gutter(1, 9);
+		
+		&:first-child {
+			.margin-left(-3, 9);
+		
+			+ .grid-block {
+				.margin-left-gutter(0);
+			}
+		}
+	}
+	
+}
+#grid-12-4-margin-box {
+	.padding-left(0);
+	.margin-left(3);
+}
+
+#grid-12-4-blocks-1-positioned {
+	.margin-left(3);
 	
 	position: relative;
 	
@@ -79,8 +108,7 @@
 	#positioned-block {
 		position: absolute;
 		top: 0;
-		.left(0);
-		.width(3, 12);
+		.left(-3, 9);
 		
 		+ .grid-block {
 			.margin-left-gutter(0);
@@ -89,22 +117,36 @@
 }
 
 #grid-12-4-blocks-ordered {
-	#ordered-block-1 {
+	#ordered-block-4-1 {
 		// From 3 to 1
-		.margin-left(-6);
+		.margin-left(-6, 12);
 	}
-	#ordered-block-2 {
+	#ordered-block-4-2 {
 		// Sits in place
 		.margin-left(3);
 	}
-	#ordered-block-3 {
-		// Sits in place
-		// pushed by #ordered-block-2
+	#ordered-block-4-3 {
+		// No margin needed; pushed by #ordered-block-4-2
 	}
-	#ordered-block-4 {
+	#ordered-block-4-4 {
 		// From 1 to 4
 		.margin-left(9);
 		margin-bottom: -100%;
+	}
+}
+
+#grid-12-2-blocks-ordered {
+	.grid-block {
+		.width(6);
+	}
+	
+	#ordered-block-2-2 {
+		// visibility: hidden;
+		.margin-left(6, 12);
+	}
+	#ordered-block-2-1 {
+		// no need for gutter correction
+		.margin-left(-12, 12);
 	}
 }
 
