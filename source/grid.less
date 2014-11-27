@@ -3,6 +3,14 @@
 // = = = = = =
 // grid.less =
 // = = = = = =
+.use-grid (@name) when (iskeyword(@name)), (isstring(@name)) {
+	@-width: "@{name}-grid-width";
+	@-columns: "@{name}-grid-columns";
+	@-gutter: "@{name}-grid-gutter";
+	
+	.use-grid(@@-width, @@-columns, @@-gutter);
+}
+
 .use-grid (@width, @columns, @gutter) when (ispixel(@width)) {
 	
 	@grid-columns: @columns;

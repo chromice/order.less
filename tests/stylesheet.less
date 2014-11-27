@@ -22,7 +22,6 @@
 	}
 }
 
-
 // = = = = = = = = =
 //  Grid behaviour =
 // = = = = = = = = =
@@ -213,7 +212,7 @@
 	}
 }
 
-#grid-10-5-blocks, #grid-10-5-blocks-2-children {
+#grid-12-5-blocks {
 	.grid-block {
 		.width((12/5));
 		.margin-left-gutter(1);
@@ -242,6 +241,37 @@
 		margin-bottom: 1.5em;
 	}
 }
+
+/*
+	Alt grid
+*/
+@alt-grid-width: 940px;
+@alt-grid-columns: 10;
+@alt-grid-gutter: 25px;
+
+#grid-10-5-blocks-2-children {
+	.use-grid(alt);
+	
+	.grid-block {
+		.width(2);
+		.margin-left-gutter(1);
+		
+		&:first-child {
+			.margin-left-gutter(0);
+		}
+		
+		.grid-block {
+			.width(1, 2);
+			.margin-left-gutter(1, 2);
+			
+			&:first-child {
+				.margin-left-gutter(0);
+			}
+		}
+	}
+}
+
+
 
 // = = = = = = = = =
 // Scale behaviour =
