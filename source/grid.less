@@ -3,7 +3,7 @@
 // = = = = = =
 // grid.less =
 // = = = = = =
-.use-grid (@columns, @gutter, @width: 940px) {
+.use-grid (@width, @columns, @gutter) when (ispixel(@width)) {
 	
 	@grid-columns: @columns;
 	@grid-gutter: @gutter;
@@ -136,7 +136,7 @@
 		@-base-width: (@grid-width * @base / @grid-columns);
 		@-gutter: (percentage(@grid-gutter / @-base-width));
 		@grid-width-fallback: (@-column-width - percentage(@-column-gutter / @-base-width));
-		@grid-gutter-fallback: (@-gutter * @span);
 		@grid-offset-fallback: (@grid-width-fallback + @-gutter);
+		@grid-gutter-fallback: (@-gutter * @span);
 	}
 }

@@ -2,6 +2,8 @@
 
 order.less is a library of Less mixins that gives you precise control over basic elements of  typography: grid, baseline and scale.
 
+**NB!** This is alpha-stage software that is being continuously improved. The API and functionality is being changed constantly.
+
 ## Grid
 
 The grid module allows you define a column grid and set elements' width, padding, margin and offset in columns.
@@ -14,9 +16,9 @@ In order to start using grid module, you must import the mixins and define the g
 @import 'path/to/grid.less';
 
 .use-grid(
+    940px, // optimal grid width (pixels)
     12,   // number of columns in the grid
     20px, // gutter (pixels)
-    940px // optimal grid width (pixels)
 );
 ```
 
