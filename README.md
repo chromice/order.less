@@ -16,13 +16,11 @@ In order to start using grid module, you must import the mixins and define the g
 @import 'path/to/grid.less';
 
 .use-grid(
-    940px, // optimal grid width (pixels)
-    12,   // number of columns in the grid
-    20px, // gutter (pixels)
+    940px, // optimal grid width (pixels)  -> @grid-width
+    12,   // number of columns in the grid -> @grid-columns
+    20px, // gutter (pixels) -> @grid-gutter
 );
 ```
-
-The third argument is only used in older browsers, which don't support `calc()`, to calculate fallback gutter width in percentages rather than fixed amount of pixels.
 
 Now, let us create a 2:6:4 three column layout for this HTML:
 
@@ -61,12 +59,12 @@ main {
     
     > nav {
         .width(2);
-        .margin-right-gutter(1);
+        .margin-right(@grid-gutter);
     }
     
     > article {
         .width(6);
-        .margin-right-gutter(1);
+        .margin-right(@grid-gutter);
     }
     
     > aside {
