@@ -247,18 +247,6 @@
 #grid-12-5-blocks .grid-block .grid-block:first-child {
   margin-left: 0;
 }
-#grid-css-multi-column {
-  -webkit-column-count: 3;
-  -moz-column-count: 3;
-  column-count: 3;
-  -webkit-column-gap: 20px;
-  -moz-column-gap: 20px;
-  column-gap: 20px;
-}
-#grid-css-multi-column p {
-  margin-top: 0;
-  margin-bottom: 1.5em;
-}
 /*
 	Alt grid
 */

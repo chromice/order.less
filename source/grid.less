@@ -4,6 +4,7 @@
 // grid.less =
 // = = = = = =
 .use-grid (@name) when (iskeyword(@name)), (isstring(@name)) {
+	
 	@-width: "@{name}-grid-width";
 	@-columns: "@{name}-grid-columns";
 	@-gutter: "@{name}-grid-gutter";
@@ -66,23 +67,6 @@
 	}
 	.right-gutter (@span: 1, @base: @grid-columns) {
 		.-grid-gutter-property(right, @span, @base);
-	}
-	
-	// CSS columns (experimental)
-	.column-count (@count) when (unit(@count) = ~"@{count}")  {
-		-webkit-column-count: @count;
-		-moz-column-count: @count;
-		column-count: @count;
-	}
-	.column-width (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}")  {
-		.column-count(round((@base / @span)));
-	}
-	.column-gap (@span: 1) when (unit(@span) = ~"@{span}")  {
-		@-gap: (@grid-gutter * @span);
-		
-		-webkit-column-gap: @-gap;
-		-moz-column-gap: @-gap;
-		column-gap: @-gap;
 	}
 	
 	// Set width values
