@@ -71,8 +71,6 @@
 			previousHeight = 0,
 			previousOffset = 0;
 		
-		console.log('fontBaselineOffsetValue', fontFamily, fontStyle, fontWeight);
-		
 		testScale.style.fontFamily = fontFamily;
 		testScale.style.fontStyle = fontStyle || 'normal';
 		testScale.style.fontWeight = fontWeight || '400';
@@ -120,7 +118,8 @@
 		next = th.nextElementSibling;
 		
 		do {
-			if (next.textContent === 'N/A') {
+			if (next.textContent === '') {
+				next.className += ' not-available';
 				continue;
 			}
 			
@@ -158,14 +157,32 @@
 	var googleFontFamilies = [];
 	
 	[].forEach.call(document.querySelectorAll('#baseline-offset-table-google-fonts tbody th'), function (th, i) {
-		googleFontFamilies.push(th.textContent);
+		var next,
+			fontFamily = th.textContent,
+			fontVariations = [];
+		
+		next = th.nextElementSibling;
+		
+		do {
+			if (next.textContent === '') {
+				continue;
+			}
+			
+			fontVariations.push(next.className);
+			
+		} while (next = next.nextElementSibling);
+		
+		
+		if (fontVariations.length > 0) {
+			googleFontFamilies.push(fontFamily + ':' + fontVariations.join(','));
+		}
 	});
 	
 	// Configure the font loader
 	WebFontConfig = {
 		google: {
 			families: googleFontFamilies,
-			text: 'abcdedfghijklmopqrstuvwxyzABCDEDFGHIJKLMOPQRSTUVWXYZ!-+0123456789'
+			text: 'abcdedfghijklmnopqrstuvwxyzABCDEDFGHIJKLMNOPQRSTUVWXYZ!-+0123456789'
 		},
 		active: function () {
 			[].forEach.call(document.querySelectorAll('#baseline-offset-table-google-fonts tbody th'), calculateBaselineValue);

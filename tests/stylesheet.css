@@ -653,6 +653,8 @@ html {
   margin-bottom: calc(0rem + 0.1875rem);
 }
 .offset-table table {
+  border-collapse: collapse;
+  border-spacing: 0;
   margin: -0.25em -0.5em 0.5em;
 }
 .offset-table th,
@@ -674,6 +676,13 @@ html {
   font-variant: normal;
   text-transform: none;
 }
+.offset-table tbody td {
+  font-size: 80%;
+}
+.offset-table tbody tr:nth-child(2n - 1) td,
+.offset-table tbody tr:nth-child(2n - 1) th {
+  background-color: #f2f2f2;
+}
 .offset-table .error {
   color: red;
 }
@@ -682,6 +691,20 @@ html {
 }
 .offset-table .notice {
   color: #666;
+}
+.offset-table .not-available {
+  color: transparent;
+}
+.offset-table a {
+  text-decoration: none;
+  color: inherit;
+}
+.offset-table a:hover,
+.offset-table a:focus {
+  color: blue;
+}
+.offset-table thead {
+  font-family: 'Helvetica Neue', 'Arial', 'Helvetica', sans-serif;
 }
 .offset-table thead .n1,
 .offset-table thead .n2,

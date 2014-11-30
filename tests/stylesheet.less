@@ -460,6 +460,8 @@ html {
 
 .offset-table {
 	table {
+		border-collapse: collapse;
+		border-spacing: 0;
 		margin: -0.25em -0.5em 0.5em;
 	}
 	th, td {
@@ -474,10 +476,20 @@ html {
 	th ~ th, th ~ td {
 		text-align: right;
 	}
-	tbody th {
-		font-family: "Comic Sans MS";
-		font-variant: normal;
-		text-transform: none;
+	tbody {
+		th {
+			font-family: "Comic Sans MS";
+			font-variant: normal;
+			text-transform: none;
+		}
+		td {
+			font-size: 80%;
+		}
+		tr:nth-child(2n - 1) {
+			td, th {
+				background-color: #f2f2f2;
+			}
+		}
 	}
 	.error {
 		color: red;
@@ -488,8 +500,22 @@ html {
 	.notice {
 		color: #666;
 	}
+	.not-available {
+		color: transparent;
+	}
+	
+	a {
+		text-decoration: none;
+		color: inherit;
+		
+		&:hover, &:focus {
+			color: blue;
+		}
+	}
 	
 	thead {
+		font-family: 'Helvetica Neue', 'Arial', 'Helvetica', sans-serif;
+		
 		.n1, .n2, .n3, .n4, .n5, .n6, .n7, .n8, .n9 {
 			font-style: normal;
 		}
