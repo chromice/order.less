@@ -347,12 +347,12 @@ html {
 
 // Verdana
 @verdana-font-offset: 0.898;
-@verdana-font-weight: normal;
+@verdana-font-weight: 400;
 @verdana-font-family: 'Verdana', sans-serif;
 
 // Gill Sans
 @gill-sans-font-offset: 0.844;
-@gill-sans-font-weight: normal;
+@gill-sans-font-weight: 400;
 @gill-sans-font-family: "Gill Sans", sans-serif;
 
 @gill-sans-medium-font-offset: 0.846;
@@ -383,13 +383,13 @@ html {
 	}
 	
 	.large {
-		.adjust-baseline(30px, (4/5 * @baseline-height));
+		.font-align(30px, (4/5 * @baseline-height));
 	}
 	.small {
-		.adjust-baseline(@baseline-size, (5/4 * @baseline-height));
+		.font-align(@baseline-size, (5/4 * @baseline-height));
 	}
 	.tiny {
-		.adjust-baseline(12px, (4/3 * @baseline-height));
+		.font-align(12px, (4/3 * @baseline-height));
 	}
 }
 
@@ -397,7 +397,7 @@ html {
 	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
 	
 	h1 {
-		.adjust-baseline(50px, (4/7 * @baseline-height));
+		.font-align(50px, (4/7 * @baseline-height));
 		.margin-top(1);
 		.margin-bottom(1);
 	}
@@ -456,12 +456,12 @@ html {
 		left: 0;
 	}
 	.meta {
-		.resize-baseline(18px);
+		.font(18px);
 		.top(0);
 		.margin-bottom(0, 0);
 	}
 	.comments {
-		.resize-baseline(14px);
+		.font(14px);
 		.bottom(1);
 		.margin-bottom(0);
 	}

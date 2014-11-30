@@ -22,30 +22,23 @@
 	//
 	
 	// Font property "shorthand" mixin
-	.font (@font-size, @line-height, @font-name: @baseline-font) {
+	.font (@font-size, @line-height: @baseline-height, @font-name: @baseline-font) {
 		
 		@-font-offset: "@{font-name}-font-offset";
 		@-font-weight: "@{font-name}-font-weight";
 		@-font-family: "@{font-name}-font-family";
 		
-		.resize-baseline(@font-size, @line-height, @@-font-offset);
+		.set-baseline(@font-size, @line-height, @@-font-offset);
 		
-		font-family: @@-font-family;
-		font-weight: @@-font-weight;
+		font: @@-font-weight ~"@{current-size}/@{current-height}" @@-font-family;
+		font-size: unit((@current-size / @baseline-size), rem);
 	}
 	
 	
 	// .font() + .align-baseline()
-	.font-align (@font-size, @line-height, @font-name: @baseline-font) {
-		
-		@-font-offset: "@{font-name}-font-offset";
-		@-font-weight: "@{font-name}-font-weight";
-		@-font-family: "@{font-name}-font-family";
-		
-		.adjust-baseline(@font-size, @line-height, @@-font-offset);
-		
-		font-family: @@-font-family;
-		font-weight: @@-font-weight;
+	.font-align (@font-size, @line-height: @baseline-height, @font-name: @baseline-font) {
+		.font(@font-size, @line-height, @font-name);
+		.align-baseline();
 	}
 }
 
