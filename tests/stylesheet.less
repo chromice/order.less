@@ -345,10 +345,21 @@ html {
 //  Baseline behaviour =
 // = = = = = = = = = = =
 
-@offset-gill-sans: 0.844;
-@offset-verdana: 0.898;
+// Verdana
+@verdana-font-offset: 0.898;
+@verdana-font-weight: normal;
+@verdana-font-family: 'Verdana', sans-serif;
 
-.use-baseline(@scale-base, 1.5, @offset-verdana);
+// Gill Sans
+@gill-sans-font-offset: 0.844;
+@gill-sans-font-weight: normal;
+@gill-sans-font-family: "Gill Sans", sans-serif;
+
+@gill-sans-medium-font-offset: 0.846;
+@gill-sans-medium-font-weight: 600;
+@gill-sans-medium-font-family: @gill-sans-font-family;
+
+.use-baseline(@scale-base, 1.5, verdana);
 
 html {
 	font-family: Verdana, sans-serif;
@@ -401,8 +412,7 @@ html {
 	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
 	
 	h1 {
-		font-family: "Gill Sans", sans-serif;
-		.adjust-baseline(50px, (4/7 * @baseline-height), @offset-gill-sans);
+		.font-align(50px, (4/7 * @baseline-height), gill-sans-medium);
 		.margin-top(1);
 		.margin-bottom(1);
 	}
@@ -417,8 +427,7 @@ html {
 	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
 	
 	h1 {
-		font-family: "Gill Sans", sans-serif;
-		.adjust-baseline(@baseline-size, (5/4 * @baseline-height), @offset-gill-sans);
+		.font-align(@baseline-size, (5/4 * @baseline-height), gill-sans);
 		.margin-top(1);
 		.padding-bottom(0.10);
 		border-bottom: 2px solid;

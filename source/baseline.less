@@ -1,10 +1,70 @@
 //! order.less v0.6.0 | Apache License, Version 2.0 | github.com/chromice/order.less
 
-// = = = = = = = =
-// baseline.less =
-// = = = = = = = =
+// =================
+// = baseline.less =
+// =================
 
-.use-baseline (@size, @height, @offset: 0.85) when (ispixel(@size)) {
+// 
+// Font offset as name
+// 
+.use-baseline (@-size, @-height, @name) when (iskeyword(@name)) {
+	
+	@baseline-font: @name;
+	
+	@-offset: "@{name}-font-offset";
+	@-weight: "@{name}-font-weight";
+	@-family: "@{name}-font-family";
+	
+	.use-baseline(@-size, @-height, @@-offset);
+	
+	//
+	// Property mixins
+	//
+	
+	// Font property "shorthand" mixin
+	.font (@font-size, @line-height, @font-name: @baseline-font) {
+		
+		@-font-offset: "@{font-name}-font-offset";
+		@-font-weight: "@{font-name}-font-weight";
+		@-font-family: "@{font-name}-font-family";
+		
+		.resize-baseline(@font-size, @line-height, @@-font-offset);
+		
+		font-family: @@-font-family;
+		font-weight: @@-font-weight;
+	}
+	
+	
+	// .font() + .align-baseline()
+	.font-align (@font-size, @line-height, @font-name: @baseline-font) {
+		
+		@-font-offset: "@{font-name}-font-offset";
+		@-font-weight: "@{font-name}-font-weight";
+		@-font-family: "@{font-name}-font-family";
+		
+		.adjust-baseline(@font-size, @line-height, @@-font-offset);
+		
+		font-family: @@-font-family;
+		font-weight: @@-font-weight;
+	}
+}
+
+// 
+// Base size as a scale step
+// 
+.use-baseline (@-step, @-height, @-offset: 0.85) when (unit(@-step) = ~"@{-step}") and not(iskeyword(@-offset)) {
+	.get-scale-size(@-step);
+	.use-baseline(@scale-size, @-height, @-offset);
+}
+.use-baseline (@-size, @-height, @-offset, @-alt-step, @-alt-height, @-alt-offset) when (ispixel(@-size)) and (unit(@-alt-step) = ~"@{-alt-step}") {
+	.get-scale-size(@-alt-step);
+	.use-baseline(@-size, @-height, @-offset, @scale-size, @-alt-height, @-alt-offset);
+}
+
+// 
+// Base size in pixels
+// 
+.use-baseline (@size, @height, @offset: 0.85) when (ispixel(@size)) and not(iskeyword(@offset)) {
 	.use-baseline(@size, @height, @offset, @size, @height, @offset);
 }
 .use-baseline (@size, @height, @offset, @alt-size, @alt-height, @alt-offset) when (ispixel(@size)) and (ispixel(@alt-size)) {
@@ -25,6 +85,11 @@
 	// Calculated top and bottom baseline offsets
 	@offset-top: (unit(mod(@-diff-height / 2 - @-diff-font-size, @baseline-size * @baseline-height) / @baseline-size, rem));
 	@offset-bottom: (unit(mod(@-diff-height, @baseline-size * @baseline-height) / @baseline-size, rem));
+	
+	
+	//
+	// Baseline manipulation mixins
+	//
 	
 	// Set a new baseline
 	.set-baseline (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
@@ -67,6 +132,10 @@
 		.adjust-baseline();
 	}
 	
+	//
+	// Property mixins
+	//
+	
 	// Baseline height
 	.height (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
 		.-baseline-property(height, @span, @nudge);
@@ -101,6 +170,10 @@
 	.margin-bottom (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
 		.-baseline-property(margin-bottom, @span, @nudge, @offset-bottom);
 	}
+	
+	//
+	// Private mixins
+	//
 	
 	// Set property values
 	.-baseline-property (@property, @span, @nudge: 0, @correction: 0) when not(@span = 0) and (@nudge = 0) and (@correction = 0) {
@@ -141,14 +214,4 @@
 		@baseline-height-px: ~"@{-height-px-value}px";
 		@baseline-height-rem: ~"@{-height-rem-value}rem";
 	}
-}
-
-// Add scale support to baseline mixins
-.use-baseline (@-step, @-height, @-offset: 0.85) when (unit(@-step) = ~"@{-step}") {
-	.get-scale-size(@-step);
-	.use-baseline(@scale-size, @-height, @-offset);
-}
-.use-baseline (@-size, @-height, @-offset, @-alt-step, @-alt-height, @-alt-offset) when (ispixel(@-size)) and (unit(@-alt-step) = ~"@{-alt-step}") {
-	.get-scale-size(@-alt-step);
-	.use-baseline(@-size, @-height, @-offset, @scale-size, @-alt-height, @-alt-offset);
 }

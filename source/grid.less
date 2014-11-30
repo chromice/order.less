@@ -20,9 +20,9 @@
 	@grid-gutter: @gutter;
 	
 	
-	/*
-		Property mixins: @span + @base
-	*/
+	//
+	// Property mixins: @span + @base
+	//
 	
 	// Column width
 	.width (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (unit(@base) = ~"@{base}") {
@@ -56,9 +56,9 @@
 	}
 	
 	
-	/*
-		Property mixins: @nudge + @base
-	*/
+	//
+	// Property mixins: @nudge + @base
+	//
 	
 	// Column offset
 	.margin-left (@nudge, @base: @grid-columns) when (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
@@ -81,9 +81,9 @@
 	}
 	
 	
-	/*
-		Property mixins: @span + @nudge + @base
-	*/
+	//
+	// Property mixins: @span + @nudge + @base
+	//
 	
 	// Column width
 	.width (@span, @nudge, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
@@ -117,9 +117,9 @@
 	}
 	
 	
-	/*
-		Private functions
-	*/
+	//
+	// Private functions
+	//
 	
 	// Set width values
 	.-grid-width-property (@property, @span, @nudge, @base) when (@span > 0) and (@base > 0), not(@nudge = 0) and (@base > 0) {

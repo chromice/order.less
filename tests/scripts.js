@@ -168,7 +168,7 @@
 				continue;
 			}
 			
-			var fontStyle = next.className.substr(0, 1) === 'i' ? 'italic' : '', 
+			var fontStyle = next.className.substr(0, 1) === 'i' ? 'italic' : '',
 				fontWeight = next.className.substr(1, 1) * 100;
 			
 			fontVariations.push(fontWeight + fontStyle);
