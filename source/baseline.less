@@ -1,4 +1,4 @@
-//! order.less v0.5.0 | Apache License, Version 2.0 | github.com/chromice/order.less
+//! order.less v0.6.0 | Apache License, Version 2.0 | github.com/chromice/order.less
 
 // = = = = = = = =
 // baseline.less =
@@ -109,7 +109,7 @@
 		@{property}: @baseline-height-px;
 		@{property}: @baseline-height-rem;
 	}
-	.-baseline-property (@property, @span, @nudge: 0, @correction: 0) when (@span = 0) and (@nudge = 0)  and (@correction = 0) {
+	.-baseline-property (@property, @span, @nudge: 0, @correction: 0) when (@span = 0) and (@nudge = 0) and (@correction = 0) {
 		@{property}: 0;
 	}
 	.-baseline-property (@property, @span, @nudge: 0, @correction: 0) when not(@nudge = 0) and (@correction = 0) {
