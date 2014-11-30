@@ -645,9 +645,9 @@ html {
   font-size: 14px;
   font-size: 0.875rem;
   line-height: 1.5;
-  bottom: 0px;
-  bottom: -webkit-calc(0rem + -0.1435rem);
-  bottom: calc(0rem + -0.1435rem);
+  bottom: 24px;
+  bottom: -webkit-calc(1.5rem + -0.1435rem);
+  bottom: calc(1.5rem + -0.1435rem);
   margin-bottom: 0px;
   margin-bottom: -webkit-calc(0rem + 0.1875rem);
   margin-bottom: calc(0rem + 0.1875rem);
