@@ -501,19 +501,19 @@ html {
   margin-left: 0;
 }
 #baseline-horizontal .large {
-  font: 400 30px/1.2000000000000002 'Verdana', sans-serif;
+  font: 400 30px / 1.2 'Verdana', sans-serif;
   font-size: 1.875rem;
   position: relative;
   top: -0.72325rem;
 }
 #baseline-horizontal .small {
-  font: 400 16px/1.875 'Verdana', sans-serif;
+  font: 400 16px / 1.875 'Verdana', sans-serif;
   font-size: 1rem;
   position: relative;
   top: -0.1875rem;
 }
 #baseline-horizontal .tiny {
-  font: 400 12px/2 'Verdana', sans-serif;
+  font: 400 12px / 2 'Verdana', sans-serif;
   font-size: 0.75rem;
   position: relative;
   top: 0.0995rem;
@@ -522,7 +522,7 @@ html {
   background: url(http://basehold.it/i/24/ff0000) 0 -6px;
 }
 #baseline-vertical h1 {
-  font: 400 50px/0.8571428571428571 'Verdana', sans-serif;
+  font: 400 50px / 0.85714286 'Verdana', sans-serif;
   font-size: 3.125rem;
   position: relative;
   top: -1.43503571rem;
@@ -541,7 +541,7 @@ html {
   background: url(http://basehold.it/i/24/ff0000) 0 -6px;
 }
 #baseline-vertical-family h1 {
-  font: 600 50px/0.8571428571428571 "Gill Sans", sans-serif;
+  font: 600 50px / 0.85714286 "Gill Sans", sans-serif;
   font-size: 3.125rem;
   position: relative;
   top: -1.27253571rem;
@@ -560,14 +560,14 @@ html {
   background: url(http://basehold.it/i/24/ff0000) 0 -6px;
 }
 #baseline-vertical-line h1 {
-  font: 400 16px/1.875 "Gill Sans", sans-serif;
+  font: 400 16px / 1.875 "Gill Sans", sans-serif;
   font-size: 1rem;
   position: relative;
   top: -0.1335rem;
   margin-top: 24px;
   margin-top: 1.5rem;
-  padding-bottom: 2.4000000000000004px;
-  padding-bottom: 0.15000000000000002rem;
+  padding-bottom: 2.4px;
+  padding-bottom: 0.15rem;
   border-bottom: 2px solid;
   margin-bottom: 21.6px;
   margin-bottom: -webkit-calc(1.35rem + -2px + -0.375rem);
@@ -597,7 +597,7 @@ html {
   left: 0;
 }
 #baseline-vertical-offset .meta {
-  font: 400 18px/1.5 'Verdana', sans-serif;
+  font: 400 18px / 1.5 'Verdana', sans-serif;
   font-size: 1.125rem;
   top: 0px;
   top: -webkit-calc(0rem + -0.1435rem);
@@ -607,7 +607,7 @@ html {
   margin-bottom: calc(0rem + -0.1875rem);
 }
 #baseline-vertical-offset .comments {
-  font: 400 14px/1.5 'Verdana', sans-serif;
+  font: 400 14px / 1.5 'Verdana', sans-serif;
   font-size: 0.875rem;
   bottom: 24px;
   bottom: -webkit-calc(1.5rem + -0.1435rem);

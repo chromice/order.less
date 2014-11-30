@@ -109,7 +109,6 @@
 		
 		// Calculate value if font family is installed
 		if (!isFontAvailable(fontFamily)) {
-			// TODO: Highlight row with error: no font available
 			th.parentNode.className += ' warning';
 			return;
 		}

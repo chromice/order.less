@@ -24,13 +24,14 @@
 	// Font property "shorthand" mixin
 	.font (@font-size, @line-height: @baseline-height, @font-name: @baseline-font) {
 		
+		// TODO: Add support for font-style
+		// FIXME: font-weight, font-style, and font-family variables should be optional
 		@-font-offset: "@{font-name}-font-offset";
 		@-font-weight: "@{font-name}-font-weight";
 		@-font-family: "@{font-name}-font-family";
 		
 		.set-baseline(@font-size, @line-height, @@-font-offset);
-		
-		font: @@-font-weight ~"@{current-size}/@{current-height}" @@-font-family;
+		font: @@-font-weight @current-size~"/"@current-height @@-font-family;
 		font-size: unit((@current-size / @baseline-size), rem);
 	}
 	
@@ -202,8 +203,8 @@
 	
 	// Calculate baseline values
 	.get-baseline-height (@span, @base: @baseline-size) {
-		@-height-px-value: unit((@span * @baseline-size * @baseline-height));
-		@-height-rem-value: unit((@span * @baseline-height));
+		@-height-px-value: round(unit((@span * @baseline-size * @baseline-height)), 8);
+		@-height-rem-value: round(unit((@span * @baseline-height)), 8);
 		@baseline-height-px: ~"@{-height-px-value}px";
 		@baseline-height-rem: ~"@{-height-rem-value}rem";
 	}
