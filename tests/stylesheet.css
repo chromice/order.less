@@ -661,22 +661,26 @@ html {
 }
 .offset-table th {
   text-align: left;
+  font-weight: normal;
+  font-variant: small-caps;
+  text-transform: lowercase;
 }
 .offset-table th ~ th,
 .offset-table th ~ td {
   text-align: right;
 }
 .offset-table tbody th {
-  font-weight: normal;
   font-family: "Comic Sans MS";
+  font-variant: normal;
+  text-transform: none;
 }
-.offset-table .error th + td {
+.offset-table .error {
   color: red;
 }
-.offset-table .warning th + td {
+.offset-table .warning {
   color: orange;
 }
-.offset-table .notice th + td {
+.offset-table .notice {
   color: #666;
 }
 #scale-test {

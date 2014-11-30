@@ -63,7 +63,7 @@
 	// 
 	// Baseline offset value
 	// 
-	function fontBaselineOffsetValue(fontFamily) {
+	function fontBaselineOffsetValue(fontFamily, fontStyle, fontWeight) {
 		var testScale = document.getElementById('scale-test'),
 			testScaleSteps = document.querySelectorAll('#scale-test span'),
 			candidateSum = 0,
@@ -72,6 +72,8 @@
 			previousOffset = 0;
 		
 		testScale.style.fontFamily = fontFamily;
+		testScale.style.fontStyle = fontStyle || 'normal';
+		testScale.style.fontWeight = fontWeight || '400';
 		
 		[].forEach.call(testScaleSteps, function (el, i) {
 			var height = el.offsetHeight,
@@ -102,22 +104,38 @@
 	// Calculate baseline offset values for in all tables
 	//
 	function calculateBaselineValue(th, i) {
-		var fontFamily = th.textContent;
-	
+		var next, nextOffsetValue,
+			fontFamily = th.textContent;
+		
 		// Calculate value if font family is installed
-		if (isFontAvailable(fontFamily)) {
-			th.style.fontFamily = fontFamily;
-			th.nextElementSibling.textContent = fontBaselineOffsetValue(fontFamily);
+		if (!isFontAvailable(fontFamily)) {
+			// TODO: Highlight row with error: no font available
+			th.parentNode.className += ' warning';
+			return;
 		}
-	
-		// Highlight rows that do not meet expectations
-		if (th.nextElementSibling.textContent === th.nextElementSibling.nextElementSibling.textContent) {
-			// do nothing
-		} else if (Math.abs((th.nextElementSibling.textContent / th.nextElementSibling.nextElementSibling.textContent) - 1) < 0.01) {
-			th.parentNode.className += ' notice';
-		} else {
-			th.parentNode.className += ' error';
-		}
+		
+		th.style.fontFamily = fontFamily;
+		next = th.nextElementSibling;
+		
+		do {
+			if (next.textContent === 'N/A') {
+				continue;
+			}
+			
+			nextOffsetValue = fontBaselineOffsetValue(fontFamily, next.style.fontStyle, next.style.fontWeight);
+			
+			if (nextOffsetValue === next.textContent) {
+				continue;
+			} else if (Math.abs((nextOffsetValue / next.textContent) - 1) < 0.01) {
+				next.className += ' notice';
+			} else {
+				next.className += ' error';
+			}
+			
+			next.setAttribute('title', 'Expected: ' + next.textContent);
+			next.textContent = nextOffsetValue;
+			
+		} while (next = next.nextElementSibling);
 	}
 	
 	// 
@@ -141,7 +159,8 @@
 	// Configure the font loader
 	WebFontConfig = {
 		google: {
-			families: googleFontFamilies
+			families: googleFontFamilies,
+			text: 'abcdedfghijklmopqrstuvwxyzABCDEDFGHIJKLMOPQRSTUVWXYZ!-+0123456789'
 		},
 		active: function () {
 			[].forEach.call(document.querySelectorAll('#baseline-offset-table-google-fonts tbody th'), calculateBaselineValue);

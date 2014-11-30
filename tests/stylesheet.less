@@ -467,21 +467,25 @@ html {
 	}
 	th {
 		text-align: left;
+		font-weight: normal;
+		font-variant: small-caps;
+		text-transform: lowercase;
 	}
 	th ~ th, th ~ td {
 		text-align: right;
 	}
 	tbody th {
-		font-weight: normal;
 		font-family: "Comic Sans MS";
+		font-variant: normal;
+		text-transform: none;
 	}
-	.error th + td {
+	.error {
 		color: red;
 	}
-	.warning th + td {
+	.warning {
 		color: orange;
 	}
-	.notice th + td {
+	.notice {
 		color: #666;
 	}
 }
