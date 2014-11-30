@@ -71,6 +71,8 @@
 			previousHeight = 0,
 			previousOffset = 0;
 		
+		console.log('fontBaselineOffsetValue', fontFamily, fontStyle, fontWeight);
+		
 		testScale.style.fontFamily = fontFamily;
 		testScale.style.fontStyle = fontStyle || 'normal';
 		testScale.style.fontWeight = fontWeight || '400';
@@ -104,7 +106,7 @@
 	// Calculate baseline offset values for in all tables
 	//
 	function calculateBaselineValue(th, i) {
-		var next, nextOffsetValue,
+		var next, nextOffsetValue, fontStyle, fontWeight,
 			fontFamily = th.textContent;
 		
 		// Calculate value if font family is installed
@@ -122,7 +124,10 @@
 				continue;
 			}
 			
-			nextOffsetValue = fontBaselineOffsetValue(fontFamily, next.style.fontStyle, next.style.fontWeight);
+			fontStyle = next.className.substr(0, 1) === 'i' ? 'italic' : 'normal';
+			fontWeight = next.className.substr(1, 1) * 100;
+			
+			nextOffsetValue = fontBaselineOffsetValue(fontFamily, fontStyle, fontWeight);
 			
 			if (nextOffsetValue === next.textContent) {
 				continue;

@@ -683,6 +683,64 @@ html {
 .offset-table .notice {
   color: #666;
 }
+.offset-table thead .n1,
+.offset-table thead .n2,
+.offset-table thead .n3,
+.offset-table thead .n4,
+.offset-table thead .n5,
+.offset-table thead .n6,
+.offset-table thead .n7,
+.offset-table thead .n8,
+.offset-table thead .n9 {
+  font-style: normal;
+}
+.offset-table thead .i1,
+.offset-table thead .i2,
+.offset-table thead .i3,
+.offset-table thead .i4,
+.offset-table thead .i5,
+.offset-table thead .i6,
+.offset-table thead .i7,
+.offset-table thead .i8,
+.offset-table thead .i9 {
+  font-style: italic;
+}
+.offset-table thead .n1,
+.offset-table thead .i1 {
+  font-weight: 100;
+}
+.offset-table thead .n2,
+.offset-table thead .i2 {
+  font-weight: 200;
+}
+.offset-table thead .n3,
+.offset-table thead .i3 {
+  font-weight: 300;
+}
+.offset-table thead .n4,
+.offset-table thead .i4 {
+  font-weight: 400;
+}
+.offset-table thead .n5,
+.offset-table thead .i5 {
+  font-weight: 500;
+}
+.offset-table thead .n6,
+.offset-table thead .i6 {
+  font-weight: 600;
+}
+.offset-table thead .n7,
+.offset-table thead .i7 {
+  font-weight: 700;
+}
+.offset-table thead .n8,
+.offset-table thead .i8 {
+  font-weight: 800;
+}
+.offset-table thead .n9,
+.offset-table thead .i9 {
+  font-weight: 900;
+}
 #scale-test {
   position: absolute;
   right: 100%;
