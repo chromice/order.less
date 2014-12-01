@@ -27,7 +27,7 @@
 	//
 	
 	// Calculate @-power-diff value
-	.find-power-diff (@counter) when ((@base * pow(@ratio, @counter)) < @alternative) {
+	.find-power-diff (@counter) when ((@scale-base * pow(@scale-ratio, @counter)) < @scale-alternative) {
 		.find-power-diff((@counter + 1));
 	}
 	.find-power-diff (@counter) when (default()) {
@@ -37,9 +37,9 @@
 	
 	// Calculate scale size at a particular particular step
 	.get-scale-size (@step) when (mod(round(@step), 2) = 0) {
-		@scale-size: (@base * pow(@ratio, @step / 2));
+		@scale-size: (@scale-base * pow(@scale-ratio, @step / 2));
 	}
 	.get-scale-size (@step) when (default()) {
-		@scale-size: (@alternative * pow(@ratio, (@step - 1) / 2 - (@-power-diff - 1)));
+		@scale-size: (@scale-alternative * pow(@scale-ratio, (@step - 1) / 2 - (@-power-diff - 1)));
 	}
 }
