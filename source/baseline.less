@@ -87,10 +87,7 @@
 		@-linear-gradien: fade(@color, 40%) 1px, transparent 1px, transparent;
 		
 		background-image: -webkit-linear-gradient(top, @-linear-gradien);
-		background-image: -moz-linear-gradient(top, @-linear-gradien);
-		background-image: -o-linear-gradient(top, @-linear-gradien);
 		background-image: linear-gradient(to bottom, @-linear-gradien);
-		-webkit-background-size: 2px (@baseline-height * @baseline-size);
 		background-size: 2px (@baseline-height * @baseline-size);
 		background-position: 0 round((-1px - (@-offset - 0.5) * @baseline-size));
 	}
