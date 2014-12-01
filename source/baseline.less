@@ -80,6 +80,20 @@
 	@offset-top: (unit(mod(@-diff-height / 2 - @-diff-font-size, @baseline-size * @baseline-height) / @baseline-size, rem));
 	@offset-bottom: (unit(mod(@-diff-height, @baseline-size * @baseline-height) / @baseline-size, rem));
 	
+	//
+	// Show baseline
+	//
+	.show-baseline(@color: red, @-offset: @baseline-offset) {
+		@-linear-gradien: fade(@color, 40%) 1px, transparent 1px, transparent;
+		
+		background-image: -webkit-linear-gradient(top, @-linear-gradien);
+		background-image: -moz-linear-gradient(top, @-linear-gradien);
+		background-image: -o-linear-gradient(top, @-linear-gradien);
+		background-image: linear-gradient(to bottom, @-linear-gradien);
+		-webkit-background-size: 2px (@baseline-height * @baseline-size);
+		background-size: 2px (@baseline-height * @baseline-size);
+		background-position: 0 round((-1px - (@-offset - 0.5) * @baseline-size));
+	}
 	
 	//
 	// Baseline manipulation mixins

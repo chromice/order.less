@@ -367,9 +367,11 @@ html {
 	line-height: @baseline-height;
 }
 
+#baseline-horizontal, #baseline-vertical, #baseline-vertical-family, #baseline-vertical-line, #baseline-vertical-offset {
+	.show-baseline();
+}
+
 #baseline-horizontal {
-	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
-	
 	> div {
 		float: left;
 		.width(3);
@@ -394,8 +396,6 @@ html {
 }
 
 #baseline-vertical {
-	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
-	
 	h1 {
 		.font-align(50px, (4/7 * @baseline-height));
 		.margin-top(1);
@@ -409,8 +409,6 @@ html {
 }
 
 #baseline-vertical-family {
-	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
-	
 	h1 {
 		.font-align(50px, (4/7 * @baseline-height), gill-sans-medium);
 		.margin-top(1);
@@ -424,8 +422,6 @@ html {
 }
 
 #baseline-vertical-line {
-	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
-	
 	h1 {
 		.font-align(@baseline-size, (5/4 * @baseline-height), gill-sans);
 		.margin-top(1);
@@ -443,7 +439,6 @@ html {
 	overflow: visible;
 	position: relative;
 	.padding-left(4);
-	background: url(http://basehold.it/i/24/ff0000) 0 -6px;
 	
 	p {
 		// .reset-baseline();
