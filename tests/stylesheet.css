@@ -635,8 +635,25 @@ html {
 .offset-table th ~ td {
   text-align: right;
 }
+.offset-table tbody th,
+.offset-table tbody td {
+  padding: 0.25em 0.5em;
+  color: #aaa;
+}
+.offset-table tbody .available th,
+.offset-table tbody .available td {
+  color: inherit;
+}
+.offset-table tbody .available th.error,
+.offset-table tbody .available td.error {
+  color: red;
+}
+.offset-table tbody .available th.notice,
+.offset-table tbody .available td.notice {
+  color: #666;
+}
 .offset-table tbody th {
-  font-family: "Comic Sans MS";
+  font-family: 'Helvetica Neue', 'Arial', 'Helvetica', sans-serif;
   font-variant: normal;
   text-transform: none;
 }
@@ -646,18 +663,6 @@ html {
 .offset-table tbody tr:nth-child(2n - 1) td,
 .offset-table tbody tr:nth-child(2n - 1) th {
   background-color: #f2f2f2;
-}
-.offset-table .error {
-  color: red;
-}
-.offset-table .warning {
-  color: orange;
-}
-.offset-table .notice {
-  color: #666;
-}
-.offset-table .not-available {
-  color: transparent;
 }
 .offset-table a {
   text-decoration: none;

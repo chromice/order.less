@@ -486,8 +486,24 @@ html {
 		text-align: right;
 	}
 	tbody {
+		th, td {
+			padding: 0.25em 0.5em;
+			color: #aaa;
+		}
+		.available {
+			th, td {
+				color: inherit;
+				
+				&.error {
+					color: red;
+				}
+				&.notice {
+					color: #666;
+				}
+			}
+		}
 		th {
-			font-family: "Comic Sans MS";
+			font-family: 'Helvetica Neue', 'Arial', 'Helvetica', sans-serif;
 			font-variant: normal;
 			text-transform: none;
 		}
@@ -499,18 +515,6 @@ html {
 				background-color: #f2f2f2;
 			}
 		}
-	}
-	.error {
-		color: red;
-	}
-	.warning {
-		color: orange;
-	}
-	.notice {
-		color: #666;
-	}
-	.not-available {
-		color: transparent;
 	}
 	
 	a {

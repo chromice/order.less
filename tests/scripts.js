@@ -109,16 +109,16 @@
 		
 		// Calculate value if font family is installed
 		if (!isFontAvailable(fontFamily)) {
-			th.parentNode.className += ' warning';
 			return;
+		} else {
+			th.parentNode.className += ' available';
 		}
 		
-		th.style.fontFamily = fontFamily;
+		// th.style.fontFamily = fontFamily;
 		next = th.nextElementSibling;
 		
 		do {
 			if (next.textContent === '') {
-				next.className += ' not-available';
 				continue;
 			}
 			
@@ -141,64 +141,84 @@
 		} while (next = next.nextElementSibling);
 	}
 	
-	// 
-	// Calculate values for offline fonts
-	// 
-	[].forEach.call(document.querySelectorAll('#baseline-offset-table tbody th'), calculateBaselineValue);
-	[].forEach.call(document.querySelectorAll('#baseline-offset-table-non-existent tbody th'), calculateBaselineValue);
-	[].forEach.call(document.querySelectorAll('#baseline-offset-table-mac-fonts tbody th'), calculateBaselineValue);
-
+	//
+	// Create "Calculate offsets" buttons for each table
+	//
+	var b, i, c, tables = ['baseline-offset-table', 'baseline-offset-table-non-existent', 'baseline-offset-table-mac-fonts', 'baseline-offset-table-google-fonts'];
+	
+	for (i = 0; i < tables.length; i++) {
+		c = document.getElementById(tables[i]);
+		
+		b = document.createElement('button');
+		b.innerText = 'Calculate offsets';
+		c.parentNode.insertBefore(b, c);
+		
+		b.addEventListener('click', function (e) {
+			var table = this.nextElementSibling.getAttribute('id');
+			
+			if (table === 'baseline-offset-table-google-fonts') {
+				calculateGoogleFontsOffsets();
+			} else {
+				[].forEach.call(document.querySelectorAll('#' + table + ' tbody th'), calculateBaselineValue);
+			}
+			
+			this.parentNode.removeChild(this);
+		});
+	}
+	
 	// 
 	// Calculate values for online fonts
 	// 
+	function calculateGoogleFontsOffsets() {
+		// Collect font family names to load
+		var googleFontFamilies = [];
 	
-	// Collect font family names to load
-	var googleFontFamilies = [];
-	
-	[].forEach.call(document.querySelectorAll('#baseline-offset-table-google-fonts tbody th'), function (th, i) {
-		var next, 
-			fontFamily = th.textContent,
-			fontVariations = [];
+		[].forEach.call(document.querySelectorAll('#baseline-offset-table-google-fonts tbody th'), function (th, i) {
+			var next, 
+				fontFamily = th.textContent,
+				fontVariations = [];
 		
-		next = th.nextElementSibling;
+			next = th.nextElementSibling;
 		
-		do {
-			if (next.textContent === '') {
-				continue;
+			do {
+				if (next.textContent === '') {
+					continue;
+				}
+			
+				var fontStyle = next.className.substr(0, 1) === 'i' ? 'italic' : '',
+					fontWeight = next.className.substr(1, 1) * 100;
+			
+				fontVariations.push(fontWeight + fontStyle);
+			
+			} while (next = next.nextElementSibling);
+		
+		
+			if (fontVariations.length > 0) {
+				googleFontFamilies.push(fontFamily + ':' + fontVariations.join(','));
 			}
-			
-			var fontStyle = next.className.substr(0, 1) === 'i' ? 'italic' : '',
-				fontWeight = next.className.substr(1, 1) * 100;
-			
-			fontVariations.push(fontWeight + fontStyle);
-			
-		} while (next = next.nextElementSibling);
-		
-		
-		if (fontVariations.length > 0) {
-			googleFontFamilies.push(fontFamily + ':' + fontVariations.join(','));
-		}
-	});
+		});
 	
-	// Configure the font loader
-	WebFontConfig = {
-		google: {
-			families: googleFontFamilies,
-			text: 'abcdedfghijklmnopqrstuvwxyzABCDEDFGHIJKLMNOPQRSTUVWXYZ!-+0123456789'
-		},
-		active: function () {
-			[].forEach.call(document.querySelectorAll('#baseline-offset-table-google-fonts tbody th'), calculateBaselineValue);
-		}
-	};
+		// Configure the font loader
+		WebFontConfig = {
+			google: {
+				families: googleFontFamilies,
+				text: 'wiA'
+			},
+			active: function () {
+				[].forEach.call(document.querySelectorAll('#baseline-offset-table-google-fonts tbody th'), calculateBaselineValue);
+			}
+		};
 	
-	// Init the font loader
-	(function() {
-		var wf = document.createElement('script');
-		wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
-			'://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js';
-		wf.type = 'text/javascript';
-		wf.async = 'true';
-		var s = document.getElementsByTagName('script')[0];
-		s.parentNode.insertBefore(wf, s);
-	})();
+		// Init the font loader
+		(function() {
+			var wf = document.createElement('script');
+			wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+				'://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js';
+			wf.type = 'text/javascript';
+			wf.async = 'true';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(wf, s);
+		})();
+	}
+	
 })();
