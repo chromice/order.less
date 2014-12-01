@@ -12,7 +12,7 @@
 	@baseline-font: @name;
 	
 	@-offset: "@{name}-font-offset";
-	@-weight: "@{name}-font-weight";
+	@-variation: "@{name}-font-variation";
 	@-family: "@{name}-font-family";
 	
 	.use-baseline(@-size, @-height, @@-offset);
@@ -25,13 +25,13 @@
 	.font (@font-size, @line-height: @baseline-height, @font-name: @baseline-font) {
 		
 		// TODO: Add support for font-style
-		// FIXME: font-weight, font-style, and font-family variables should be optional
+		// FIXME: font variation and font family variables should be optional
 		@-font-offset: "@{font-name}-font-offset";
-		@-font-weight: "@{font-name}-font-weight";
+		@-font-variation: "@{font-name}-font-variation";
 		@-font-family: "@{font-name}-font-family";
 		
 		.set-baseline(@font-size, @line-height, @@-font-offset);
-		font: @@-font-weight @current-size~"/"@current-height @@-font-family;
+		font: @@-font-variation @current-size~"/"@current-height @@-font-family;
 		font-size: unit((@current-size / @baseline-size), rem);
 	}
 	
