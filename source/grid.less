@@ -21,6 +21,21 @@
 	
 	
 	//
+	// Show grid
+	//
+	.show-grid(@color: red, @base: @grid-columns) {
+		@-color: fade(@color, 30%);
+		@-calc-width: round((100% / @base), 8) ~"-" round(((@base - 1) / @base * @grid-gutter), 8) ~"+" @grid-gutter;
+		@-linear-gradient: transparent @grid-gutter, @-color @grid-gutter, @-color;
+		
+		background-image: -webkit-linear-gradient(left, @-linear-gradient);
+		background-image: linear-gradient(to right, @-linear-gradient);
+		background-size: -webkit-calc(@-calc-width) 2px;
+		background-size: calc(@-calc-width) 2px;
+		background-position: (-@grid-gutter) 0;
+	}
+	
+	//
 	// Property mixins: @span + @base
 	//
 	
