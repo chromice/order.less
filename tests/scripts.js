@@ -150,7 +150,7 @@
 		c = document.getElementById(tables[i]);
 		
 		b = document.createElement('button');
-		b.innerText = 'Calculate offsets';
+		b.textContent = 'Calculate offsets';
 		c.parentNode.insertBefore(b, c);
 		
 		b.addEventListener('click', function (e) {
