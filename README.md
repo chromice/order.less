@@ -2,8 +2,6 @@
 
 order.less is a library of Less mixins that gives you precise control over basic elements of  typography: grid, baseline and scale.
 
-**NB!** This is alpha-stage software that is being continuously improved. The API and functionality is being changed constantly.
-
 ## Grid
 
 The grid module allows you define a column grid and set elements' width, padding, margin and offset in columns.

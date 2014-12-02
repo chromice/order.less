@@ -1,4 +1,4 @@
-//! order.less v0.6.0 | Apache License, Version 2.0 | github.com/chromice/order.less
+//! order.less v0.9.0 | Apache License, Version 2.0 | github.com/chromice/order.less
 
 // ==============
 // = scale.less =
@@ -9,6 +9,7 @@
 	@scale-base: @base;
 	@scale-alternative: @alternative;
 	@scale-ratio: @ratio;
+	
 	
 	//
 	// Property mixins
@@ -22,18 +23,19 @@
 		font-size: unit((@scale-size / @scale-base), rem);
 	}
 	
+	
 	//
 	// Private mixins
 	//
 	
 	// Calculate @-power-diff value
-	.find-power-diff (@counter) when ((@scale-base * pow(@scale-ratio, @counter)) < @scale-alternative) {
-		.find-power-diff((@counter + 1));
+	.-find-power-diff (@counter) when ((@scale-base * pow(@scale-ratio, @counter)) < @scale-alternative) {
+		.-find-power-diff((@counter + 1));
 	}
-	.find-power-diff (@counter) when (default()) {
+	.-find-power-diff (@counter) when (default()) {
 		@-power-diff: @counter;
 	}
-	.find-power-diff(0);
+	.-find-power-diff(0);
 	
 	// Calculate scale size at a particular particular step
 	.get-scale-size (@step) when (mod(round(@step), 2) = 0) {

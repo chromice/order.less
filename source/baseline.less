@@ -1,4 +1,4 @@
-//! order.less v0.6.0 | Apache License, Version 2.0 | github.com/chromice/order.less
+//! order.less v0.9.0 | Apache License, Version 2.0 | github.com/chromice/order.less
 
 // =================
 // = baseline.less =
@@ -16,6 +16,7 @@
 	@-family: "@{name}-font-family";
 	
 	.use-baseline(@-size, @-height, @@-offset);
+	
 	
 	//
 	// Property mixins
@@ -41,6 +42,7 @@
 	}
 }
 
+
 // 
 // Base size as a scale step
 // 
@@ -52,6 +54,7 @@
 	.get-scale-size(@-alt-step);
 	.use-baseline(@-size, @-height, @-offset, @scale-size, @-alt-height, @-alt-offset);
 }
+
 
 // 
 // Base size in pixels
@@ -78,6 +81,7 @@
 	@offset-top: (unit(mod(@-diff-height / 2 - @-diff-font-size, @baseline-size * @baseline-height) / @baseline-size, rem));
 	@offset-bottom: (unit(mod(@-diff-height, @baseline-size * @baseline-height) / @baseline-size, rem));
 	
+	
 	//
 	// Show baseline
 	//
@@ -89,6 +93,7 @@
 		background-size: 2px (@baseline-height * @baseline-size);
 		background-position: 0 round((-1px - (@-offset - 0.5) * @baseline-size));
 	}
+	
 	
 	//
 	// Baseline manipulation mixins
@@ -135,6 +140,7 @@
 		.adjust-baseline();
 	}
 	
+	
 	//
 	// Property mixins
 	//
@@ -173,6 +179,7 @@
 	.margin-bottom (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
 		.-baseline-property(margin-bottom, @span, @nudge, @offset-bottom);
 	}
+	
 	
 	//
 	// Private mixins
