@@ -28,9 +28,7 @@
 		@-calc-width: round((100% / @base), 8) ~"-" round(((@base - 1) / @base * @grid-gutter), 8) ~"+" @grid-gutter;
 		@-linear-gradient: transparent @grid-gutter, @-color @grid-gutter, @-color;
 		
-		background-image: -webkit-linear-gradient(left, @-linear-gradient);
 		background-image: linear-gradient(to right, @-linear-gradient);
-		background-size: -webkit-calc(@-calc-width) 2px;
 		background-size: calc(@-calc-width) 2px;
 		background-position: (-@grid-gutter) 0;
 	}
@@ -142,7 +140,6 @@
 		.get-grid-width(@span, @nudge, @base);
 		
 		@{property}: @grid-width-fallback;
-		@{property}: -webkit-calc(@grid-width-calc);
 		@{property}: calc(@grid-width-calc);
 	}
 	.-grid-width-property (@property, @span, @nudge, @base) when (@span = 0) and (@nudge = 0), (@base = 0) {
@@ -154,7 +151,6 @@
 		.get-grid-offset(@span, @nudge, @base);
 		
 		@{property}: @grid-offset-fallback;
-		@{property}: -webkit-calc(@grid-offset-calc);
 		@{property}: calc(@grid-offset-calc);
 	}
 	.-grid-offset-property (@property, @span, @nudge, @base) when (@span = 0) and (@nudge = 0), (@base = 0) {

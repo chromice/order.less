@@ -86,7 +86,6 @@
 		
 		@-linear-gradien: fade(@color, 40%) 1px, transparent 1px, transparent;
 		
-		background-image: -webkit-linear-gradient(top, @-linear-gradien);
 		background-image: linear-gradient(to bottom, @-linear-gradien);
 		background-size: 2px (@baseline-height * @baseline-size);
 		background-position: 0 round((-1px - (@offset - 0.5) * @baseline-size));
@@ -198,21 +197,18 @@
 		.get-baseline-height(@span);
 		
 		@{property}: @baseline-height-px;
-		@{property}: -webkit-calc(@baseline-height-rem ~"+" @nudge);
 		@{property}: calc(@baseline-height-rem ~"+" @nudge);
 	}
 	.-baseline-property (@property, @span, @nudge: 0, @correction: 0) when (@nudge = 0) and not(@correction = 0) {
 		.get-baseline-height(@span);
 		
 		@{property}: @baseline-height-px;
-		@{property}: -webkit-calc(@baseline-height-rem ~"+" @correction);
 		@{property}: calc(@baseline-height-rem ~"+" @correction);
 	}
 	.-baseline-property (@property, @span, @nudge: 0, @correction: 0) when (default()) {
 		.get-baseline-height(@span);
 		
 		@{property}: @baseline-height-px;
-		@{property}: -webkit-calc(@baseline-height-rem ~"+" @nudge ~"+" @correction);
 		@{property}: calc(@baseline-height-rem ~"+" @nudge ~"+" @correction);
 	}
 	
