@@ -7,15 +7,12 @@
 // 
 // Font offset as name
 // 
-.use-baseline (@-size, @-height, @name) when (iskeyword(@name)) {
+.use-baseline (@size, @height, @name) when (iskeyword(@name)) {
 	
-	@baseline-font: @name;
-	
+	@baseline-name: @name;
 	@-offset: "@{name}-font-offset";
-	@-variation: "@{name}-font-variation";
-	@-family: "@{name}-font-family";
 	
-	.use-baseline(@-size, @-height, @@-offset);
+	.use-baseline(@size, @height, @@-offset);
 	
 	
 	//
@@ -23,20 +20,20 @@
 	//
 	
 	// Font property "shorthand" mixin
-	.font (@font-size, @line-height: @baseline-height, @font-name: @baseline-font) {
+	.font (@font-size, @line-height: @baseline-height, @font-name: @baseline-name) {
 		
-		@-font-offset: "@{font-name}-font-offset";
-		@-font-variation: "@{font-name}-font-variation";
-		@-font-family: "@{font-name}-font-family";
+		@-offset: "@{font-name}-font-offset";
+		@-variation: "@{font-name}-font-variation";
+		@-family: "@{font-name}-font-family";
 		
-		.set-baseline(@font-size, @line-height, @@-font-offset);
-		font: @@-font-variation @current-size~"/"@current-height @@-font-family;
+		.set-baseline(@font-size, @line-height, @@-offset);
+		font: @@-variation @current-size~"/"@current-height @@-family;
 		font-size: unit((@current-size / @baseline-size), rem);
 	}
 	
 	
 	// .font() + .align-baseline()
-	.font-align (@font-size, @line-height: @baseline-height, @font-name: @baseline-font) {
+	.font-align (@font-size, @line-height: @baseline-height, @font-name: @baseline-name) {
 		.font(@font-size, @line-height, @font-name);
 		.align-baseline();
 	}
@@ -46,13 +43,13 @@
 // 
 // Base size as a scale step
 // 
-.use-baseline (@-step, @-height, @-offset: 0.85) when (unit(@-step) = ~"@{-step}") and not(iskeyword(@-offset)) {
-	.get-scale-size(@-step);
-	.use-baseline(@scale-size, @-height, @-offset);
+.use-baseline (@step, @height, @offset: 0.85) when (unit(@step) = ~"@{step}") and not(iskeyword(@offset)) {
+	.get-scale-size(@step);
+	.use-baseline(@scale-size, @height, @offset);
 }
-.use-baseline (@-size, @-height, @-offset, @-alt-step, @-alt-height, @-alt-offset) when (ispixel(@-size)) and (unit(@-alt-step) = ~"@{-alt-step}") {
-	.get-scale-size(@-alt-step);
-	.use-baseline(@-size, @-height, @-offset, @scale-size, @-alt-height, @-alt-offset);
+.use-baseline (@size, @height, @offset, @alt-step, @alt-height, @alt-offset) when (ispixel(@size)) and (unit(@alt-step) = ~"@{alt-step}") {
+	.get-scale-size(@alt-step);
+	.use-baseline(@size, @height, @offset, @scale-size, @alt-height, @alt-offset);
 }
 
 
@@ -85,13 +82,14 @@
 	//
 	// Show baseline
 	//
-	.show-baseline(@color: red, @-offset: @baseline-offset) {
+	.show-baseline(@color: red, @offset: @baseline-offset) {
+		
 		@-linear-gradien: fade(@color, 40%) 1px, transparent 1px, transparent;
 		
 		background-image: -webkit-linear-gradient(top, @-linear-gradien);
 		background-image: linear-gradient(to bottom, @-linear-gradien);
 		background-size: 2px (@baseline-height * @baseline-size);
-		background-position: 0 round((-1px - (@-offset - 0.5) * @baseline-size));
+		background-position: 0 round((-1px - (@offset - 0.5) * @baseline-size));
 	}
 	
 	
@@ -100,8 +98,9 @@
 	//
 	
 	// Set a new baseline
-	.set-baseline (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
-		.use-baseline(@baseline-size, @baseline-height, @baseline-offset, @-size, @-height, @-offset);
+	.set-baseline (@alt-size, @alt-height: @baseline-height, @alt-offset: @baseline-offset) {
+		// FIXME: Using @size, @height, @offset parameter names does not yield correct results. WTF?
+		.use-baseline(@baseline-size, @baseline-height, @baseline-offset, @alt-size, @alt-height, @alt-offset);
 	}
 	
 	// Reset baseline to default values
@@ -114,8 +113,8 @@
 		position: relative;
 		top: @offset-top;
 	}
-	.align-baseline (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
-		.set-baseline(@-size, @-height, @-offset);
+	.align-baseline (@size, @height: @baseline-height, @offset: @baseline-offset) {
+		.set-baseline(@size, @height, @offset);
 		.align-baseline();
 	}
 	
@@ -125,8 +124,8 @@
 		font-size: unit((@current-size / @baseline-size), rem);
 		line-height: @current-height;
 	}
-	.resize-baseline (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
-		.set-baseline(@-size, @-height, @-offset);
+	.resize-baseline (@size, @height: @baseline-height, @offset: @baseline-offset) {
+		.set-baseline(@size, @height, @offset);
 		.resize-baseline();
 	}
 	
@@ -135,8 +134,8 @@
 		.align-baseline();
 		.resize-baseline();
 	}
-	.adjust-baseline (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
-		.set-baseline(@-size, @-height, @-offset);
+	.adjust-baseline (@size, @height: @baseline-height, @offset: @baseline-offset) {
+		.set-baseline(@size, @height, @offset);
 		.adjust-baseline();
 	}
 	
