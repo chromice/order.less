@@ -129,6 +129,8 @@
 			
 			if (nextOffsetValue === next.textContent) {
 				continue;
+			} else if (Math.abs((nextOffsetValue / next.textContent) - 1) < 0.005) {
+				next.className += ' ';
 			} else if (Math.abs((nextOffsetValue / next.textContent) - 1) < 0.01) {
 				next.className += ' notice';
 			} else {
