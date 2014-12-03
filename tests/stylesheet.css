@@ -219,24 +219,28 @@
 /*
 	Alt grid
 */
+#grid-10-5-blocks-2-children {
+  margin-left: -8px;
+  margin-right: -8px;
+}
 #grid-10-5-blocks-2-children .grid-block {
-  width: 18.9787234%;
-  width: calc(20% - 19.2px + 9.6px);
-  margin-left: 1.27659574%;
-  margin-left: calc(0% + 0px + 12px);
+  width: 19.31914894%;
+  width: calc(20% - 19.2px + 12.8px);
+  margin-left: 0.85106383%;
+  margin-left: calc(0% + 0px + 8px);
 }
 #grid-10-5-blocks-2-children .grid-block:first-child {
   margin-left: 0;
 }
 #grid-10-5-blocks-2-children .grid-block .grid-block {
-  width: 37.23404255%;
-  width: calc(50% - 12px + -12px);
+  width: 39.36170213%;
+  width: calc(50% - 12px + -8px);
   margin-left: 12.76595745%;
   margin-left: calc(0% + 0px + 24px);
 }
 #grid-10-5-blocks-2-children .grid-block .grid-block:first-child {
-  margin-left: 6.38297872%;
-  margin-left: calc(0% + 0px + 12px);
+  margin-left: 4.25531915%;
+  margin-left: calc(0% + 0px + 8px);
 }
 html {
   font-size: 16px;

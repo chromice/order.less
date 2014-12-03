@@ -244,21 +244,23 @@
 
 #grid-10-5-blocks-2-children {
 	.use-grid(alt);
+	margin-left: (@grid-gutter * (-1/3));
+	margin-right: (@grid-gutter * (-1/3));
 	
 	.grid-block {
-		.width(2, (@grid-gutter / (5/2)));
-		.margin-left((@grid-gutter / 2));
+		.width(2, (@grid-gutter * (2/3) * (4/5)));
+		.margin-left((@grid-gutter * (1/3)));
 		
 		&:first-child {
 			.margin-left(0);
 		}
 		
 		.grid-block {
-			.width(1, (@grid-gutter / -2), 2);
+			.width(1, (@grid-gutter / -3), 2);
 			.margin-left(@grid-gutter, 2);
 			
 			&:first-child {
-				.margin-left((@grid-gutter / 2), 2);
+				.margin-left((@grid-gutter / 3), 2);
 			}
 		}
 	}
