@@ -11,7 +11,7 @@
 }
 #grid-show {
   height: 100px;
-  background-image: linear-gradient(to right, transparent 20px, rgba(255, 0, 0, 0.3) 20px, rgba(255, 0, 0, 0.3));
+  background-image: linear-gradient(to right, rgba(255, 0, 0, 0.3) 20px, transparent 20px, transparent);
   background-size: calc(8.33333333% - 18.33333333px + 20px) 2px;
   background-position: -20px 0;
 }
