@@ -3,6 +3,57 @@
 // =================
 // = baseline.less =
 // =================
+// 
+// This module allows you define the basline and adjust elements' height, padding, margin
+// and offset as fractions of the baseline, while making sure that the first line of every
+// block sits on baseline.
+// 
+// You can set the baseline font size in pixels like this:
+// 
+// 		.use-baseline(
+// 			16px,  // baseline font size (pixels) -> @baseline-size
+// 			1.5,   // baseline height (ratio) -> @baseline-height
+// 			0.898  // baseline offset for Verdana (ratio) -> @baseline-offset
+// 		);
+// 		
+// 		h1 {
+// 			.adjust-baseline(36px, 1.25);
+// 			// sets font-size to 36px/2.25rem and line-height to 1.25
+// 			// and shifts it to baseline
+// 			.margin-top(2); // margin-top: 48px; margin-top: 3rem;
+// 			border-bottom: 1px solid; // we need to allow for this by descreasing the padding
+// 			.padding-bottom(0.5, -1px); // margin-bottom: 24px; margin-top: calc(1.5rem - 1px);
+// 			.margin-bottom(0.5); // margin-top: 24px; margin-top: 1.5rem;
+// 		}
+// 
+// Or use the scale:
+// 
+// 		.use-scale(16px, 20px, 1.5);
+// 		.use-baseline(
+// 			0,    // font size step (integer) -> @baseline-size (pixels)
+// 			1.5,  // baseline height (ratio) -> @baseline-height
+// 			0.898 // baseline offset for Verdana (ratio) -> @baseline-offset
+// 		);
+// 
+// 		h1 {
+// 			.adjust-baseline(4, 1.25);
+// 		}
+// 
+// 
+// Alternative, you can define each font using 3 variables:
+// 
+// 		@verdana-font-offset: 0.898;
+// 		@verdana-font-variation: italic 400;
+// 		@verdana-font-family: 'Verdana', sans-serif;
+// 		
+// 		.use-baselie(16px, 1.5, verdana);
+// 		
+// 		h1 {
+// 			.font-align(36px, 1.25); 
+// 			// additionally sets the font-family (via @verdana-font-family) 
+// 			// and font-variant/weight/style (via @verdana-font-variation)
+// 		}
+
 
 // 
 // Font offset as name

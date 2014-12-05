@@ -3,6 +3,35 @@
 // =============
 // = grid.less =
 // =============
+// 
+// This module allows you to define a column grid and set elements' width, padding, 
+// margin and offset in columns. 
+// 
+// To use symetric grids with inner gutters (i.e. 3 column grid having 2 gutters in 
+// between those columns):
+// 
+// 		.use-grid(
+// 			940px, // optimal grid width (pixels)  -> @grid-width
+// 			12,    // number of columns in the grid -> @grid-columns
+// 			20px,  // gutter (pixels) -> @grid-gutter
+// 		);
+// 		
+// 		body {
+// 			.width(6); 
+// 			.margin-left(3);
+// 			
+// 			> * {
+// 				float: left;
+// 				.width(2, 6);
+// 				.margin-right(@grid-gutter, 6);
+// 				
+// 				&:nth-child(3n) {
+// 					.margin-right(0);
+// 				}
+// 			}
+// 		}
+// 
+
 
 .use-grid (@name) when (iskeyword(@name)) {
 	

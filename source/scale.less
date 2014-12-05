@@ -3,6 +3,26 @@
 // ==============
 // = scale.less =
 // ==============
+// 
+// This module allows you to use double-stranded modular scales as described in [More 
+// Meaningful Typography](http://alistapart.com/article/more-meaningful-typography)
+// by Tim Brown and produces the same result as [this tool](http://modularscale.com) 
+// and accepts the same arguments:
+// 
+// 		.use-scale(
+// 			16px, // base size (step 0) -> @scale-base
+// 			20px, // alternative size -> @scale-alternative
+// 			1.5   // step ratio -> @scale-ratio
+// 		);
+// 	
+// 		html {
+// 			font-size: @scale-base;
+// 		}
+// 		
+// 		h1 {
+// 			.font-size(4); // font-size: 36px; font-size: 2.25rem;
+// 		}
+// 
 
 .use-scale (@base, @alternative, @ratio) when (@base < @alternative) and (ispixel(@base)) and (ispixel(@alternative)) and (unit(@ratio) = ~"@{ratio}") and (@ratio > 1) {
 	
