@@ -133,13 +133,13 @@
 	//
 	// Show baseline
 	//
-	.show-baseline(@color: red, @offset: @baseline-offset) {
+	.show-baseline(@offset: @baseline-offset, @color: red) {
 		
 		@-linear-gradien: fade(@color, 40%) 1px, transparent 1px, transparent;
 		
-		background-image: linear-gradient(to bottom, @-linear-gradien);
-		background-size: 2px (@baseline-height * @baseline-size);
-		background-position: 0 round((-1px - (@offset - 0.5) * @baseline-size));
+		background-image+: linear-gradient(to bottom, @-linear-gradien);
+		background-size+: 2px (@baseline-height * @baseline-size);
+		background-position+: 0 round((-1px - (@offset - 0.5) * @baseline-size));
 	}
 	
 	

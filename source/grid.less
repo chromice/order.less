@@ -52,14 +52,14 @@
 	//
 	// Show grid
 	//
-	.show-grid(@color: red, @base: @grid-columns) {
+	.show-grid(@base: @grid-columns, @color: red) {
 		@-color: fade(@color, 30%);
 		@-calc-width: round((100% / @base), 8) ~"-" round(((@base - 1) / @base * @grid-gutter), 8) ~"+" @grid-gutter;
 		@-linear-gradient: @-color @grid-gutter, transparent @grid-gutter, transparent;
 		
-		background-image: linear-gradient(to right, @-linear-gradient);
-		background-size: calc(@-calc-width) 2px;
-		background-position: (-@grid-gutter) 0;
+		background-image+: linear-gradient(to right, @-linear-gradient);
+		background-size+: calc(@-calc-width) 2px;
+		background-position+: (-@grid-gutter) 0;
 	}
 	
 	
