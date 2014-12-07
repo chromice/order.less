@@ -10,7 +10,7 @@
 // To use symetric grids with inner gutters (i.e. 3 column grid having 2 gutters in 
 // between those columns):
 // 
-// 		.use-grid(
+// 		.use-column-grid(
 // 			940px, // optimal grid width (pixels)  -> @grid-width
 // 			12,    // number of columns in the grid -> @grid-columns
 // 			20px,  // gutter (pixels) -> @grid-gutter
@@ -33,16 +33,16 @@
 // 
 
 
-.use-grid (@name) when (iskeyword(@name)) {
+.use-column-grid (@name) when (iskeyword(@name)) {
 	
 	@-width: "@{name}-grid-width";
 	@-columns: "@{name}-grid-columns";
 	@-gutter: "@{name}-grid-gutter";
 	
-	.use-grid(@@-width, @@-columns, @@-gutter);
+	.use-column-grid(@@-width, @@-columns, @@-gutter);
 }
 
-.use-grid (@width, @columns, @gutter) when (ispixel(@width)) and (unit(@columns) = ~"@{columns}") and (ispixel(@gutter)) {
+.use-column-grid (@width, @columns, @gutter) when (ispixel(@width)) and (unit(@columns) = ~"@{columns}") and (ispixel(@gutter)) {
 	
 	@grid-width: @width;
 	@grid-columns: @columns;
@@ -52,13 +52,13 @@
 	//
 	// Show grid columns or gutter
 	//
-	.show-columns(@base: @grid-columns, @color: blue) {
+	.show-columns (@base: @grid-columns, @color: blue) {
 		.-show-grid(@base, transparent, fade(@color, 30%));
 	}
-	.show-gutters(@base: @grid-columns, @color: red) {
+	.show-gutters (@base: @grid-columns, @color: red) {
 		.-show-grid(@base, fade(@color, 30%), transparent);
 	}
-	.-show-grid(@base, @color-gutter, @color-column) {
+	.-show-grid (@base, @color-gutter, @color-column) {
 		@-calc-width: round((100% / @base), 8) ~"-" round(((@base - 1) / @base * @grid-gutter), 8) ~"+" @grid-gutter;
 		
 		background-image+: linear-gradient(to right, @color-gutter @grid-gutter, @color-column @grid-gutter, @color-column);

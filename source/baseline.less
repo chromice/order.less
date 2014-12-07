@@ -10,7 +10,7 @@
 // 
 // You can set the baseline font size in pixels like this:
 // 
-// 		.use-baseline(
+// 		.use-baseline-grid(
 // 			16px,  // baseline font size (pixels) -> @baseline-size
 // 			1.5,   // baseline height (ratio) -> @baseline-height
 // 			0.898  // baseline offset for Verdana (ratio) -> @baseline-offset
@@ -29,7 +29,7 @@
 // Or use the scale:
 // 
 // 		.use-scale(16px, 20px, 1.5);
-// 		.use-baseline(
+// 		.use-baseline-grid(
 // 			0,    // font size step (integer) -> @baseline-size (pixels)
 // 			1.5,  // baseline height (ratio) -> @baseline-height
 // 			0.898 // baseline offset for Verdana (ratio) -> @baseline-offset
@@ -46,7 +46,7 @@
 // 		@verdana-font-variation: italic 400;
 // 		@verdana-font-family: 'Verdana', sans-serif;
 // 		
-// 		.use-baselie(16px, 1.5, verdana);
+// 		.use-baseline-grid(16px, 1.5, verdana);
 // 		
 // 		h1 {
 // 			.font-align(36px, 1.25); 
@@ -58,12 +58,12 @@
 // 
 // Font offset as name
 // 
-.use-baseline (@size, @height, @name) when (iskeyword(@name)) {
+.use-baseline-grid (@size, @height, @name) when (iskeyword(@name)) {
 	
 	@baseline-name: @name;
 	@-offset: "@{name}-font-offset";
 	
-	.use-baseline(@size, @height, @@-offset);
+	.use-baseline-grid(@size, @height, @@-offset);
 	
 	
 	//
@@ -94,23 +94,23 @@
 // 
 // Base size as a scale step
 // 
-.use-baseline (@step, @height, @offset: 0.85) when (unit(@step) = ~"@{step}") and not(iskeyword(@offset)) {
+.use-baseline-grid (@step, @height, @offset: 0.85) when (unit(@step) = ~"@{step}") and not(iskeyword(@offset)) {
 	.get-scale-size(@step);
-	.use-baseline(@scale-size, @height, @offset);
+	.use-baseline-grid(@scale-size, @height, @offset);
 }
-.use-baseline (@size, @height, @offset, @alt-step, @alt-height, @alt-offset) when (ispixel(@size)) and (unit(@alt-step) = ~"@{alt-step}") {
+.use-baseline-grid (@size, @height, @offset, @alt-step, @alt-height, @alt-offset) when (ispixel(@size)) and (unit(@alt-step) = ~"@{alt-step}") {
 	.get-scale-size(@alt-step);
-	.use-baseline(@size, @height, @offset, @scale-size, @alt-height, @alt-offset);
+	.use-baseline-grid(@size, @height, @offset, @scale-size, @alt-height, @alt-offset);
 }
 
 
 // 
 // Base size in pixels
 // 
-.use-baseline (@size, @height, @offset: 0.85) when (ispixel(@size)) and not(iskeyword(@offset)) {
-	.use-baseline(@size, @height, @offset, @size, @height, @offset);
+.use-baseline-grid (@size, @height, @offset: 0.85) when (ispixel(@size)) and not(iskeyword(@offset)) {
+	.use-baseline-grid(@size, @height, @offset, @size, @height, @offset);
 }
-.use-baseline (@size, @height, @offset, @alt-size, @alt-height, @alt-offset) when (ispixel(@size)) and (ispixel(@alt-size)) {
+.use-baseline-grid (@size, @height, @offset, @alt-size, @alt-height, @alt-offset) when (ispixel(@size)) and (ispixel(@alt-size)) {
 	
 	// Main baseline values
 	@baseline-size: @size;
@@ -150,12 +150,12 @@
 	// Set a new baseline
 	.set-baseline (@alt-size, @alt-height: @baseline-height, @alt-offset: @baseline-offset) {
 		// FIXME: Using @size, @height, @offset parameter names does not yield correct results. WTF?
-		.use-baseline(@baseline-size, @baseline-height, @baseline-offset, @alt-size, @alt-height, @alt-offset);
+		.use-baseline-grid(@baseline-size, @baseline-height, @baseline-offset, @alt-size, @alt-height, @alt-offset);
 	}
 	
 	// Reset baseline to default values
 	.reset-baseline () {
-		.use-baseline(@baseline-size, @baseline-height, @baseline-offset);
+		.use-baseline-grid(@baseline-size, @baseline-height, @baseline-offset);
 	}
 	
 	// Shift text to the main baseline

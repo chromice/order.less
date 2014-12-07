@@ -13,7 +13,7 @@ In order to start using grid module, you must import the mixins and define the g
 ```less
 @import 'path/to/grid.less';
 
-.use-grid(
+.use-column-grid(
     940px, // optimal grid width (pixels)  -> @grid-width
     12,   // number of columns in the grid -> @grid-columns
     20px, // gutter (pixels) -> @grid-gutter
@@ -143,7 +143,7 @@ You can set the baseline font size in pixels like this:
 ```less
 @import 'path/to/baseline.less';
 
-.use-baseline(
+.use-baseline-grid(
     16px,  // baseline font size
     1.5,   // baseline height (ratio)
     0.898 // baseline offset for Verdana (ratio)
@@ -163,7 +163,7 @@ Alternatively, you can combine baseline and scale like this:
 @import 'path/to/scale.less';
 
 .use-scale(16px, 20px, 1.5);
-.use-baseline(@scale-base, 1.5, 0.898);
+.use-baseline-grid(@scale-base, 1.5, 0.898);
 
 html {
     font-family: Verdana, sans-serif;
