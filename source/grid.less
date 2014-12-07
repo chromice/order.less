@@ -12,8 +12,8 @@
 // 
 // 		.use-column-grid(
 // 			940px, // optimal grid width (pixels)  -> @grid-width
-// 			12,    // number of columns in the grid -> @grid-columns
 // 			20px,  // gutter (pixels) -> @grid-gutter
+// 			12     // number of columns in the grid -> @grid-columns
 // 		);
 // 		
 // 		body {
@@ -36,17 +36,17 @@
 .use-column-grid (@name) when (iskeyword(@name)) {
 	
 	@-width: "@{name}-grid-width";
-	@-columns: "@{name}-grid-columns";
 	@-gutter: "@{name}-grid-gutter";
+	@-columns: "@{name}-grid-columns";
 	
-	.use-column-grid(@@-width, @@-columns, @@-gutter);
+	.use-column-grid(@@-width, @@-gutter, @@-columns);
 }
 
-.use-column-grid (@width, @columns, @gutter) when (ispixel(@width)) and (unit(@columns) = ~"@{columns}") and (ispixel(@gutter)) {
+.use-column-grid (@width, @gutter, @columns) when (ispixel(@width)) and (unit(@columns) = ~"@{columns}") and (ispixel(@gutter)) {
 	
 	@grid-width: @width;
-	@grid-columns: @columns;
 	@grid-gutter: @gutter;
+	@grid-columns: @columns;
 	
 	
 	//

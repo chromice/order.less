@@ -15,8 +15,8 @@ In order to start using grid module, you must import the mixins and define the g
 
 .use-column-grid(
     940px, // optimal grid width (pixels)  -> @grid-width
-    12,   // number of columns in the grid -> @grid-columns
     20px, // gutter (pixels) -> @grid-gutter
+    12   // number of columns in the grid -> @grid-columns
 );
 ```
 
