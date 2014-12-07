@@ -50,14 +50,18 @@
 	
 	
 	//
-	// Show grid
+	// Show grid columns or gutter
 	//
-	.show-grid(@base: @grid-columns, @color: red) {
-		@-color: fade(@color, 30%);
+	.show-columns(@base: @grid-columns, @color: blue) {
+		.-show-grid(@base, transparent, fade(@color, 30%));
+	}
+	.show-gutters(@base: @grid-columns, @color: red) {
+		.-show-grid(@base, fade(@color, 30%), transparent);
+	}
+	.-show-grid(@base, @color-gutter, @color-column) {
 		@-calc-width: round((100% / @base), 8) ~"-" round(((@base - 1) / @base * @grid-gutter), 8) ~"+" @grid-gutter;
-		@-linear-gradient: @-color @grid-gutter, transparent @grid-gutter, transparent;
 		
-		background-image+: linear-gradient(to right, @-linear-gradient);
+		background-image+: linear-gradient(to right, @color-gutter @grid-gutter, @color-column @grid-gutter, @color-column);
 		background-size+: calc(@-calc-width) 2px;
 		background-position+: (-@grid-gutter) 0;
 	}

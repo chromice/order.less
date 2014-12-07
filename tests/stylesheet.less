@@ -31,7 +31,7 @@
 
 #grid-show {
 	height: 100px;
-	.show-grid();
+	.show-columns();
 }
 
 .grid-block {
@@ -375,12 +375,12 @@ html {
 }
 
 #baseline-horizontal, #baseline-vertical, #baseline-vertical-family, #baseline-vertical-line, #baseline-vertical-offset {
-	.show-baseline();
+	.show-baselines();
 }
 
 #baseline-horizontal {
-	.show-baseline();
-	.show-grid(4);
+	.show-baselines();
+	.show-gutters(4);
 	
 	> div {
 		float: left;
