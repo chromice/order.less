@@ -107,14 +107,14 @@ The scale module allows you to use double-stranded modular scales as described i
 ```less
 @import 'path/to/scale.less';
 
-.use-scale(16px, 20px, 1.5);
+.use-modular-scale(16px, 20px, (2/3));
 
 html {
     font-size: @scale-base;
 }
 ```
 
-`.use-scale()` mixin accepts the same three arguments as [this tool](http://modularscale.com) and effectively produces [the same result](http://modularscale.com/scale/?px1=16&px2=20&ra1=1.5).
+`.use-modular-scale()` mixin accepts the same three arguments as [this tool](http://modularscale.com) and effectively produces [the same result](http://modularscale.com/scale/?px1=16&px2=20&ra1=1.5).
 
 If you just want to pick a value from the scale and set the font size, you can do it like this:
 
@@ -162,7 +162,7 @@ Alternatively, you can combine baseline and scale like this:
 @import 'path/to/baseline.less';
 @import 'path/to/scale.less';
 
-.use-scale(16px, 20px, 1.5);
+.use-modular-scale(16px, 20px, (2/3));
 .use-baseline-grid(@scale-base, 1.5, 0.898);
 
 html {
