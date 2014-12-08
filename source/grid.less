@@ -31,6 +31,14 @@
 // 			}
 // 		}
 // 
+// Alternatively you can define a grid via a set of variables and reference it by name:
+// 
+// 		@desktop-grid-width: 940px;
+// 		@desktop-grid-gutter: 20px;
+// 		@desktop-grid-columns: 12;
+// 		
+// 		.use-column-grid(desktop);
+// 
 
 
 .use-column-grid (@name) when (iskeyword(@name)) {
