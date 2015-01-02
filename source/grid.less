@@ -7,7 +7,7 @@
 // This module allows you to define a column grid and set elements' width, padding, 
 // margin and offset in columns. 
 // 
-// To use symetric grids with inner gutters (i.e. 3 column grid having 2 gutters in 
+// To use uniform grids with inner gutters (i.e. 3 column grid having 2 gutters in 
 // between those columns):
 // 
 //     .use-column-grid(
@@ -178,7 +178,7 @@
 	
 	// Set width values
 	.-column-width-property (@property, @span, @nudge, @base) when (@span > 0) and (@base > 0), not(@nudge = 0) and (@base > 0) {
-		.get-column-width(@span, @nudge, @base);
+		.-get-column-values(@span, @nudge, @base);
 		
 		@{property}: @grid-width-fallback;
 		@{property}: calc(@grid-width-calc);
@@ -189,7 +189,7 @@
 	
 	// Set offset values
 	.-column-offset-property (@property, @span, @nudge, @base) when not(@span = 0) and (@base > 0), not(@nudge = 0) and (@base > 0) {
-		.get-column-offset(@span, @nudge, @base);
+		.-get-column-values(@span, @nudge, @base);
 		
 		@{property}: @grid-offset-fallback;
 		@{property}: calc(@grid-offset-calc);
@@ -199,12 +199,6 @@
 	}
 	
 	// Calculate grid values
-	.get-column-width (@span, @nudge, @base) {
-		.-get-column-values(@span, @nudge, @base);
-	}
-	.get-column-offset (@span, @nudge, @base) {
-		.-get-column-values(@span, @nudge, @base);
-	}
 	.-get-column-values (@span, @nudge, @base) {
 		// Modern browsers that support calc():
 		@-column-width: round((100% / @base * @span), 8);

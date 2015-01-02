@@ -24,10 +24,10 @@
 //     }
 // 
 
-.use-modular-scale (@base, @alternative, @ratio) when (@base < @alternative) and (ispixel(@base)) and (ispixel(@alternative)) and (unit(@ratio) = ~"@{ratio}") and (@ratio < 1) {
+.use-modular-scale (@primary, @secondary, @ratio) when (@primary < @secondary) and (ispixel(@primary)) and (ispixel(@secondary)) and (unit(@ratio) = ~"@{ratio}") and (@ratio < 1) {
 	
-	@scale-base: @base;
-	@scale-alternative: @alternative;
+	@scale-base: @primary;
+	@scale-alternative: @secondary;
 	@scale-ratio: @ratio;
 	
 	
