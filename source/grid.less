@@ -1,4 +1,4 @@
-//! order.less v0.9.0 | Apache License, Version 2.0 | github.com/chromice/order.less
+//! Order.less v0.9.0 | Apache License, Version 2.0 | github.com/chromice/order.less
 
 // =============
 // = grid.less =
@@ -10,34 +10,34 @@
 // To use symetric grids with inner gutters (i.e. 3 column grid having 2 gutters in 
 // between those columns):
 // 
-// 		.use-column-grid(
-// 			940px, // optimal grid width (pixels)  -> @grid-width
-// 			20px,  // gutter (pixels) -> @grid-gutter
-// 			12     // number of columns in the grid -> @grid-columns
-// 		);
-// 		
-// 		body {
-// 			.width(6); 
-// 			.margin-left(3);
-// 			
-// 			> * {
-// 				float: left;
-// 				.width(2, 6);
-// 				.margin-right(@grid-gutter, 6);
-// 				
-// 				&:nth-child(3n) {
-// 					.margin-right(0);
-// 				}
-// 			}
-// 		}
+//     .use-column-grid(
+//         940px, // optimal grid width (pixels)  -> @grid-width
+//         20px,  // gutter (pixels) -> @grid-gutter
+//         12     // number of columns in the grid -> @grid-columns
+//     );
+//     
+//     body {
+//         .width(6); 
+//         .margin-left(3);
+//         
+//         > * {
+//             float: left;
+//             .width(2, 6);
+//             .margin-right(@grid-gutter, 6);
+//             
+//             &:nth-child(3n) {
+//                 .margin-right(0);
+//             }
+//         }
+//     }
 // 
 // Alternatively you can define a grid via a set of variables and reference it by name:
 // 
-// 		@desktop-grid-width: 940px;
-// 		@desktop-grid-gutter: 20px;
-// 		@desktop-grid-columns: 12;
-// 		
-// 		.use-column-grid(desktop);
+//     @desktop-grid-width: 940px;
+//     @desktop-grid-gutter: 20px;
+//     @desktop-grid-columns: 12;
+//     
+//     .use-column-grid(desktop);
 // 
 
 
@@ -81,33 +81,33 @@
 	
 	// Column width
 	.width (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (unit(@base) = ~"@{base}") {
-		.-grid-width-property(width, @span, 0, @base);
+		.-column-width-property(width, @span, 0, @base);
 	}
 	.max-width (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (unit(@base) = ~"@{base}") {
-		.-grid-width-property(max-width, @span, 0, @base);
+		.-column-width-property(max-width, @span, 0, @base);
 	}
 	.min-width (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (unit(@base) = ~"@{base}") {
-		.-grid-width-property(min-width, @span, 0, @base);
+		.-column-width-property(min-width, @span, 0, @base);
 	}
 	
 	// Column offset
 	.margin-left (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(margin-left, @span, 0, @base);
+		.-column-offset-property(margin-left, @span, 0, @base);
 	}
 	.margin-right (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(margin-right, @span, 0, @base);
+		.-column-offset-property(margin-right, @span, 0, @base);
 	}
 	.padding-left (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(padding-left, @span, 0, @base);
+		.-column-offset-property(padding-left, @span, 0, @base);
 	}
 	.padding-right (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(padding-right, @span, 0, @base);
+		.-column-offset-property(padding-right, @span, 0, @base);
 	}
 	.left (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(left, @span, 0, @base);
+		.-column-offset-property(left, @span, 0, @base);
 	}
 	.right (@span, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(right, @span, 0, @base);
+		.-column-offset-property(right, @span, 0, @base);
 	}
 	
 	
@@ -117,22 +117,22 @@
 	
 	// Column offset
 	.margin-left (@nudge, @base: @grid-columns) when (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(margin-left, 0, @nudge, @base);
+		.-column-offset-property(margin-left, 0, @nudge, @base);
 	}
 	.margin-right (@nudge, @base: @grid-columns) when (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(margin-right, 0, @nudge, @base);
+		.-column-offset-property(margin-right, 0, @nudge, @base);
 	}
 	.padding-left (@nudge, @base: @grid-columns) when (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(padding-left, 0, @nudge, @base);
+		.-column-offset-property(padding-left, 0, @nudge, @base);
 	}
 	.padding-right (@nudge, @base: @grid-columns) when (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(padding-right, 0, @nudge, @base);
+		.-column-offset-property(padding-right, 0, @nudge, @base);
 	}
 	.left (@nudge, @base: @grid-columns) when (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(left, 0, @nudge, @base);
+		.-column-offset-property(left, 0, @nudge, @base);
 	}
 	.right (@nudge, @base: @grid-columns) when (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(right, 0, @nudge, @base);
+		.-column-offset-property(right, 0, @nudge, @base);
 	}
 	
 	
@@ -142,33 +142,33 @@
 	
 	// Column width
 	.width (@span, @nudge, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-width-property(width, @span, @nudge, @base);
+		.-column-width-property(width, @span, @nudge, @base);
 	}
 	.max-width (@span, @nudge, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-width-property(max-width, @span, @nudge, @base);
+		.-column-width-property(max-width, @span, @nudge, @base);
 	}
 	.min-width (@span, @nudge, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-width-property(min-width, @span, @nudge, @base);
+		.-column-width-property(min-width, @span, @nudge, @base);
 	}
 	
 	// Column offset
 	.margin-left (@span, @nudge, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(margin-left, @span, @nudge, @base);
+		.-column-offset-property(margin-left, @span, @nudge, @base);
 	}
 	.margin-right (@span, @nudge, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(margin-right, @span, @nudge, @base);
+		.-column-offset-property(margin-right, @span, @nudge, @base);
 	}
 	.padding-left (@span, @nudge, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(padding-left, @span, @nudge, @base);
+		.-column-offset-property(padding-left, @span, @nudge, @base);
 	}
 	.padding-right (@span, @nudge, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(padding-right, @span, @nudge, @base);
+		.-column-offset-property(padding-right, @span, @nudge, @base);
 	}
 	.left (@span, @nudge, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(left, @span, @nudge, @base);
+		.-column-offset-property(left, @span, @nudge, @base);
 	}
 	.right (@span, @nudge, @base: @grid-columns) when (unit(@span) = ~"@{span}") and (ispixel(@nudge)) and (unit(@base) = ~"@{base}") {
-		.-grid-offset-property(right, @span, @nudge, @base);
+		.-column-offset-property(right, @span, @nudge, @base);
 	}
 	
 	
@@ -177,35 +177,35 @@
 	//
 	
 	// Set width values
-	.-grid-width-property (@property, @span, @nudge, @base) when (@span > 0) and (@base > 0), not(@nudge = 0) and (@base > 0) {
-		.get-grid-width(@span, @nudge, @base);
+	.-column-width-property (@property, @span, @nudge, @base) when (@span > 0) and (@base > 0), not(@nudge = 0) and (@base > 0) {
+		.get-column-width(@span, @nudge, @base);
 		
 		@{property}: @grid-width-fallback;
 		@{property}: calc(@grid-width-calc);
 	}
-	.-grid-width-property (@property, @span, @nudge, @base) when (@span = 0) and (@nudge = 0), (@base = 0) {
+	.-column-width-property (@property, @span, @nudge, @base) when (@span = 0) and (@nudge = 0), (@base = 0) {
 		@{property}: 0;
 	}
 	
 	// Set offset values
-	.-grid-offset-property (@property, @span, @nudge, @base) when not(@span = 0) and (@base > 0), not(@nudge = 0) and (@base > 0) {
-		.get-grid-offset(@span, @nudge, @base);
+	.-column-offset-property (@property, @span, @nudge, @base) when not(@span = 0) and (@base > 0), not(@nudge = 0) and (@base > 0) {
+		.get-column-offset(@span, @nudge, @base);
 		
 		@{property}: @grid-offset-fallback;
 		@{property}: calc(@grid-offset-calc);
 	}
-	.-grid-offset-property (@property, @span, @nudge, @base) when (@span = 0) and (@nudge = 0), (@base = 0) {
+	.-column-offset-property (@property, @span, @nudge, @base) when (@span = 0) and (@nudge = 0), (@base = 0) {
 		@{property}: 0;
 	}
 	
 	// Calculate grid values
-	.get-grid-width (@span, @nudge, @base) {
-		.-get-grid-values(@span, @nudge, @base);
+	.get-column-width (@span, @nudge, @base) {
+		.-get-column-values(@span, @nudge, @base);
 	}
-	.get-grid-offset (@span, @nudge, @base) {
-		.-get-grid-values(@span, @nudge, @base);
+	.get-column-offset (@span, @nudge, @base) {
+		.-get-column-values(@span, @nudge, @base);
 	}
-	.-get-grid-values (@span, @nudge, @base) {
+	.-get-column-values (@span, @nudge, @base) {
 		// Modern browsers that support calc():
 		@-column-width: round((100% / @base * @span), 8);
 		@-column-gutter: round(((@base - @span) / @base * @grid-gutter), 8);
