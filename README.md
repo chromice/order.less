@@ -18,12 +18,12 @@ TODO: Demonstrate all libraries, i.e. h1 + p.intro + p + aside
 TODO: Find the earliest version of LESS where this thing works.
 -->
 
-**Requirements**: LESS v2.1.3 (earlier versions exhibit an annoying parsing bug)
+**Requirements**: LESS v1.7.3    
 **Visual tests**: [HTML source](./tests/index.html) / [LESS source](./tests/stylesheet.less)
 
 * * *
 
-## Modular scale {#modular-scale}
+## Modular scale
 
 Modular scale library lets you define font size as a step on a double-stranded modular scale  as described in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
 
@@ -141,7 +141,7 @@ h1 {
 ```
 
 
-## Baseline grid {#baseline-grid}
+## Baseline grid
 
 Baseline grid library lets you define vertical padding, margin and offset, and height in baseline rows. It can also realign an element's baseline if you change its font size, line height and/or font family.
 
@@ -168,7 +168,7 @@ Defines baseline and exports the other mixins.
 
 ##### Parameters
 
-1. *pixel* **or** *ratio* `@size`
+1. *pixel* **or** *number* `@size`
 2. *number* `@height`
 3. *number* `@offset` **or** *keyword* `@name` 
 
@@ -230,7 +230,7 @@ main {
 
 ##### Parameters
 
-1. *pixel* **or** *ratio* `@size`
+1. *pixel* **or** *number* `@size`
 2. (optional) *number* `@height`
 3. (optional) *number* `@offset`
 
@@ -238,7 +238,7 @@ main {
 
 ```less
 h1 {
-    .adjust-baseline(20px, 1.25, 0.845); // where 0.845 is baseline offset for Helvetica
+    .adjust-baseline(30px, 1.25, 0.845); // where 0.845 is baseline offset for Helvetica
     font-family: Helvetica, sans-serif;
 }
 h1 + p {
@@ -252,7 +252,7 @@ h1 + p {
 
 ##### Parameters
 
-1. *pixel* **or** *ratio* `@size`
+1. *pixel* **or** *number* `@size`
 2. (optional) *number* `@height`
 3. (optional) *keyword* `@name`
 
@@ -347,7 +347,7 @@ div {
 ```
 
 
-## Column grid {#column-grid}
+## Column grid
 
 Column grid library lets you define horizontal padding, margin and offset, and width in columns. At the moment, it only supports uniform grids with inner gutters, e.g. a <samp>3</samp>-column grid has <samp>2</samp> gutters in between those columns.
 
