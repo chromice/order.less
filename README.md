@@ -2,13 +2,13 @@
 
 A collection of [LESS][less] libraries for precise control over basic elements of typography:
 
-- [Modular scale](#modular-scale) lets you create a double-stranded modular scale, and set elements' font size as a step on that scale.
-- [Baseline grid](#baseline-grid) library lets you define vertical rhythm of the document, and vertical padding, margin and offset, and height in baseline rows. It can also shift elements to sit on baseline, if their font size, line height and/or font family is changed.
-- [Column grid](#column-grid) lets you define a uniform grid with fixed inner gutters, and set elements' horizontal padding, margin and offset, and width in columns.
+- [Modular scale](#modular-scale) library supports double-stranded modular scales, and lets you set elements' font size as a step on that scale.
+- [Baseline grid](#baseline-grid) library lets you control vertical rhythm of the document by setting vertical padding, margin and offset, and height in baseline rows. It can also automatically shift elements to sit on baseline.
+- [Column grid](#column-grid) library enables you to define a uniform grid with fixed inner gutters, and set elements' horizontal padding, margin and offset, and width in columns.
 
 [less]: http://lesscss.org
 
-You can see all of them in action in [this example](./examples/001_Overview/). This chunk of <samp>lorem impum</samp> is set in 3 different typefaces and laid out using a 3-column grid:
+You can see all of these libraries in action in [this example](./examples/001_Overview/), where a chunk of <samp>lorem impum</samp> is set in 3 different typefaces and laid out on a 3-column grid:
 
 <a href="./examples/001_Overview/"><img src="./examples/001_Overview/index.png" alt=""></a>
 
@@ -21,7 +21,9 @@ You can see all of them in action in [this example](./examples/001_Overview/). T
 
 ## Modular scale
 
-Modular scale library lets you define font size as a step on a double-stranded modular scale  as described in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
+Modular scale library lets you set font size to a value on a double-stranded modular scale as described in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
+
+### Examples
 
 You must import the library first:
 
@@ -30,12 +32,16 @@ You must import the library first:
 ```
 
 <!--
-TODO: Create a modular scale and draw AAAAAA
+TODO: EXAMPLE: A modular scale and draw AAAAAA
 -->
 
-### `.use-modular-scale()`
+### Mixin reference
 
-Defines a scale and exports the other mixins.
+* * *
+
+#### `.use-modular-scale()`
+
+Defines scale and exports the other mixins.
 
 ##### Parameters
 
@@ -80,7 +86,9 @@ html {
 }
 ```
 
-### `.font-size()`
+* * *
+
+#### `.font-size()`
 
 Sets `font-size` property to a certain scale step.
 
@@ -105,8 +113,9 @@ h1 {
 }
 ```
 
+* * *
 
-### `.get-scale-size()`
+#### `.get-scale-size()`
 
 Calculates *pixel* value for any scale step:
 
@@ -135,16 +144,20 @@ h1 {
 }
 ```
 
+* * *
+
 
 ## Baseline grid
 
-Baseline grid library lets you define vertical padding, margin and offset, and height in baseline rows. It can also realign an element's baseline if you change its font size, line height and/or font family.
+This library lets you define vertical rhythm of the document, and set vertical padding, margin and offset, and height in baseline rows. It can also shift elements to sit on baseline, if their font size, line height and/or font family is changed.
 
-Baseline height is a product of base `font-size` and base `line-height` of the document. For example, if the base `font-size` equals <samp>20px</samp> and base `line-height` equals <samp>1.5</samp>, then baseline height equals <samp>30px</samp>.
+Baseline row height is a product of base `font-size` and base `line-height` of the document. For example, if the base `font-size` equals <samp>20px</samp> and base `line-height` equals <samp>1.5</samp>, then baseline row height is <samp>30px</samp>.
 
 <!--
     TODO: Dwell on baseline offset theory.
 -->
+
+### Examples
 
 You must import the library first:
 
@@ -153,11 +166,15 @@ You must import the library first:
 ```
 
 <!--
-TODO: Horizontal alignment of side by side elements: p, aside > p
-TODO: Vertical rhythm: h1 + .intro, h2, p with borders, paddings and margins, and 2 fonts.
+TODO: EXAMPLE: Horizontal alignment of side by side elements: p, aside > p
+TODO: EXAMPLE: Vertical rhythm: h1 + .intro, h2, p with borders, paddings and margins, and 2 fonts.
 -->
 
-### `.use-baseline-grid()`
+### Mixin reference
+
+* * *
+
+#### `.use-baseline-grid()`
 
 Defines baseline and exports the other mixins.
 
@@ -200,15 +217,16 @@ You can also define baseline offset by referencing a font definition:
 
 You must set `font-size` and `line-height` properties of `html` element to the same values:
 
-```html
+```css
 html {
     font-size: @baseline-size;
     line-height: @baseline-height;
 }
 ```
 
+* * *
 
-### `.show-baselines()`
+#### `.show-baselines()`
 
 Sets `background` property of an element to show baselines.
 
@@ -218,10 +236,43 @@ main {
 }
 ```
 
+* * *
 
-### `.resize-baseline()`, `.adjust-baseline()`
+#### `.set-baseline()`
 
-`.resize-baseline()` simply changes the `font-size` and `line-height` property of the element, while `.adjust-baseline()` realigns the element's baseline as well.
+**(Internal)** Defines a new baseline.
+
+##### Parameters
+
+1. *pixel* **or** *number* `@alt-size`
+2. (optional) *number* `@alt-height`
+3. (optional) *number* `@alt-offset`
+
+##### Exports
+
+- *pixel* `@current-size`
+- *number* `@current-height`
+- *number* `@current-offset`
+- *rem* `@offset-top`
+- *rem* `@offset-bottom`
+
+##### Usage
+
+This mixin is used by `.resize-baseline()`, `.align-baseline()`, `.adjust-baseline()`, `.font()` and `.font-align()`. 
+
+To learn more, please read the [source code](./source/baseline.less).
+
+* * *
+
+#### `.reset-baseline()`
+
+**(Internal)** Resets baseline to original state.
+
+* * *
+
+#### `.resize-baseline()`, `.align-baseline()`, `.adjust-baseline()`
+
+`.resize-baseline()` simply changes the `font-size` and `line-height` property of the element, `.align-baseline()` realigns the element's baseline, and `.adjust-baseline()` does both.
 
 ##### Parameters
 
@@ -233,7 +284,8 @@ main {
 
 ```less
 h1 {
-    .adjust-baseline(30px, 1.25, 0.845); // where 0.845 is baseline offset for Helvetica
+    .adjust-baseline(30px, 1.25, 0.845);
+     // where 0.845 is baseline offset for Helvetica
     font-family: Helvetica, sans-serif;
 }
 h1 + p {
@@ -241,7 +293,9 @@ h1 + p {
 }
 ```
 
-### `.font()`, `.font-align()`
+* * *
+
+#### `.font()`, `.font-align()`
 
 `.font()` simply changes the `font` property of the element, while `.font-align()` realigns the element's baseline as well.
 
@@ -253,7 +307,7 @@ h1 + p {
 
 ##### Usage
 
-These mixins are available only if you defined baseline offset using a font definition:
+These mixins are available only if you defined primary baseline using a font name:
 
 ```less
 @helvetica-font-family: 'Helvetica', sans-serif;
@@ -277,10 +331,11 @@ h1 + p {
 }
 ```
 
+* * *
 
-### `.height()`, `.min-height()`, `.max-height()`, `.top()`, `.bottom()`, `.margin-top()`, `.margin-bottom()`, `.padding-top()`, `.padding-bottom()`
+#### `.height()`, `.min-height()`, `.max-height()`, `.top()`, `.bottom()`, `.margin-top()`, `.margin-bottom()`, `.padding-top()`, `.padding-bottom()`
 
-These mixins let you define the respective CSS property in baseline rows.
+These mixins let you set the respective CSS property in baseline rows.
 
 ##### Parameters
 
@@ -309,7 +364,9 @@ div {
 }
 ```
 
-### `.get-baseline-height()`
+* * *
+
+#### `.get-baseline-height()`
 
 Calculates pixel and rem values for a number of baseline rows.
 
@@ -341,25 +398,36 @@ div {
 }
 ```
 
+* * *
+
 
 ## Column grid
 
-Column grid library lets you define horizontal padding, margin and offset, and width in columns. At the moment, it only supports uniform grids with inner gutters, e.g. a <samp>3</samp>-column grid has <samp>2</samp> gutters in between those columns.
+Column grid library lets you define horizontal padding, margin and offset, and width in columns. At the moment, it only supports uniform grids with inner gutters, e.g. a 3-column grid has 2 gutters in between 3 columns of equal width.
+
+<!--
+TODO: Dwell on fixed gutter and support in different browsers
+-->
+
+### Examples
 
 You must import the library first:
 
 ```less
 @import 'path/to/grid.less';
 ```
-
 <!--
-TODO: Show the 12 column grid without any content
-TODO: Basic page layout
-TODO: Item grid
-TODO: Combining multiple grids
+TODO: EXAMPLE: Show the 12 column grid without any content
+TODO: EXAMPLE: Basic page layout
+TODO: EXAMPLE: Item grid
+TODO: EXAMPLE: Combining multiple grids
 -->
 
-### `.use-column-grid()`
+### Mixin reference
+
+* * *
+
+#### `.use-column-grid()`
 
 Defines the grid and exports the other mixins.
 
@@ -395,7 +463,9 @@ Alternatively, you can define a grid as a set of variables and reference it by n
 .use-column-grid(desktop);
 ```
 
-### `.show-columns()`, `.show-gutters()`
+* * *
+
+#### `.show-columns()`, `.show-gutters()`
 
 Sets `background` property of an element to show either grid columns or gutters.
 
@@ -405,7 +475,9 @@ main {
 }
 ```
 
-### `.width()`, `.min-width()`, `.max-width()`
+* * *
+
+#### `.width()`, `.min-width()`, `.max-width()`
 
 These mixins let you define the respective CSS property in grid columns.
 
@@ -413,46 +485,44 @@ These mixins let you define the respective CSS property in grid columns.
 
 1. *number* `@span` – number of columns
 2. (optional) *unit* `@nudge` – amount of units to nudge
-3. (optional) *number* `@base` – number of columns parent container spans
+3. (optional) *number* `@base` – parent width in columns (`@grid-columns` by default)
 
 ##### Usage
 
 ```less
 div {
-    .width(6);
-    
-    > div {
-        .width(3, 6);
-    }
-    
-    > span {
-        .width(1, -10px, 6);
-    }
+    .width(6); // set width to 6 columns
+    .width(3, 6); // set width to 3 columns in a 6 column grid
+    .width(1, -10px, 6); // same as above, but decrease width by 10px 
 }
 ```
 
-### `.left()`, `.right()`, `.margin-left()`, `.margin-right()`, `.padding-left()`, `.padding-right()`
+* * *
+
+#### `.left()`, `.right()`, `.margin-left()`, `.margin-right()`, `.padding-left()`, `.padding-right()`
 
 These mixins let you define the respective CSS property in grid columns.
 
 ##### Parameters
 
-1. (optional) *number* `@span` – number of columns this element spans
+1. (optional) *number* `@span` – number of columns the property spans
 2. (optional) *unit* `@nudge` – amount of units to nudge
-3. (optional) *number* `@base` – number of columns parent container spans
+3. (optional) *number* `@base` – parent width in columns (`@grid-columns` by default)
 
 **NB!** You must specify either `@span` or `@nudge`!
 
 ##### Usage
 
+
 ```less
 div {
-    .left(20px);
-    .margin-left(-3);
-    .padding-left(1, 20px);
+    .left(20px); // set left to 20px in a 12 column grid at optimal width
+    .left(1, 6); // set left to 1 column in a 6 column grid
+    .left(1, -10px, 6); // same as above, but nudge element 10px left
 }
 ```
 
+* * *
 
 ## Acknowledgments
 
