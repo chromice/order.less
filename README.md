@@ -2,9 +2,9 @@
 
 A collection of [LESS][less] libraries for precise control over basic elements of typography:
 
-- [Modular scale](#modular-scale) library supports double-stranded modular scales, and lets you set elements' font size as a step on that scale.
-- [Baseline grid](#baseline-grid) library lets you control vertical rhythm of the document by setting vertical padding, margin and offset, and height in baseline rows. It can also automatically shift elements to sit on baseline.
-- [Column grid](#column-grid) library enables you to define a uniform grid with fixed inner gutters, and set elements' horizontal padding, margin and offset, and width in columns.
+- [Modular scale](#modular-scale) library supports double-stranded modular scales, and lets you set elements' font size to a value from that scale.
+- [Baseline grid](#baseline-grid) library lets you control vertical rhythm of the document by setting padding, margin, offset and height in baseline rows. It can also automatically shift elements to sit on baseline.
+- [Column grid](#column-grid) library enables you to define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns.
 
 [less]: http://lesscss.org
 
@@ -15,27 +15,29 @@ You can see all of these libraries in action in [this example](./examples/001_Ov
 * * *
 
 **Requirements**: LESS v1.7.3    
+**Full compatibility**: IE9+, Safari 6+, Chrome 26+, Firefox 16+    
+**Partial compatibility**: any browser with decent CSS support made in the past 10 years    
 **Visual tests**: [HTML source](./tests/index.html) / [LESS source](./tests/stylesheet.less)
 
 * * *
 
 ## Modular scale
 
-Modular scale library lets you set font size to a value on a double-stranded modular scale as described in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
+Modular scale library supports double-stranded modular scales, and lets you set elements' font size to a value from that scale. You can learn more about modular scales in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
 
+<!--
 ### Examples
+
+TODO: EXAMPLE: A modular scale and draw AAAAAA
+-->
+
+### Mixin reference
 
 You must import the library first:
 
 ```less
 @import 'path/to/scale.less';
 ```
-
-<!--
-TODO: EXAMPLE: A modular scale and draw AAAAAA
--->
-
-### Mixin reference
 
 * * *
 
@@ -90,7 +92,7 @@ html {
 
 #### `.font-size()`
 
-Sets `font-size` property to a certain scale step.
+Sets `font-size` property to a scale value.
 
 ##### Parameters
 
@@ -117,7 +119,7 @@ h1 {
 
 #### `.get-scale-size()`
 
-Calculates *pixel* value for any scale step:
+Gets a scale value:
 
 ##### Parameters
 
@@ -149,28 +151,53 @@ h1 {
 
 ## Baseline grid
 
-This library lets you define vertical rhythm of the document, and set vertical padding, margin and offset, and height in baseline rows. It can also shift elements to sit on baseline, if their font size, line height and/or font family is changed.
+This library lets you control vertical rhythm of the document by setting padding, margin, offset and height in baseline rows. It can also automatically shift elements to sit on baseline, if their font size, line height and/or font family is changed.
 
 Baseline row height is a product of base `font-size` and base `line-height` of the document. For example, if the base `font-size` equals <samp>20px</samp> and base `line-height` equals <samp>1.5</samp>, then baseline row height is <samp>30px</samp>.
 
+Whenever you change any of font property of a block element, its baseline drifts off. In order to preserve baseline alignment you could manually adjust relative position of the element:
+
+```css
+h1 {
+    font: 700 36px / 1.25 'Helvetica', sans-serif;
+    position: relative;
+    top: -16px;
+}
+```
+
+This library can automatically shift the element back to baseline. The offset is primarily a function of `font-size`, `line-height` and `font-family`, and in many cases of `font-variant`, `font-weight` and `font-style`. If we abstract the variability of each typeface variation via special ratio referred to as **baseline offset**, the actual offset is simply a function of `font-size`, `line-height` and `baseline offset`.
+
+Here are baseline offset values for a few popular typefaces:
+
+| Font            | Offset |
+|:----------------|-------:|
+| Arial           |  0.847 |
+| Arial Black     |  0.895 |
+| Comic Sans MS   |  0.905 |
+| Courier New     |  0.766 |
+| Georgia         |  0.849 |
+| Impact          |  0.899 |
+| Tahoma          |  0.897 |
+| Times New Roman |  0.837 |
+| Trebuchet MS    |  0.858 |
+| Verdana         |  0.898 |
+
+You can find offset values for many other typefaces (and their variations) in [HTML source of the test suite](./tests/index.html).
+
 <!--
-    TODO: Dwell on baseline offset theory.
+### Examples
+
+TODO: EXAMPLE: Horizontal alignment of side by side elements: p, aside > p
+TODO: EXAMPLE: Vertical rhythm: h1 + .intro, h2, p with borders, paddings and margins, and 2 fonts.
 -->
 
-### Examples
+### Mixin reference
 
 You must import the library first:
 
 ```less
 @import 'path/to/baseline.less';
 ```
-
-<!--
-TODO: EXAMPLE: Horizontal alignment of side by side elements: p, aside > p
-TODO: EXAMPLE: Vertical rhythm: h1 + .intro, h2, p with borders, paddings and margins, and 2 fonts.
--->
-
-### Mixin reference
 
 * * *
 
@@ -253,8 +280,10 @@ main {
 - *pixel* `@current-size`
 - *number* `@current-height`
 - *number* `@current-offset`
-- *rem* `@offset-top`
-- *rem* `@offset-bottom`
+- *pixel* `@offset-top-px`
+- *pixel* `@offset-bottom-px`
+- *rem* `@offset-top-rem`
+- *rem* `@offset-bottom-rem`
 
 ##### Usage
 
@@ -403,20 +432,10 @@ div {
 
 ## Column grid
 
-Column grid library lets you define horizontal padding, margin and offset, and width in columns. At the moment, it only supports uniform grids with inner gutters, e.g. a 3-column grid has 2 gutters in between 3 columns of equal width.
+Column grid library lets you define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns. At the moment, it only supports uniform grids with inner gutters, e.g. a 3-column grid has 2 gutters in-between 3 columns of equal width.
 
 <!--
-TODO: Dwell on fixed gutter and support in different browsers
--->
-
 ### Examples
-
-You must import the library first:
-
-```less
-@import 'path/to/grid.less';
-```
-<!--
 TODO: EXAMPLE: Show the 12 column grid without any content
 TODO: EXAMPLE: Basic page layout
 TODO: EXAMPLE: Item grid
@@ -424,6 +443,12 @@ TODO: EXAMPLE: Combining multiple grids
 -->
 
 ### Mixin reference
+
+You must import the library first:
+
+```less
+@import 'path/to/grid.less';
+```
 
 * * *
 
@@ -479,7 +504,7 @@ main {
 
 #### `.width()`, `.min-width()`, `.max-width()`
 
-These mixins let you define the respective CSS property in grid columns.
+These mixins let you set the respective CSS property in grid columns.
 
 ##### Parameters
 
@@ -501,7 +526,7 @@ div {
 
 #### `.left()`, `.right()`, `.margin-left()`, `.margin-right()`, `.padding-left()`, `.padding-right()`
 
-These mixins let you define the respective CSS property in grid columns.
+These mixins let you set the respective CSS property in grid columns.
 
 ##### Parameters
 
@@ -516,7 +541,7 @@ These mixins let you define the respective CSS property in grid columns.
 
 ```less
 div {
-    .left(20px); // set left to 20px in a 12 column grid at optimal width
+    .left(20px); // set left to 20px
     .left(1, 6); // set left to 1 column in a 6 column grid
     .left(1, -10px, 6); // same as above, but nudge element 10px left
 }
