@@ -8,7 +8,9 @@ A collection of [LESS][less] libraries for precise control over basic elements o
 
 [less]: http://lesscss.org
 
-<a href="./examples/001_Intro/"><img src="./examples/001_Intro/index-grid.png" alt=""></a>
+You can see all of them in action in [this example](./examples/001_Intro/). This chunk of <samp>lorem impum</samp> is set in 3 different typefaces and laid out using a 3-column grid:
+
+<a href="./examples/001_Intro/"><img src="./examples/001_Intro/index.png" alt=""></a>
 
 * * *
 
