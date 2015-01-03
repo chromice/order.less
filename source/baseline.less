@@ -135,7 +135,7 @@
 	//
 	.show-baselines(@offset: @baseline-offset, @color: red) {
 		
-		@-linear-gradien: fade(@color, 40%) 1px, transparent 1px, transparent;
+		@-linear-gradien: fade(@color, 20%) 1px, transparent 1px, transparent;
 		
 		background-image+: linear-gradient(to bottom, @-linear-gradien);
 		background-size+: 2px (@baseline-height * @baseline-size);

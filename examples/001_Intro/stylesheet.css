@@ -1,0 +1,189 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  width: 720px;
+  padding: 24px;
+  font-family: 'Verdana', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+main {
+  position: relative;
+  padding-right: 34.44444444%;
+  padding-right: calc(33.33333333% + 8px + 0px);
+  padding-bottom: 0.024px;
+  padding-bottom: 0.0015rem;
+}
+main > aside {
+  position: absolute;
+  top: 48px;
+  top: 3rem;
+  right: 0;
+  width: 31.11111111%;
+  width: calc(33.33333333% - 16px + 0px);
+}
+h1 {
+  font: 700 36px / 1.25 'Helvetica', sans-serif;
+  font-size: 2.25rem;
+  position: relative;
+  top: -1.0345rem;
+  padding-top: 24px;
+  padding-top: 1.5rem;
+  margin-bottom: 24px;
+  margin-bottom: calc(1.5rem + -1.3125rem);
+}
+h1 + p {
+  font: italic 400 24px / 1.25 'Baskerville', sans-serif;
+  font-size: 1.5rem;
+  position: relative;
+  top: -0.265rem;
+  margin-bottom: 24px;
+  margin-bottom: calc(1.5rem + -0.375rem);
+}
+h2 {
+  font: 400 20px / 1.25 'Verdana', sans-serif;
+  font-size: 1.25rem;
+  position: relative;
+  top: -0.13075rem;
+  margin-top: 0;
+  margin-bottom: 0px;
+  margin-bottom: calc(0rem + -0.0625rem);
+}
+aside p {
+  font: 400 10.66666667px / 1.5 'Verdana', sans-serif;
+  font-size: 0.66666667rem;
+  position: relative;
+  top: 0.38266667rem;
+  margin-bottom: 0px;
+  margin-bottom: calc(0rem + 0.5rem);
+}
+p {
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+}

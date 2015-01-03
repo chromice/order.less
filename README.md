@@ -8,15 +8,9 @@ A collection of [LESS][less] libraries for precise control over basic elements o
 
 [less]: http://lesscss.org
 
-<!--
-TODO: Demonstrate all libraries, i.e. h1 + p.intro + p + aside
--->
+<a href="./examples/001_Intro/"><img src="./examples/001_Intro/index-grid.png" alt=""></a>
 
 * * *
-
-<!--
-TODO: Find the earliest version of LESS where this thing works.
--->
 
 **Requirements**: LESS v1.7.3    
 **Visual tests**: [HTML source](./tests/index.html) / [LESS source](./tests/stylesheet.less)

@@ -1,0 +1,126 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+// ===========
+// = Example =
+// ===========
+
+@import '../../source/scale.less';
+@import '../../source/baseline.less';
+@import '../../source/grid.less';
+
+@gutter: 24px;
+
+.use-column-grid((768px - @gutter * 2), @gutter, 3);
+
+@helvetica-font-family: 'Helvetica', sans-serif;
+@helvetica-font-variation: 700;
+@helvetica-font-offset: 0.845;
+
+@verdana-font-family: 'Verdana', sans-serif;
+@verdana-font-variation: 400;
+@verdana-font-offset: 0.898;
+
+@baskerville-font-family: 'Baskerville', sans-serif;
+@baskerville-font-variation: italic 400;
+@baskerville-font-offset: 0.817;
+
+.use-modular-scale(16px, 20px, (2/3));
+.use-baseline-grid(0, 1.5, verdana);
+
+body {
+	width: @grid-width;
+	padding: @grid-gutter;
+	font-family: @verdana-font-family;
+	font-size: @baseline-size;
+	line-height: @baseline-height;
+}
+
+main {
+	position: relative;
+	// .show-gutters();
+	// .show-baselines();
+	.padding-right(1);
+	.padding-bottom(0.001);
+	
+	> aside {
+		position: absolute;
+		.top(2);
+		.right(0);
+		.width(1);
+	}
+}
+
+h1 {
+	.font-align(4, 1.25, helvetica);
+	.padding-top(1);
+	.margin-bottom(1);
+	
+	+ p {
+		.font-align(2, (5/6 * @baseline-height), baskerville);
+		.margin-bottom(1);
+	}
+}
+
+h2 {
+	.font-align(1, 1.25);
+	.margin-top(0);
+	.margin-bottom(0);
+}
+
+aside {
+	p {
+		.font-align(-2);
+		.margin-bottom(0);
+	}
+}
+
+p {
+	.margin-bottom(1);
+}

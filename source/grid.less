@@ -61,10 +61,10 @@
 	// Show grid columns or gutter
 	//
 	.show-columns (@base: @grid-columns, @color: blue) {
-		.-show-grid(@base, transparent, fade(@color, 30%));
+		.-show-grid(@base, transparent, fade(@color, 12.5%));
 	}
 	.show-gutters (@base: @grid-columns, @color: red) {
-		.-show-grid(@base, fade(@color, 30%), transparent);
+		.-show-grid(@base, fade(@color, 12.5%), transparent);
 	}
 	.-show-grid (@base, @color-gutter, @color-column) {
 		@-calc-width: round((100% / @base), 8) ~"-" round(((@base - 1) / @base * @grid-gutter), 8) ~"+" @grid-gutter;
