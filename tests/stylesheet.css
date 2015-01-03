@@ -481,24 +481,28 @@ html {
   font: 400 30px / 1.2 'Verdana', sans-serif;
   font-size: 1.875rem;
   position: relative;
+  top: -11.572px;
   top: -0.72325rem;
 }
 #baseline-horizontal .small {
   font: 400 16px / 1.875 'Verdana', sans-serif;
   font-size: 1rem;
   position: relative;
+  top: -3px;
   top: -0.1875rem;
 }
 #baseline-horizontal .tiny {
   font: 400 12px / 2 'Verdana', sans-serif;
   font-size: 0.75rem;
   position: relative;
+  top: 1.592px;
   top: 0.0995rem;
 }
 #baseline-vertical h1 {
   font: 400 50px / 0.85714286 'Verdana', sans-serif;
   font-size: 3.125rem;
   position: relative;
+  top: -22.96057143px;
   top: -1.43503571rem;
   margin-top: 24px;
   margin-top: 1.5rem;
@@ -514,6 +518,7 @@ html {
   font: 600 50px / 0.85714286 "Gill Sans", sans-serif;
   font-size: 3.125rem;
   position: relative;
+  top: -20.36057143px;
   top: -1.27253571rem;
   margin-top: 24px;
   margin-top: 1.5rem;
@@ -529,6 +534,7 @@ html {
   font: 400 16px / 1.875 "Gill Sans", sans-serif;
   font-size: 1rem;
   position: relative;
+  top: -2.136px;
   top: -0.1335rem;
   margin-top: 24px;
   margin-top: 1.5rem;

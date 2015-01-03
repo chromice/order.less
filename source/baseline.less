@@ -126,8 +126,10 @@
 	@-diff-font-size: (@current-size * (@current-offset - 0.5) - @baseline-size * (@baseline-offset - 0.5));
 	
 	// Calculated top and bottom baseline offsets
-	@offset-top: (unit(mod(@-diff-height / 2 - @-diff-font-size, @baseline-size * @baseline-height) / @baseline-size, rem));
-	@offset-bottom: (unit(mod(@-diff-height, @baseline-size * @baseline-height) / @baseline-size, rem));
+	@offset-top-px: (mod(@-diff-height / 2 - @-diff-font-size, @baseline-size * @baseline-height));
+	@offset-top-rem: (unit(@offset-top-px / @baseline-size, rem));
+	@offset-bottom-px: (mod(@-diff-height, @baseline-size * @baseline-height));
+	@offset-bottom-rem: (unit(@offset-bottom-px / @baseline-size, rem));
 	
 	
 	//
@@ -161,7 +163,8 @@
 	// Shift text to the main baseline
 	.align-baseline () {
 		position: relative;
-		top: @offset-top;
+		top: @offset-top-px;
+		top: @offset-top-rem;
 	}
 	.align-baseline (@size, @height: @baseline-height, @offset: @baseline-offset) {
 		.set-baseline(@size, @height, @offset);
@@ -207,10 +210,10 @@
 	
 	// Baseline offset
 	.top (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
-		.-baseline-property(top, @span, @nudge, @offset-top);
+		.-baseline-property(top, @span, @nudge, @offset-top-rem);
 	}
 	.bottom (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
-		.-baseline-property(bottom, @span, @nudge, (@offset-top * -1));
+		.-baseline-property(bottom, @span, @nudge, (@offset-top-rem * -1));
 	}
 	
 	// Baseline padding
@@ -226,7 +229,7 @@
 		.-baseline-property(margin-top, @span, @nudge);
 	}
 	.margin-bottom (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
-		.-baseline-property(margin-bottom, @span, @nudge, @offset-bottom);
+		.-baseline-property(margin-bottom, @span, @nudge, @offset-bottom-rem);
 	}
 	
 	
