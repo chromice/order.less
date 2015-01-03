@@ -2,15 +2,15 @@
 
 A collection of [LESS][less] libraries for precise control over basic elements of typography:
 
-- [Modular scale](#modular-scale) library lets you define font size as a scale step.
-- [Baseline grid](#baseline-grid) library lets you define vertical padding, margin and offset, and height in baseline rows; realigns baseline if you change elements' font size, line height and/or font family.
-- [Column grid](#column-grid) library lets you define horizontal padding, margin and offset, and width in columns.
+- [Modular scale](#modular-scale) lets you create a double-stranded modular scale, and set elements' font size as a step on that scale.
+- [Baseline grid](#baseline-grid) library lets you define vertical rhythm of the document, and vertical padding, margin and offset, and height in baseline rows. It can also shift elements to sit on baseline, if their font size, line height and/or font family is changed.
+- [Column grid](#column-grid) lets you define a uniform grid with fixed inner gutters, and set elements' horizontal padding, margin and offset, and width in columns.
 
 [less]: http://lesscss.org
 
-You can see all of them in action in [this example](./examples/001_Intro/). This chunk of <samp>lorem impum</samp> is set in 3 different typefaces and laid out using a 3-column grid:
+You can see all of them in action in [this example](./examples/001_Overview/). This chunk of <samp>lorem impum</samp> is set in 3 different typefaces and laid out using a 3-column grid:
 
-<a href="./examples/001_Intro/"><img src="./examples/001_Intro/index.png" alt=""></a>
+<a href="./examples/001_Overview/"><img src="./examples/001_Overview/index.png" alt=""></a>
 
 * * *
 
@@ -30,8 +30,7 @@ You must import the library first:
 ```
 
 <!--
-TODO: Basic example.
-TODO: Repeat some baseline example or create a new one, but use scale steps instead of pixels.
+TODO: Create a modular scale and draw AAAAAA
 -->
 
 ### `.use-modular-scale()`
