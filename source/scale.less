@@ -24,7 +24,7 @@
 //     }
 // 
 
-.use-modular-scale (@primary, @secondary, @ratio) when (@primary < @secondary) and (ispixel(@primary)) and (ispixel(@secondary)) and (unit(@ratio) = ~"@{ratio}") and (@ratio < 1) {
+.use-modular-scale (@primary, @secondary, @ratio) when (@primary < @secondary) and (ispixel(@primary)) and (ispixel(@secondary)) and (isunit(@ratio, '')) and (@ratio < 1) {
 	
 	@scale-base: @primary;
 	@scale-alternative: @secondary;
@@ -36,7 +36,7 @@
 	//
 	
 	// Font size
-	.font-size (@step) when (unit(@step) = ~"@{step}") {
+	.font-size (@step) when (isunit(@step, '')) {
 		.get-scale-size(@step);
 		
 		font-size: @scale-size;

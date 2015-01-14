@@ -94,11 +94,11 @@
 // 
 // Base size as a scale step
 // 
-.use-baseline-grid (@step, @height, @offset: 0.85) when (unit(@step) = ~"@{step}") and not(iskeyword(@offset)) {
+.use-baseline-grid (@step, @height, @offset: 0.85) when (isunit(@step, '')) and not(iskeyword(@offset)) {
 	.get-scale-size(@step);
 	.use-baseline-grid(@scale-size, @height, @offset);
 }
-.use-baseline-grid (@size, @height, @offset, @alt-step, @alt-height, @alt-offset) when (ispixel(@size)) and (unit(@alt-step) = ~"@{alt-step}") {
+.use-baseline-grid (@size, @height, @offset, @alt-step, @alt-height, @alt-offset) when (ispixel(@size)) and (isunit(@alt-step, '')) {
 	.get-scale-size(@alt-step);
 	.use-baseline-grid(@size, @height, @offset, @scale-size, @alt-height, @alt-offset);
 }
@@ -198,37 +198,37 @@
 	//
 	
 	// Baseline height
-	.height (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
+	.height (@span, @nudge: 0) when (isunit(@span, '')) {
 		.-baseline-property(height, @span, @nudge);
 	}
-	.min-height (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
+	.min-height (@span, @nudge: 0) when (isunit(@span, '')) {
 		.-baseline-property(min-height, @span, @nudge);
 	}
-	.max-height (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
+	.max-height (@span, @nudge: 0) when (isunit(@span, '')) {
 		.-baseline-property(max-height, @span, @nudge);
 	}
 	
 	// Baseline offset
-	.top (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
+	.top (@span, @nudge: 0) when (isunit(@span, '')) {
 		.-baseline-property(top, @span, @nudge, @offset-top-rem);
 	}
-	.bottom (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
+	.bottom (@span, @nudge: 0) when (isunit(@span, '')) {
 		.-baseline-property(bottom, @span, @nudge, (@offset-top-rem * -1));
 	}
 	
 	// Baseline padding
-	.padding-top (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
+	.padding-top (@span, @nudge: 0) when (isunit(@span, '')) {
 		.-baseline-property(padding-top, @span, @nudge);
 	}
-	.padding-bottom (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
+	.padding-bottom (@span, @nudge: 0) when (isunit(@span, '')) {
 		.-baseline-property(padding-bottom, @span, @nudge);
 	}
 	
 	// Baseline margin
-	.margin-top (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
+	.margin-top (@span, @nudge: 0) when (isunit(@span, '')) {
 		.-baseline-property(margin-top, @span, @nudge);
 	}
-	.margin-bottom (@span, @nudge: 0) when (unit(@span) = ~"@{span}") {
+	.margin-bottom (@span, @nudge: 0) when (isunit(@span, '')) {
 		.-baseline-property(margin-bottom, @span, @nudge, @offset-bottom-rem);
 	}
 	
