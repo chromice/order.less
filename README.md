@@ -8,7 +8,7 @@ A collection of [LESS][less] libraries for precise control over basic elements o
 
 [less]: http://lesscss.org
 
-You can see all of these libraries in action in [this example](./examples/001_Overview/), where a chunk of <samp>lorem impum</samp> is set in 3 different typefaces and laid out on a 3-column grid:
+You can see all of these libraries in action in [this example](./examples/001_Overview/), where some <samp>lorem ipsum</samp> is set in 3 different typefaces and laid out on a 3-column grid:
 
 <a href="./examples/001_Overview/"><img src="./examples/001_Overview/index.png" alt=""></a>
 
