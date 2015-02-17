@@ -39,8 +39,6 @@ You must import the library first:
 @import 'path/to/scale.less';
 ```
 
-* * *
-
 #### `.use-modular-scale()`
 
 Defines scale and exports the other mixins.
@@ -88,8 +86,6 @@ html {
 }
 ```
 
-* * *
-
 #### `.font-size()`
 
 Sets `font-size` property to a scale value.
@@ -114,8 +110,6 @@ h1 {
     font-size: 2.25rem;
 }
 ```
-
-* * *
 
 #### `.get-scale-size()`
 
@@ -145,8 +139,6 @@ h1 {
     font-size: 36px;
 }
 ```
-
-* * *
 
 
 ## Baseline grid
@@ -199,8 +191,6 @@ You must import the library first:
 @import 'path/to/baseline.less';
 ```
 
-* * *
-
 #### `.use-baseline-grid()`
 
 Defines baseline and exports the other mixins.
@@ -251,8 +241,6 @@ html {
 }
 ```
 
-* * *
-
 #### `.show-baselines()`
 
 Sets `background` property of an element to show baselines.
@@ -262,8 +250,6 @@ main {
     .show-baselines();
 }
 ```
-
-* * *
 
 #### `.set-baseline()`
 
@@ -291,13 +277,9 @@ This mixin is used by `.resize-baseline()`, `.align-baseline()`, `.adjust-baseli
 
 To learn more, please read the [source code](./source/baseline.less).
 
-* * *
-
 #### `.reset-baseline()`
 
 **(Internal)** Resets baseline to original state.
-
-* * *
 
 #### `.resize-baseline()`, `.align-baseline()`, `.adjust-baseline()`
 
@@ -321,8 +303,6 @@ h1 + p {
     .resize-baseline(20px, 1.5)
 }
 ```
-
-* * *
 
 #### `.font()`, `.font-align()`
 
@@ -360,8 +340,6 @@ h1 + p {
 }
 ```
 
-* * *
-
 #### `.height()`, `.min-height()`, `.max-height()`, `.top()`, `.bottom()`, `.margin-top()`, `.margin-bottom()`, `.padding-top()`, `.padding-bottom()`
 
 These mixins let you set the respective CSS property in baseline rows.
@@ -392,8 +370,6 @@ div {
     border-top: 1px solid;
 }
 ```
-
-* * *
 
 #### `.get-baseline-height()`
 
@@ -427,8 +403,6 @@ div {
 }
 ```
 
-* * *
-
 
 ## Column grid
 
@@ -449,8 +423,6 @@ You must import the library first:
 ```less
 @import 'path/to/grid.less';
 ```
-
-* * *
 
 #### `.use-column-grid()`
 
@@ -488,8 +460,6 @@ Alternatively, you can define a grid as a set of variables and reference it by n
 .use-column-grid(desktop);
 ```
 
-* * *
-
 #### `.show-columns()`, `.show-gutters()`
 
 Sets `background` property of an element to show either grid columns or gutters.
@@ -499,8 +469,6 @@ main {
     .show-columns();
 }
 ```
-
-* * *
 
 #### `.width()`, `.min-width()`, `.max-width()`
 
@@ -521,8 +489,6 @@ div {
     .width(1, -10px, 6); // same as above, but decrease width by 10px 
 }
 ```
-
-* * *
 
 #### `.left()`, `.right()`, `.margin-left()`, `.margin-right()`, `.padding-left()`, `.padding-right()`
 
