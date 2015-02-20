@@ -15,7 +15,7 @@ You can see all of these libraries in action in [this example](./examples/001_Ov
 * * *
 
 **Requirements**: LESS v2.2.0    
-**Visual tests**: [HTML source](./tests/index.html) / [LESS source](./tests/stylesheet.less)
+**Visual tests**: [Screenshot](./tests/index.png) ([HTML source](./tests/index.html) / [LESS source](./tests/stylesheet.less))
 
 * * *
 
