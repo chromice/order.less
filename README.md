@@ -15,8 +15,6 @@ You can see all of these libraries in action in [this example](./examples/001_Ov
 * * *
 
 **Requirements**: LESS v2.2.0    
-**Full compatibility**: IE9+, Safari 6+, Chrome 26+, Firefox 16+    
-**Partial compatibility**: any browser with decent CSS support made in the past 10 years    
 **Visual tests**: [HTML source](./tests/index.html) / [LESS source](./tests/stylesheet.less)
 
 * * *
