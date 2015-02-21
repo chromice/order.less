@@ -14,8 +14,8 @@ You can see all of these libraries in action in [this example](./examples/001_Ov
 
 * * *
 
-**Requirements**: LESS v2.2.0    
-**Visual tests**: [Screenshot](./tests/index.png) ([HTML source](./tests/index.html) / [LESS source](./tests/stylesheet.less))
+**Requirements**: LESS v2.2.0; [`calc()` support](http://caniuse.com/#feat=calc) for fixed gutters and more precise offsets.
+**Test suite**: [Visual reference](./tests/index.png) ([source](./tests/))
 
 * * *
 
@@ -172,7 +172,7 @@ Here are baseline offset values for a few popular typefaces:
 | Trebuchet MS    |  0.858 |
 | Verdana         |  0.898 |
 
-You can find offset values for many other typefaces (and their variations) in [HTML source of the test suite](./tests/index.html).
+You can find offset values for many other typefaces (and their variations) including popular Google fonts in [HTML source](./tests/index.html) of the test suite.
 
 <!--
 ### Examples
