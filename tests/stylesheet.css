@@ -570,8 +570,7 @@ html {
   font-size: 1.125rem;
   top: 0px;
   top: calc(0rem + -0.1435rem);
-  margin-bottom: 0px;
-  margin-bottom: calc(0rem + -0.1875rem);
+  margin-bottom: 0;
 }
 #baseline-vertical-offset .comments {
   font: 400 14px / 1.5 'Verdana', sans-serif;

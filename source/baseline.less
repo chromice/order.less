@@ -209,10 +209,22 @@
 	}
 	
 	// Baseline offset
-	.top (@span, @nudge: 0) when (isunit(@span, '')) {
+	.top (@span) when (isunit(@span, '')) {
+		.-baseline-property(top, @span, 0, @offset-top-rem);
+	}
+	.top (@span, @nudge) when (isunit(@span, '')) and (@nudge = 0) {
+		.-baseline-property(top, @span, @nudge);
+	}
+	.top (@span, @nudge) when (isunit(@span, '')) and not(@nudge = 0) {
 		.-baseline-property(top, @span, @nudge, @offset-top-rem);
 	}
-	.bottom (@span, @nudge: 0) when (isunit(@span, '')) {
+	.bottom (@span) when (isunit(@span, '')) {
+		.-baseline-property(bottom, @span, 0, (@offset-top-rem * -1));
+	}
+	.bottom (@span, @nudge) when (isunit(@span, '')) and (@nudge = 0) {
+		.-baseline-property(bottom, @span, @nudge);
+	}
+	.bottom (@span, @nudge) when (isunit(@span, '')) and not(@nudge = 0) {
 		.-baseline-property(bottom, @span, @nudge, (@offset-top-rem * -1));
 	}
 	
@@ -228,7 +240,13 @@
 	.margin-top (@span, @nudge: 0) when (isunit(@span, '')) {
 		.-baseline-property(margin-top, @span, @nudge);
 	}
-	.margin-bottom (@span, @nudge: 0) when (isunit(@span, '')) {
+	.margin-bottom (@span) when (isunit(@span, '')) {
+		.-baseline-property(margin-bottom, @span, 0, @offset-bottom-rem);
+	}
+	.margin-bottom (@span, @nudge) when (isunit(@span, '')) and (@nudge = 0) {
+		.-baseline-property(margin-bottom, @span, @nudge);
+	}
+	.margin-bottom (@span, @nudge) when (isunit(@span, '')) and not(@nudge = 0) {
 		.-baseline-property(margin-bottom, @span, @nudge, @offset-bottom-rem);
 	}
 	
