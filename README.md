@@ -14,7 +14,7 @@ You can see all of these libraries in action in [this example](./examples/001_Ov
 
 * * *
 
-**Requirements**: LESS v2.2.0; [`calc()` support](http://caniuse.com/#feat=calc) for fixed gutters and more precise offsets.
+**Requirements**: LESS v2.2.0; [`calc()` support](http://caniuse.com/#feat=calc) for fixed gutters and more precise offsets.    
 **Test suite**: [Visual reference](./tests/index.png) ([source](./tests/))
 
 * * *
