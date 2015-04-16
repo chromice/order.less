@@ -55,11 +55,13 @@ Defines scale and exports the other mixins.
 
 ##### Usage
 
+In order to define a scale, you need a ratio and two base values for both strands:
+
 ```less
 .use-modular-scale(16px, 70px, (2/3));
 ```
 
-The mixin accepts the same three parameters as [this tool](http://modularscale.com) and will effectively produce [the same result](http://modularscale.com/scale/?px1=16&px2=20&ra1=1.5):
+After that, you can use `.font-size()` mixin to set `font-size` property of an element:
 
 ```less
 // ...
@@ -76,7 +78,7 @@ The mixin accepts the same three parameters as [this tool](http://modularscale.c
 // ...
 ```
 
-You must set `font-size` property of `html` element to the same value, otherwise <em>rem</em> values may not evaluate to the same amount of <em>pixels</em>:
+You must explicitly set `font-size` property of `html` element to scale base, otherwise <em>rem</em> values may not evaluate to the same amount of <em>pixels</em>:
 
 ```html
 html {
