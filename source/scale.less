@@ -4,25 +4,74 @@
 // = scale.less =
 // ==============
 // 
-// This module allows you to use double-stranded modular scales as described in [More 
-// Meaningful Typography](http://alistapart.com/article/more-meaningful-typography)
-// by Tim Brown and produces the same result as [this tool](http://modularscale.com) 
-// and accepts the same arguments:
+// This module allows you to generate single- or double-stranded modular scales 
+// as described in [More Meaningful Typography](http://bit.ly/QdYiL8) by Tim Brown:
 // 
-//     .use-modular-scale(
-//         16px, // base size (step 0) -> @scale-base
-//         20px, // alternative size -> @scale-alternative
-//         (2/3) // step ratio -> @scale-ratio
-//     );
 // 
-//     html {
-//         font-size: @scale-base;
-//     }
-//     
-//     h1 {
-//         .font-size(4); // font-size: 36px; font-size: 2.25rem;
-//     }
+
+// -------------------
+// - Single-stranded -
+// -------------------
 // 
+//   .use-modular-scale(
+//       16px, // base size (step 0) -> @scale-base
+//       (2/3) // step ratio -> @scale-ratio
+//   );
+//   
+//   html {
+//       font-size: @scale-base;
+//   }
+//   
+//   h1 {
+//       .font-size(4); // font-size: 54px; font-size: 3.375rem;
+//   }
+
+.use-modular-scale (@primary, @ratio) when (ispixel(@primary)) and (isunit(@ratio, '')) and (@ratio < 1) {
+	
+	@scale-base: @primary;
+	@scale-ratio: @ratio;
+	
+	
+	//
+	// Property mixins
+	//
+	
+	// Font size
+	.font-size (@step) when (isunit(@step, '')) {
+		.get-scale-size(@step);
+		
+		font-size: @scale-size;
+		font-size: unit((@scale-size / @scale-base), rem);
+	}
+	
+	
+	//
+	// Private mixins
+	//
+	
+	// Calculate scale size at a particular particular step
+	.get-scale-size (@step) {
+		@scale-size: (@scale-base * pow(1 / @scale-ratio, @step));
+	}
+}
+
+// -------------------
+// - Double-stranded -
+// -------------------
+// 
+//   .use-modular-scale(
+//       16px, // base size (step 0) -> @scale-base
+//       20px, // alternative size -> @scale-alternative
+//       (2/3) // step ratio -> @scale-ratio
+//   );
+//   
+//   html {
+//       font-size: @scale-base;
+//   }
+//   
+//   h1 {
+//       .font-size(4); // font-size: 36px; font-size: 2.25rem;
+//   }
 
 .use-modular-scale (@primary, @secondary, @ratio) when (@primary < @secondary) and (ispixel(@primary)) and (ispixel(@secondary)) and (isunit(@ratio, '')) and (@ratio < 1) {
 	
