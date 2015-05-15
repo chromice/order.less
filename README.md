@@ -21,7 +21,7 @@ You can see all of these libraries in action in [this example](./examples/001_Ov
 
 ## Modular scale
 
-Modular scale library supports double-stranded modular scales, and lets you set elements' font size to a value from that scale. You can learn more about modular scales in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
+Modular scale library supports single- and double-stranded modular scales, and lets you set elements' font size to a value from that scale. You can learn more about modular scales in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
 
 <!--
 ### Examples
@@ -39,23 +39,29 @@ You must import the library first:
 
 #### `.use-modular-scale()`
 
-Defines scale and exports the other mixins.
+Defines double- or single-stranded scale and exports the other mixins.
 
 ##### Parameters
 
 1. *pixel* `@primary` – primary strand base
-2. *pixel* `@secondary` – secondary strand base
+2. (optional) *pixel* `@secondary` – secondary strand base
 3. *number* `@ratio` – scale ratio (must be less than 1)
 
 ##### Exports
 
 - *pixel* `@scale-base`
-- *pixel* `@scale-alternative`
+- (optional) *pixel* `@scale-alternative`
 - *number* `@scale-ratio`
 
 ##### Usage
 
-In order to define a scale, you need a ratio and two base values for both strands:
+In order to generate and use a single-stranded scale, you need a ratio and a base valu:
+
+```less
+.use-modular-scale(16px, (3/4));
+```
+
+For a double-stranded scale, you need a ratio and two base values for both strands:
 
 ```less
 .use-modular-scale(16px, 70px, (2/3));
