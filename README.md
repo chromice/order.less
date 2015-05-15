@@ -86,7 +86,7 @@ After that, you can use `.font-size()` mixin to set `font-size` property of an e
 
 You must explicitly set `font-size` property of `html` element to scale base, otherwise <em>rem</em> values may not evaluate to the same amount of <em>pixels</em>:
 
-```html
+```less
 html {
     font-size: @scale-base;
 }

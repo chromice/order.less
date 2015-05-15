@@ -9,6 +9,21 @@
 // 
 // 
 
+// -----------------
+// - Public mixins -
+// -----------------
+
+.use-modular-scale () {
+	
+	// Font size
+	.font-size (@step) when (isunit(@step, '')) {
+		.get-scale-size(@step);
+		
+		font-size: @scale-size;
+		font-size: unit((@scale-size / @scale-base), rem);
+	}
+}
+
 // -------------------
 // - Single-stranded -
 // -------------------
@@ -30,24 +45,6 @@
 	
 	@scale-base: @primary;
 	@scale-ratio: @ratio;
-	
-	
-	//
-	// Property mixins
-	//
-	
-	// Font size
-	.font-size (@step) when (isunit(@step, '')) {
-		.get-scale-size(@step);
-		
-		font-size: @scale-size;
-		font-size: unit((@scale-size / @scale-base), rem);
-	}
-	
-	
-	//
-	// Private mixins
-	//
 	
 	// Calculate scale size at a particular particular step
 	.get-scale-size (@step) {
@@ -80,23 +77,6 @@
 	@scale-ratio: @ratio;
 	
 	
-	//
-	// Property mixins
-	//
-	
-	// Font size
-	.font-size (@step) when (isunit(@step, '')) {
-		.get-scale-size(@step);
-		
-		font-size: @scale-size;
-		font-size: unit((@scale-size / @scale-base), rem);
-	}
-	
-	
-	//
-	// Private mixins
-	//
-	
 	// Calculate @-power-diff value
 	.-find-power-diff (@counter) when ((@scale-base * pow(1 / @scale-ratio, @counter)) < @scale-alternative) {
 		.-find-power-diff((@counter + 1));
@@ -114,3 +94,4 @@
 		@scale-size: (@scale-alternative * pow(1 / @scale-ratio, (@step - 1) / 2 - (@-power-diff - 1)));
 	}
 }
+
