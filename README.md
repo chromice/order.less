@@ -520,12 +520,3 @@ div {
 }
 ```
 
-* * *
-
-## Acknowledgments
-
-Hat tips and heartily thanks go to:
-
-- [Khoi Vinh](https://twitter.com/khoi) and [Mark Boulton](https://twitter.com/markboulton) for inadvertently drilling down the basics of typography and the importance of grids into my silly developer head.
-- [Tim Brown](https://twitter.com/timbrown) for furthering my understanding of typography in general and modular scales in particular.
-- [Elliot Jay Stock](https://twitter.com/elliotjaystocks) for blogging about [the relevance of the baseline grid](http://www.elliotjaystocks.com/blog/the-relevance-of-the-baseline-grid/).
