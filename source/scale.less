@@ -10,10 +10,10 @@
 // 
 
 // -----------------
-// - Public mixins -
+// - Common mixins -
 // -----------------
 
-.use-modular-scale () {
+.use-modular-scale (@primary: 'always', @secondary: 'export', @ratio: 'this') {
 	
 	// Font size
 	.font-size (@step) when (isunit(@step, '')) {
