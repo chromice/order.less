@@ -352,60 +352,107 @@ html {
   font-size: 512.578125px;
   font-size: 32.03613281rem;
 }
-.scale .step-18 {
-  font-size: 615.09375px;
-  font-size: 38.44335938rem;
-}
-.scale .step-19 {
-  font-size: 768.8671875px;
-  font-size: 48.05419922rem;
-}
-.scale .step-20 {
-  font-size: 922.640625px;
-  font-size: 57.66503906rem;
-}
-.scale .step-21 {
-  font-size: 1153.30078125px;
-  font-size: 72.08129883rem;
-}
-.scale .step-22 {
-  font-size: 1383.9609375px;
-  font-size: 86.49755859rem;
-}
-.scale .step-23 {
-  font-size: 1729.95117188px;
-  font-size: 108.12194824rem;
-}
-.scale .step-24 {
-  font-size: 2075.94140625px;
-  font-size: 129.74633789rem;
-}
-.scale .step-25 {
-  font-size: 2594.92675781px;
-  font-size: 162.18292236rem;
-}
-.scale .step-26 {
-  font-size: 3113.91210938px;
-  font-size: 194.61950684rem;
-}
-.scale .step-27 {
-  font-size: 3892.39013672px;
-  font-size: 243.27438354rem;
-}
-.scale .step-28 {
-  font-size: 4670.86816406px;
-  font-size: 291.92926025rem;
-}
-.scale .step-29 {
-  font-size: 5838.58520508px;
-  font-size: 364.91157532rem;
-}
-.scale .step-30 {
-  font-size: 7006.30224609px;
-  font-size: 437.89389038rem;
-}
 #scale-integer {
   line-height: 0.85;
+}
+#scale-single {
+  line-height: 0.85;
+}
+#scale-single .step--6 {
+  font-size: 4.74074074px;
+  font-size: 0.2962963rem;
+}
+#scale-single .step--5 {
+  font-size: 5.92592593px;
+  font-size: 0.37037037rem;
+}
+#scale-single .step--4 {
+  font-size: 7.11111111px;
+  font-size: 0.44444444rem;
+}
+#scale-single .step--3 {
+  font-size: 8.88888889px;
+  font-size: 0.55555556rem;
+}
+#scale-single .step--2 {
+  font-size: 10.66666667px;
+  font-size: 0.66666667rem;
+}
+#scale-single .step--1 {
+  font-size: 13.33333333px;
+  font-size: 0.83333333rem;
+}
+#scale-single .step-00 {
+  font-size: 16px;
+  font-size: 1rem;
+}
+#scale-single .step-01 {
+  font-size: 20px;
+  font-size: 1.25rem;
+}
+#scale-single .step-02 {
+  font-size: 24px;
+  font-size: 1.5rem;
+}
+#scale-single .step-03 {
+  font-size: 30px;
+  font-size: 1.875rem;
+}
+#scale-single .step-04 {
+  font-size: 36px;
+  font-size: 2.25rem;
+}
+#scale-single .step-05 {
+  font-size: 45px;
+  font-size: 2.8125rem;
+}
+#scale-single .step-06 {
+  font-size: 54px;
+  font-size: 3.375rem;
+}
+#scale-single .step-07 {
+  font-size: 67.5px;
+  font-size: 4.21875rem;
+}
+#scale-single .step-08 {
+  font-size: 81px;
+  font-size: 5.0625rem;
+}
+#scale-single .step-09 {
+  font-size: 101.25px;
+  font-size: 6.328125rem;
+}
+#scale-single .step-10 {
+  font-size: 121.5px;
+  font-size: 7.59375rem;
+}
+#scale-single .step-11 {
+  font-size: 151.875px;
+  font-size: 9.4921875rem;
+}
+#scale-single .step-12 {
+  font-size: 182.25px;
+  font-size: 11.390625rem;
+}
+#scale-single .step-13 {
+  font-size: 227.8125px;
+  font-size: 14.23828125rem;
+}
+#scale-single .step-14 {
+  font-size: 273.375px;
+  font-size: 17.0859375rem;
+}
+#scale-single .step-15 {
+  font-size: 341.71875px;
+  font-size: 21.35742188rem;
+}
+#scale-single .step-16 {
+  font-size: 410.0625px;
+  font-size: 25.62890625rem;
+}
+#scale-single .step-17 {
+  font-size: 512.578125px;
+  font-size: 32.03613281rem;
 }
 #scale-float {
   line-height: 0.85;
