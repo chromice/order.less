@@ -9,21 +9,6 @@
 // 
 // 
 
-// -----------------
-// - Public mixins -
-// -----------------
-
-.use-modular-scale () {
-	
-	// Font size
-	.font-size (@step) when (isunit(@step, '')) {
-		.get-scale-size(@step);
-		
-		font-size: @scale-size;
-		font-size: unit((@scale-size / @scale-base), rem);
-	}
-}
-
 // -------------------
 // - Single-stranded -
 // -------------------
@@ -41,10 +26,28 @@
 //       .font-size(4); // font-size: 54px; font-size: 3.375rem;
 //   }
 
-.use-modular-scale (@primary, @ratio) when (ispixel(@primary)) and (isunit(@ratio, '')) and (@ratio < 1) {
+.use-modular-scale (@base, @ratio) when (ispixel(@base)) and (isunit(@ratio, '')) and (@ratio < 1) {
 	
-	@scale-base: @primary;
+	@scale-base: @base;
 	@scale-ratio: @ratio;
+	
+	
+	//
+	// Property mixins
+	//
+	
+	// Font size
+	.font-size (@step) when (isunit(@step, '')) {
+		.get-scale-size(@step);
+		
+		font-size: @scale-size;
+		font-size: unit((@scale-size / @scale-base), rem);
+	}
+	
+	
+	//
+	// Private mixins
+	//
 	
 	// Calculate scale size at a particular particular step
 	.get-scale-size (@step) {
@@ -70,12 +73,29 @@
 //       .font-size(4); // font-size: 36px; font-size: 2.25rem;
 //   }
 
-.use-modular-scale (@primary, @secondary, @ratio) when (@primary < @secondary) and (ispixel(@primary)) and (ispixel(@secondary)) and (isunit(@ratio, '')) and (@ratio < 1) {
+.use-modular-scale (@base, @alternative, @ratio) when (@base < @alternative) and (ispixel(@base)) and (ispixel(@alternative)) and (isunit(@ratio, '')) and (@ratio < 1) {
 	
-	@scale-base: @primary;
-	@scale-alternative: @secondary;
+	@scale-base: @base;
+	@scale-alternative: @alternative;
 	@scale-ratio: @ratio;
 	
+	
+	//
+	// Property mixins
+	//
+	
+	// Font size
+	.font-size (@step) when (isunit(@step, '')) {
+		.get-scale-size(@step);
+		
+		font-size: @scale-size;
+		font-size: unit((@scale-size / @scale-base), rem);
+	}
+	
+	
+	//
+	// Private mixins
+	//
 	
 	// Calculate @-power-diff value
 	.-find-power-diff (@counter) when ((@scale-base * pow(1 / @scale-ratio, @counter)) < @scale-alternative) {
@@ -95,3 +115,57 @@
 	}
 }
 
+// ----------
+// - Custom -
+// ----------
+// 
+//   .use-modular-scale(
+//       16px, // base size (step 0) -> @scale-base
+//       4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px // scale sizes -> @scale-values
+//   );
+//   
+//   html {
+//       font-size: @scale-base;
+//   }
+//   
+//   h1 {
+//       .font-size(4); // font-size: 36px; font-size: 2.25rem;
+//   }
+
+.use-modular-scale (@base, @values) when (ispixel(@base)) and (length(@values) > 1) {
+	
+	@scale-base: @base;
+	@scale-values: @values;
+	
+	
+	//
+	// Property mixins
+	//
+	
+	// Font size
+	.font-size (@step) when (isunit(@step, '')) {
+		.get-scale-size(@step);
+		
+		font-size: @scale-size;
+		font-size: unit((@scale-size / @scale-base), rem);
+	}
+	
+	
+	//
+	// Private mixins
+	//
+	
+	// Calculate @-base-offset value
+	.-find-base-offset (@counter) when not (extract(@scale-values, @counter) = @scale-base) {
+		.-find-base-offset((@counter + 1));
+	}
+	.-find-base-offset (@counter) when (default()) {
+		@-base-offset: @counter;
+	}
+	.-find-base-offset(0);
+	
+	// Calculate scale size at a particular particular step
+	.get-scale-size (@step) {
+		@scale-size: extract(@scale-values, @step + @-base-offset);
+	}
+}
