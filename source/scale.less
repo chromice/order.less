@@ -166,6 +166,6 @@
 	
 	// Calculate scale size at a particular particular step
 	.get-scale-size (@step) {
-		@scale-size: extract(@scale-values, @step + @-base-offset);
+		@scale-size: extract(@scale-values, (@step + @-base-offset));
 	}
 }

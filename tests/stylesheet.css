@@ -497,56 +497,72 @@ html {
   line-height: 0.85;
 }
 #scale-custom .step--4 {
-  font-size: extract(4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px, -4 + 5);
+  font-size: 4px;
   font-size: 0.25rem;
 }
 #scale-custom .step--3 {
-  font-size: extract(4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px, -3 + 5);
+  font-size: 8px;
   font-size: 0.5rem;
 }
 #scale-custom .step--2 {
-  font-size: extract(4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px, -2 + 5);
+  font-size: 12px;
   font-size: 0.75rem;
 }
 #scale-custom .step--1 {
-  font-size: extract(4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px, -1 + 5);
+  font-size: 13px;
   font-size: 0.8125rem;
 }
 #scale-custom .step-00 {
-  font-size: extract(4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px, 0 + 5);
+  font-size: 16px;
   font-size: 1rem;
 }
 #scale-custom .step-01 {
-  font-size: extract(4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px, 1 + 5);
+  font-size: 20px;
   font-size: 1.25rem;
 }
 #scale-custom .step-02 {
-  font-size: extract(4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px, 2 + 5);
+  font-size: 24px;
   font-size: 1.5rem;
 }
 #scale-custom .step-03 {
-  font-size: extract(4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px, 3 + 5);
+  font-size: 30px;
   font-size: 1.875rem;
 }
 #scale-custom .step-04 {
-  font-size: extract(4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px, 4 + 5);
+  font-size: 36px;
   font-size: 2.25rem;
 }
 #scale-custom .step-05 {
-  font-size: extract(4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px, 5 + 5);
+  font-size: 42px;
   font-size: 2.625rem;
 }
 #scale-custom .step-06 {
-  font-size: extract(4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px, 6 + 5);
+  font-size: 50px;
   font-size: 3.125rem;
 }
 #scale-custom .step-07 {
-  font-size: extract(4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px, 7 + 5);
+  font-size: 74px;
   font-size: 4.625rem;
 }
 #scale-custom .step-08 {
-  font-size: extract(4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px, 8 + 5);
+  font-size: 90px;
   font-size: 5.625rem;
+}
+#scale-custom .step-09 {
+  font-size: 110px;
+  font-size: 6.875rem;
+}
+#scale-custom .step-10 {
+  font-size: 132px;
+  font-size: 8.25rem;
+}
+#scale-custom .step-11 {
+  font-size: 160px;
+  font-size: 10rem;
+}
+#scale-custom .step-12 {
+  font-size: 200px;
+  font-size: 12.5rem;
 }
 html {
   font-family: Verdana, sans-serif;
