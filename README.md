@@ -63,23 +63,10 @@ Generates double- or single-stranded scale or defines a custom scale, and export
 
 ##### Usage
 
-In order to generate and use a single-stranded scale, you need a ratio and a base valu:
-
-```less
-.use-modular-scale(16px, (3/4));
-```
-
 For a double-stranded scale, you need a ratio and two base values for both strands:
 
 ```less
 .use-modular-scale(16px, 70px, (2/3));
-```
-
-You can specify your own values for the scale by passing them as the second argument:
-
-```less
-// Scale steps:         -3   -2   -1    0   +1   +2   +3   +4   +5   +6   +7   +8
-.use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
 ```
 
 After that, you can use `.font-size()` mixin to set `font-size` property of an element:
@@ -106,6 +93,20 @@ html {
     font-size: @scale-base;
 }
 ```
+
+In order to generate and use a single-stranded scale, you need a ratio and a base value:
+
+```less
+.use-modular-scale(16px, (3/4));
+```
+
+And finally, you can define an arbitrary scale by passing a list of valid step values as the second argument:
+
+```less
+// Scale steps:         -3   -2   -1    0   +1   +2   +3   +4   +5   +6   +7   +8
+.use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
+```
+
 
 #### `.font-size()`
 
