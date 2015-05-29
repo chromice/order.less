@@ -369,7 +369,7 @@ These mixins let you set the respective CSS property in baseline rows.
 ##### Parameters
 
 1. *number* `@span` – number of rows
-2. (optional) *unit* `@nudge`
+2. (optional) *pixel* `@nudge`
 
 ##### Usage
 
@@ -500,7 +500,7 @@ These mixins let you set the respective CSS property in grid columns.
 ##### Parameters
 
 1. *number* `@span` – number of columns
-2. (optional) *unit* `@nudge` – amount of units to nudge
+2. (optional) *pixel* `@nudge` – amount of units to nudge
 3. (optional) *number* `@base` – parent width in columns (`@grid-columns` by default)
 
 ##### Usage
@@ -520,7 +520,7 @@ These mixins let you set the respective CSS property in grid columns.
 ##### Parameters
 
 1. (optional) *number* `@span` – number of columns the property spans
-2. (optional) *unit* `@nudge` – amount of units to nudge
+2. (optional) *pixel* `@nudge` – amount of units to nudge
 3. (optional) *number* `@base` – parent width in columns (`@grid-columns` by default)
 
 **NB!** You must specify either `@span` or `@nudge`!
