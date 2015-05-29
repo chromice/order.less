@@ -46,18 +46,23 @@
 //     @verdana-font-variation: italic 400;
 //     @verdana-font-family: 'Verdana', sans-serif;
 //     
+//     @helvetica-font-offset: 0.845;
+//     @helvetica-font-variation: normal;
+//     @helvetica-font-family: 'Helvetica', sans-serif;
+//     
 //     .use-baseline-grid(16px, 1.5, verdana);
 //     
 //     h1 {
-//         .font-align(36px, 1.25); 
-//         // additionally sets the font-family (via @verdana-font-family) 
-//         // and font-variant/weight/style (via @verdana-font-variation)
+//         .font-align(36px, 1.25, helvetica); 
+//         // additionally sets the font-family (via @helvetica-font-family) 
+//         // and font-variant/weight/style (via @helvetica-font-variation)
 //     }
 // 
 
-// 
-// Font offset as name
-// 
+// -----------------------
+// - Font offset as name -
+// -----------------------
+
 .use-baseline-grid (@size, @height, @name) when (iskeyword(@name)) {
 	
 	@baseline-name: @name;
@@ -90,10 +95,10 @@
 	}
 }
 
+// -----------------------------
+// - Base size as a scale step -
+// -----------------------------
 
-// 
-// Base size as a scale step
-// 
 .use-baseline-grid (@step, @height, @offset: 0.85) when (isunit(@step, '')) and not(iskeyword(@offset)) {
 	.get-scale-size(@step);
 	.use-baseline-grid(@scale-size, @height, @offset);
@@ -103,10 +108,10 @@
 	.use-baseline-grid(@size, @height, @offset, @scale-size, @alt-height, @alt-offset);
 }
 
+// -----------------------
+// - Base size in pixels -
+// -----------------------
 
-// 
-// Base size in pixels
-// 
 .use-baseline-grid (@size, @height, @offset: 0.85) when (ispixel(@size)) and not(iskeyword(@offset)) {
 	.use-baseline-grid(@size, @height, @offset, @size, @height, @offset);
 }
