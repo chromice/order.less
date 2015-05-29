@@ -39,19 +39,27 @@ You must import the library first:
 
 #### `.use-modular-scale()`
 
-Defines double- or single-stranded scale and exports the other mixins.
+Generates double- or single-stranded scale or defines a custom scale, and exports other mixins.
 
 ##### Parameters
 
-1. *pixel* `@base` – primary strand base
-2. (optional) *pixel* `@alternative` – secondary strand base
-3. *number* `@ratio` – scale ratio (must be less than 1)
+- To generate double- or single-stranded scale:
+    1. *pixel* `@base` – primary strand base
+    2. (optional) *pixel* `@alternative` – secondary strand base
+    3. *number* `@ratio` – scale ratio (must be less than 1)
+- To define your custom scale:
+    1. *pixel* `@base` – base value
+    2. *list* `@values` – list of *pixel* values (must include `@base`)
 
 ##### Exports
 
-- *pixel* `@scale-base`
-- (optional) *pixel* `@scale-alternative`
-- *number* `@scale-ratio`
+- For double- or single-stranded scales:
+    - *pixel* `@scale-base`
+    - (optional) *pixel* `@scale-alternative`
+    - *number* `@scale-ratio`
+- For custom scales:
+    - *pixel* `@scale-base`
+    - *list* `@scale-values`
 
 ##### Usage
 
@@ -65,6 +73,13 @@ For a double-stranded scale, you need a ratio and two base values for both stran
 
 ```less
 .use-modular-scale(16px, 70px, (2/3));
+```
+
+You can specify your own values for the scale by passing them as the second argument:
+
+```less
+// Scale steps:         -3   -2   -1    0   +1   +2   +3   +4   +5   +6   +7   +8
+.use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
 ```
 
 After that, you can use `.font-size()` mixin to set `font-size` property of an element:
