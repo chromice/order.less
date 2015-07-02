@@ -31,12 +31,6 @@ TODO: EXAMPLE: A modular scale and draw AAAAAA
 
 ### Mixin reference
 
-You must import the library first:
-
-```less
-@import 'path/to/scale.less';
-```
-
 #### `.use-modular-scale()`
 
 Generates double- or single-stranded scale or defines a custom scale, and exports other mixins.
@@ -207,12 +201,6 @@ TODO: EXAMPLE: Vertical rhythm: h1 + .intro, h2, p with borders, paddings and ma
 
 ### Mixin reference
 
-You must import the library first:
-
-```less
-@import 'path/to/baseline.less';
-```
-
 #### `.use-baseline-grid()`
 
 Defines baseline and exports the other mixins.
@@ -297,7 +285,7 @@ main {
 
 This mixin is used by `.resize-baseline()`, `.align-baseline()`, `.adjust-baseline()`, `.font()` and `.font-align()`. 
 
-To learn more, please read the [source code](./source/baseline.less).
+To learn more, please read the [source code](./source/order.less).
 
 #### `.reset-baseline()`
 
@@ -439,12 +427,6 @@ TODO: EXAMPLE: Combining multiple grids
 -->
 
 ### Mixin reference
-
-You must import the library first:
-
-```less
-@import 'path/to/grid.less';
-```
 
 #### `.use-column-grid()`
 
