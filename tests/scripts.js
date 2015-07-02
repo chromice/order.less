@@ -186,10 +186,10 @@
 				if (next.textContent === '') {
 					continue;
 				}
-			
+				
 				var fontStyle = next.className.substr(0, 1) === 'i' ? 'italic' : '',
 					fontWeight = next.className.substr(1, 1) * 100;
-			
+				
 				fontVariations.push(fontWeight + fontStyle);
 			
 			} while (next = next.nextElementSibling);
