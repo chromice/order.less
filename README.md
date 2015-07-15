@@ -261,38 +261,15 @@ main {
 }
 ```
 
-#### `.resize-baseline()`, `.align-baseline()`, `.adjust-baseline()`
-
-`.resize-baseline()` simply changes the `font-size` and `line-height` property of the element, `.align-baseline()` realigns the element's baseline, and `.adjust-baseline()` does both.
-
-##### Parameters
-
-1. *pixel* **or** *number* `@size`
-2. (optional) *number* `@height`
-3. (optional) *number* `@offset`
-
-##### Usage
-
-```less
-h1 {
-    .adjust-baseline(30px, 1.25, 0.845);
-     // where 0.845 is baseline offset for Helvetica
-    font-family: Helvetica, sans-serif;
-}
-h1 + p {
-    .resize-baseline(20px, 1.5)
-}
-```
-
 #### `.font()`, `.font-align()`
 
-`.font()` simply changes the `font` property of the element, while `.font-align()` realigns the element's baseline as well.
+`.font()` just changes the `font-*` and `line-height` properties of the element, while `.font-align()` adjusts the element's offset to sit on the baseline.
 
 ##### Parameters
 
 1. *pixel* **or** *number* `@size`
 2. (optional) *number* `@height`
-3. (optional) *keyword* `@name`
+3. (optional) *keyword* `@name` **or** *number* `@offset`
 
 ##### Usage
 
@@ -313,10 +290,10 @@ These mixins are available only if you defined primary baseline using a font nam
 
 ```less
 h1 {
-    .font-align(30px, 1.25, helvetica)
+    .font-align(30px, 1.25, helvetica);
 }
 h1 + p {
-    .font(20px, 1.45, verdana)
+    .font(20px, 1.45);
 }
 ```
 

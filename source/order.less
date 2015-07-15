@@ -188,7 +188,7 @@
 //     );
 //     
 //     h1 {
-//         .adjust-baseline(36px, 1.25);
+//         .-baseline-adjust(36px, 1.25);
 //         // sets font-size to 36px/2.25rem and line-height to 1.25
 //         // and shifts it to baseline
 //         .margin-top(2); // margin-top: 48px; margin-top: 3rem;
@@ -207,7 +207,7 @@
 //     );
 //     
 //     h1 {
-//         .adjust-baseline(4, 1.25);
+//         .-baseline-adjust(4, 1.25);
 //     }
 // 
 // 
@@ -236,7 +236,6 @@
 
 .use-baseline-grid (@size, @height, @name) when (iskeyword(@name)) {
 	
-	@baseline-name: @name;
 	@-offset: "@{name}-font-offset";
 	
 	.use-baseline-grid(@size, @height, @@-offset);
@@ -246,23 +245,26 @@
 	// Property mixins
 	//
 	
-	// Font property "shorthand" mixin
-	.font (@font-size, @line-height: @baseline-height, @font-name: @baseline-name) {
+	// Font properties
+	.font (@size, @height, @font-name) when not(isunit(@font-name, '')) {
 		
 		@-offset: "@{font-name}-font-offset";
 		@-variation: "@{font-name}-font-variation";
 		@-family: "@{font-name}-font-family";
 		
-		.set-baseline(@font-size, @line-height, @@-offset);
+		.-baseline-set(@size, @height, @@-offset);
 		font: @@-variation @current-size~"/"@current-height @@-family;
 		font-size: unit((@current-size / @baseline-size), rem);
 	}
-	
-	
-	// .font() + .align-baseline()
-	.font-align (@font-size, @line-height: @baseline-height, @font-name: @baseline-name) {
-		.font(@font-size, @line-height, @font-name);
-		.align-baseline();
+	.font-align (@size, @height, @font-name) when not(isunit(@font-name, '')) {
+		@-offset: "@{font-name}-font-offset";
+		@-variation: "@{font-name}-font-variation";
+		@-family: "@{font-name}-font-family";
+		
+		.-baseline-set(@size, @height, @@-offset);
+		.-baseline-align();
+		font: @@-variation @current-size~"/"@current-height @@-family;
+		font-size: unit((@current-size / @baseline-size), rem);
 	}
 }
 
@@ -320,58 +322,21 @@
 		background-position+: 0 round((-1px - (@offset - 0.5) * @baseline-size));
 	}
 	
-	
-	//
-	// Baseline manipulation mixins
-	//
-	
-	// Set a new baseline
-	.set-baseline (@alt-size, @alt-height: @baseline-height, @alt-offset: @baseline-offset) {
-		// FIXME: Using @size, @height, @offset parameter names does not yield correct results. WTF?
-		.use-baseline-grid(@baseline-size, @baseline-height, @baseline-offset, @alt-size, @alt-height, @alt-offset);
-	}
-	
-	// Reset baseline to default values
-	.reset-baseline () {
-		.use-baseline-grid(@baseline-size, @baseline-height, @baseline-offset);
-	}
-	
-	// Shift text to the main baseline
-	.align-baseline () {
-		position: relative;
-		top: @offset-top-px;
-		top: @offset-top-rem;
-	}
-	.align-baseline (@size, @height: @baseline-height, @offset: @baseline-offset) {
-		.set-baseline(@size, @height, @offset);
-		.align-baseline();
-	}
-	
-	// Set font size and line height
-	.resize-baseline () {
-		font-size: @current-size;
-		font-size: unit((@current-size / @baseline-size), rem);
-		line-height: @current-height;
-	}
-	.resize-baseline (@size, @height: @baseline-height, @offset: @baseline-offset) {
-		.set-baseline(@size, @height, @offset);
-		.resize-baseline();
-	}
-	
-	// Adjust alignment, font size and line height
-	.adjust-baseline () {
-		.align-baseline();
-		.resize-baseline();
-	}
-	.adjust-baseline (@size, @height: @baseline-height, @offset: @baseline-offset) {
-		.set-baseline(@size, @height, @offset);
-		.adjust-baseline();
-	}
-	
-	
 	//
 	// Property mixins
 	//
+	
+	// Font properties
+	.font (@size, @height: @baseline-height, @offset: @baseline-offset) when (isunit(@offset, '')) {
+		.-baseline-set(@size, @height, @offset);
+		.-baseline-resize();
+	}
+	.font-align (@size, @height: @baseline-height, @offset: @baseline-offset) when (isunit(@offset, '')) {
+		.-baseline-set(@size, @height, @offset);
+		.-baseline-align();
+		.-baseline-resize();
+	}
+	
 	
 	// Baseline height
 	.height (@span, @nudge: 0) when (isunit(@span, '')) {
@@ -430,6 +395,26 @@
 	//
 	// Private mixins
 	//
+	
+	// Baseline manipulation mixins
+	.-baseline-set (@-size, @-height: @baseline-height, @-offset: @baseline-offset) {
+		// FIXME: Using @size, @height, @offset parameter names does not yield correct results.
+		.use-baseline-grid(@baseline-size, @baseline-height, @baseline-offset, @-size, @-height, @-offset);
+	}
+	
+	// Shift text to the main baseline
+	.-baseline-align () {
+		position: relative;
+		top: @offset-top-px;
+		top: @offset-top-rem;
+	}
+	
+	// Set font size and line height
+	.-baseline-resize () {
+		font-size: @current-size;
+		font-size: unit((@current-size / @baseline-size), rem);
+		line-height: @current-height;
+	}
 	
 	// Set property values
 	.-baseline-property (@property, @span, @nudge: 0, @correction: 0) when not(@span = 0) and (@nudge = 0) and (@correction = 0) {
