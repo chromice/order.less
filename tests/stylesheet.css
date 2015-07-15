@@ -352,6 +352,58 @@ html {
   font-size: 512.578125px;
   font-size: 32.03613281rem;
 }
+.scale .step-18 {
+  font-size: 615.09375px;
+  font-size: 38.44335938rem;
+}
+.scale .step-19 {
+  font-size: 768.8671875px;
+  font-size: 48.05419922rem;
+}
+.scale .step-20 {
+  font-size: 922.640625px;
+  font-size: 57.66503906rem;
+}
+.scale .step-21 {
+  font-size: 1153.30078125px;
+  font-size: 72.08129883rem;
+}
+.scale .step-22 {
+  font-size: 1383.9609375px;
+  font-size: 86.49755859rem;
+}
+.scale .step-23 {
+  font-size: 1729.95117188px;
+  font-size: 108.12194824rem;
+}
+.scale .step-24 {
+  font-size: 2075.94140625px;
+  font-size: 129.74633789rem;
+}
+.scale .step-25 {
+  font-size: 2594.92675781px;
+  font-size: 162.18292236rem;
+}
+.scale .step-26 {
+  font-size: 3113.91210938px;
+  font-size: 194.61950684rem;
+}
+.scale .step-27 {
+  font-size: 3892.39013672px;
+  font-size: 243.27438354rem;
+}
+.scale .step-28 {
+  font-size: 4670.86816406px;
+  font-size: 291.92926025rem;
+}
+.scale .step-29 {
+  font-size: 5838.58520508px;
+  font-size: 364.91157532rem;
+}
+.scale .step-30 {
+  font-size: 7006.30224609px;
+  font-size: 437.89389038rem;
+}
 #scale-integer {
   line-height: 0.85;
 }
