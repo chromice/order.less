@@ -246,20 +246,19 @@
 	//
 	
 	// Font properties
-	.font (@size, @height, @font-name) when not(isunit(@font-name, '')) {
-		
-		@-offset: "@{font-name}-font-offset";
-		@-variation: "@{font-name}-font-variation";
-		@-family: "@{font-name}-font-family";
+	.font (@size, @height, @name) when (iskeyword(@name)) {
+		@-offset: "@{name}-font-offset";
+		@-variation: "@{name}-font-variation";
+		@-family: "@{name}-font-family";
 		
 		.-baseline-set(@size, @height, @@-offset);
 		font: @@-variation @current-size~"/"@current-height @@-family;
 		font-size: unit((@current-size / @baseline-size), rem);
 	}
-	.font-align (@size, @height, @font-name) when not(isunit(@font-name, '')) {
-		@-offset: "@{font-name}-font-offset";
-		@-variation: "@{font-name}-font-variation";
-		@-family: "@{font-name}-font-family";
+	.font-align (@size, @height, @name) when (iskeyword(@name)) {
+		@-offset: "@{name}-font-offset";
+		@-variation: "@{name}-font-variation";
+		@-family: "@{name}-font-family";
 		
 		.-baseline-set(@size, @height, @@-offset);
 		.-baseline-align();
@@ -327,11 +326,11 @@
 	//
 	
 	// Font properties
-	.font (@size, @height: @baseline-height, @offset: @baseline-offset) when (isunit(@offset, '')) {
+	.font (@size, @height: @baseline-height, @offset: @baseline-offset) when not(iskeyword(@offset)) {
 		.-baseline-set(@size, @height, @offset);
 		.-baseline-resize();
 	}
-	.font-align (@size, @height: @baseline-height, @offset: @baseline-offset) when (isunit(@offset, '')) {
+	.font-align (@size, @height: @baseline-height, @offset: @baseline-offset) when not(iskeyword(@offset)) {
 		.-baseline-set(@size, @height, @offset);
 		.-baseline-align();
 		.-baseline-resize();
