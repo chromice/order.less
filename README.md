@@ -261,36 +261,6 @@ main {
 }
 ```
 
-#### `.set-baseline()`
-
-**(Internal)** Defines a new baseline.
-
-##### Parameters
-
-1. *pixel* **or** *number* `@alt-size`
-2. (optional) *number* `@alt-height`
-3. (optional) *number* `@alt-offset`
-
-##### Exports
-
-- *pixel* `@current-size`
-- *number* `@current-height`
-- *number* `@current-offset`
-- *pixel* `@offset-top-px`
-- *pixel* `@offset-bottom-px`
-- *rem* `@offset-top-rem`
-- *rem* `@offset-bottom-rem`
-
-##### Usage
-
-This mixin is used by `.resize-baseline()`, `.align-baseline()`, `.adjust-baseline()`, `.font()` and `.font-align()`. 
-
-To learn more, please read the [source code](./source/order.less).
-
-#### `.reset-baseline()`
-
-**(Internal)** Resets baseline to original state.
-
 #### `.resize-baseline()`, `.align-baseline()`, `.adjust-baseline()`
 
 `.resize-baseline()` simply changes the `font-size` and `line-height` property of the element, `.align-baseline()` realigns the element's baseline, and `.adjust-baseline()` does both.
