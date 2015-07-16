@@ -188,7 +188,7 @@
 //     );
 //     
 //     h1 {
-//         .-baseline-adjust(36px, 1.25);
+//         .font-align(36px, 1.25);
 //         // sets font-size to 36px/2.25rem and line-height to 1.25
 //         // and shifts it to baseline
 //         .margin-top(2); // margin-top: 48px; margin-top: 3rem;
@@ -207,7 +207,7 @@
 //     );
 //     
 //     h1 {
-//         .-baseline-adjust(4, 1.25);
+//         .font-align(4, 1.25);
 //     }
 // 
 // 
@@ -234,11 +234,12 @@
 // - Font offset as name -
 // -----------------------
 
-.use-baseline-grid (@size, @height, @name) when (iskeyword(@name)) {
+.use-baseline-grid (@size, @height, @name) when (ispixel(@size)) and (iskeyword(@name)) {
+	
+	@baseline-name: @name;
 	
 	@-offset: "@{name}-font-offset";
-	
-	.use-baseline-grid(@size, @height, @@-offset);
+	.use-baseline-grid(@size, @height, @@-offset, @size, @height, @@-offset);
 	
 	
 	//
@@ -246,37 +247,53 @@
 	//
 	
 	// Font properties
-	.font (@size, @height, @name) when (iskeyword(@name)) {
+	.font (@size, @height: @baseline-height, @name: @baseline-name) {
 		@-offset: "@{name}-font-offset";
 		@-variation: "@{name}-font-variation";
 		@-family: "@{name}-font-family";
 		
 		.-baseline-set(@size, @height, @@-offset);
-		font: @@-variation @current-size~"/"@current-height @@-family;
-		font-size: unit((@current-size / @baseline-size), rem);
+		.-baseline-font(@current-size, @baseline-size, @current-height, @@-variation, @@-family);
 	}
-	.font-align (@size, @height, @name) when (iskeyword(@name)) {
+	.font-align (@size, @height: @baseline-height, @name: @baseline-name) {
 		@-offset: "@{name}-font-offset";
 		@-variation: "@{name}-font-variation";
 		@-family: "@{name}-font-family";
 		
 		.-baseline-set(@size, @height, @@-offset);
 		.-baseline-align();
-		font: @@-variation @current-size~"/"@current-height @@-family;
-		font-size: unit((@current-size / @baseline-size), rem);
+		.-baseline-font(@current-size, @baseline-size, @current-height, @@-variation, @@-family);
 	}
+	
+	//
+	// Private mixins
+	//
+	
+	.-baseline-font(@-size, @-base, @-height, @-variation, @-family) when not(@-family = false) {
+		font: @-variation @-size~"/"@-height @-family;
+		font-size: unit((@-size / @-base), rem);
+	}
+	.-baseline-font(@-size, @-base, @-height, @-variation, @-family) when (@-family = false) {
+		font-size: @-size;
+		font-size: unit((@-size / @-base), rem);
+		line-height: @-height;
+	}
+}
+.use-baseline-grid (@size, @height, @name) when (isunit(@size, '')) and (iskeyword(@name)) {
+	.get-scale-size(@size);
+	.use-baseline-grid(@scale-size, @height, @name);
 }
 
 // -----------------------------
 // - Base size as a scale step -
 // -----------------------------
 
-.use-baseline-grid (@step, @height, @offset: 0.85) when (isunit(@step, '')) and not(iskeyword(@offset)) {
-	.get-scale-size(@step);
+.use-baseline-grid (@size, @height, @offset: 0.85) when (isunit(@size, '')) and not(iskeyword(@offset)) {
+	.get-scale-size(@size);
 	.use-baseline-grid(@scale-size, @height, @offset);
 }
-.use-baseline-grid (@size, @height, @offset, @alt-step, @alt-height, @alt-offset) when (ispixel(@size)) and (isunit(@alt-step, '')) {
-	.get-scale-size(@alt-step);
+.use-baseline-grid (@size, @height, @offset, @alt-size, @alt-height, @alt-offset) when (ispixel(@size)) and (isunit(@alt-size, '')) {
+	.get-scale-size(@alt-size);
 	.use-baseline-grid(@size, @height, @offset, @scale-size, @alt-height, @alt-offset);
 }
 
@@ -285,7 +302,11 @@
 // -----------------------
 
 .use-baseline-grid (@size, @height, @offset: 0.85) when (ispixel(@size)) and not(iskeyword(@offset)) {
-	.use-baseline-grid(@size, @height, @offset, @size, @height, @offset);
+	@default-font-offset: @offset;
+	@default-font-variation: ;
+	@default-font-family: false;
+	
+	.use-baseline-grid(@size, @height, default);
 }
 .use-baseline-grid (@size, @height, @offset, @alt-size, @alt-height, @alt-offset) when (ispixel(@size)) and (ispixel(@alt-size)) {
 	
@@ -324,18 +345,6 @@
 	//
 	// Property mixins
 	//
-	
-	// Font properties
-	.font (@size, @height: @baseline-height, @offset: @baseline-offset) when not(iskeyword(@offset)) {
-		.-baseline-set(@size, @height, @offset);
-		.-baseline-resize();
-	}
-	.font-align (@size, @height: @baseline-height, @offset: @baseline-offset) when not(iskeyword(@offset)) {
-		.-baseline-set(@size, @height, @offset);
-		.-baseline-align();
-		.-baseline-resize();
-	}
-	
 	
 	// Baseline height
 	.height (@span, @nudge: 0) when (isunit(@span, '')) {
