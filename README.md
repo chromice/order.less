@@ -1,14 +1,14 @@
 # Order.less
 
-A collection of [LESS][less] libraries for precise control over basic elements of typography:
+A collection of [LESS][less] mixins for precise control over basic elements of typography:
 
-- [Modular scale](#modular-scale) library supports double-stranded modular scales, and lets you set elements' font size to a value from that scale.
-- [Baseline grid](#baseline-grid) library lets you control vertical rhythm of the document by setting padding, margin, offset and height in baseline rows. It can also automatically shift elements to sit on baseline.
-- [Column grid](#column-grid) library enables you to define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns.
+- [Modular scale](#modular-scale) mixins let you define a custom modular scale and set elements' font size to a value from that scale.
+- [Baseline grid](#baseline-grid) mixins let you control vertical rhythm of the document by setting padding, margin, offset and height in baseline rows. It can also automatically shift elements to sit on baseline.
+- [Column grid](#column-grid) mixins enable you to define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns.
 
 [less]: http://lesscss.org
 
-You can see all of these libraries in action in [this example](./examples/001_Overview/), where some <samp>lorem ipsum</samp> is set in 3 different typefaces and laid out on a 3-column grid:
+You can see all of these mixins in action in [this example](./examples/001_Overview/), where some <samp>lorem ipsum</samp> is set in 3 different typefaces and laid out on a 3-column grid:
 
 <a href="./examples/001_Overview/"><img src="./examples/001_Overview/index.png" alt=""></a>
 
@@ -21,7 +21,7 @@ You can see all of these libraries in action in [this example](./examples/001_Ov
 
 ## Modular scale
 
-Modular scale library supports single- and double-stranded modular scales, and lets you set elements' font size to a value from that scale. You can learn more about modular scales in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
+Modular scale mixins let you define a custom modular scale and set elements' font size to a value from that scale. You can learn more about modular scales in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
 
 <!--
 ### Examples
@@ -33,51 +33,48 @@ TODO: EXAMPLE: A modular scale and draw AAAAAA
 
 #### `.use-modular-scale()`
 
-Generates double- or single-stranded scale or defines a custom scale, and exports other mixins.
+Defines a custom scale and exports other mixins.
 
 ##### Parameters
 
-- To generate double- or single-stranded scale:
-    1. *pixel* `@base` – primary strand base
-    2. (optional) *pixel* `@alternative` – secondary strand base
-    3. *number* `@ratio` – scale ratio (must be less than 1)
-- To define your custom scale:
-    1. *pixel* `@base` – base value
-    2. *list* `@values` – list of *pixel* values (must include `@base`)
+1. *pixel* `@base` – base value
+2. *list* `@values` – list of *pixel* values (must include `@base` value)
 
 ##### Exports
 
-- For double- or single-stranded scales:
-    - *pixel* `@scale-base`
-    - (optional) *pixel* `@scale-alternative`
-    - *number* `@scale-ratio`
-- For custom scales:
-    - *pixel* `@scale-base`
-    - *list* `@scale-values`
+- *pixel* `@scale-base`
+- *list* `@scale-values`
 
 ##### Usage
 
-For a double-stranded scale, you need a ratio and two base values for both strands:
+You can define an arbitrary scale by passing a list of valid step values as the second argument:
 
 ```less
-.use-modular-scale(16px, 70px, (2/3));
+// Scale steps:         -3   -2   -1    0   +1   +2   +3   +4   +5   +6   +7   +8
+.use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
 ```
 
 After that, you can use `.font-size()` mixin to set `font-size` property of an element:
 
 ```less
-// ...
-.font-size(+6); // font-size: 54.000px; font-size: 3.375rem;
-.font-size(+5); // font-size: 46.667px; font-size: 2.917rem;
-.font-size(+4); // font-size: 36.000px; font-size: 2.25rem;
-.font-size(+3); // font-size: 31.111px; font-size: 1.944rem;
-.font-size(+2); // font-size: 24.000px; font-size: 1.5rem;
-.font-size(+1); // font-size: 20.741px; font-size: 1.296rem;
-.font-size(+0); // font-size: 16.000px; font-size: 1rem;
-.font-size(-1); // font-size: 13.827px; font-size: 0.864rem;
-.font-size(-2); // font-size: 10.667px; font-size: 0.667rem;
-.font-size(-3); // font-size: 9.218px;  font-size: 0.576rem;
-// ...
+h1 {
+    .font-size(+6); // font-size: 50px; font-size: 3.125rem;
+}
+h2 {
+    .font-size(+5); // font-size: 42px; font-size: 2.625rem;
+}
+h3 {
+    .font-size(+4); // font-size: 36px; font-size: 2.25rem;
+}
+h1 + p {
+    .font-size(+2); // font-size: 24px; font-size: 1.5rem;
+}
+p {
+    .font-size(+0); // font-size: 16px; font-size: 1rem;
+}
+footer {
+    .font-size(-1); // font-size: 13px; font-size: 0.8125rem;
+}
 ```
 
 You must explicitly set `font-size` property of `html` element to scale base, otherwise <em>rem</em> values may not evaluate to the same amount of <em>pixels</em>:
@@ -86,19 +83,6 @@ You must explicitly set `font-size` property of `html` element to scale base, ot
 html {
     font-size: @scale-base;
 }
-```
-
-In order to generate and use a single-stranded scale, you need a ratio and a base value:
-
-```less
-.use-modular-scale(16px, (3/4));
-```
-
-And finally, you can define an arbitrary scale by passing a list of valid step values as the second argument:
-
-```less
-// Scale steps:         -3   -2   -1    0   +1   +2   +3   +4   +5   +6   +7   +8
-.use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
 ```
 
 
@@ -159,7 +143,7 @@ h1 {
 
 ## Baseline grid
 
-This library lets you control vertical rhythm of the document by setting padding, margin, offset and height in baseline rows. It can also automatically shift elements to sit on baseline, if their font size, line height and/or font family is changed.
+These mixins let you control vertical rhythm of the document by setting padding, margin, offset and height in baseline rows. It can also automatically shift elements to sit on baseline, if their font size, line height and/or font family is changed.
 
 Baseline row height is a product of base `font-size` and base `line-height` of the document. For example, if the base `font-size` equals <samp>20px</samp> and base `line-height` equals <samp>1.5</samp>, then baseline row height is <samp>30px</samp>.
 
@@ -173,7 +157,7 @@ h1 {
 }
 ```
 
-This library can automatically shift the element back to baseline. The offset is primarily a function of `font-size`, `line-height` and `font-family`, and in many cases of `font-variant`, `font-weight` and `font-style`. If we abstract the variability of each typeface variation via special ratio referred to as **baseline offset**, the actual offset is simply a function of `font-size`, `line-height` and `baseline offset`.
+These mixins can help automatically shift the element back to baseline. The offset is primarily a function of `font-size`, `line-height` and `font-family`, and in many cases of `font-variant`, `font-weight` and `font-style`. If we abstract the variability of each typeface variation via special ratio referred to as **baseline offset**, the actual offset is simply a function of `font-size`, `line-height` and `baseline offset`.
 
 Here are baseline offset values for a few popular typefaces:
 
@@ -263,7 +247,7 @@ main {
 
 #### `.font()`, `.font-align()`
 
-`.font()` just changes the `font-*` and `line-height` properties of the element, while `.font-align()` adjusts the element's offset to sit on the baseline.
+`.font()` just changes the `font-*` and `line-height` properties of the element, while `.font-align()` adjusts the element's offset to sit on the baseline as well.
 
 ##### Parameters
 
@@ -363,7 +347,7 @@ div {
 
 ## Column grid
 
-Column grid library lets you define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns. At the moment, it only supports uniform grids with inner gutters, e.g. a 3-column grid has 2 gutters in-between 3 columns of equal width.
+Column grid mixins let you define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns. At the moment, only supports uniform grids with inner gutters are supported, e.g. a 3-column grid has 2 gutters in-between 3 columns of equal width.
 
 <!--
 ### Examples
