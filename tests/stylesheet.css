@@ -219,28 +219,23 @@
 /*
 	Alt grid
 */
-#grid-10-5-blocks-2-children {
-  margin-left: -8px;
-  margin-right: -8px;
-}
 #grid-10-5-blocks-2-children .grid-block {
-  width: 19.31914894%;
-  width: calc(20% - 19.2px + 12.8px);
-  margin-left: 0.85106383%;
-  margin-left: calc(0% + 0px + 8px);
+  width: 17.95744681%;
+  width: calc(20% - 19.2px + 0px);
+  margin-left: 2.55319149%;
+  margin-left: calc(0% + 0px + 24px);
 }
 #grid-10-5-blocks-2-children .grid-block:first-child {
   margin-left: 0;
 }
 #grid-10-5-blocks-2-children .grid-block .grid-block {
-  width: 39.36170213%;
-  width: calc(50% - 12px + -8px);
+  width: 43.61702128%;
+  width: calc(50% - 12px + 0px);
   margin-left: 12.76595745%;
   margin-left: calc(0% + 0px + 24px);
 }
 #grid-10-5-blocks-2-children .grid-block .grid-block:first-child {
-  margin-left: 4.25531915%;
-  margin-left: calc(0% + 0px + 8px);
+  margin-left: 0;
 }
 html {
   font-size: 16px;
@@ -256,29 +251,21 @@ html {
   display: inline-block;
   text-transform: uppercase;
 }
-.scale .step--6 {
-  font-size: 4.74074074px;
-  font-size: 0.2962963rem;
-}
-.scale .step--5 {
-  font-size: 5.92592593px;
-  font-size: 0.37037037rem;
-}
 .scale .step--4 {
-  font-size: 7.11111111px;
-  font-size: 0.44444444rem;
+  font-size: 4px;
+  font-size: 0.25rem;
 }
 .scale .step--3 {
-  font-size: 8.88888889px;
-  font-size: 0.55555556rem;
+  font-size: 8px;
+  font-size: 0.5rem;
 }
 .scale .step--2 {
-  font-size: 10.66666667px;
-  font-size: 0.66666667rem;
+  font-size: 12px;
+  font-size: 0.75rem;
 }
 .scale .step--1 {
-  font-size: 13.33333333px;
-  font-size: 0.83333333rem;
+  font-size: 13px;
+  font-size: 0.8125rem;
 }
 .scale .step-00 {
   font-size: 16px;
@@ -301,320 +288,55 @@ html {
   font-size: 2.25rem;
 }
 .scale .step-05 {
-  font-size: 45px;
-  font-size: 2.8125rem;
-}
-.scale .step-06 {
-  font-size: 54px;
-  font-size: 3.375rem;
-}
-.scale .step-07 {
-  font-size: 67.5px;
-  font-size: 4.21875rem;
-}
-.scale .step-08 {
-  font-size: 81px;
-  font-size: 5.0625rem;
-}
-.scale .step-09 {
-  font-size: 101.25px;
-  font-size: 6.328125rem;
-}
-.scale .step-10 {
-  font-size: 121.5px;
-  font-size: 7.59375rem;
-}
-.scale .step-11 {
-  font-size: 151.875px;
-  font-size: 9.4921875rem;
-}
-.scale .step-12 {
-  font-size: 182.25px;
-  font-size: 11.390625rem;
-}
-.scale .step-13 {
-  font-size: 227.8125px;
-  font-size: 14.23828125rem;
-}
-.scale .step-14 {
-  font-size: 273.375px;
-  font-size: 17.0859375rem;
-}
-.scale .step-15 {
-  font-size: 341.71875px;
-  font-size: 21.35742188rem;
-}
-.scale .step-16 {
-  font-size: 410.0625px;
-  font-size: 25.62890625rem;
-}
-.scale .step-17 {
-  font-size: 512.578125px;
-  font-size: 32.03613281rem;
-}
-.scale .step-18 {
-  font-size: 615.09375px;
-  font-size: 38.44335938rem;
-}
-.scale .step-19 {
-  font-size: 768.8671875px;
-  font-size: 48.05419922rem;
-}
-.scale .step-20 {
-  font-size: 922.640625px;
-  font-size: 57.66503906rem;
-}
-.scale .step-21 {
-  font-size: 1153.30078125px;
-  font-size: 72.08129883rem;
-}
-.scale .step-22 {
-  font-size: 1383.9609375px;
-  font-size: 86.49755859rem;
-}
-.scale .step-23 {
-  font-size: 1729.95117188px;
-  font-size: 108.12194824rem;
-}
-.scale .step-24 {
-  font-size: 2075.94140625px;
-  font-size: 129.74633789rem;
-}
-.scale .step-25 {
-  font-size: 2594.92675781px;
-  font-size: 162.18292236rem;
-}
-.scale .step-26 {
-  font-size: 3113.91210938px;
-  font-size: 194.61950684rem;
-}
-.scale .step-27 {
-  font-size: 3892.39013672px;
-  font-size: 243.27438354rem;
-}
-.scale .step-28 {
-  font-size: 4670.86816406px;
-  font-size: 291.92926025rem;
-}
-.scale .step-29 {
-  font-size: 5838.58520508px;
-  font-size: 364.91157532rem;
-}
-.scale .step-30 {
-  font-size: 7006.30224609px;
-  font-size: 437.89389038rem;
-}
-#scale-integer {
-  line-height: 0.85;
-}
-#scale-single {
-  line-height: 0.85;
-}
-#scale-single .step--6 {
-  font-size: 2.84765625px;
-  font-size: 0.17797852rem;
-}
-#scale-single .step--5 {
-  font-size: 3.796875px;
-  font-size: 0.23730469rem;
-}
-#scale-single .step--4 {
-  font-size: 5.0625px;
-  font-size: 0.31640625rem;
-}
-#scale-single .step--3 {
-  font-size: 6.75px;
-  font-size: 0.421875rem;
-}
-#scale-single .step--2 {
-  font-size: 9px;
-  font-size: 0.5625rem;
-}
-#scale-single .step--1 {
-  font-size: 12px;
-  font-size: 0.75rem;
-}
-#scale-single .step-00 {
-  font-size: 16px;
-  font-size: 1rem;
-}
-#scale-single .step-01 {
-  font-size: 21.33333333px;
-  font-size: 1.33333333rem;
-}
-#scale-single .step-02 {
-  font-size: 28.44444444px;
-  font-size: 1.77777778rem;
-}
-#scale-single .step-03 {
-  font-size: 37.92592593px;
-  font-size: 2.37037037rem;
-}
-#scale-single .step-04 {
-  font-size: 50.56790123px;
-  font-size: 3.16049383rem;
-}
-#scale-single .step-05 {
-  font-size: 67.42386831px;
-  font-size: 4.21399177rem;
-}
-#scale-single .step-06 {
-  font-size: 89.89849108px;
-  font-size: 5.61865569rem;
-}
-#scale-single .step-07 {
-  font-size: 119.86465478px;
-  font-size: 7.49154092rem;
-}
-#scale-single .step-08 {
-  font-size: 159.8195397px;
-  font-size: 9.98872123rem;
-}
-#scale-single .step-09 {
-  font-size: 213.09271961px;
-  font-size: 13.31829498rem;
-}
-#scale-single .step-10 {
-  font-size: 284.12362614px;
-  font-size: 17.75772663rem;
-}
-#scale-single .step-11 {
-  font-size: 378.83150152px;
-  font-size: 23.67696885rem;
-}
-#scale-single .step-12 {
-  font-size: 505.1086687px;
-  font-size: 31.56929179rem;
-}
-#scale-single .step-13 {
-  font-size: 673.47822493px;
-  font-size: 42.09238906rem;
-}
-#scale-single .step-14 {
-  font-size: 897.97096657px;
-  font-size: 56.12318541rem;
-}
-#scale-single .step-15 {
-  font-size: 1197.29462209px;
-  font-size: 74.83091388rem;
-}
-#scale-single .step-16 {
-  font-size: 1596.39282946px;
-  font-size: 99.77455184rem;
-}
-#scale-single .step-17 {
-  font-size: 2128.52377261px;
-  font-size: 133.03273579rem;
-}
-#scale-float {
-  line-height: 0.85;
-}
-#scale-float .step-16-1 {
-  font-size: 418.46064301px;
-  font-size: 26.15379019rem;
-}
-#scale-float .step-16-2 {
-  font-size: 427.03078127px;
-  font-size: 26.68942383rem;
-}
-#scale-float .step-16-3 {
-  font-size: 435.77643728px;
-  font-size: 27.23602733rem;
-}
-#scale-float .step-16-4 {
-  font-size: 444.70120568px;
-  font-size: 27.79382535rem;
-}
-#scale-float .step-16-5 {
-  font-size: 463.16662076px;
-  font-size: 28.9479138rem;
-}
-#scale-float .step-16-6 {
-  font-size: 472.65234431px;
-  font-size: 29.54077152rem;
-}
-#scale-float .step-16-7 {
-  font-size: 482.33233695px;
-  font-size: 30.14577106rem;
-}
-#scale-float .step-16-8 {
-  font-size: 492.21057732px;
-  font-size: 30.76316108rem;
-}
-#scale-float .step-16-9 {
-  font-size: 502.29112557px;
-  font-size: 31.39319535rem;
-}
-#scale-custom {
-  line-height: 0.85;
-}
-#scale-custom .step--4 {
-  font-size: 4px;
-  font-size: 0.25rem;
-}
-#scale-custom .step--3 {
-  font-size: 8px;
-  font-size: 0.5rem;
-}
-#scale-custom .step--2 {
-  font-size: 12px;
-  font-size: 0.75rem;
-}
-#scale-custom .step--1 {
-  font-size: 13px;
-  font-size: 0.8125rem;
-}
-#scale-custom .step-00 {
-  font-size: 16px;
-  font-size: 1rem;
-}
-#scale-custom .step-01 {
-  font-size: 20px;
-  font-size: 1.25rem;
-}
-#scale-custom .step-02 {
-  font-size: 24px;
-  font-size: 1.5rem;
-}
-#scale-custom .step-03 {
-  font-size: 30px;
-  font-size: 1.875rem;
-}
-#scale-custom .step-04 {
-  font-size: 36px;
-  font-size: 2.25rem;
-}
-#scale-custom .step-05 {
   font-size: 42px;
   font-size: 2.625rem;
 }
-#scale-custom .step-06 {
+.scale .step-06 {
   font-size: 50px;
   font-size: 3.125rem;
 }
-#scale-custom .step-07 {
+.scale .step-07 {
   font-size: 74px;
   font-size: 4.625rem;
 }
-#scale-custom .step-08 {
+.scale .step-08 {
   font-size: 90px;
   font-size: 5.625rem;
 }
-#scale-custom .step-09 {
+.scale .step-09 {
   font-size: 110px;
   font-size: 6.875rem;
 }
-#scale-custom .step-10 {
+.scale .step-10 {
   font-size: 132px;
   font-size: 8.25rem;
 }
-#scale-custom .step-11 {
+.scale .step-11 {
   font-size: 160px;
   font-size: 10rem;
 }
-#scale-custom .step-12 {
+.scale .step-12 {
   font-size: 200px;
   font-size: 12.5rem;
+}
+.scale .step-13 {
+  font-size: 280px;
+  font-size: 17.5rem;
+}
+.scale .step-14 {
+  font-size: 420px;
+  font-size: 26.25rem;
+}
+.scale .step-15 {
+  font-size: 690px;
+  font-size: 43.125rem;
+}
+.scale .step-16 {
+  font-size: 920px;
+  font-size: 57.5rem;
+}
+#scale-custom {
+  line-height: 0.65;
 }
 html {
   font-family: Verdana, sans-serif;
