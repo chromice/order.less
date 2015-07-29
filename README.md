@@ -14,7 +14,7 @@ You can see all of these mixins in action in [this example](./examples/001_Overv
 
 * * *
 
-**Requirements**: LESS v2.2.0; [`calc()` support](http://caniuse.com/#feat=calc) for fixed gutters and more precise offsets.    
+**Requirements**: LESS v2.2.0; [`calc()` support](http://caniuse.com/calc) for fixed gutters and more precise offsets.    
 **Test suite**: [Visual reference](./tests/index.png) ([source](./tests/))
 
 * * *
@@ -77,7 +77,7 @@ footer {
 }
 ```
 
-You must explicitly set `font-size` property of `html` element to scale base, otherwise <em>rem</em> values may not evaluate to the same amount of <em>pixels</em>:
+You must explicitly set `font-size` property of `html` element to `@scale-base`, otherwise <em>rem</em> values may not evaluate to the same amount of <em>pixels</em>:
 
 ```less
 html {
@@ -256,8 +256,6 @@ main {
 3. (optional) *keyword* `@name` **or** *number* `@offset`
 
 ##### Usage
-
-These mixins are available only if you defined primary baseline using a font name:
 
 ```less
 @helvetica-font-family: 'Helvetica', sans-serif;
@@ -439,7 +437,6 @@ These mixins let you set the respective CSS property in grid columns.
 **NB!** You must specify either `@span` or `@nudge`!
 
 ##### Usage
-
 
 ```less
 div {
