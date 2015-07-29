@@ -220,19 +220,30 @@
 	Alt grid
 */
 #grid-10-5-blocks-2-children .grid-block {
-  width: 17.95744681%;
-  width: calc(20% - 19.2px);
-  margin-left: 2.55319149%;
-  margin-left: calc(0% + 0px + 24px);
+  width: 18.29787234%;
+  width: calc(20% - 16px);
+  padding-left: 0.63829787%;
+  padding-left: calc(0% + 0px + 6px);
+  padding-right: 0.63829787%;
+  padding-right: calc(0% + 0px + 6px);
+  margin-left: 0.85106383%;
+  margin-left: calc(0% + 0px + 8px);
 }
 #grid-10-5-blocks-2-children .grid-block:first-child {
-  margin-left: 0;
+  margin-left: -0.63829787%;
+  margin-left: calc(0% + 0px + -6px);
+}
+#grid-10-5-blocks-2-children .grid-block:last-child {
+  margin-right: -0.63829787%;
+  margin-right: calc(0% + 0px + -6px);
 }
 #grid-10-5-blocks-2-children .grid-block .grid-block {
-  width: 43.61702128%;
-  width: calc(50% - 12px);
-  margin-left: 12.76595745%;
-  margin-left: calc(0% + 0px + 24px);
+  width: 44.68085106%;
+  width: calc(50% - 10px);
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 10.63829787%;
+  margin-left: calc(0% + 0px + 20px);
 }
 #grid-10-5-blocks-2-children .grid-block .grid-block:first-child {
   margin-left: 0;
