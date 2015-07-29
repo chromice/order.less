@@ -1,10 +1,11 @@
 {
   "name": "order.less",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "homepage": "https://github.com/chromice/order.less",
   "description": "Baseline alignment, column grids and modular scales.",
   "main": "./source/order.less",
   "keywords": [
+    "grid",
     "baseline",
     "rhythm"
   ],
