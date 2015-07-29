@@ -426,99 +426,196 @@
 	
 	
 	//
-	// Property mixins: @span + @base
+	// Property mixins: @span + (optional) @base
 	//
 	
 	// Column width
 	.width (@span, @base: @grid-columns) when (isunit(@span, '')) and (isunit(@base, '')) {
-		.-column-width-property(width, @span, 0, @base);
+		.-column-width-property(width, @span, 0, @base, 0);
 	}
 	.max-width (@span, @base: @grid-columns) when (isunit(@span, '')) and (isunit(@base, '')) {
-		.-column-width-property(max-width, @span, 0, @base);
+		.-column-width-property(max-width, @span, 0, @base, 0);
 	}
 	.min-width (@span, @base: @grid-columns) when (isunit(@span, '')) and (isunit(@base, '')) {
-		.-column-width-property(min-width, @span, 0, @base);
+		.-column-width-property(min-width, @span, 0, @base, 0);
 	}
 	
 	// Column offset
 	.margin-left (@span, @base: @grid-columns) when (isunit(@span, '')) and (isunit(@base, '')) {
-		.-column-offset-property(margin-left, @span, 0, @base);
+		.-column-offset-property(margin-left, @span, 0, @base, 0);
 	}
 	.margin-right (@span, @base: @grid-columns) when (isunit(@span, '')) and (isunit(@base, '')) {
-		.-column-offset-property(margin-right, @span, 0, @base);
+		.-column-offset-property(margin-right, @span, 0, @base, 0);
 	}
 	.padding-left (@span, @base: @grid-columns) when (isunit(@span, '')) and (isunit(@base, '')) {
-		.-column-offset-property(padding-left, @span, 0, @base);
+		.-column-offset-property(padding-left, @span, 0, @base, 0);
 	}
 	.padding-right (@span, @base: @grid-columns) when (isunit(@span, '')) and (isunit(@base, '')) {
-		.-column-offset-property(padding-right, @span, 0, @base);
+		.-column-offset-property(padding-right, @span, 0, @base, 0);
 	}
 	.left (@span, @base: @grid-columns) when (isunit(@span, '')) and (isunit(@base, '')) {
-		.-column-offset-property(left, @span, 0, @base);
+		.-column-offset-property(left, @span, 0, @base, 0);
 	}
 	.right (@span, @base: @grid-columns) when (isunit(@span, '')) and (isunit(@base, '')) {
-		.-column-offset-property(right, @span, 0, @base);
+		.-column-offset-property(right, @span, 0, @base, 0);
 	}
 	
 	
 	//
-	// Property mixins: @nudge + @base
+	// Property mixins: @span + @base + @base-nudge
+	//
+	
+	// Column width
+	.width (@span, @base, @base-nudge) when (isunit(@span, '')) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-width-property(width, @span, 0, @base, @base-nudge);
+	}
+	.max-width (@span, @base, @base-nudge) when (isunit(@span, '')) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-width-property(max-width, @span, 0, @base, @base-nudge);
+	}
+	.min-width (@span, @base, @base-nudge) when (isunit(@span, '')) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-width-property(min-width, @span, 0, @base, @base-nudge);
+	}
+	
+	// Column offset
+	.margin-left (@span, @base, @base-nudge) when (isunit(@span, '')) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(margin-left, @span, 0, @base, @base-nudge);
+	}
+	.margin-right (@span, @base, @base-nudge) when (isunit(@span, '')) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(margin-right, @span, 0, @base, @base-nudge);
+	}
+	.padding-left (@span, @base, @base-nudge) when (isunit(@span, '')) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(padding-left, @span, 0, @base, @base-nudge);
+	}
+	.padding-right (@span, @base, @base-nudge) when (isunit(@span, '')) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(padding-right, @span, 0, @base, @base-nudge);
+	}
+	.left (@span, @base, @base-nudge) when (isunit(@span, '')) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(left, @span, 0, @base, @base-nudge);
+	}
+	.right (@span, @base, @base-nudge) when (isunit(@span, '')) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(right, @span, 0, @base, @base-nudge);
+	}
+	
+	
+	//
+	// Property mixins: @nudge + (optional) @base
 	//
 	
 	// Column offset
 	.margin-left (@nudge, @base: @grid-columns) when (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-offset-property(margin-left, 0, @nudge, @base);
+		.-column-offset-property(margin-left, 0, @nudge, @base, 0);
 	}
 	.margin-right (@nudge, @base: @grid-columns) when (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-offset-property(margin-right, 0, @nudge, @base);
+		.-column-offset-property(margin-right, 0, @nudge, @base, 0);
 	}
 	.padding-left (@nudge, @base: @grid-columns) when (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-offset-property(padding-left, 0, @nudge, @base);
+		.-column-offset-property(padding-left, 0, @nudge, @base, 0);
 	}
 	.padding-right (@nudge, @base: @grid-columns) when (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-offset-property(padding-right, 0, @nudge, @base);
+		.-column-offset-property(padding-right, 0, @nudge, @base, 0);
 	}
 	.left (@nudge, @base: @grid-columns) when (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-offset-property(left, 0, @nudge, @base);
+		.-column-offset-property(left, 0, @nudge, @base, 0);
 	}
 	.right (@nudge, @base: @grid-columns) when (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-offset-property(right, 0, @nudge, @base);
+		.-column-offset-property(right, 0, @nudge, @base, 0);
 	}
 	
 	
 	//
-	// Property mixins: @span + @nudge + @base
+	// Property mixins: @nudge + @base + @base-nudge
+	//
+	
+	// Column offset
+	.margin-left (@nudge, @base, @base-nudge) when (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(margin-left, 0, @nudge, @base, @base-nudge);
+	}
+	.margin-right (@nudge, @base, @base-nudge) when (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(margin-right, 0, @nudge, @base, @base-nudge);
+	}
+	.padding-left (@nudge, @base, @base-nudge) when (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(padding-left, 0, @nudge, @base, @base-nudge);
+	}
+	.padding-right (@nudge, @base, @base-nudge) when (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(padding-right, 0, @nudge, @base, @base-nudge);
+	}
+	.left (@nudge, @base, @base-nudge) when (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(left, 0, @nudge, @base, @base-nudge);
+	}
+	.right (@nudge, @base, @base-nudge) when (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(right, 0, @nudge, @base, @base-nudge);
+	}
+	
+	
+	//
+	// Property mixins: @span + @nudge + (optional) @base
 	//
 	
 	// Column width
 	.width (@span, @nudge, @base: @grid-columns) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-width-property(width, @span, @nudge, @base);
+		.-column-width-property(width, @span, @nudge, @base, 0);
 	}
 	.max-width (@span, @nudge, @base: @grid-columns) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-width-property(max-width, @span, @nudge, @base);
+		.-column-width-property(max-width, @span, @nudge, @base, 0);
 	}
 	.min-width (@span, @nudge, @base: @grid-columns) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-width-property(min-width, @span, @nudge, @base);
+		.-column-width-property(min-width, @span, @nudge, @base, 0);
 	}
 	
 	// Column offset
 	.margin-left (@span, @nudge, @base: @grid-columns) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-offset-property(margin-left, @span, @nudge, @base);
+		.-column-offset-property(margin-left, @span, @nudge, @base, 0);
 	}
 	.margin-right (@span, @nudge, @base: @grid-columns) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-offset-property(margin-right, @span, @nudge, @base);
+		.-column-offset-property(margin-right, @span, @nudge, @base, 0);
 	}
 	.padding-left (@span, @nudge, @base: @grid-columns) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-offset-property(padding-left, @span, @nudge, @base);
+		.-column-offset-property(padding-left, @span, @nudge, @base, 0);
 	}
 	.padding-right (@span, @nudge, @base: @grid-columns) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-offset-property(padding-right, @span, @nudge, @base);
+		.-column-offset-property(padding-right, @span, @nudge, @base, 0);
 	}
 	.left (@span, @nudge, @base: @grid-columns) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-offset-property(left, @span, @nudge, @base);
+		.-column-offset-property(left, @span, @nudge, @base, 0);
 	}
 	.right (@span, @nudge, @base: @grid-columns) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) {
-		.-column-offset-property(right, @span, @nudge, @base);
+		.-column-offset-property(right, @span, @nudge, @base, 0);
+	}
+	
+	
+	//
+	// Property mixins: @span + @nudge + @base + @base-nudge
+	//
+	
+	// Column width
+	.width (@span, @nudge, @base, @base-nudge) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-width-property(width, @span, @nudge, @base, @base-nudge);
+	}
+	.max-width (@span, @nudge, @base, @base-nudge) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-width-property(max-width, @span, @nudge, @base, @base-nudge);
+	}
+	.min-width (@span, @nudge, @base, @base-nudge) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-width-property(min-width, @span, @nudge, @base, @base-nudge);
+	}
+	
+	// Column offset
+	.margin-left (@span, @nudge, @base, @base-nudge) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(margin-left, @span, @nudge, @base, @base-nudge);
+	}
+	.margin-right (@span, @nudge, @base, @base-nudge) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(margin-right, @span, @nudge, @base, @base-nudge);
+	}
+	.padding-left (@span, @nudge, @base, @base-nudge) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(padding-left, @span, @nudge, @base, @base-nudge);
+	}
+	.padding-right (@span, @nudge, @base, @base-nudge) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(padding-right, @span, @nudge, @base, @base-nudge);
+	}
+	.left (@span, @nudge, @base, @base-nudge) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(left, @span, @nudge, @base, @base-nudge);
+	}
+	.right (@span, @nudge, @base, @base-nudge) when (isunit(@span, '')) and (ispixel(@nudge)) and (isunit(@base, '')) and (ispixel(@base-nudge)) {
+		.-column-offset-property(right, @span, @nudge, @base, @base-nudge);
 	}
 	
 	
@@ -527,29 +624,29 @@
 	//
 	
 	// Set width values
-	.-column-width-property (@property, @span, @nudge, @base) when (@span > 0) and (@base > 0), not(@nudge = 0) and (@base > 0) {
-		.-get-column-values(@span, @nudge, @base);
+	.-column-width-property (@property, @span, @nudge, @base, @base-nudge) when (@span > 0) and (@base > 0), not(@nudge = 0) and (@base > 0), (@span > 0) and (@base-nudge > 0), not(@nudge = 0) and (@base-nudge > 0) {
+		.-get-column-values(@span, @nudge, @base, @base-nudge);
 		
 		@{property}: @grid-width-fallback;
 		@{property}: calc(@grid-width-calc);
 	}
-	.-column-width-property (@property, @span, @nudge, @base) when (@span = 0) and (@nudge = 0), (@base = 0) {
+	.-column-width-property (@property, @span, @nudge, @base, @base-nudge) when (@span = 0) and (@nudge = 0), (@base = 0) and (@base-nudge = 0) {
 		@{property}: 0;
 	}
 	
 	// Set offset values
-	.-column-offset-property (@property, @span, @nudge, @base) when not(@span = 0) and (@base > 0), not(@nudge = 0) and (@base > 0) {
-		.-get-column-values(@span, @nudge, @base);
+	.-column-offset-property (@property, @span, @nudge, @base, @base-nudge) when not(@span = 0) and (@base > 0), not(@nudge = 0) and (@base > 0) {
+		.-get-column-values(@span, @nudge, @base, @base-nudge);
 		
 		@{property}: @grid-offset-fallback;
 		@{property}: calc(@grid-offset-calc);
 	}
-	.-column-offset-property (@property, @span, @nudge, @base) when (@span = 0) and (@nudge = 0), (@base = 0) {
+	.-column-offset-property (@property, @span, @nudge, @base, @base-nudge) when (@span = 0) and (@nudge = 0), (@base = 0) and (@base-nudge = 0) {
 		@{property}: 0;
 	}
 	
 	// Calculate grid values
-	.-get-column-values (@span, @nudge, @base) {
+	.-get-column-values (@span, @nudge, @base, @base-nudge) {
 		// Modern browsers that support calc():
 		@-column-width: round((100% / @base * @span), 8);
 		@-column-gutter: round(((@base - @span) / @base * @grid-gutter), 8);
