@@ -2,9 +2,8 @@
 <html lang="en">
 <meta charset="utf-8">
 <title>Order.less library specification</title>
-<!--
 <link rel="stylesheet" href="stylesheet.css">
--->
+<!--
 <link rel="stylesheet/less" type="text/css" href="stylesheet.less">
 <script>
   less = {
@@ -12,6 +11,7 @@
   };
 </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.2.0/less.min.js"></script>
+-->
 <body>
 <div class="Test">
 	<h1 class="Test-title"><a href="https://github.com/chromice/order.less">Order.less</a> library specification</h1>
@@ -136,6 +136,29 @@
 	
 	<h3 class="Test-it">renders 5 floated blocks wrapping around 2 children</h3>
 	<div class="Test-run" id="grid-10-5-blocks-2-children">
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+		<div class="grid-block">
+			<div class="grid-block"></div>
+			<div class="grid-block"></div>
+		</div>
+	</div>
+	<h3 class="Test-it">renders 5 floated blocks wrapping around 2 children, when parent blocks have no padding</h3>
+	<div class="Test-run" id="grid-10-5-blocks-2-children-2">
 		<div class="grid-block">
 			<div class="grid-block"></div>
 			<div class="grid-block"></div>

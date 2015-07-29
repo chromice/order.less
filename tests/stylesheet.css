@@ -248,6 +248,34 @@
 #grid-10-5-blocks-2-children .grid-block .grid-block:first-child {
   margin-left: 0;
 }
+#grid-10-5-blocks-2-children-2 .grid-block {
+  width: 19.57446809%;
+  width: calc(20% - 16px + 12px);
+  margin-left: 0.85106383%;
+  margin-left: calc(0% + 0px + 8px);
+}
+#grid-10-5-blocks-2-children-2 .grid-block:first-child {
+  margin-left: -0.63829787%;
+  margin-left: calc(0% + 0px + -6px);
+}
+#grid-10-5-blocks-2-children-2 .grid-block:last-child {
+  margin-right: -0.63829787%;
+  margin-right: calc(0% + 0px + -6px);
+}
+#grid-10-5-blocks-2-children-2 .grid-block .grid-block {
+  width: 41.4893617%;
+  width: calc(50% - 10px - 6px);
+  margin-left: 10.63829787%;
+  margin-left: calc(0% + 0px + 20px);
+}
+#grid-10-5-blocks-2-children-2 .grid-block .grid-block:first-child {
+  margin-left: 3.19148936%;
+  margin-left: calc(0% + 0px + 6px);
+}
+#grid-10-5-blocks-2-children-2 .grid-block .grid-block:last-child {
+  margin-right: 3.19148936%;
+  margin-right: calc(0% + 0px + 6px);
+}
 html {
   font-size: 16px;
 }
