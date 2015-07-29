@@ -212,7 +212,7 @@ You can set baseline size in pixels:
 Or as a scale step:
 
 ```less
-.use-modular-scale(16px, 20px, (2/3));
+.use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
 .use-baseline-grid(0, 1.5, 0.898);
 ```
 
