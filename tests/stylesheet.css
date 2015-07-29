@@ -37,7 +37,7 @@
 #grid-12-4-blocks-3-children .grid-block,
 #grid-12-4-padding-box .grid-block {
   width: 23.40425532%;
-  width: calc(25% - 15px + 0px);
+  width: calc(25% - 15px);
   margin-left: 2.12765957%;
   margin-left: calc(0% + 0px + 20px);
 }
@@ -52,7 +52,7 @@
 #grid-12-4-blocks-3-children .grid-block .grid-block,
 #grid-12-4-padding-box .grid-block .grid-block {
   width: 27.65957447%;
-  width: calc(33.33333333% - 13.33333333px + 0px);
+  width: calc(33.33333333% - 13.33333333px);
   margin-left: 8.5106383%;
   margin-left: calc(0% + 0px + 20px);
 }
@@ -64,50 +64,50 @@
 }
 #grid-12-4-padding-box {
   padding-left: 25.53191489%;
-  padding-left: calc(25% + 5px + 0px);
+  padding-left: calc(25% + 5px);
 }
 #grid-12-4-padding-box .grid-block {
   width: 31.44208038%;
-  width: calc(33.33333333% - 13.33333333px + 0px);
+  width: calc(33.33333333% - 13.33333333px);
   margin-left: 2.83687943%;
   margin-left: calc(0% + 0px + 20px);
 }
 #grid-12-4-padding-box .grid-block:first-child {
   margin-left: -34.27895981%;
-  margin-left: calc(-33.33333333% + -6.66666667px + 0px);
+  margin-left: calc(-33.33333333% + -6.66666667px);
 }
 #grid-12-4-padding-box .grid-block:first-child + .grid-block {
   margin-left: 0;
 }
 #grid-12-4-margin-box {
   margin-left: 51.06382979%;
-  margin-left: calc(50% + 10px + 0px);
+  margin-left: calc(50% + 10px);
 }
 #grid-12-4-margin-box .grid-block {
   width: 47.87234043%;
-  width: calc(50% - 10px + 0px);
+  width: calc(50% - 10px);
   margin-left: 4.25531915%;
   margin-left: calc(0% + 0px + 20px);
 }
 #grid-12-4-margin-box .grid-block:first-child {
   margin-left: -104.25531915%;
-  margin-left: calc(-100% + -20px + 0px);
+  margin-left: calc(-100% + -20px);
 }
 #grid-12-4-margin-box .grid-block:first-child + .grid-block {
   margin-left: -52.12765957%;
-  margin-left: calc(-50% + -10px + 0px);
+  margin-left: calc(-50% + -10px);
 }
 #grid-12-4-margin-box .grid-block:first-child + .grid-block + .grid-block {
   margin-left: 0;
 }
 #grid-12-4-blocks-1-positioned {
   margin-left: 25.53191489%;
-  margin-left: calc(25% + 5px + 0px);
+  margin-left: calc(25% + 5px);
   position: relative;
 }
 #grid-12-4-blocks-1-positioned .grid-block {
   width: 31.44208038%;
-  width: calc(33.33333333% - 13.33333333px + 0px);
+  width: calc(33.33333333% - 13.33333333px);
   margin-left: 2.83687943%;
   margin-left: calc(0% + 0px + 20px);
 }
@@ -118,7 +118,7 @@
   position: absolute;
   top: 0;
   left: -34.27895981%;
-  left: calc(-33.33333333% + -6.66666667px + 0px);
+  left: calc(-33.33333333% + -6.66666667px);
 }
 #grid-12-4-blocks-1-positioned #positioned-block + .grid-block {
   margin-left: 0;
@@ -129,20 +129,20 @@
 }
 #grid-12-4-blocks-ordered #ordered-block-4-2 {
   margin-left: 25.53191489%;
-  margin-left: calc(25% + 5px + 0px);
+  margin-left: calc(25% + 5px);
 }
 #grid-12-4-blocks-ordered #ordered-block-4-4 {
   margin-left: 76.59574468%;
-  margin-left: calc(75% + 15px + 0px);
+  margin-left: calc(75% + 15px);
   margin-bottom: -100%;
 }
 #grid-12-2-blocks-ordered .grid-block {
   width: 48.93617021%;
-  width: calc(50% - 10px + 0px);
+  width: calc(50% - 10px);
 }
 #grid-12-2-blocks-ordered #ordered-block-2-2 {
   margin-left: 51.06382979%;
-  margin-left: calc(50% + 10px + 0px);
+  margin-left: calc(50% + 10px);
 }
 #grid-12-2-blocks-ordered #ordered-block-2-1 {
   margin-left: -100%;
@@ -150,19 +150,19 @@
 }
 #grid-12-4-margin-box-ordered {
   margin-left: 51.06382979%;
-  margin-left: calc(50% + 10px + 0px);
+  margin-left: calc(50% + 10px);
 }
 #grid-12-4-margin-box-ordered .grid-block {
   width: 47.87234043%;
-  width: calc(50% - 10px + 0px);
+  width: calc(50% - 10px);
 }
 #grid-12-4-margin-box-ordered #margin-ordered-4-1 {
   margin-left: -104.25531915%;
-  margin-left: calc(-100% + -20px + 0px);
+  margin-left: calc(-100% + -20px);
 }
 #grid-12-4-margin-box-ordered #margin-ordered-4-2 {
   margin-left: -52.12765957%;
-  margin-left: calc(-50% + -10px + 0px);
+  margin-left: calc(-50% + -10px);
 }
 #grid-12-4-margin-box-ordered #margin-ordered-4-3 {
   margin-left: -100%;
@@ -170,7 +170,7 @@
 }
 #grid-12-4-margin-box-ordered #margin-ordered-4-4 {
   margin-left: 52.12765957%;
-  margin-left: calc(50% + 10px + 0px);
+  margin-left: calc(50% + 10px);
 }
 #grid-12-4-blocks-positioned {
   position: relative;
@@ -181,26 +181,26 @@
   position: absolute;
   top: 0;
   width: 23.40425532%;
-  width: calc(25% - 15px + 0px);
+  width: calc(25% - 15px);
 }
 #grid-12-4-blocks-positioned #positioned-block-1 {
   right: 76.59574468%;
-  right: calc(75% + 15px + 0px);
+  right: calc(75% + 15px);
 }
 #grid-12-4-blocks-positioned #positioned-block-2 {
   left: 25.53191489%;
-  left: calc(25% + 5px + 0px);
+  left: calc(25% + 5px);
 }
 #grid-12-4-blocks-positioned #positioned-block-3 {
   left: 51.06382979%;
-  left: calc(50% + 10px + 0px);
+  left: calc(50% + 10px);
 }
 #grid-12-4-blocks-positioned #positioned-block-4 {
   right: 0;
 }
 #grid-12-5-blocks .grid-block {
   width: 18.29787234%;
-  width: calc(20% - 16px + 0px);
+  width: calc(20% - 16px);
   margin-left: 2.12765957%;
   margin-left: calc(0% + 0px + 20px);
 }
@@ -209,7 +209,7 @@
 }
 #grid-12-5-blocks .grid-block .grid-block {
   width: 44.68085106%;
-  width: calc(50% - 10px + 0px);
+  width: calc(50% - 10px);
   margin-left: 10.63829787%;
   margin-left: calc(0% + 0px + 20px);
 }
@@ -221,7 +221,7 @@
 */
 #grid-10-5-blocks-2-children .grid-block {
   width: 17.95744681%;
-  width: calc(20% - 19.2px + 0px);
+  width: calc(20% - 19.2px);
   margin-left: 2.55319149%;
   margin-left: calc(0% + 0px + 24px);
 }
@@ -230,7 +230,7 @@
 }
 #grid-10-5-blocks-2-children .grid-block .grid-block {
   width: 43.61702128%;
-  width: calc(50% - 12px + 0px);
+  width: calc(50% - 12px);
   margin-left: 12.76595745%;
   margin-left: calc(0% + 0px + 24px);
 }
@@ -360,7 +360,7 @@ html {
 #baseline-horizontal > div {
   float: left;
   width: 23.40425532%;
-  width: calc(25% - 15px + 0px);
+  width: calc(25% - 15px);
   margin-left: 2.12765957%;
   margin-left: calc(0% + 0px + 20px);
   margin-top: 24px;
@@ -445,7 +445,7 @@ html {
   overflow: visible;
   position: relative;
   padding-left: 34.04255319%;
-  padding-left: calc(33.33333333% + 6.66666667px + 0px);
+  padding-left: calc(33.33333333% + 6.66666667px);
 }
 #baseline-vertical-offset p {
   margin-top: 0;

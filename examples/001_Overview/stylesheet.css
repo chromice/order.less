@@ -103,7 +103,7 @@ main {
   background-size: calc(33.33333333% - 16px + 24px) 2px, 2px 24px;
   background-position: -24px 0, 0 -7px;
   padding-right: 34.50980392%;
-  padding-right: calc(33.33333333% + 8px + 0px);
+  padding-right: calc(33.33333333% + 8px);
   padding-bottom: 0.024px;
   padding-bottom: 0.0015rem;
 }
@@ -113,7 +113,7 @@ main > aside {
   top: 3rem;
   right: 0;
   width: 30.98039215%;
-  width: calc(33.33333333% - 16px + 0px);
+  width: calc(33.33333333% - 16px);
 }
 h1 {
   position: relative;

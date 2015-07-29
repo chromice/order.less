@@ -651,13 +651,25 @@
 		@-column-width: round((100% / @base * @span), 8);
 		@-column-gutter: round(((@base - @span) / @base * @grid-gutter), 8);
 		@-column-nudge: unit(@nudge, px);
-		@grid-width-calc: @-column-width ~"-" @-column-gutter ~"+" @-column-nudge;
-		@grid-offset-calc: @-column-width ~"+" (@grid-gutter - @-column-gutter) ~"+" @-column-nudge;
+		.-get-width-calc(@-column-width, @-column-gutter, @-column-nudge);
+		.-get-offset-calc(@-column-width, (@grid-gutter - @-column-gutter), @-column-nudge);
 		
 		// IE8, Opera mini, Android and older versions of Safari:
 		@-base-width: (@grid-width * @base / @grid-columns);
 		@-gutter: (percentage(@grid-gutter / @-base-width));
 		@grid-width-fallback: (@-column-width - percentage(@-column-gutter / @-base-width) + percentage(@-column-nudge / @-base-width));
 		@grid-offset-fallback: (@grid-width-fallback + @-gutter);
+	}
+	.-get-width-calc (@-width, @-gutter, @-nudge) when (@-nudge = 0) {
+		@grid-width-calc: @-width ~"-" @-gutter;
+	}
+	.-get-width-calc (@-width, @-gutter, @-nudge) when (default()) {
+		@grid-width-calc: @-width ~"-" @-gutter ~"+" @-nudge;
+	}
+	.-get-offset-calc (@-width, @-gutter, @-nudge) when (@-nudge = 0) {
+		@grid-offset-calc: @-width ~"+" @-gutter;
+	}
+	.-get-offset-calc (@-width, @-gutter, @-nudge) when (default()) {
+		@grid-offset-calc: @-width ~"+" @-gutter ~"+" @-nudge;
 	}
 }
