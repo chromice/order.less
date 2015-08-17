@@ -395,7 +395,7 @@ Alternatively, you can define a grid as a set of variables and reference it by n
 
 #### `.show-columns()`, `.show-gutters()`
 
-Sets `background` property of an element to show either grid columns and/or gutters.
+Sets `background` property of an element to show grid columns and/or gutters.
 
 ```less
 main {
