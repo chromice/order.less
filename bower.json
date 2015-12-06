@@ -1,17 +1,27 @@
 {
   "name": "order.less",
-  "version": "1.0.1",
-  "homepage": "https://github.com/chromice/order.less",
   "description": "Baseline alignment, column grids and modular scales.",
-  "main": "./order.less",
+  "main": "order.less",
   "keywords": [
     "grid",
     "baseline",
     "rhythm"
   ],
+  "authors": [
+    "Anton Muraviev <chromice@gmail.com>"
+  ],
+  "homepage": "https://github.com/chromice/order.less",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/chromice/order.less.git"
+  },
   "ignore": [
     "**/.*",
+    "node_modules",
+    "bower_components",
+    "component.json",
+    "package.json",
     "examples",
     "tests"
   ]
