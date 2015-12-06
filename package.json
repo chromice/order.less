@@ -1,6 +1,6 @@
 {
   "name": "order.less",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/chromice/order.less",
   "description": "Baseline alignment, column grids and modular scales.",
   "main": "./order.less",
@@ -9,7 +9,7 @@
     "baseline",
     "rhythm"
   ],
-  "license": "MIT",
+  "license": "Apache-2.0",
   "ignore": [
     "**/.*",
     "examples",
