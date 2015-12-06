@@ -1,6 +1,6 @@
 # Order.less
 
-A collection of [LESS][less] mixins for precise control over basic elements of typography:
+Order.less is a library of [LESS][less] mixins for precise control over typographic contrast, rhythm and layout:
 
 - [Modular scale](#modular-scale) mixins let you define a custom modular scale and set elements' font size to a value from that scale.
 - [Baseline grid](#baseline-grid) mixins let you control vertical rhythm of the document by setting padding, margin, offset and height in baseline rows. It can also automatically shift elements to sit on baseline.
@@ -14,7 +14,7 @@ You can see all of these mixins in action in [this example](./examples/001_Overv
 
 * * *
 
-**Requirements**: LESS v2.2.0; [`calc()` support](http://caniuse.com/calc) for fixed gutters and more precise offsets.    
+**Requirements**: LESS v2.2.0; [`calc()` support](http://caniuse.com/calc) for fixed gutters and more precise vertical rhythm.   
 **Test suite**: [Visual reference](./tests/index.png) ([source](./tests/))
 
 * * *
@@ -147,7 +147,7 @@ These mixins let you control vertical rhythm of the document by setting padding,
 
 Baseline row height is a product of base `font-size` and base `line-height` of the document. For example, if the base `font-size` equals <samp>20px</samp> and base `line-height` equals <samp>1.5</samp>, then baseline row height is <samp>30px</samp>.
 
-Whenever you change any of font property of a block element, its baseline drifts off. In order to preserve baseline alignment you could manually adjust relative position of the element:
+Whenever you change any of font property of a block element, its baseline drifts off the parent baseline. In order to preserve baseline alignment you could manually adjust relative position of the element:
 
 ```css
 h1 {
@@ -345,7 +345,7 @@ div {
 
 ## Column grid
 
-Column grid mixins let you define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns. At the moment, only supports uniform grids with inner gutters are supported, e.g. a 3-column grid has 2 gutters in-between 3 columns of equal width.
+Column grid mixins let you define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns. At the moment, only uniform grids with inner gutters are supported, e.g. a 3-column grid will have 2 gutters between 3 columns of equal width.
 
 <!--
 ### Examples
@@ -395,7 +395,7 @@ Alternatively, you can define a grid as a set of variables and reference it by n
 
 #### `.show-columns()`, `.show-gutters()`
 
-Sets `background` property of an element to show either grid columns and/or gutters.
+Sets `background` property of an element to show grid columns and/or gutters.
 
 ```less
 main {
@@ -434,7 +434,7 @@ These mixins let you set the respective CSS property in grid columns.
 
 1. (optional) *number* `@span` – number of columns the property spans
 2. (optional) *pixel* `@nudge` – amount of pixels to nudge
-3. (optional) *number* `@base` – parent width in column
+3. (optional) *number* `@base` – parent width in columns
 4. (optional) *pixel* `@base-nudge` – amount of pixels parent width was nudged by
 
 **NB!** You must specify either `@span` or `@nudge`!

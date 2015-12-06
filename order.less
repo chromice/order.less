@@ -4,7 +4,7 @@
 // = Modular scale =
 // =================
 // 
-// This module allows you to define a custom modular scales:
+// These mixins allows you to define a custom modular scale:
 // 
 //   .use-modular-scale(
 //       16px, // base size (step 0) -> @scale-base
@@ -63,9 +63,9 @@
 // = Baseline grid =
 // =================
 // 
-// This module allows you define the baseline and adjust elements' height, padding, margin
-// and offset as fractions of the baseline, while making sure that the first line of every
-// block sits on baseline.
+// These mixins let you control vertical rhythm of the document by setting padding, margin,
+// offset and height in baseline rows. It can also automatically shift elements to sit on
+// baseline, if their font size, line height and/or font family is changed.
 // 
 // You can set the baseline font size in pixels like this:
 // 
@@ -99,7 +99,7 @@
 //     }
 // 
 // 
-// Alternatively, you can define each font using 3 variables:
+// You can also define baseline offset by referencing a font definition:
 // 
 //     @verdana-font-offset: 0.898;
 //     @verdana-font-variation: italic 400;
@@ -355,8 +355,8 @@
 // = Column grid =
 // ===============
 // 
-// This module allows you to define a column grid and set elements' width, padding, 
-// margin and offset in columns. 
+// Column grid mixins let you define a uniform grid with fixed inner gutters, and set
+// elements' padding, margin, offset and width in columns.
 // 
 // To use uniform grids with inner gutters (i.e. 3 column grid having 2 gutters in 
 // between those columns):
