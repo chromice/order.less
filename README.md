@@ -1,6 +1,8 @@
 # Order.less
 
-Order.less is a library of [LESS][less] mixins for precise control over typographic contrast, rhythm and layout:
+Order.less is a library of [LESS][less] mixins for precise control over typographic contrast, rhythm and layout. It was designed to fit seamlessly into any project and does not put any restrictions on your stylesheet structure. Instead of using standard units you define properties that affect vertical space in baselines, or columns for horizontal space properties, and scale steps for font sizes.
+
+Order.less is made of three loosely coupled modules:
 
 - [Column grid](#column-grid) mixins enable you to define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns.
 - [Baseline grid](#baseline-grid) mixins let you control vertical rhythm of the document by setting padding, margin, offset and height in baseline rows. It can also automatically shift elements to sit on baseline.
@@ -8,23 +10,22 @@ Order.less is a library of [LESS][less] mixins for precise control over typograp
 
 [less]: http://lesscss.org
 
-You can see all of these mixins in action in [this example](https://github.com/chromice/order.less/blob/master/examples/001_Overview/), where some <samp>lorem ipsum</samp> is set in 3 different typefaces and laid out on a 3-column grid:
+You can see all of these mixins in action in [this example](examples/001_Overview/), where some <samp>lorem ipsum</samp> is set in 3 different typefaces and laid out on a 3-column grid:
 
-<a href="https://github.com/chromice/order.less/blob/master/examples/001_Overview/"><img src="https://github.com/chromice/order.less/blob/master/examples/001_Overview/index.png" alt=""></a>
+<a href="examples/001_Overview/"><img src="examples/001_Overview/index.png" alt=""></a>
 
 * * *
 
 **Requirements**: LESS v2.2.0; [`calc()` support](http://caniuse.com/calc) for fixed gutters and more precise vertical rhythm.   
-**Test suite**: [Visual reference](https://github.com/chromice/order.less/blob/master/tests/index.png) ([source](https://github.com/chromice/order.less/blob/master/tests/))
-
-* * *
+**Test suite**: [Visual reference](tests/index.png) ([source](tests/))
 
 ```
-npm install order.less
 bower install order.less
+npm install order.less
 ```
 
 * * *
+
 
 ## Column grid
 
@@ -166,7 +167,7 @@ Here are baseline offset values for a few popular typefaces:
 | Trebuchet MS    |  0.858 |
 | Verdana         |  0.898 |
 
-You can find offset values for many other typefaces (and their variations) including popular Google fonts in [HTML source](https://github.com/chromice/order.less/blob/master/tests/index.html) of the test suite.
+You can find offset values for many other typefaces (and their variations) including popular Google fonts in [HTML source](tests/index.html) of the test suite.
 
 <!--
 ### Examples
