@@ -2,9 +2,9 @@
 
 Order.less is a library of [LESS][less] mixins for precise control over typographic contrast, rhythm and layout:
 
-- [Modular scale](#modular-scale) mixins let you define a custom modular scale and set elements' font size to a value from that scale.
-- [Baseline grid](#baseline-grid) mixins let you control vertical rhythm of the document by setting padding, margin, offset and height in baseline rows. It can also automatically shift elements to sit on baseline.
 - [Column grid](#column-grid) mixins enable you to define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns.
+- [Baseline grid](#baseline-grid) mixins let you control vertical rhythm of the document by setting padding, margin, offset and height in baseline rows. It can also automatically shift elements to sit on baseline.
+- [Modular scale](#modular-scale) mixins let you define a custom modular scale and set elements' font size to a value from that scale.
 
 [less]: http://lesscss.org
 
@@ -17,6 +17,8 @@ You can see all of these mixins in action in [this example](https://github.com/c
 **Requirements**: LESS v2.2.0; [`calc()` support](http://caniuse.com/calc) for fixed gutters and more precise vertical rhythm.   
 **Test suite**: [Visual reference](https://github.com/chromice/order.less/blob/master/tests/index.png) ([source](https://github.com/chromice/order.less/blob/master/tests/))
 
+* * *
+
 ```
 npm install order.less
 bower install order.less
@@ -24,124 +26,109 @@ bower install order.less
 
 * * *
 
-## Modular scale
+## Column grid
 
-Modular scale mixins let you define a custom modular scale and set elements' font size to a value from that scale. You can learn more about modular scales in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
+Column grid mixins let you define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns. At the moment, only uniform grids with inner gutters are supported, e.g. a 3-column grid will have 2 gutters between 3 columns of equal width.
 
 <!--
 ### Examples
-
-TODO: EXAMPLE: A modular scale and draw AAAAAA
+TODO: EXAMPLE: Show the 12 column grid without any content
+TODO: EXAMPLE: Basic page layout
+TODO: EXAMPLE: Item grid
+TODO: EXAMPLE: Combining multiple grids
 -->
 
 ### Mixin reference
 
-#### `.use-modular-scale()`
+#### `.use-column-grid()`
 
-Defines a custom scale and exports other mixins.
+Defines the grid and exports the other mixins.
 
 ##### Parameters
 
-1. *pixel* `@base` – base value
-2. *list* `@values` – list of *pixel* values (must include `@base` value)
+1. *pixel* `@width` – optimal grid width
+2. *pixel* `@gutter`
+3. *number* `@columns`
+
+**Or**:
+
+1. *keyword* `@name`
 
 ##### Exports
 
-- *pixel* `@scale-base`
-- *list* `@scale-values`
+- *pixel* `@grid-width`
+- *pixel* `@grid-gutter`
+- *number* `@grid-columns`
 
 ##### Usage
 
-You can define an arbitrary scale by passing a list of valid step values as the second argument:
-
 ```less
-// Scale steps:         -3   -2   -1    0   +1   +2   +3   +4   +5   +6   +7   +8
-.use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
+.use-column-grid(940px, 20px, 12);
 ```
 
-After that, you can use `.font-size()` mixin to set `font-size` property of an element:
+Alternatively, you can define a grid as a set of variables and reference it by name:
 
 ```less
-h1 {
-    .font-size(+6); // font-size: 50px; font-size: 3.125rem;
-}
-h2 {
-    .font-size(+5); // font-size: 42px; font-size: 2.625rem;
-}
-h3 {
-    .font-size(+4); // font-size: 36px; font-size: 2.25rem;
-}
-h1 + p {
-    .font-size(+2); // font-size: 24px; font-size: 1.5rem;
-}
-p {
-    .font-size(+0); // font-size: 16px; font-size: 1rem;
-}
-footer {
-    .font-size(-1); // font-size: 13px; font-size: 0.8125rem;
+@desktop-grid-width: 940px;
+@desktop-grid-gutter: 20px;
+@desktop-grid-columns: 12;
+
+.use-column-grid(desktop);
+```
+
+#### `.show-columns()`, `.show-gutters()`
+
+Sets `background` property of an element to show grid columns and/or gutters.
+
+```less
+main {
+    .show-columns();
+    .show-gutters();
 }
 ```
 
-You must explicitly set `font-size` property of `html` element to `@scale-base`, otherwise <em>rem</em> values may not evaluate to the same amount of <em>pixels</em>:
+#### `.width()`, `.min-width()`, `.max-width()`
 
-```less
-html {
-    font-size: @scale-base;
-}
-```
-
-
-#### `.font-size()`
-
-Sets `font-size` property to a scale value.
+These mixins let you set the respective CSS property in grid columns.
 
 ##### Parameters
 
-1. *number* `@step`
+1. *number* `@span` – number of columns
+2. (optional) *pixel* `@nudge` – amount of pixels to nudge
+3. (optional) *number* `@base` – parent width in columns
+4. (optional) *pixel* `@base-nudge` – amount of pixels parent width was nudged by
 
 ##### Usage
 
 ```less
-h1 {
-    .font-size(4); // 4th step
+div {
+    .width(6); // set width to 6 columns
+    .width(3, 6); // set width to 3 columns in a 6 column grid
+    .width(1, -10px, 6); // same as above, but decrease width by 10px 
 }
 ```
 
-Given the definition above, it will compile to:
 
-```css
-h1 {
-    font-size: 36px;
-    font-size: 2.25rem;
-}
-```
+#### `.left()`, `.right()`, `.margin-left()`, `.margin-right()`, `.padding-left()`, `.padding-right()`
 
-#### `.get-scale-size()`
-
-Gets a scale value:
+These mixins let you set the respective CSS property in grid columns.
 
 ##### Parameters
 
-1. *number* `@step` – scale step
+1. (optional) *number* `@span` – number of columns the property spans
+2. (optional) *pixel* `@nudge` – amount of pixels to nudge
+3. (optional) *number* `@base` – parent width in columns
+4. (optional) *pixel* `@base-nudge` – amount of pixels parent width was nudged by
 
-##### Exports
-
-- *pixel* `@scale-size`
+**NB!** You must specify either `@span` or `@nudge`!
 
 ##### Usage
 
 ```less
-h1 {
-    .get-scale-size(4);
-    font-size: @scale-size;
-}
-```
-
-Which compiles to:
-
-```css
-h1 {
-    font-size: 36px;
+div {
+    .left(20px); // set left to 20px
+    .left(1, 6); // set left to 1 column in a 6 column grid
+    .left(1, -10px, 6); // same as above, but nudge element 10px left
 }
 ```
 
@@ -348,109 +335,124 @@ div {
 ```
 
 
-## Column grid
+## Modular scale
 
-Column grid mixins let you define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns. At the moment, only uniform grids with inner gutters are supported, e.g. a 3-column grid will have 2 gutters between 3 columns of equal width.
+Modular scale mixins let you define a custom modular scale and set elements' font size to a value from that scale. You can learn more about modular scales in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
 
 <!--
 ### Examples
-TODO: EXAMPLE: Show the 12 column grid without any content
-TODO: EXAMPLE: Basic page layout
-TODO: EXAMPLE: Item grid
-TODO: EXAMPLE: Combining multiple grids
+
+TODO: EXAMPLE: A modular scale and draw AAAAAA
 -->
 
 ### Mixin reference
 
-#### `.use-column-grid()`
+#### `.use-modular-scale()`
 
-Defines the grid and exports the other mixins.
+Defines a custom scale and exports other mixins.
 
 ##### Parameters
 
-1. *pixel* `@width` – optimal grid width
-2. *pixel* `@gutter`
-3. *number* `@columns`
-
-**Or**:
-
-1. *keyword* `@name`
+1. *pixel* `@base` – base value
+2. *list* `@values` – list of *pixel* values (must include `@base` value)
 
 ##### Exports
 
-- *pixel* `@grid-width`
-- *pixel* `@grid-gutter`
-- *number* `@grid-columns`
+- *pixel* `@scale-base`
+- *list* `@scale-values`
 
 ##### Usage
 
+You can define an arbitrary scale by passing a list of valid step values as the second argument:
+
 ```less
-.use-column-grid(940px, 20px, 12);
+// Scale steps:         -3   -2   -1    0   +1   +2   +3   +4   +5   +6   +7   +8
+.use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
 ```
 
-Alternatively, you can define a grid as a set of variables and reference it by name:
+After that, you can use `.font-size()` mixin to set `font-size` property of an element:
 
 ```less
-@desktop-grid-width: 940px;
-@desktop-grid-gutter: 20px;
-@desktop-grid-columns: 12;
-
-.use-column-grid(desktop);
-```
-
-#### `.show-columns()`, `.show-gutters()`
-
-Sets `background` property of an element to show grid columns and/or gutters.
-
-```less
-main {
-    .show-columns();
-    .show-gutters();
+h1 {
+    .font-size(+6); // font-size: 50px; font-size: 3.125rem;
+}
+h2 {
+    .font-size(+5); // font-size: 42px; font-size: 2.625rem;
+}
+h3 {
+    .font-size(+4); // font-size: 36px; font-size: 2.25rem;
+}
+h1 + p {
+    .font-size(+2); // font-size: 24px; font-size: 1.5rem;
+}
+p {
+    .font-size(+0); // font-size: 16px; font-size: 1rem;
+}
+footer {
+    .font-size(-1); // font-size: 13px; font-size: 0.8125rem;
 }
 ```
 
-#### `.width()`, `.min-width()`, `.max-width()`
-
-These mixins let you set the respective CSS property in grid columns.
-
-##### Parameters
-
-1. *number* `@span` – number of columns
-2. (optional) *pixel* `@nudge` – amount of pixels to nudge
-3. (optional) *number* `@base` – parent width in columns
-4. (optional) *pixel* `@base-nudge` – amount of pixels parent width was nudged by
-
-##### Usage
+You must explicitly set `font-size` property of `html` element to `@scale-base`, otherwise <em>rem</em> values may not evaluate to the same amount of <em>pixels</em>:
 
 ```less
-div {
-    .width(6); // set width to 6 columns
-    .width(3, 6); // set width to 3 columns in a 6 column grid
-    .width(1, -10px, 6); // same as above, but decrease width by 10px 
+html {
+    font-size: @scale-base;
 }
 ```
 
 
-#### `.left()`, `.right()`, `.margin-left()`, `.margin-right()`, `.padding-left()`, `.padding-right()`
+#### `.font-size()`
 
-These mixins let you set the respective CSS property in grid columns.
+Sets `font-size` property to a scale value.
 
 ##### Parameters
 
-1. (optional) *number* `@span` – number of columns the property spans
-2. (optional) *pixel* `@nudge` – amount of pixels to nudge
-3. (optional) *number* `@base` – parent width in columns
-4. (optional) *pixel* `@base-nudge` – amount of pixels parent width was nudged by
-
-**NB!** You must specify either `@span` or `@nudge`!
+1. *number* `@step`
 
 ##### Usage
 
 ```less
-div {
-    .left(20px); // set left to 20px
-    .left(1, 6); // set left to 1 column in a 6 column grid
-    .left(1, -10px, 6); // same as above, but nudge element 10px left
+h1 {
+    .font-size(4); // 4th step
+}
+```
+
+Given the definition above, it will compile to:
+
+```css
+h1 {
+    font-size: 36px;
+    font-size: 2.25rem;
+}
+```
+
+#### `.get-scale-size()`
+
+Gets a scale value:
+
+##### Parameters
+
+1. *number* `@step` – scale step
+
+##### Exports
+
+- *pixel* `@scale-size`
+
+##### Usage
+
+```less
+h1 {
+    .get-scale-size(4);
+    font-size: @scale-size;
+}
+```
+
+Which compiles to:
+
+```css
+h1 {
+    font-size: 36px;
 }
 ```
 
