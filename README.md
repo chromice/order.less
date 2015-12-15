@@ -182,7 +182,7 @@ TODO: EXAMPLE: Horizontal alignment of side by side elements: p, aside > p
 TODO: EXAMPLE: Vertical rhythm: h1 + .intro, h2, p with borders, paddings and margins, and 2 fonts.
 -->
 
-The example bellow is using three typefaces, while preserving vertical rhythm and baseline alignment (see [source code](examples/003_Baselines/)):
+Three typefaces are used in the example, while vertical rhythm and baseline alignment is preserved (see [source code](examples/003_Baselines/)):
 
 <a href="examples/003_Baselines/"><img src="examples/003_Baselines/index.png" alt=""></a>
 
