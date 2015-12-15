@@ -98,8 +98,8 @@ html {
 #content,
 #sidebar,
 #grid > * {
-  margin-bottom: 24px;
   height: 120px;
+  margin-bottom: 24px;
   background: grey;
   color: white;
   font-size: 20px;
