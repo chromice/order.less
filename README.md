@@ -78,12 +78,24 @@ Alternatively, you can define a grid as a set of variables and reference it by n
 
 Sets `background` property of an element to show grid columns and/or gutters.
 
+##### Parameters
+
+1. (optional) *number* `@span` – number of columns
+2. (optional) *color* `@color` – base fill color 
+
+##### Usage
+
 ```less
 main {
-    .show-columns();
-    .show-gutters();
+	.show-columns(3, blue);
+	.show-gutters(5, green);
 }
 ```
+
+Which will look like this:
+
+![](examples/grid-3-5.png)
+
 
 #### `.width()`, `.min-width()`, `.max-width()`
 
