@@ -92,7 +92,7 @@ main {
 }
 ```
 
-Which will look like this:
+It should render like this in the browser:
 
 ![](examples/grid-3-5.png)
 
