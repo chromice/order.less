@@ -1,0 +1,133 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+html {
+  width: 840px;
+  padding: 24px;
+  font-family: sans-serif;
+}
+#content,
+#sidebar,
+#grid > * {
+  margin-bottom: 24px;
+  height: 120px;
+  background: grey;
+  color: white;
+  font-size: 20px;
+  line-height: 120px;
+  text-align: center;
+}
+#content {
+  float: left;
+  width: 65.71428572%;
+  width: calc(66.66666667% - 8px);
+}
+#sidebar {
+  float: right;
+  width: 31.42857143%;
+  width: calc(33.33333333% - 16px);
+}
+#grid {
+  list-style: none;
+}
+#grid > * {
+  display: inline-block;
+  width: 17.71428571%;
+  width: calc(20% - 19.2px);
+  margin-right: 2.85714286%;
+  margin-right: calc(0% + 0px + 24px);
+  height: 60px;
+  line-height: 60px;
+}
+#grid > *:nth-child(5n) {
+  margin-right: 0;
+}

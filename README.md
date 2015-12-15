@@ -10,7 +10,7 @@ Order.less is made of three loosely coupled modules:
 
 [less]: http://lesscss.org
 
-You can see all of these mixins in action in the following example, where some <samp>lorem ipsum</samp> is set in 3 different typefaces, laid out on a 3-column grid, and each element is realigned to sit on baseline:
+You can see all of these mixins in action in the following example, where some <samp>lorem ipsum</samp> is set in 3 different typefaces, laid out on a 3-column grid, and each element is realigned to sit on baseline (see [source code](examples/001_Overview/)):
 
 <a href="examples/001_Overview/"><img src="examples/001_Overview/index.png" alt=""></a>
 
@@ -31,9 +31,9 @@ npm install order.less
 
 Column grid mixins let you define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns. At the moment, only uniform grids with inner gutters are supported, e.g. a 3-column grid will have 2 gutters between 3 columns of equal width.
 
-<!--
-	TODO: Show an example that demonstrates a simple 2:1 content:sidebar layout + 1:4 grid items, with both 3 and 4 column grid highlighted.
--->
+Here is an example of a basic layout of main content, sidebar and a grid of items (see [source code](examples/002_Columns/)):
+
+<a href="examples/002_Columns/"><img src="examples/002_Columns/index.png" alt=""></a>
 
 
 ### Mixin reference
