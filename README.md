@@ -218,7 +218,7 @@ You can also define baseline offset by referencing a font definition:
 
 You must set `font-size` and `line-height` properties of `html` element to the same values:
 
-```css
+```less
 html {
     font-size: @baseline-size;
     line-height: @baseline-height;
