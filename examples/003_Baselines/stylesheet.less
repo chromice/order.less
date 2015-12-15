@@ -1,0 +1,109 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+
+// =======================
+// = Example 1: Overview =
+// =======================
+
+@import '../../order.less';
+
+@gutter: 24px;
+
+.use-column-grid((728px - @gutter * 2), @gutter, 3);
+
+@helvetica-font-family: 'Helvetica Neue', sans-serif;
+@helvetica-font-variation: 700;
+@helvetica-font-offset: 0.879;
+
+@verdana-font-family: 'Verdana', sans-serif;
+@verdana-font-variation: 400;
+@verdana-font-offset: 0.898;
+
+@baskerville-font-family: 'Didot', serif;
+@baskerville-font-variation: italic 400;
+@baskerville-font-offset: 0.85;
+
+.use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
+.use-baseline-grid(0, 1.5, verdana);
+
+html {
+	width: @grid-width;
+	margin-left: 80px;
+	margin-right: 80px;
+	font-family: @verdana-font-family;
+	font-size: @baseline-size;
+	line-height: @baseline-height;
+}
+
+main {
+	position: relative;
+	padding: @grid-gutter;
+	.padding-top(1);
+	.padding-bottom(0);
+	.show-baselines();
+}
+
+h1 {
+	.font-align(4, 1.25, helvetica);
+	.padding-top(1);
+	.padding-bottom(0.5);
+	border-bottom: 2px solid;
+	.margin-bottom(1.5, -2px);
+	
+}
+
+blockquote {
+	float: right;
+	.width(1.5);
+	.margin-left(@grid-gutter);
+	.font-align(2, (5/6 * @baseline-height), baskerville);
+	
+	p {
+		.margin-bottom(1);
+	}
+}
+
+p {
+	.margin-bottom(1);
+}
+
+ul {
+	position: relative;
+	list-style: none;
+	.margin-bottom(1);
+	
+	li {
+		.margin-bottom(0.25);
+		.padding-left(@grid-gutter);
+		
+		&:before {
+			position: absolute;
+			left: 0;
+			content: "\2013";
+		}
+	}
+}

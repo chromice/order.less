@@ -31,7 +31,7 @@ npm install order.less
 
 Column grid mixins let you define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns. At the moment, only uniform grids with inner gutters are supported, e.g. a 3-column grid will have 2 gutters between 3 columns of equal width.
 
-Here is an example of a basic layout of main content, sidebar and a grid of items (see [source code](examples/002_Columns/)):
+Here is an example of a basic layout implemented using this module (see [source code](examples/002_Columns/)):
 
 <a href="examples/002_Columns/"><img src="examples/002_Columns/index.png" alt=""></a>
 
@@ -184,6 +184,11 @@ You can find offset values for many other typefaces (and their variations) inclu
 TODO: EXAMPLE: Horizontal alignment of side by side elements: p, aside > p
 TODO: EXAMPLE: Vertical rhythm: h1 + .intro, h2, p with borders, paddings and margins, and 2 fonts.
 -->
+
+The example bellow is using three typefaces, while preserving vertical rhythm and baseline alignment (see [source code](examples/003_Baselines/)):
+
+<a href="examples/003_Baselines/"><img src="examples/003_Baselines/index.png" alt=""></a>
+
 
 ### Mixin reference
 
