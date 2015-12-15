@@ -40,7 +40,7 @@ Here is an example of a basic layout of main content, sidebar and a grid of item
 
 #### `.use-column-grid()`
 
-Defines the grid and exports the other mixins.
+Defines the grid and exports other mixins.
 
 ##### Parameters
 
@@ -189,7 +189,7 @@ TODO: EXAMPLE: Vertical rhythm: h1 + .intro, h2, p with borders, paddings and ma
 
 #### `.use-baseline-grid()`
 
-Defines baseline and exports the other mixins.
+Defines baseline and exports other mixins.
 
 ##### Parameters
 
