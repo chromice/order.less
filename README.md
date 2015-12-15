@@ -300,7 +300,7 @@ div {
 }
 ```
 
-Which compiles to:
+...which compiles to...
 
 ```css
 div {
@@ -335,7 +335,7 @@ div {
 }
 ```
 
-Compiles to:
+...compiles to...
 
 ```css
 div {
@@ -458,7 +458,7 @@ h1 {
 }
 ```
 
-Which compiles to:
+...compiles to...
 
 ```css
 h1 {
