@@ -28,6 +28,8 @@ npm install order.less
 
 Column grid mixins let you define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns. At the moment, only uniform grids with inner gutters are supported, e.g. a 3-column grid will have 2 gutters between 3 columns of equal width.
 
+### Example
+
 Here is an example of a basic layout implemented using this module (see [source code](examples/002_Columns/)):
 
 <a href="examples/002_Columns/"><img src="examples/002_Columns/index.png" alt=""></a>
@@ -144,6 +146,15 @@ div {
 
 These mixins let you control vertical rhythm of the document by setting padding, margin, offset and height in baseline rows. It can also automatically shift elements to sit on baseline, if their font size, line height and/or font family is changed.
 
+### Example
+
+Three typefaces are used in the example below with vertical rhythm and baseline alignment preserved (see [source code](examples/003_Baselines/)):
+
+
+<a href="examples/003_Baselines/"><img src="examples/003_Baselines/index.png" alt=""></a>
+
+### A bit of theory
+
 Baseline row height is a product of base `font-size` and base `line-height` of the document. For example, if the base `font-size` equals <samp>20px</samp> and base `line-height` equals <samp>1.5</samp>, then baseline row height is <samp>30px</samp>.
 
 Whenever you change any of font property of a block element, its baseline drifts off the parent baseline. In order to preserve baseline alignment you could manually adjust relative position of the element:
@@ -174,17 +185,6 @@ Here are baseline offset values for a few popular typefaces:
 | Verdana         |  0.898 |
 
 You can find offset values for many other typefaces (and their variations) including popular Google fonts in [HTML source](tests/index.html) of the test suite.
-
-<!--
-### Examples
-
-TODO: EXAMPLE: Horizontal alignment of side by side elements: p, aside > p
-TODO: EXAMPLE: Vertical rhythm: h1 + .intro, h2, p with borders, paddings and margins, and 2 fonts.
--->
-
-Three typefaces are used in the example, while vertical rhythm and baseline alignment is preserved (see [source code](examples/003_Baselines/)):
-
-<a href="examples/003_Baselines/"><img src="examples/003_Baselines/index.png" alt=""></a>
 
 
 ### Mixin reference
@@ -351,11 +351,6 @@ div {
 
 Modular scale mixins let you define a custom modular scale and set elements' font size to a value from that scale. You can learn more about modular scales in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
 
-<!--
-### Examples
-
-TODO: EXAMPLE: A modular scale and draw AAAAAA
--->
 
 ### Mixin reference
 
