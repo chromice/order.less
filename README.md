@@ -243,6 +243,13 @@ html {
 
 Sets `background` property of an element to show baselines.
 
+##### Parameters
+
+1. (optional) *number* `@offset`
+2. (optional) *color* `@color`
+
+##### Usage
+
 ```less
 main {
     .show-baselines();
