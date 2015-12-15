@@ -92,16 +92,21 @@ video {
 }
 html {
   width: 840px;
-  padding: 24px;
+  padding: 0 24px;
   font-family: sans-serif;
+}
+main {
+  padding-top: 24px;
 }
 #content,
 #sidebar,
 #grid > * {
+  box-sizing: border-box;
   height: 120px;
   margin-bottom: 24px;
-  background: grey;
-  color: white;
+  border: 1px solid #aaa;
+  background: rgba(0, 0, 0, 0.125);
+  color: #666;
   font-size: 20px;
   line-height: 120px;
   text-align: center;
@@ -125,7 +130,9 @@ html {
   width: calc(20% - 19.2px);
   margin-right: 2.85714286%;
   margin-right: calc(0% + 0px + 24px);
+  vertical-align: top;
   height: 60px;
+  font-size: 16px;
   line-height: 60px;
 }
 #grid > *:nth-child(5n) {

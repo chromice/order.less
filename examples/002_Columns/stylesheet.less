@@ -33,7 +33,7 @@ time, mark, audio, video {
 
 html {
 	width: @grid-width;
-	padding: @grid-gutter;
+	padding: 0 @grid-gutter;
 	font-family: sans-serif;
 }
 
@@ -47,11 +47,19 @@ html {
 
 .use-column-grid(default);
 
+main {
+	padding-top: @grid-gutter;
+	// .show-columns();
+	// .show-gutters(5);
+}
+
 #content, #sidebar, #grid > * {
+	box-sizing: border-box;
 	height: 120px;
 	margin-bottom: @grid-gutter;
-	background: grey;
-	color: white;
+	border: 1px solid #aaa;
+	background: fade(black, 12.5%);
+	color: #666;
 	font-size: 20px;
 	line-height: 120px;
 	text-align: center;
@@ -66,18 +74,21 @@ html {
 }
 #grid {
 	.use-column-grid(item);
+	// clear: both;
 	list-style: none;
 	
 	> * {
 		display: inline-block;
 		.width(1);
 		.margin-right(@grid-gutter);
+		vertical-align: top;
 		
 		&:nth-child(5n) {
 			margin-right: 0;
 		}
 		
 		height: 60px;
+		font-size: 16px;
 		line-height: 60px;
 	}
 }
