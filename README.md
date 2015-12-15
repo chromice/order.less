@@ -10,9 +10,6 @@ Order.less is made of three loosely coupled modules:
 
 [less]: http://lesscss.org
 
-You can see all of these mixins in action in the following example, where some <samp>lorem ipsum</samp> is set in 3 different typefaces, laid out on a 3-column grid, and each element is realigned to sit on baseline (see [source code](examples/001_Overview/)):
-
-<a href="examples/001_Overview/"><img src="examples/001_Overview/index.png" alt=""></a>
 
 * * *
 
