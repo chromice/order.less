@@ -216,7 +216,7 @@ A body of copy is set in three typefaces are used in this example, with its vert
 
 <a href="examples/003_Baselines/"><img src="examples/003_Baselines/index.png" alt=""></a>
 
-Partial HTML listing (see [full listing](examples/003_Baselines/index.html)):
+Partial HTML source (see [full listing](examples/003_Baselines/index.html)):
 
 ```html
 <h1>Eu vim fugit constituto sadipscing</h1>
