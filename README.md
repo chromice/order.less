@@ -268,6 +268,8 @@ main {
 
 ##### Usage
 
+Provided we define the document baseline as follows:
+
 ```less
 @helvetica-font-family: 'Helvetica', sans-serif;
 @helvetica-font-variation: italic 400;
@@ -280,6 +282,7 @@ main {
 .use-baseline-grid(16px, 1.5, verdana);
 ```
 
+...we can set the font properties like this:
 
 ```less
 h1 {
@@ -287,6 +290,22 @@ h1 {
 }
 h1 + p {
     .font(20px, 1.45);
+}
+```
+
+...which, once compiled, looks like this...
+
+```css
+h1 {
+    position: relative;
+    top: -10.732px;
+    top: -0.67075rem;
+    font: italic 400 30px / 1.25 'Helvetica', sans-serif;
+    font-size: 1.875rem;
+}
+h1 + p {
+    font: normal 400 20px / 1.45 'Verdana', sans-serif;
+    font-size: 1.25rem;
 }
 ```
 
