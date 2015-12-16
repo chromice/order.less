@@ -30,9 +30,73 @@ Column grid mixins let you define a uniform grid with fixed inner gutters, and s
 
 ### Example
 
-Here is an example of a basic layout implemented using this module (see [source code](examples/002_Columns/)):
+Here is an example of a basic layout implemented using this module:
 
 <a href="examples/002_Columns/"><img src="examples/002_Columns/index.png" alt=""></a>
+
+Partial HTML source (see [full listing](examples/002_Columns/index.html)):
+
+```html
+<div id="content">
+	Main content
+</div>
+
+<div id="sidebar">
+	Sidebar
+</div>
+
+<ul id="grid"><!--
+	We must bust the whitespace between each items, because 
+	they will be rendered as inline blocks.
+ --><li>Item 1</li><!--
+ --><li>Item 2</li><!--
+ --><li>Item 3</li><!--
+ --><li>Item 4</li><!--
+ --><li>Item 5</li><!--
+ --><li>Item 6</li><!--
+ --><li>Item 7</li><!--
+ --><li>Item 8</li><!--
+ --><li>Item 9</li><!--
+--></ul>
+```
+
+Partial LESS source (see [full listing](examples/002_Columns/stylesheet.less)):
+
+```less
+@default-grid-width: 840px;
+@default-grid-gutter: 24px;
+@default-grid-columns: 3;
+
+@item-grid-width: @default-grid-width;
+@item-grid-gutter: @default-grid-gutter;
+@item-grid-columns: 5;
+
+.use-column-grid(default);
+
+#content {
+	float: left;
+	.width(2);
+}
+#sidebar {
+	float: right;
+	.width(1);
+}
+#grid {
+	.use-column-grid(item);
+	
+	> * {
+		display: inline-block;
+		.width(1);
+		.margin-right(@grid-gutter);
+		vertical-align: top;
+		
+		&:nth-child(5n) {
+			margin-right: 0;
+		}
+	}
+}
+```
+
 
 
 ### Mixin reference
@@ -148,10 +212,79 @@ These mixins let you control vertical rhythm of the document by setting padding,
 
 ### Example
 
-Three typefaces are used in the example below with vertical rhythm and baseline alignment preserved (see [source code](examples/003_Baselines/)):
-
+A body of copy is set in three typefaces are used in this example, with its vertical rhythm and baseline alignment preserved throughout:
 
 <a href="examples/003_Baselines/"><img src="examples/003_Baselines/index.png" alt=""></a>
+
+Partial HTML listing (see [full listing](examples/003_Baselines/index.html)):
+
+```html
+<h1>Eu vim fugit constituto sadipscing</h1>
+
+<blockquote>
+	<p>Lorem ipsum dolor sit amet, mel sumo salutandi ea, et dolorem similique vel. Graeco percipit repudiare eum ut, per aeque graecis id. Per eu euismod euripidis, mel no oratio recteque. Sumo aliquid ea his, ad ius autem expetenda.</p>
+</blockquote>
+
+<p>No semper omnesque duo, ex mea abhorreant scribentur. Pro nemore comprehensam at. In praesent assentior mea, id decore dolore nam. Ea nec diam errem primis, id pro dolores forensibus instructior, alii natum adipiscing ne vis. Stet movet audiam ad his, an mel omittam persequeris.</p>
+
+<p>Cu omnis delectus nam, eu atqui minimum eum, numquam equidem scaevola te mea. Cum ut probo clita, vivendo accumsan sententiae et eum. Eos no eros repudiandae, ex sit vidit meliore invenire. Nibh mentitum consulatu ei nam. Sed ad scripserit suscipiantur, duo ut case omnis evertitur:</p>
+
+
+<ul>
+	<li>Id eum paulo appareat, ex cum habeo molestiae, eum nullam aliquam no. Possit delenit definitiones ad est, tollit tamquam malorum ea sit.</li>
+	<li>Id ignota habemus urbanitas vis.</li>
+	<li>Ne his alia imperdiet evertitur, est quas eripuit verterem ad. Mei ex iusto urbanitas scripserit. Malorum meliore postulant ut nam.</li>
+	<li>Ut quas erant tractatos vis. At timeam corrumpit dissentiunt ius, vel ei erat laboramus, est no graeco eloquentiam. Alii feugait sed an.</li>
+	<li>Eu vim fugit constituto sadipscing. Usu quot aliquip volutpat id, ut veritus vituperatoribus pro.</li>
+</ul>
+
+<p>Sed labitur pertinacia constituam in, eu graeco meliore instructior sit, nominati efficiendi theophrastus nec et.</p>
+```
+
+Partial LESS source (see [full listing](examples/003_Baselines/stylesheet.less)):
+
+```less
+h1 {
+	.font-align(4, 1.25, helvetica);
+	.padding-top(1);
+	.padding-bottom(0.5);
+	border-bottom: 2px solid;
+	.margin-bottom(1.5, -2px);
+}
+
+p {
+	.margin-bottom(1);
+}
+
+blockquote {
+	float: right;
+	.width(1.5);
+	.margin-left(@grid-gutter);
+	.font-align(2, (5/6 * @baseline-height), baskerville);
+	
+	p {
+		.margin-bottom(1);
+	}
+}
+
+ul {
+	position: relative;
+	list-style: none;
+	.margin-bottom(1);
+	
+	li {
+		.margin-bottom(0.25);
+		.padding-left(@grid-gutter);
+		
+		&:before {
+			position: absolute;
+			left: 0;
+			content: "\2013";
+		}
+	}
+}
+```
+
 
 ### A bit of theory
 
