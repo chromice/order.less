@@ -244,6 +244,24 @@ Partial HTML listing (see [full listing](examples/003_Baselines/index.html)):
 Partial LESS source (see [full listing](examples/003_Baselines/stylesheet.less)):
 
 ```less
+@helvetica-font-family: 'Helvetica Neue', sans-serif;
+@helvetica-font-variation: 700;
+@helvetica-font-offset: 0.879;
+
+@verdana-font-family: 'Verdana', sans-serif;
+@verdana-font-variation: 400;
+@verdana-font-offset: 0.898;
+
+@baskerville-font-family: 'Didot', serif;
+@baskerville-font-variation: italic 400;
+@baskerville-font-offset: 0.85;
+
+@gutter: 24px;
+
+.use-column-grid((728px - @gutter * 2), @gutter, 3);
+.use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
+.use-baseline-grid(0, 1.5, verdana);
+
 h1 {
 	.font-align(4, 1.25, helvetica);
 	.padding-top(1);
