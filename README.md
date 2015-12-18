@@ -46,7 +46,7 @@ Partial HTML source (see [full listing](examples/002_Columns/index.html)):
 <div id="sidebar">Sidebar</div>
 
 <ul id="grid"><!--
-	We must bust the whitespace between each items, because 
+	We must bust the whitespace around all items, because 
 	they will be rendered as inline blocks.
  --><li>Item 1</li><!--
  --><li>Item 2</li><!--
