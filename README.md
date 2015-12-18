@@ -252,26 +252,27 @@ Partial HTML source (see [full listing](examples/003_Baselines/index.html)):
 Partial LESS source (see [full listing](examples/003_Baselines/stylesheet.less)):
 
 ```less
-@helvetica-font-family: 'Helvetica Neue', sans-serif;
-@helvetica-font-variation: 700;
-@helvetica-font-offset: 0.879;
+@main-font-family: 'Verdana', sans-serif;
+@main-font-variation: 400;
+@main-font-offset: 0.898;
 
-@verdana-font-family: 'Verdana', sans-serif;
-@verdana-font-variation: 400;
-@verdana-font-offset: 0.898;
+@heading-font-family: 'Helvetica Neue', sans-serif;
+@heading-font-variation: 700;
+@heading-font-offset: 0.879;
 
-@baskerville-font-family: 'Didot', serif;
-@baskerville-font-variation: italic 400;
-@baskerville-font-offset: 0.85;
+@quote-font-family: 'Didot', serif;
+@quote-font-variation: italic 400;
+@quote-font-offset: 0.85;
 
-@gutter: 24px;
+.use-baseline-grid(16px, 1.5, main);
+.use-column-grid(680px, 24px, 3);
 
-.use-column-grid((728px - @gutter * 2), @gutter, 3);
-.use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
-.use-baseline-grid(0, 1.5, verdana);
+html {
+	font: @baseline-size / @baseline-height @main-font-family;
+}
 
 h1 {
-	.font-align(4, 1.25, helvetica);
+	.font-align(36px, 1.25, heading);
 	.padding-top(1);
 	.padding-bottom(0.5);
 	border-bottom: 2px solid;
@@ -286,7 +287,7 @@ blockquote {
 	float: right;
 	.width(1.5);
 	.margin-left(@grid-gutter);
-	.font-align(2, (5/6 * @baseline-height), baskerville);
+	.font-align(24px, (5/6 * @baseline-height), quote);
 	
 	p {
 		.margin-bottom(1);
