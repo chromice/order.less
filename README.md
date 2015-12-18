@@ -426,6 +426,8 @@ main {
 2. (optional) *number* `@height`
 3. (optional) *keyword* `@name` **or** *number* `@offset`
 
+**NB!** You can specify `@size` in pixels *or* as a step on a modular scale, if you are using one ([see below](#modular-scale)).
+
 ##### Usage
 
 Provided we define the document baseline as follows:
