@@ -38,12 +38,12 @@ Partial HTML source (see [full listing](examples/002_Columns/index.html)):
 
 ```html
 <div id="content">
-	Main content
+	<div class="primary">Main content</div>
+	<div class="secondary">Secondary content</div>
+	<div class="secondary">Secondary content</div>
 </div>
 
-<div id="sidebar">
-	Sidebar
-</div>
+<div id="sidebar">Sidebar</div>
 
 <ul id="grid"><!--
 	We must bust the whitespace between each items, because 
@@ -67,22 +67,31 @@ Partial LESS source (see [full listing](examples/002_Columns/stylesheet.less)):
 @default-grid-gutter: 24px;
 @default-grid-columns: 3;
 
-@item-grid-width: @default-grid-width;
-@item-grid-gutter: @default-grid-gutter;
-@item-grid-columns: 5;
+@items-grid-width: @default-grid-width;
+@items-grid-gutter: @default-grid-gutter;
+@items-grid-columns: 5;
 
 .use-column-grid(default);
 
 #content {
 	float: left;
 	.width(2);
+	
+	> .secondary {
+		float: left;
+		.width(1, 2);
+		
+		& + .secondary {
+			.margin-left(@grid-gutter, 2);
+		}
+	}
 }
 #sidebar {
 	float: right;
 	.width(1);
 }
 #grid {
-	.use-column-grid(item);
+	.use-column-grid(items);
 	
 	> * {
 		display: inline-block;
@@ -91,12 +100,11 @@ Partial LESS source (see [full listing](examples/002_Columns/stylesheet.less)):
 		vertical-align: top;
 		
 		&:nth-child(5n) {
-			margin-right: 0;
+			.margin-right(0);
 		}
 	}
 }
 ```
-
 
 
 ### Mixin reference

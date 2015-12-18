@@ -98,7 +98,7 @@ html {
 main {
   padding-top: 24px;
 }
-#content,
+#content > div,
 #sidebar,
 #grid > * {
   box-sizing: border-box;
@@ -111,18 +111,36 @@ main {
   line-height: 120px;
   text-align: center;
 }
+#sidebar {
+  height: 220px;
+}
+#grid {
+  clear: both;
+  list-style: none;
+}
+#grid > * {
+  height: 60px;
+  font-size: 16px;
+  line-height: 60px;
+}
 #content {
   float: left;
   width: 65.71428572%;
   width: calc(66.66666667% - 8px);
 }
+#content > .secondary {
+  float: left;
+  width: 47.85714286%;
+  width: calc(50% - 12px);
+}
+#content > .secondary + .secondary {
+  margin-left: 4.28571429%;
+  margin-left: calc(0% + 0px + 24px);
+}
 #sidebar {
   float: right;
   width: 31.42857143%;
   width: calc(33.33333333% - 16px);
-}
-#grid {
-  list-style: none;
 }
 #grid > * {
   display: inline-block;
@@ -131,9 +149,6 @@ main {
   margin-right: 2.85714286%;
   margin-right: calc(0% + 0px + 24px);
   vertical-align: top;
-  height: 60px;
-  font-size: 16px;
-  line-height: 60px;
 }
 #grid > *:nth-child(5n) {
   margin-right: 0;

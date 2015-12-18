@@ -29,6 +29,10 @@ time, mark, audio, video {
 // = Example 2: Column grid =
 // ==========================
 
+// ---------
+// - Setup -
+// ---------
+
 @import '../../order.less';
 
 html {
@@ -37,23 +41,12 @@ html {
 	font-family: sans-serif;
 }
 
-@default-grid-width: 840px;
-@default-grid-gutter: 24px;
-@default-grid-columns: 3;
-
-@item-grid-width: @default-grid-width;
-@item-grid-gutter: @default-grid-gutter;
-@item-grid-columns: 5;
-
-.use-column-grid(default);
-
 main {
 	padding-top: @grid-gutter;
 	// .show-columns();
 	// .show-gutters(5);
 }
-
-#content, #sidebar, #grid > * {
+#content > div, #sidebar, #grid > * {
 	box-sizing: border-box;
 	height: 120px;
 	margin-bottom: @grid-gutter;
@@ -64,18 +57,54 @@ main {
 	line-height: 120px;
 	text-align: center;
 }
+#sidebar {
+	height: 220px;
+}
+#grid {
+	clear: both;
+	list-style: none;
+	
+	> * {
+		height: 60px;
+		font-size: 16px;
+		line-height: 60px;
+	}
+}
+
+
+// ------------------
+// - Actual example -
+// ------------------
+
+@default-grid-width: 840px;
+@default-grid-gutter: 24px;
+@default-grid-columns: 3;
+
+@items-grid-width: @default-grid-width;
+@items-grid-gutter: @default-grid-gutter;
+@items-grid-columns: 5;
+
+.use-column-grid(default);
+
 #content {
 	float: left;
 	.width(2);
+	
+	> .secondary {
+		float: left;
+		.width(1, 2);
+		
+		& + .secondary {
+			.margin-left(@grid-gutter, 2);
+		}
+	}
 }
 #sidebar {
 	float: right;
 	.width(1);
 }
 #grid {
-	.use-column-grid(item);
-	// clear: both;
-	list-style: none;
+	.use-column-grid(items);
 	
 	> * {
 		display: inline-block;
@@ -84,11 +113,7 @@ main {
 		vertical-align: top;
 		
 		&:nth-child(5n) {
-			margin-right: 0;
+			.margin-right(0);
 		}
-		
-		height: 60px;
-		font-size: 16px;
-		line-height: 60px;
 	}
 }
