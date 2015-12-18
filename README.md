@@ -1,6 +1,6 @@
 # Order.less
 
-Order.less is a library of [LESS][less] mixins for precise control over typographic contrast, rhythm and layout. It was designed to fit seamlessly into any project and does not put any restrictions on your stylesheet structure. Instead of using standard units you define properties that affect vertical space in baselines, or columns for horizontal space properties, and scale steps for font sizes.
+Order.less is a library of [Less][less] mixins for precise control over typographic contrast, rhythm and layout. It was designed to fit seamlessly into any project and does not put any restrictions on your stylesheet structure. Instead of using standard units you define properties that affect vertical space in baselines, or columns for horizontal space properties, and scale steps for font sizes.
 
 Order.less is made of three loosely coupled modules:
 
@@ -13,7 +13,7 @@ Order.less is made of three loosely coupled modules:
 
 * * *
 
-**Requirements**: LESS v2.2.0; [`calc()` support](http://caniuse.com/calc) for fixed gutters and more precise vertical rhythm.   
+**Requirements**: Less v2.2.0; [`calc()` support](http://caniuse.com/calc) for fixed gutters and more precise vertical rhythm.   
 **Test suite**: [Visual reference](tests/index.png) ([source](tests/))
 
 ```
@@ -34,7 +34,7 @@ Here is an example of a basic layout implemented using this module:
 
 <a href="examples/002_Columns/"><img src="examples/002_Columns/index.png" alt=""></a>
 
-Partial HTML source (see [full listing](examples/002_Columns/index.html)):
+HTML code (see [full listing](examples/002_Columns/index.html)):
 
 ```html
 <div id="content">
@@ -60,7 +60,7 @@ Partial HTML source (see [full listing](examples/002_Columns/index.html)):
 --></ul>
 ```
 
-Partial LESS source (see [full listing](examples/002_Columns/stylesheet.less)):
+Less code (see [full listing](examples/002_Columns/stylesheet.less)):
 
 ```less
 @default-grid-width: 840px;
@@ -224,7 +224,7 @@ A body of copy is set in three typefaces are used in this example, with its vert
 
 <a href="examples/003_Baselines/"><img src="examples/003_Baselines/index.png" alt=""></a>
 
-Partial HTML source (see [full listing](examples/003_Baselines/index.html)):
+HTML code (see [full listing](examples/003_Baselines/index.html)):
 
 ```html
 <h1>Eu vim fugit constituto sadipscing</h1>
@@ -249,7 +249,7 @@ Partial HTML source (see [full listing](examples/003_Baselines/index.html)):
 <p>Sed labitur pertinacia constituam in, eu graeco meliore instructior sit, nominati efficiendi theophrastus nec et.</p>
 ```
 
-Partial LESS source (see [full listing](examples/003_Baselines/stylesheet.less)):
+Less code (see [full listing](examples/003_Baselines/stylesheet.less)):
 
 ```less
 @main-font-family: 'Verdana', sans-serif;
