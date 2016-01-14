@@ -218,7 +218,7 @@ These mixins let you control vertical rhythm of the document by setting padding,
 
 ### Example
 
-A body of copy is set in three typefaces are used in this example, with its vertical rhythm and baseline alignment preserved throughout:
+A body of copy is set in three typefaces, with vertical rhythm and baseline alignment preserved throughout:
 
 <a href="examples/003_Baselines/"><img src="examples/003_Baselines/index.png" alt=""></a>
 
