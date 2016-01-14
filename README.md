@@ -14,12 +14,10 @@ Order.less is made of three loosely coupled modules:
 * * *
 
 **Requirements**: Less v2.2.0; [`calc()` support](http://caniuse.com/calc) for fixed gutters and more precise vertical rhythm.   
-**Test suite**: [Visual reference](tests/index.png) ([source](tests/))
+**Test suite**: [Visual reference](tests/index.png) ([source](tests/))   
 
-```
-bower install order.less
-npm install order.less
-```
+[**NPM**](http://npmjs.com/): `npm install --save order.less`   
+[**Bower**](http://bower.io/): `bower install --save order.less`   
 
 * * *
 
