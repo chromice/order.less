@@ -378,9 +378,7 @@ html {
   line-height: 0.65;
 }
 html {
-  font-family: Verdana, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
+  font: 16px / 1.5 'Verdana', sans-serif;
 }
 #baseline-horizontal,
 #baseline-vertical,

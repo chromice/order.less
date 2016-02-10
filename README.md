@@ -266,7 +266,7 @@ Less code (see [full listing](examples/003_Baselines/stylesheet.less)):
 .use-column-grid(680px, 24px, 3);
 
 html {
-	font: @baseline-size / @baseline-height @main-font-family;
+	.font-baseline();
 }
 
 h1 {
@@ -388,12 +388,11 @@ You can also define baseline offset by referencing a font definition:
 .use-baseline-grid(16px, 1.5, verdana);
 ```
 
-You must set `font-size` and `line-height` properties of `html` element to the same values:
+You must set `font-size` and `line-height` properties of `html` element to the same values using `font-baseline()` mixin:
 
 ```less
 html {
-    font-size: @baseline-size;
-    line-height: @baseline-height;
+    .font-baseline();
 }
 ```
 

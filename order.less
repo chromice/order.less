@@ -138,7 +138,17 @@
 	@baseline-name: @name;
 	
 	@-offset: "@{name}-font-offset";
+	@-family: "@{name}-font-family";
 	.use-baseline-grid(@size, @height, @@-offset, @size, @height, @@-offset);
+	
+	// Setting baseline font properties on root element
+	.font-baseline () when not(@-family = false) {
+		font: @baseline-size / @baseline-height @@-family;
+	}
+	.font-baseline () when (@-family = false) {
+		font-size: @baseline-size;
+		line-height: @baseline-height;
+	}
 	
 	
 	//
@@ -163,6 +173,7 @@
 		.-baseline-align();
 		.-baseline-font(@current-size, @baseline-size, @current-height, @@-variation, @@-family);
 	}
+	
 	
 	//
 	// Private mixins

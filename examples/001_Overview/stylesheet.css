@@ -95,9 +95,7 @@ html {
   padding: 24px;
   margin-left: 80px;
   margin-right: 80px;
-  font-family: 'Verdana', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
+  font: 16px / 1.5 'Verdana', sans-serif;
 }
 main {
   position: relative;
