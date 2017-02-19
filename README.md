@@ -374,7 +374,7 @@ You can set baseline size in pixels:
 Or as a scale step:
 
 ```less
-.use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
+.use-custom-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
 .use-baseline-grid(0, 1.5, 0.898);
 ```
 
@@ -534,12 +534,12 @@ div {
 
 ## Modular scale
 
-Modular scale mixins let you define a custom modular scale and set elements' font size to a value from that scale. You can learn more about modular scales in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
+Modular scale mixins let you define a custom scale and set elements' font size to a value from that scale. You can learn more about modular scales in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
 
 
 ### Mixin reference
 
-#### `.use-modular-scale()`
+#### `.use-custom-scale()`
 
 Defines a custom scale and exports other mixins.
 
@@ -559,7 +559,7 @@ You can define an arbitrary scale by passing a list of valid step values as the 
 
 ```less
 // Scale steps:         -3   -2   -1    0   +1   +2   +3   +4   +5   +6   +7   +8
-.use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
+.use-custom-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
 ```
 
 After that, you can use `.font-size()` mixin to set `font-size` property of an element:

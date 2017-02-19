@@ -17,7 +17,7 @@
 // 
 // These mixins allows you to define a custom modular scale:
 // 
-//   .use-modular-scale(
+//   .use-custom-scale(
 //       16px, // base size (step 0) -> @scale-base
 //       4px 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px // scale sizes -> @scale-values
 //   );
@@ -31,7 +31,7 @@
 //   }
 // 
 
-.use-modular-scale (@base, @values) when (ispixel(@base)) and (length(@values) > 1) {
+.use-custom-scale (@base, @values) when (ispixel(@base)) and (length(@values) > 1) {
 	
 	@scale-base: @base;
 	@scale-values: @values;
@@ -98,7 +98,7 @@
 // 
 // Or as a scale step:
 // 
-//     .use-modular-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
+//     .use-custom-scale(16px, 8px 12px 13px 16px 20px 24px 30px 36px 42px 50px 74px 90px);
 //     .use-baseline-grid(
 //         0,    // font size step (integer) -> @baseline-size (pixels)
 //         1.5,  // baseline height (ratio) -> @baseline-height
