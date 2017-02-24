@@ -478,7 +478,7 @@ h1 + p {
 
 These mixins let you set the respective CSS property in baseline rows.
 
-**NB!** When combining multiple elements with line-height that indivisible evenly by baseline, you should explicitly set `.margin-bottom()`, even if it's zero. It would take into account the difference and add it to the margin.
+**NB!** When combining multiple elements with line heights that are not evenly divisible by your baseline, you should explicitly set `.margin-bottom()`, even if it's zero. This mixin would take into account the difference and add it to the element's margin, preserving baseline alignment for its next sibling.
 
 ##### Parameters
 
