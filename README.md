@@ -345,6 +345,12 @@ Here are baseline offset values for a few popular typefaces:
 You can find offset values for many other typefaces (and their variations) including popular Google fonts in [HTML source](tests/index.html) of the test suite.
 
 
+### Gotchas
+
+When you are fine-tuning font size and line height, some combinations would make the library align text onto the previous baseline, potentially colliding with other copy. This can be fixed by adding additional margin to the target element or its siblings.
+
+When you have multiple one-liners of different height stacked below each other you should also explicitly set their bottom margin, even if it's zero. `.margin-bottom()` mixin automatically realigns the baseline for the next element, if the current element uses an odd value.
+
 ### Mixin reference
 
 #### `.use-baseline-grid()`
@@ -471,6 +477,8 @@ h1 + p {
 #### `.height()`, `.min-height()`, `.max-height()`, `.top()`, `.bottom()`, `.margin-top()`, `.margin-bottom()`, `.padding-top()`, `.padding-bottom()`
 
 These mixins let you set the respective CSS property in baseline rows.
+
+**NB!** When combining multiple elements with line-height that indivisible evenly by baseline, you should explicitly set `.margin-bottom()`, even if it's zero. It would take into account the difference and add it to the margin.
 
 ##### Parameters
 
