@@ -6,7 +6,7 @@ Order.less is made of three loosely coupled modules:
 
 - [Column grid](#column-grid) mixins enable you to define a uniform grid with fixed inner gutters, and set elements' padding, margin, offset and width in columns.
 - [Baseline grid](#baseline-grid) mixins let you control vertical rhythm of the document by setting padding, margin, offset and height in baseline rows. It can also automatically shift elements to sit on baseline.
-- [Modular scale](#modular-scale) mixins let you define a custom modular scale and set elements' font size to a value from that scale.
+- [Font size scale](#font-size-scale) mixins let you define a custom font size scale and set elements' font size to a value from that scale.
 
 [less]: http://lesscss.org
 
@@ -429,7 +429,7 @@ main {
 2. (optional) *number* `@height`
 3. (optional) *keyword* `@name` **or** *number* `@offset`
 
-**NB!** You can specify `@size` in pixels *or* as a step on a modular scale, if you are using one ([see below](#modular-scale)).
+**NB!** You can specify `@size` in pixels *or* as a step on a font size scale, if you are using one ([see below](#font-size-scale)).
 
 ##### Usage
 
@@ -540,9 +540,9 @@ div {
 ```
 
 
-## Modular scale
+## Font size scale
 
-Modular scale mixins let you define a custom scale and set elements' font size to a value from that scale. You can learn more about modular scales in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown.
+Font size scale mixins let you define a custom scale and set elements' font size to a value from that scale. You can learn more about modular scales in [More Meaningful Typography](http://alistapart.com/article/more-meaningful-typography) by Tim Brown. He also made this [handy tool](http://www.modularscale.com) that you can use to generate modular scales.
 
 
 ### Mixin reference
