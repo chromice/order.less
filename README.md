@@ -1,6 +1,6 @@
 # Order.less
 
-Order.less is a library of [Less][less] mixins for precise control over typographic contrast, rhythm and layout. It was designed to fit seamlessly into any project and does not put any restrictions on your stylesheet structure. Instead of using standard units you define properties that affect vertical space in baselines, or columns for horizontal space properties, and scale steps for font sizes.
+Order.less is a library of [Less][less] mixins for precise control over typographic contrast, rhythm and layout. It was designed to fit seamlessly into any project and does not put any restrictions on your stylesheet structure. You set the number of columns, the gutter and baseline sizes, your font size scale, and use the same offset and size property names as you do in CSS. The library does all computations and adjustments — no extra HTML markup required!
 
 Order.less is made of three loosely coupled modules:
 
