@@ -144,6 +144,39 @@
 #grid-12-4-margin-box-ordered #margin-ordered-4-4 {
   margin-left: calc(50% + 10px);
 }
+#grid-12-4-flex-box-ordered {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+#grid-12-4-flex-box-ordered .grid-block {
+  width: calc(25% - 15px);
+  margin-right: calc(0% + 0px + 20px);
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+#grid-12-4-flex-box-ordered #flex-ordered-4-1 {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+#grid-12-4-flex-box-ordered #flex-ordered-4-2 {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+#grid-12-4-flex-box-ordered #flex-ordered-4-3 {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
+#grid-12-4-flex-box-ordered #flex-ordered-4-4 {
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+  margin-right: 0;
+}
 #grid-12-4-blocks-positioned {
   position: relative;
   padding-top: 60px;

@@ -185,6 +185,30 @@
 	}
 }
 
+#grid-12-4-flex-box-ordered {
+	display: flex;
+
+	.grid-block {
+		.width(3);
+		.margin-right(@grid-gutter);
+		flex: 0 1 auto;
+	}
+
+	#flex-ordered-4-1 {
+		order: 1;
+	}
+	#flex-ordered-4-2 {
+		order: 2;
+	}
+	#flex-ordered-4-3 {
+		order: 3;
+	}
+	#flex-ordered-4-4 {
+		order: 4;
+		.margin-right(0);
+	}
+}
+
 #grid-12-4-blocks-positioned {
 	position: relative;
 	padding-top: 60px;

@@ -13,8 +13,7 @@ Order.less is made of three loosely coupled modules:
 
 * * *
 
-**Requirements**: Less v2.2.0; [`calc()` support](http://caniuse.com/calc) for fixed gutters and more precise vertical rhythm.   
-**Test suite**: [Visual reference](tests/index.png) ([source](tests/))   
+**Requirements**: Less v2.2.0; [`calc()` support](http://caniuse.com/calc).   
 
 [**NPM**](http://npmjs.com/): `npm install --save order.less`   
 [**Bower**](http://bower.io/): `bower install --save order.less`   
@@ -45,7 +44,8 @@ HTML code (see [full listing](examples/002_Columns/index.html)):
 
 <ul id="grid"><!--
 	We must bust the whitespace around all items, because 
-	they will be rendered as inline blocks.
+	they will be rendered as inline blocks. You don't have
+	to do this, if you are using floated or flexible boxes.
  --><li>Item 1</li><!--
  --><li>Item 2</li><!--
  --><li>Item 3</li><!--
@@ -103,6 +103,8 @@ Less code (see [full listing](examples/002_Columns/stylesheet.less)):
 	}
 }
 ```
+
+As you can see, the library only sets `width` and `margin` properties and leaves it up to you which layout module to use.
 
 
 ### Mixin reference
