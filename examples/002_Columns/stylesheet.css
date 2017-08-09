@@ -125,28 +125,22 @@ main {
 }
 #content {
   float: left;
-  width: 65.71428572%;
   width: calc(66.66666667% - 8px);
 }
 #content > .secondary {
   float: left;
-  width: 47.85714286%;
   width: calc(50% - 12px);
 }
 #content > .secondary + .secondary {
-  margin-left: 4.28571429%;
   margin-left: calc(0% + 0px + 24px);
 }
 #sidebar {
   float: right;
-  width: 31.42857143%;
   width: calc(33.33333333% - 16px);
 }
 #grid > * {
   display: inline-block;
-  width: 17.71428571%;
   width: calc(20% - 19.2px);
-  margin-right: 2.85714286%;
   margin-right: calc(0% + 0px + 24px);
   vertical-align: top;
 }
