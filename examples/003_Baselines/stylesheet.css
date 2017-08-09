@@ -110,7 +110,6 @@ html {
 }
 h1 {
   position: relative;
-  top: -17.776px;
   top: -1.111rem;
   font: 700 36px / 1.25 'Helvetica Neue', sans-serif;
   font-size: 2.25rem;
@@ -127,7 +126,6 @@ blockquote {
   width: calc(50% - 12px);
   margin-left: calc(0% + 0px + 24px);
   position: relative;
-  top: -5.032px;
   top: -0.3145rem;
   font: italic 400 24px / 1.25 'Didot', serif;
   font-size: 1.5rem;

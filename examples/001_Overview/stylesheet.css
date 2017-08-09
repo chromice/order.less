@@ -114,7 +114,6 @@ main > aside {
 }
 h1 {
   position: relative;
-  top: -17.776px;
   top: -1.111rem;
   font: 700 36px / 1.25 'Helvetica Neue', sans-serif;
   font-size: 2.25rem;
@@ -123,7 +122,6 @@ h1 {
 }
 h1 + p {
   position: relative;
-  top: -4.264px;
   top: -0.2665rem;
   font: italic 400 24px / 1.25 'Baskerville', serif;
   font-size: 1.5rem;
@@ -131,7 +129,6 @@ h1 + p {
 }
 h2 {
   position: relative;
-  top: -2.092px;
   top: -0.13075rem;
   font: 400 20px / 1.25 'Verdana', sans-serif;
   font-size: 1.25rem;
@@ -140,7 +137,6 @@ h2 {
 }
 aside p {
   position: relative;
-  top: 4.592px;
   top: 0.287rem;
   font: 400 12px / 1.5 'Verdana', sans-serif;
   font-size: 0.75rem;
